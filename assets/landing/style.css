@@ -1060,8 +1060,21 @@ body {
 .relative-show,
 .relative-show2 {
     position: relative;
-    padding: 8vw;
+    padding: 10vw;
     background-color: #F4F9FF;
+}
+.relative-show h4,
+.relative-show2 h4 {
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+    font-family: leaguespartan_bold;
+    color: #003169;
+    font-size: 32px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
 }
 .bg-show,
 .bg-show2 {
@@ -1069,7 +1082,7 @@ body {
     top: 50%;
     left: 50%;
     z-index: 1;
-    width: 45vw;
+    width: 40vw;
     transform: translate(-50%, -50%);
 }
 .splide__slide img {
@@ -1105,6 +1118,11 @@ body {
 .btn-show-schedule a:hover .arrow-right-btn-show-schedule {
     transform: translateX(5px);
     filter: brightness(0) saturate(100%) invert(58%) sepia(67%) saturate(5029%) hue-rotate(167deg) brightness(102%) contrast(102%);
+}
+.show-splide .splide__list, 
+.show-splide2 .splide__list {
+    height: auto;
+
 }
 .show-splide .splide__arrow,
 .show-splide2 .splide__arrow {

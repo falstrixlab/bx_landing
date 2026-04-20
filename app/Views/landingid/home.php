@@ -3,7 +3,12 @@
 
 <?php
 $featureSlides = array_slice($homefiturslider ?? [], 0, 4);
-$showSlides = array_slice($show ?? [], 0, 4);
+$allShows = $show ?? [];
+$regularSlides = array_values(array_slice(array_filter($allShows, static fn($s) => ($s['show_type'] ?? 'regular') === 'regular'), 0, 4));
+$seapecialSlides = array_values(array_slice(array_filter($allShows, static fn($s) => ($s['show_type'] ?? 'regular') === 'seapecial'), 0, 4));
+// Fallback: jika salah satu kosong, gunakan semua data
+if (empty($regularSlides)) { $regularSlides = array_values(array_slice($allShows, 0, 4)); }
+if (empty($seapecialSlides)) { $seapecialSlides = array_values(array_slice($allShows, 0, 4)); }
 $testimonialSource = !empty($hometestimoni) ? ($hometestimoni ?? []) : ($homeinfluencer ?? []);
 $testimonialSlides = array_slice($testimonialSource, 0, 2);
 $partnerSlides = array_slice($homepartner ?? [], 0, 1);
@@ -160,10 +165,11 @@ if ($reviewSlides === []) {
       </div>
       <div class="relative-show">
         <img class="bg-show" src="<?= base_url('assets/landing/');?>image/bg-show.png" alt="">
+        <h4>REGULAR SHOWS</h4>
         <div class="splide show-splide" role="group" aria-label="">
           <div class="splide__track">
             <ul class="splide__list">
-              <?php foreach($showSlides AS $sh): ?>
+              <?php foreach($regularSlides AS $sh): ?>
               <li class="splide__slide">
                 <a href="<?= base_url('/id/journey/pertunjukan');?>">
                   <img class="img-fluid" src="<?= bxsea_asset_url('show', $sh['show_pict'] ?? '', 'assets/landing/image/bxsea_image_regular_show.png');?>" alt="<?= esc($sh['show_title']);?>">
@@ -177,11 +183,12 @@ if ($reviewSlides === []) {
     </div>
     <div class="box-title-show-ocean">
       <div class="relative-show2">
+        <h4>SEA-PECIAL SHOWS</h4>
         <img class="bg-show2" src="<?= base_url('assets/landing/');?>image/bg-show2.png" alt="">
         <div class="splide show-splide2" role="group" aria-label="">
           <div class="splide__track">
             <ul class="splide__list">
-              <?php foreach($showSlides AS $sh): ?>
+              <?php foreach($seapecialSlides AS $sh): ?>
               <li class="splide__slide">
                 <a href="<?= base_url('/id/journey/pertunjukan');?>">
                   <img class="img-fluid" src="<?= bxsea_asset_url('show', $sh['show_poster'] ?: ($sh['show_pict'] ?? ''), 'assets/landing/image/bxsea_image_special_show.png');?>" alt="<?= esc($sh['show_title']);?>">

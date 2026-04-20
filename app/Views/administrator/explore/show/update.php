@@ -76,6 +76,13 @@
                             <textarea name="show_desc_en" class="form-control" placeholder="Enter Desc EN" rows="6"><?= $rs["show_desc_en"];?></textarea>
                         </div>
                         <div class="form-group">
+                            <label>Show Type <span class="text-danger">*</span></label>
+                            <select name="show_type" class="form-control" required>
+                                <option value="regular" <?= ($rs['show_type'] ?? 'regular') === 'regular' ? 'selected' : ''; ?>>Regular Shows</option>
+                                <option value="seapecial" <?= ($rs['show_type'] ?? '') === 'seapecial' ? 'selected' : ''; ?>>Sea-pecial Shows</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputPassword1">Image <span class="text-danger">*</span></label><br>
                             <div class="image-input image-input-outline" id="kt_image_1">
                                 <div class="image-input-wrapper" style="background-image: url(<?= base_url('assets/upload/show/'.$rs["show_pict"])?>)"></div>

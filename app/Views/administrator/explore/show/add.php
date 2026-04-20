@@ -83,6 +83,13 @@
                             <textarea name="show_desc_en" class="form-control" placeholder="Entry Desc EN" rows="6"></textarea>
                         </div>
                         <div class="form-group">
+                            <label>Show Type <span class="text-danger">*</span></label>
+                            <select name="show_type" class="form-control" required>
+                                <option value="regular">Regular Shows</option>
+                                <option value="seapecial">Sea-pecial Shows</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleTextarea">Picture <span class="text-danger">*</span></label>
                             <input type="file" name="show_pict" class="form-control">
                         </div>

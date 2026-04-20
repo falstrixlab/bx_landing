@@ -306,6 +306,7 @@ class AdminExplore extends BaseController {
                         'show_title_en' => $this->request->getVar('show_title_en'),
                         'show_desc' => $this->request->getVar('show_desc'),
                         'show_desc_en' => $this->request->getVar('show_desc_en'),
+                        'show_type' => $this->request->getVar('show_type') === 'seapecial' ? 'seapecial' : 'regular',
                         'show_pict' => $newshowpict,
                         'show_poster' => $newshowposter,
                     ];
@@ -420,6 +421,7 @@ class AdminExplore extends BaseController {
                         'show_title_en' => $this->request->getVar('show_title_en'),
                         'show_desc' => $this->request->getVar('show_desc'),
                         'show_desc_en' => $this->request->getVar('show_desc_en'),
+                        'show_type' => $this->request->getVar('show_type') === 'seapecial' ? 'seapecial' : 'regular',
                         'show_pict' => ($showpict != "") ? $newshowpict : $this->request->getVar('show_pict_temp'),
                         'show_poster' => ($showposter != "") ? $newshowposter : $this->request->getVar('show_poster_temp'),
                     ];

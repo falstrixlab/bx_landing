@@ -77,6 +77,7 @@
                 <th>Record ID</th>
                 <th>Title ID</th>
                 <th>Title EN</th>
+                <th>Type</th>
                 <th>Desc ID</th>
                 <th>Desc EN</th>
                 <th>Pict</th>
@@ -90,6 +91,7 @@
                 <td><?= $i;?></td>
                 <td><?= $rs["show_title"];?></td>
                 <td><?= $rs["show_title_en"];?></td>
+                <td><?= ($rs['show_type'] ?? 'regular') === 'seapecial' ? '<span class="label label-pill label-inline label-lg label-light-info">Sea-pecial</span>' : '<span class="label label-pill label-inline label-lg label-light-success">Regular</span>'; ?></td>
                 <td><?= $rs["show_desc"];?></td>
                 <td><?= $rs["show_desc_en"];?></td>
                 <td>

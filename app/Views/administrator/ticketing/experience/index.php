@@ -79,13 +79,6 @@
                 <th>Title EN</th>
                 <th>Desc ID</th>
                 <th>Desc EN</th>
-                <th>Schedule ID</th>
-                <th>Schedule EN</th>
-                <th>Duration ID</th>
-                <th>Duration EN</th>
-                <th>Age ID</th>
-                <th>Age EN</th>
-                <th>Price</th>
                 <th style="width: 150px !important;">Actions</th>
             </tr>
             </thead>
@@ -93,17 +86,10 @@
             <?php $i = 1; foreach($getdata AS $rs) {?>
             <tr>
                 <td><?= $i;?></td>
-                <td><?= $rs["experience_title"];?></td>
-                <td><?= $rs["experience_title_en"];?></td>
-                <td><?= $rs["experience_desc"];?></td>
-                <td><?= $rs["experience_desc_en"];?></td>
-                <td><?= $rs["experience_schedule"];?></td>
-                <td><?= $rs["experience_schedule_en"];?></td>
-                <td><?= $rs["experience_duration"];?></td>
-                <td><?= $rs["experience_duration_en"];?></td>
-                <td><?= $rs["experience_age"];?></td>
-                <td><?= $rs["experience_age_en"];?></td>
-                <td><?= $rs["experience_price"];?></td>
+                <td><?= esc($rs["experience_title"]);?></td>
+                <td><?= esc($rs["experience_title_en"]);?></td>
+                <td><?= esc(bxsea_plain_text($rs["experience_desc"] ?? ''));?></td>
+                <td><?= esc(bxsea_plain_text($rs["experience_desc_en"] ?? ''));?></td>
                 <td>
                     <a class="btn btn-icon btn-sm btn-light-warning pulse pulse-warning mr-5" href="<?= base_url('adminsite/ticketing/experience/update/'.$rs["experience_id"])?>">
                         <i class="flaticon-edit-1 icon-lg" title="Edit Content"></i>
