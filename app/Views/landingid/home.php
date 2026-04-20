@@ -178,7 +178,7 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
 <section class="container additional-experience home-additional-experience">
   <div class="left-grid">
     <div class="title-additional-exp">
-      <h1><?= esc($experienceHeading ?: 'Kenali <br> Lebih Dalam');?><img class="arrow-right-additional-exp" src="<?= base_url('assets/landing/');?>image/arrow-right-blue.png" alt=""></h1>
+      <h1><?= $experienceHeading ? esc($experienceHeading) : 'Kenali <br> Lebih Dalam';?><img class="arrow-right-additional-exp" src="<?= base_url('assets/landing/');?>image/arrow-right-blue.png" alt=""></h1>
     </div>
     <div class="desc-additional-exp">
       <p><?= esc($experienceDescription ?: 'Pengalaman tambahan kami membawa Anda jauh lebih dekat dengan kehidupan laut!');?></p>

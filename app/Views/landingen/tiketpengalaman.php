@@ -6,6 +6,9 @@ $premiumWaveAsset = bxsea_design_asset('premium', 'wave', 'assets/landing/image/
 $premiumDurationIconAsset = bxsea_design_asset('premium', 'duration_icon', 'assets/landing/image/bxsea_icon_duration_add_ons.png');
 $premiumTicketIconAsset = bxsea_design_asset('premium', 'ticket_icon', 'assets/landing/image/bxsea_icon_ticket_add_ons.png');
 $premiumLocationIconAsset = bxsea_design_asset('premium', 'location_icon', 'assets/landing/image/bxsea_icon_location_add_ons.png');
+$contactCustomerAsset = bxsea_design_asset('visit', 'contact_card_customer', 'assets/landing/image/sosmed.png');
+$contactWhatsappAsset = bxsea_design_asset('visit', 'contact_card_whatsapp', 'assets/landing/image/sosmed2.png');
+$contactEmailAsset = bxsea_design_asset('visit', 'contact_card_email', 'assets/landing/image/sosmed3.png');
 
 $premiumBannerTitle = 'PREMIUM EXPERIENCES';
 $premiumIntroTitle = 'Explore More Than the Main Journey';
@@ -125,6 +128,38 @@ $normalizePremiumTitleEn = static function (?string $value, ?string $fallback = 
       <?php endif; ?>
       <?php endforeach; ?>
       <?php endif; ?>
+    </div>
+  </div>
+</section>
+
+<section class="contactus2">
+  <div class="container">
+    <div class="title-contactus2"><h1>Contact Us</h1></div>
+    <div class="row box-contact">
+      <div class="col-lg-4 col-md-4 col-sm-4 box-card-contactus">
+        <div class="card-contactus2">
+          <a href="<?= esc($setup[0]['setup_customer'] ?? '#');?>" target="_blank" rel="noopener noreferrer">
+            <div class="image-contactus2"><img class="img-fluid" src="<?= $contactCustomerAsset; ?>" alt=""></div>
+            <div class="desc-card-contactus2"><p>Customer Services</p></div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 box-card-contactus">
+        <div class="card-contactus2">
+          <a href="https://wa.me/<?= preg_replace('/[^0-9]/', '', $setup[0]['setup_phone'] ?? '');?>" target="_blank" rel="noopener noreferrer">
+            <div class="image-contactus2"><img class="img-fluid" src="<?= $contactWhatsappAsset; ?>" alt=""></div>
+            <div class="desc-card-contactus2"><p>WhatsApp</p></div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 box-card-contactus">
+        <div class="card-contactus2">
+          <a href="mailto:<?= esc($setup[0]['setup_email'] ?? '');?>">
+            <div class="image-contactus2"><img class="img-fluid" src="<?= $contactEmailAsset; ?>" alt=""></div>
+            <div class="desc-card-contactus2"><p>Email</p></div>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

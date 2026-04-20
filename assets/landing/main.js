@@ -1,41 +1,6 @@
-const loaderWrap = document.querySelector('.loader-wrap');
-
 if ('scrollRestoration' in window.history) {
 	window.history.scrollRestoration = 'manual';
 }
-
-const hideLoader = () => {
-	if (!loaderWrap) {
-		return;
-	}
-
-	if (typeof gsap === 'undefined') {
-		loaderWrap.style.display = 'none';
-		loaderWrap.style.opacity = '0';
-		return;
-	}
-
-	const tl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
-	tl.to('.loader-wrap', {
-		yPercent: -100,
-		opacity: 0,
-		duration: 1.1,
-	});
-	tl.set('.loader-wrap', {
-		display: 'none',
-		zIndex: -1,
-	});
-};
-
-window.addEventListener('load', hideLoader, { once: true });
-window.addEventListener('pageshow', () => {
-	window.scrollTo(0, 0);
-	if (loaderWrap) {
-		loaderWrap.style.display = 'none';
-		loaderWrap.style.opacity = '0';
-		loaderWrap.style.transform = 'translateY(-100%)';
-	}
-});
 window.addEventListener('beforeunload', () => {
 	window.scrollTo(0, 0);
 });

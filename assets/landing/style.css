@@ -9,6 +9,10 @@ body {
     background-color: #e1eefd;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 @font-face {
     font-family: librebaskerville;
     src: url(Libre_Baskerville/LibreBaskerville-Italic-VariableFont_wght.ttf);  
@@ -139,6 +143,7 @@ body {
     font-weight: 600;
     font-size: 32px;
     text-transform: capitalize;
+    overflow: hidden;
 }
 @media (max-width: 991px) {
     .marquee {
@@ -1326,9 +1331,7 @@ body {
 .review-influencer-splide .splide__arrow--prev {
     left: 30rem;
 }
-.review-influencer-splide .splide__arrow {
-    top: 90%;
-}
+/* top is set dynamically by JS (alignReviewArrows) to align with .image-activies */
 .image-absolute-review-influencer {
     width: 300px;
     height: 400px;
@@ -6551,6 +6554,7 @@ body.no-scroll {
 .map-oceanarium {
     position: relative;
     padding: 5rem 0;
+    overflow-x: hidden;
 }
 .desc-premium h1 {
     font-size: 50px;
@@ -6574,6 +6578,7 @@ body.no-scroll {
 }
 .image-map-oceanarium .bxsea-map {
     width: 100%;
+    max-width: 100%;
 }
 .grass36 {
     bottom: 0;
@@ -15208,3 +15213,22 @@ section.FAQ {
 .loader-wrap.loaded {
     transform: translateY(-100%);
 }
+
+.promotions-page {
+    overflow-x: hidden;
+}
+
+@media (max-width: 991px) {
+    .iguana3 {
+        right: 0;
+        width: 240px;
+    }
+}
+/* Fix: wave image height in additional-experience hover (home-additional-experience overrides to 345px for all img, breaking wave) */
+.home-additional-experience .box-additional-exp .img-wave-additional-exp {
+    height: auto;
+    object-fit: fill;
+}
+/* Fix: review-influencer-splide height (splide__list height:100% causes 684px instead of natural height, breaking top:90% arrow alignment) */
+.review-influencer-splide .splide__list { height: auto !important; align-items: flex-start !important; }
+.review-influencer-splide .splide__slide { height: auto !important; }

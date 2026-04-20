@@ -32,27 +32,29 @@ function bxsea_clean_promotion_html_en(?string $html): string
   </section>
 
 
-  <section class="Promotions">
+  <section class="Promotions promotions-page">
     <img class="kerang" src="<?= $promoShellAsset; ?>" alt="">
     <div class="container">
       <?php if (!empty($promo)): ?>
-      <div class="row">
-        <?php foreach ($promo as $pr): ?>
-        <div class="col-lg-6 col-md-6 image-promotions mb-200">
-          <img src="<?= bxsea_asset_url('promotion', $pr['promotion_pict'] ?? '', 'assets/landing/image/image-promotions.png');?>" alt="<?= esc($pr['promotion_title_en'] ?? $pr['promotion_title'] ?? 'Promotion');?>">
+      <?php foreach ($promo as $pr): ?>
+      <div class="row g-5 promotion-row mb-5">
+        <div class="col-lg-4 col-md-6 image-promotions">
+          <img src="<?= bxsea_asset_url('promotion', $pr['promotion_pict'] ?? '', 'assets/landing/image/image-promotions.png');?>" alt="<?= esc($pr['promotion_title_en'] ?? $pr['promotion_title'] ?? 'Promotion');?>" class="img-fluid">
         </div>
-        <div class="col-lg-6 col-md-6 box-promotions">
-          <div class="desc-promotions">
-            <div class="title-promotions">
-              <h1><?= esc($pr['promotion_title_en'] ?? $pr['promotion_title'] ?? '');?></h1>
-            </div>
-            <div class="body-promotions lato-font mb-200">
-              <?= bxsea_render_html(bxsea_clean_promotion_html_en($pr['promotion_desc_en'] ?? ($pr['promotion_desc'] ?? ''))) ?>
+        <div class="col-lg-8">
+          <div class="box-promotions">
+            <div class="desc-promotions">
+              <div class="title-promotions">
+                <h1><?= esc($pr['promotion_title_en'] ?? $pr['promotion_title'] ?? '');?></h1>
+              </div>
+              <div class="body-promotions lato-font mb-200">
+                <?= bxsea_render_html(bxsea_clean_promotion_html_en($pr['promotion_desc_en'] ?? ($pr['promotion_desc'] ?? ''))) ?>
+              </div>
             </div>
           </div>
         </div>
-        <?php endforeach; ?>
       </div>
+      <?php endforeach; ?>
       <?php else: ?>
       <div class="text-center py-5"><p>No promotions are available right now.</p></div>
       <?php endif; ?>

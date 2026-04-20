@@ -182,16 +182,6 @@
     </nav>
   </div>
 
-  <div id="search-popup" class="search-popup" style="display:none;">
-    <div class="search-popup-inner">
-      <form action="<?= base_url('/en/berita');?>" method="get">
-        <input type="text" name="q" placeholder="Search news, promotions...">
-        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </form>
-      <button onclick="closeSearchPopup()" class="close-search"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-  </div>
-
         <?= $this->renderSection('content'); ?>
 
         <footer class="shadow">
@@ -287,7 +277,7 @@
         <script src="<?= base_url('assets/landing/');?>splide-4.1.3/splide-4.1.3/dist/js/splide.min.js"></script>
         <script src="<?= base_url('assets/landing/');?>splide-extension-auto-scroll-master/splide-extension-auto-scroll-master/dist/js/splide-extension-auto-scroll.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-        <script src="<?= base_url('assets/landing/');?>main.js?v=20260418e"></script>
+        <script src="<?= base_url('assets/landing/');?>main.js?v=20260420f"></script>
 
       <script>
       var swiper = new Swiper(".mySwiper", {
@@ -344,16 +334,34 @@
         }
 
         var instance = new Splide(selector, options);
+              var hideTimer = null;
+              var forceHideTimer = null;
+
+              function forceHideLoader() {
+                if (!loader) return;
+                loader.classList.add('loaded');
+                loader.style.display = 'none';
+                loader.style.transform = '';
+                loader.style.transition = '';
+              }
+
         instance.mount(extensions);
 
-        return instance;
+                if (hideTimer) clearTimeout(hideTimer);
+                hideTimer = setTimeout(function() {
       }
-
-      mountSplideIfPresent('.klien-splide', {
+                  if (forceHideTimer) clearTimeout(forceHideTimer);
+                  forceHideTimer = setTimeout(forceHideLoader, 850);
+                }, 80);
         perPage: 3,
+
+              // Safety net: if anything blocks transitions, force-hide loader anyway.
+              forceHideTimer = setTimeout(forceHideLoader, 2600);
+
         pagination: false,
         arrows: false,
         breakpoints: {
+                document.addEventListener('DOMContentLoaded', hideLoader, { once: true });
           767: {
             perPage: 2,
             arrows: true,
@@ -366,6 +374,7 @@
           },
           1400: {
             perPage: 3,
+                  loader.classList.remove('loaded');
           },
         },
       });
@@ -433,7 +442,7 @@
 
 
 
-        mountSplideIfPresent('.review-influencer-splide', {
+        var reviewSplide = mountSplideIfPresent('.review-influencer-splide', {
           type: 'loop',
           pagination: false,
           gap: 15,
@@ -441,11 +450,28 @@
           perPage: 1,
         });
 
+        if (reviewSplide) {
+          function alignReviewArrows() {
+            var activeSlide = document.querySelector('.review-influencer-splide .splide__slide.is-active.is-visible');
+            var activies = activeSlide && activeSlide.querySelector('.image-activies');
+            var arrowPrev = document.querySelector('.review-influencer-splide .splide__arrow--prev');
+            var arrowNext = document.querySelector('.review-influencer-splide .splide__arrow--next');
+            if (!activies || !arrowPrev || !arrowNext) return;
+            var top = activies.offsetTop + activies.offsetHeight / 2;
+            arrowPrev.style.top = top + 'px';
+            arrowPrev.style.transform = 'translateY(-50%)';
+            arrowNext.style.top = top + 'px';
+            arrowNext.style.transform = 'translateY(-50%)';
+          }
+          setTimeout(alignReviewArrows, 0);
+          reviewSplide.on('moved', alignReviewArrows);
+        }
+
 
         mountSplideIfPresent('.card-ticketing-splide', {
           gap: 25,
           snap: false,
-          perPage: 4,
+          perPage: 2,
           pagination: false,
           arrows: false,
           breakpoints: {
@@ -463,11 +489,11 @@
               gap: 10,
             },
             1024: {
-              perPage: 3,
+              perPage: 2,
               gap: 10,
             },
             1200: {
-              perPage: 3,
+              perPage: 2,
               gap: 10,
             },
           },
@@ -551,6 +577,15 @@
           gap : 0,
         }, window.splide.Extensions);
 
+        mountSplideIfPresent('.show-splide2', {
+          perPage: 1,
+          perMove: 1,
+          type: 'fade',
+          pagination: false,
+          arrows: true,
+          gap: 0,
+        });
+
 
         mountSplideIfPresent('.review-cust-splide', {
           type: 'loop',
@@ -573,23 +608,32 @@
             });
 
             var thumbnails = new Splide('#thumbnail-carousel', {
-              fixedWidth: 135,
-              fixedHeight: 135,
+              fixedWidth: 170,
+              fixedHeight: 170,
               rewind: true,
               perPage: 5,
-              gap: 10,
+              gap: 18,
               focus: 'center',
               type: 'loop',
               isNavigation: true,
               pagination: false,
+              padding: {
+                left: '2rem',
+                right: '2rem',
+              },
               breakpoints: {
+                991: {
+                  fixedWidth: 125,
+                  fixedHeight: 125,
+                  gap: 14,
+                },
                 600: {
                   fixedWidth: 60,
                   fixedHeight: 60,
                 },
                 768: {
-                  fixedWidth: 80,
-                  fixedHeight: 80,
+                  fixedWidth: 90,
+                  fixedHeight: 90,
                 },
               },
             });
@@ -602,17 +646,13 @@
 
       
       function openSearchPopup() {
-        var popup = document.getElementById('search-popup');
-        if (popup) {
-          popup.style.display = 'flex';
-        }
+        var overlay = document.getElementById('search-popup-overlay');
+        if (overlay) overlay.style.display = 'flex';
       }
 
       function closeSearchPopup() {
-        var popup = document.getElementById('search-popup');
-        if (popup) {
-          popup.style.display = 'none';
-        }
+        var overlay = document.getElementById('search-popup-overlay');
+        if (overlay) overlay.style.display = 'none';
       }
 
       document.addEventListener('keydown', function(e) {
@@ -620,6 +660,70 @@
           closeSearchPopup();
         }
       });
+
+      // Scroll-to-top button
+      window.addEventListener('scroll', function() {
+        var btn = document.getElementById('scrollToTopBtn');
+        if (btn) {
+          if (window.scrollY > 300) { btn.classList.add('visible'); }
+          else { btn.classList.remove('visible'); }
+        }
+      });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('scrollToTopBtn');
+        if (btn) {
+          btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+      });
+      </script>
+
+      <?= $this->renderSection('scripts'); ?>
+      <button class="scroll-to-top-btn" id="scrollToTopBtn" aria-label="Scroll to top">
+        <i class="fa-solid fa-chevron-up"></i>
+      </button>
+
+      <script>
+      // Page transition loader: slide up after page loads
+      (function() {
+        var loader = document.querySelector('.loader-wrap');
+
+        function hideLoader() {
+          if (!loader) return;
+          setTimeout(function() {
+            loader.classList.add('loaded');
+            setTimeout(function() { loader.style.display = 'none'; }, 1500);
+          }, 150);
+        }
+
+        if (document.readyState === 'complete') {
+          hideLoader();
+        } else {
+          window.addEventListener('load', hideLoader);
+        }
+
+        // Re-show on link navigation
+        document.addEventListener('click', function(e) {
+          var a = e.target.closest('a[href]');
+          if (!a) return;
+
+          var href = a.getAttribute('href');
+          if (!href || href === '#' || href.startsWith('javascript') || href.startsWith('mailto') || href.startsWith('tel') || href.startsWith('http') && !href.includes(window.location.hostname)) return;
+          if (a.getAttribute('target') === '_blank') return;
+
+          loader = document.querySelector('.loader-wrap');
+          if (loader) {
+            loader.style.display = 'flex';
+            loader.style.transition = 'none';
+            loader.style.transform = 'translateY(100%)';
+            loader.offsetHeight;
+            loader.style.transition = '';
+            loader.style.transform = 'translateY(0)';
+          }
+        });
+      })();
       </script>
 
 </body>

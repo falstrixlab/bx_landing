@@ -1,97 +1,92 @@
-<?= $this->extend('landingen/landingbase'); ?>
+<?= $this->extend('landingen/landingbase') ?>
 <?= $this->section('content') ?>
-<section class="sectionBanner">       
-    <div class="hero-wrap2">
-      <div class="overlay-darkblue-bg-banner"></div>
-      <div class="hero-image2">
-        <img src="<?= base_url('assets/landing/');?>image/banner-oncelifetime.png" alt="">
-      </div>
-      <div class="container">
-        <div class="row descBanner2">
-           <div class="col-lg-12 box-schoolpackage">
-              <div class="desc-schoolpackage">
-                <h1><?= esc(bxsea_plain_text($momentheader[0]['masterdesc_title_en'] ?? 'ONCE IN A LIFETIME MOMENT'));?></h1>
-              </div>
-           </div>
-
-        </div>  
-    </div>
-    </div>
-  </section>
-
-
-  <img class="rectangle-darkblue2" src="<?= base_url('assets/landing/');?>image/rectangle-dark-blue.png" alt="">
-
-
-  <section class="Oncelifetime">
-      <img class="grass34" src="<?= base_url('assets/landing/');?>image/grass18.png" alt="">
-      <img class="akar3" src="<?= base_url('assets/landing/');?>image/akar 1.png" alt="">
-      <img class="akar4" src="<?= base_url('assets/landing/');?>image/akar 1.png" alt="">
-      <img class="fish11" src="<?= base_url('assets/landing/');?>image/BXSea Asset plus-17 1.png" alt="">
-      <img class="fish12" src="<?= base_url('assets/landing/');?>image/BXSea bawal.png" alt="">
-      <div class="container">
-          <div class="title-once">
-              <h1><?= esc(bxsea_plain_text($momentdesc[0]['masterdesc_title_en'] ?? 'Create an Unforgettable Moment at BXSea'));?>
-              </h1>
-              <p><?= esc(bxsea_plain_text($momentdesc[0]['masterdesc_desc_en'] ?? ''));?></p>
-              <a href="<?= base_url('contact');?>">Hubungi kami</a>
-          </div>
-          <div class="row mb-5">
-              <div class="col-lg-4 mb-200 order-lg-2">
-                <div class="image-once">
-                    <img src="<?= base_url('assets/upload/moment/'.$moment[0]['moment_pict']);?>" alt="">
-                </div>
-              </div>
-              <div class="col-lg-8 mb-200 order-lg-1 box-align2">
-                <div class="desc-image-once text-right">
-                  <h1><?= esc(bxsea_plain_text($moment[0]['moment_title_en'] ?? ''));?></h1>
-                  <p><?= esc(bxsea_plain_text($moment[0]['moment_desc_en'] ?? ''));?></p>
-                </div>
-              </div>
-          </div>
-
-          <div class="row mb-5">
-            <div class="col-lg-5 mb-200">
-              <div class="image-once">
-                  <img src="<?= base_url('assets/upload/moment/'.$moment[1]['moment_pict']);?>" alt="">
-              </div>
-            </div>
-
-            <div class="col-lg-7 mb-200 box-align">
-                <div class="desc-image-once">
-                  <h1><?= esc(bxsea_plain_text($moment[1]['moment_title_en'] ?? ''));?></h1>
-                  <p><?= esc(bxsea_plain_text($moment[1]['moment_desc_en'] ?? ''));?></p>
-                </div>
-            </div>
-          </div>
-
-          <div class="row mb-5">
-            <div class="col-lg-6 mb-200 order-lg-2">
-              <div class="image-once">
-                  <img src="<?= base_url('assets/upload/moment/'.$moment[2]['moment_pict']);?>" alt="">
-              </div>
-            </div>
-
-            <div class="col-lg-6 mb-200 order-lg-1 box-align">
-                <div class="desc-image-once text-right">
-                  <h1><?= esc(bxsea_plain_text($moment[2]['moment_title_en'] ?? ''));?></h1>
-                  <p><?= esc(bxsea_plain_text($moment[2]['moment_desc_en'] ?? ''));?></p>
-                </div>
-            </div>
-          </div>
-
-      </div>
-  </section>
 
 <?php
-$contactCustomerAsset = bxsea_design_asset('contact', 'customer', 'assets/landing/image/phone-girl.png');
-$contactWhatsappAsset = bxsea_design_asset('contact', 'whatsapp', 'assets/landing/image/whatsapp-girl.png');
-$contactEmailAsset = bxsea_design_asset('contact', 'email', 'assets/landing/image/email-girl.png');
+$specialHeroAsset = bxsea_design_asset('special', 'hero', 'assets/landing/image/bxsea_image_bg-special.png');
+$contactCustomerAsset = bxsea_design_asset('visit', 'contact_card_customer', 'assets/landing/image/sosmed.png');
+$contactWhatsappAsset = bxsea_design_asset('visit', 'contact_card_whatsapp', 'assets/landing/image/sosmed2.png');
+$contactEmailAsset = bxsea_design_asset('visit', 'contact_card_email', 'assets/landing/image/sosmed3.png');
 ?>
+
+<section class="sectionBanner">
+  <div class="hero-wrap2">
+    <div class="hero-image2">
+      <img src="<?= $specialHeroAsset; ?>" alt="">
+    </div>
+    <div class="container">
+      <div class="row descBanner2">
+        <div class="col-lg-12 box-schoolpackage">
+          <div class="desc-schoolpackage">
+            <h1><?= esc(bxsea_plain_text($momentheader[0]['masterdesc_title_en'] ?? 'SPECIAL CELEBRATIONS AT BXSEA'));?></h1>
+            <p><?= esc(bxsea_plain_text($momentheader[0]['masterdesc_desc_en'] ?? 'Celebrate your special day with a unique and unforgettable atmosphere.'));?></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="Oncelifetime">
+  <div class="container">
+    <div class="title-once">
+      <h1><?= esc(bxsea_plain_text($momentdesc[0]['masterdesc_title_en'] ?? 'Create Unforgettable Moments at BXSea'));?></h1>
+      <p><?= esc(bxsea_plain_text($momentdesc[0]['masterdesc_desc_en'] ?? 'Make your celebration truly special, from birthday parties and office gatherings to romantic proposals.'));?></p>
+    </div>
+    <?php if (!empty($moment)): ?>
+    <div class="event-section">
+      <div class="owl-carousel owl-once">
+        <?php foreach ($moment as $mo): ?>
+        <div class="event-card">
+          <?php if (!empty($mo['moment_pict'])): ?>
+          <img src="<?= bxsea_asset_url('moment', $mo['moment_pict'] ?? '', 'assets/landing/image/image-once.png');?>" alt="<?= esc($mo['moment_title_en'] ?? ($mo['moment_title'] ?? ''));?>" class="img-fluid">
+          <?php endif; ?>
+          <h3><?= esc($mo['moment_title_en'] ?? ($mo['moment_title'] ?? ''));?></h3>
+          <p><?= esc(strip_tags(substr($mo['moment_desc_en'] ?? ($mo['moment_desc'] ?? ''), 0, 200)));?></p>
+        </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+    <?php endif; ?>
+  </div>
+</section>
+
+<section class="memories-section">
+  <div class="container">
+    <h2 class="memories-title">OUR VISITORS MEMORIES</h2>
+    <div class="memories-carousel-wrap">
+      <div class="memories-wave memories-wave--top">
+        <img src="<?= base_url('assets/landing/');?>image/bxsea_image_wave.png" alt="">
+      </div>
+      <button class="memories-arrow memories-arrow--prev" id="memories-prev">
+        <img src="<?= base_url('assets/landing/');?>image/bxsea_image_arrow_left_moment.png" alt="prev">
+      </button>
+      <div class="owl-carousel owl-memories">
+        <?php if (!empty($moment)): ?>
+          <?php foreach ($moment as $memory): ?>
+          <div class="memories-slide">
+            <img src="<?= !empty($memory['moment_pict']) ? bxsea_asset_url('moment', $memory['moment_pict'], 'assets/landing/image/image-once.png') : base_url('assets/landing/image/bxsea_image_bg-special.png'); ?>" alt="<?= esc($memory['moment_title_en'] ?? ($memory['moment_title'] ?? 'Visitor Memory')) ?>" class="img-fluid">
+          </div>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <div class="memories-slide"><img src="<?= base_url('assets/landing/');?>image/bxsea_image_memories.png" alt="Memory 1" class="img-fluid"></div>
+          <div class="memories-slide"><img src="<?= base_url('assets/landing/');?>image/bxsea_image_memories2.png" alt="Memory 2" class="img-fluid"></div>
+          <div class="memories-slide"><img src="<?= base_url('assets/landing/');?>image/bxsea_image_memories3.png" alt="Memory 3" class="img-fluid"></div>
+          <div class="memories-slide"><img src="<?= base_url('assets/landing/');?>image/bxsea_image_memories4.png" alt="Memory 4" class="img-fluid"></div>
+        <?php endif; ?>
+      </div>
+      <button class="memories-arrow memories-arrow--next" id="memories-next">
+        <img src="<?= base_url('assets/landing/');?>image/bxsea_image_arrow_right_moment.png" alt="next">
+      </button>
+      <div class="memories-wave memories-wave--bottom">
+        <img src="<?= base_url('assets/landing/');?>image/bxsea_image_wave2.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="contactus2">
   <div class="container">
-    <div class="title-contactus2"><h1>Book Tickets</h1></div>
+    <div class="title-contactus2"><h1>Book Now</h1></div>
     <div class="row box-contact">
       <div class="col-lg-4 col-md-4 col-sm-4 box-card-contactus">
         <div class="card-contactus2">

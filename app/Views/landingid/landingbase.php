@@ -48,14 +48,6 @@
   $isVisit = str_starts_with($currentPath, 'id/kunjungan');
   $isNews = str_starts_with($currentPath, 'id/berita');
   ?>
-
-  <div class="loader-wrap">
-    <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path fill="#007bff" fill-opacity="1" d="M0,96L40,117.3C80,139,160,181,240,186.7C320,192,400,160,480,128C560,96,640,64,720,53.3C800,43,880,53,960,74.7C1040,96,1120,128,1200,138.7C1280,149,1360,139,1400,133.3L1440,128L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
-    </svg>
-  </div>
-
-  <!-- Top Bar -->
   <div class="top-bar top-bar-bottom">
     <div class="container top-bar-flex">
       <div class="left-topbar">
@@ -287,7 +279,7 @@
   <script src="<?= base_url('assets/landing/');?>splide-4.1.3/splide-4.1.3/dist/js/splide.min.js"></script>
   <script src="<?= base_url('assets/landing/');?>splide-extension-auto-scroll-master/splide-extension-auto-scroll-master/dist/js/splide-extension-auto-scroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-  <script src="<?= base_url('assets/landing/');?>main.js?v=20260418e"></script>
+  <script src="<?= base_url('assets/landing/');?>main.js?v=20260420f"></script>
   <script>
     function mountSplideIfPresent(selector, options, extensions) {
       if (typeof Splide === 'undefined' || !document.querySelector(selector)) {
@@ -376,13 +368,30 @@
     showSlide(1);
     autoSlide();
 
-    mountSplideIfPresent('.review-influencer-splide', {
+    var reviewSplide = mountSplideIfPresent('.review-influencer-splide', {
       type: 'loop',
       pagination: false,
       gap: 15,
       snap: false,
       perPage: 1,
     });
+
+    if (reviewSplide) {
+      function alignReviewArrows() {
+        var activeSlide = document.querySelector('.review-influencer-splide .splide__slide.is-active.is-visible');
+        var activies = activeSlide && activeSlide.querySelector('.image-activies');
+        var arrowPrev = document.querySelector('.review-influencer-splide .splide__arrow--prev');
+        var arrowNext = document.querySelector('.review-influencer-splide .splide__arrow--next');
+        if (!activies || !arrowPrev || !arrowNext) return;
+        var top = activies.offsetTop + activies.offsetHeight / 2;
+        arrowPrev.style.top = top + 'px';
+        arrowPrev.style.transform = 'translateY(-50%)';
+        arrowNext.style.top = top + 'px';
+        arrowNext.style.transform = 'translateY(-50%)';
+      }
+      setTimeout(alignReviewArrows, 0);
+      reviewSplide.on('moved', alignReviewArrows);
+    }
 
     mountSplideIfPresent('.card-ticketing-splide', {
       gap: 25,
@@ -590,16 +599,34 @@
     // Page transition loader: slide up after page loads
     (function() {
       var loader = document.querySelector('.loader-wrap');
+      var hideTimer = null;
+      var forceHideTimer = null;
+
+      function forceHideLoader() {
+        if (!loader) return;
+        loader.classList.add('loaded');
+        loader.style.display = 'none';
+        loader.style.transform = '';
+        loader.style.transition = '';
+      }
+
       function hideLoader() {
         if (!loader) return;
-        setTimeout(function() {
+        if (hideTimer) clearTimeout(hideTimer);
+        hideTimer = setTimeout(function() {
           loader.classList.add('loaded');
-          setTimeout(function() { loader.style.display = 'none'; }, 1500);
-        }, 150);
+          if (forceHideTimer) clearTimeout(forceHideTimer);
+          forceHideTimer = setTimeout(forceHideLoader, 850);
+        }, 80);
       }
+
+      // Safety net: if anything blocks transitions, force-hide loader anyway.
+      forceHideTimer = setTimeout(forceHideLoader, 2600);
+
       if (document.readyState === 'complete') {
         hideLoader();
       } else {
+        document.addEventListener('DOMContentLoaded', hideLoader, { once: true });
         window.addEventListener('load', hideLoader);
       }
       // Re-show on link navigation
@@ -611,6 +638,7 @@
         if (a.getAttribute('target') === '_blank') return;
         loader = document.querySelector('.loader-wrap');
         if (loader) {
+          loader.classList.remove('loaded');
           loader.style.display = 'flex';
           loader.style.transition = 'none';
           loader.style.transform = 'translateY(100%)';

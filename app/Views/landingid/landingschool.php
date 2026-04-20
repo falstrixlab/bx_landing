@@ -342,7 +342,7 @@
   <script src="<?= base_url('assets/landing/');?>gsap-public (3)/gsap-public/minified/gsap.min.js"></script>
   <script src="<?= base_url('assets/landing/');?>splide-4.1.3/splide-4.1.3/dist/js/splide.min.js"></script>
   <script src="<?= base_url('assets/landing/');?>splide-extension-auto-scroll-master/splide-extension-auto-scroll-master/dist/js/splide-extension-auto-scroll.min.js"></script>
-  <script src="<?= base_url('assets/landing/');?>main.js?v=20260418b"></script>
+  <script src="<?= base_url('assets/landing/');?>main.js?v=20260420f"></script>
 
 
 

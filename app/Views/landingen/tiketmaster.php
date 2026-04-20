@@ -10,7 +10,7 @@ $ticketExploreSchoolAsset = bxsea_design_asset('ticket', 'explore_school', 'asse
 $ticketExploreSpecialAsset = bxsea_design_asset('ticket', 'explore_special', 'assets/landing/image/bxsea_image_bg-special.png');
 ?>
 
-<section class="sectionBanner">
+<section class="sectionBanner ticket-page-banner">
   <div class="hero-wrap2">
     <div class="container">
       <div class="hero-image2">
@@ -24,7 +24,7 @@ $ticketExploreSpecialAsset = bxsea_design_asset('ticket', 'explore_special', 'as
   </div>
 </section>
 
-<section class="premiumpackage">
+<section class="premiumpackage ticketfee-premiumpackage">
   <div class="container">
     <div class="title-premiumpackage">
       <h1>Your Adventure Awaits!</h1>
@@ -65,7 +65,7 @@ $ticketExploreSpecialAsset = bxsea_design_asset('ticket', 'explore_special', 'as
   </div>
 </section>
 
-<section class="ticketing">
+<section class="ticketing ticketfee-ticketing">
   <img class="grass-gray-rotate" src="<?= base_url('assets/landing/');?>image/grass-gray.png" alt="">
   <img class="fishbuntal" src="<?= base_url('assets/landing/');?>image/fish-buntal.png" alt="">
   <img class="shark4" src="<?= base_url('assets/landing/');?>image/fish.png" alt="">
@@ -154,7 +154,7 @@ $ticketExploreSpecialAsset = bxsea_design_asset('ticket', 'explore_special', 'as
   </div>
 </section>
 
-<section class="container explore-more">
+<section class="container explore-more ticketfee-explore-more">
   <div class="left-grid">
     <div class="title-explore-more">
       <h1>Explore more <br> options for you</h1>

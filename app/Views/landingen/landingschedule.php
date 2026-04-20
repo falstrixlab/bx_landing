@@ -345,7 +345,7 @@
   <script src="<?= base_url('assets/landing/');?>splide-4.1.3/splide-4.1.3/dist/js/splide.min.js"></script>
   <script src="<?= base_url('assets/landing/');?>splide-extension-auto-scroll-master/splide-extension-auto-scroll-master/dist/js/splide-extension-auto-scroll.min.js"></script>
   <script src="<?= base_url('assets/landing/');?>evo-calendar/js/evo-calendar.js"></script>
-  <script src="<?= base_url('assets/landing/');?>main.js?v=20260418b"></script>
+  <script src="<?= base_url('assets/landing/');?>main.js?v=20260420f"></script>
   <script>
         // initialize your calendar, once the page's DOM is ready
         $(document).ready(function() {
