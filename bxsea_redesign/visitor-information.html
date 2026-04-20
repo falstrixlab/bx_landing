@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="owl-carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="owl-carousel/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="splide-4.1.3/splide-4.1.3/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="image/logo-BXSea.png" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J9ERF53WJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-5J9ERF53WJ');
+    </script>
+    <title>Visitor Information - BXSea</title>
+  </head>
+  <body>
+    <div class="loader-wrap">
+      <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#007bff" fill-opacity="1" d="M0,96L40,117.3C80,139,160,181,240,186.7C320,192,400,160,480,128C560,96,640,64,720,53.3C800,43,880,53,960,74.7C1040,96,1120,128,1200,138.7C1280,149,1360,139,1400,133.3L1440,128L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
+      </svg>
+    </div>
+    <div class="top-bar top-bar-bottom">
+      <div class="container top-bar-flex">
+        <div class="left-topbar">
+          <div class="time-secondbar">
+            <img src="image/icons8-clock-40.png" alt="">
+            <div class="time-block">
+              <h6>Senin - Minggu</h6>
+              <p>10:00 - 22:00 (Pembelian Tiket Terakhir pukul 21:00)</p>
+            </div>
+          </div>
+          <div class="adress-secondbar">
+            <img src="image/icons8-location-40.png" alt="">
+            <div class="address-block">
+              <h6>Bintaro Xchange Mall</h6>
+            </div>
+          </div>
+        </div>
+        <div class="right-topbar">
+          <div class="sosmed-topbar">
+            <a href="#" id="search-icon-btn" onclick="openSearchPopup(); return false;">
+              <img class="search-topbar" src="image/bxsea_icon_search.png" alt="">
+            </a>
+            <a href="https://instagram.com/bxsea_official?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" class="ig">
+              <img src="image/Group 1171275393.svg" alt="">
+            </a>
+            <a href="https://www.facebook.com/BXSeaofficial" target="_blank" class="fb">
+              <img src="image/Group 1171275394.svg" alt="">
+            </a>
+            <a href="https://www.tiktok.com/@bxsea_official?_t=8hl0H4KuNA0&_r=1" target="_blank" class="tiktok">
+              <img src="image/tiktok.svg" alt="">
+            </a>
+          </div>
+          <div class="dropdown">
+            <div class="select">
+              <img src="image/globe.svg" alt="">
+              <span class="selected">ID</span>
+              <div class="caret me-2"></div>
+            </div>
+            <div class="menu">
+              <li>
+                <a href="javascript:void(0)">EN</a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-navbar-contact top-bar-animation header-navbar-contact-bottom">
+      <nav class="nav">
+        <div class="container navbar__menu">
+          <a class="navbar-responsive" href="index.html">
+            <img src="image/logo-BXSea.png" alt="">
+          </a>
+          <div class="dropdown-">
+            <div class="select2">
+              <img src="image/globe.svg" alt="">
+              <span class="selected2">ID</span>
+              <div class="caret2 me-2"></div>
+            </div>
+            <div class="menu2">
+              <li>
+                <a href="javascript:void(0)">EN</a>
+              </li>
+            </div>
+          </div>
+          <div class="toggle__menu" id="toggle-menu">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </div>
+          <ul class="nav__list" id="nav-menu">
+            <div class="close__menu" id="close-menu">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <a href="index.html" class="logo-bexsea">
+              <img src="image/logo-BXSea.png" alt="">
+            </a>
+            <li class="nav__link">
+              <a href="index.html">Beranda</a>
+            </li>
+            <li class="dropdown__menu-">
+              <div class="text-dropdown-menu">
+                <p>Tiket</p>
+                <div class="arr-down"></div>
+              </div>
+              <div class="megamenu">
+                <ul class="content">
+                  <div class="title-megamenu-item">
+                    <h4>Tiket</h4>
+                  </div>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="ticketfee.html">Pesan Tiket</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="promotions.html">Promosi</a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="content">
+                  <div class="title-megamenu-item">
+                    <h4>Jelajahi BXSea Lebih Jauh</h4>
+                  </div>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="premium.html">Add-Ons</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="school.html">Program Sekolah</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="once.html">Momen Spesial</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="dropdown__menu-">
+              <div class="text-dropdown-menu">
+                <p>Jelajahi</p>
+                <div class="arr-down"></div>
+              </div>
+              <div class="megamenu">
+                <ul class="content">
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="highlight.html">Journey Utama</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="show.html">Pertunjukan</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="dropdown__menu-">
+              <div class="text-dropdown-menu">
+                <p>Info Kunjungan</p>
+                <div class="arr-down"></div>
+              </div>
+              <div class="megamenu">
+                <ul class="content">
+                  <div class="title-megamenu-item">
+                    <h4>Rencanakan Kunjunganmu</h4>
+                  </div>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="visitor-information.html">Informasi Pengunjung</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="schedule.html">Jadwal Pertunjukan</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="map.html">Denah Oceanarium</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="guide.html">Panduan Aksesibilitas</a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="content">
+                  <div class="title-megamenu-item">
+                    <h4>Info Selengkapnya</h4>
+                  </div>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="tenant.html">Tenant Kami</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="merchandise.html">Merchandise</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="faq.html">FAQ</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="contact.html">Hubungi Kami</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__link">
+              <a href="whats.html">Berita Terkini</a>
+            </li>
+            <div class="contact">
+              <a href="https://ticket.bxsea.co.id/">Pesan Tiket</a>
+            </div>
+            <div class="sosmed-topbar2">
+              <a href="https://instagram.com/bxsea_official?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
+                <img src="image/Group 1171275393.svg" alt="">
+              </a>
+              <a href="https://www.facebook.com/BXSeaofficial" target="_blank">
+                <img src="image/Group 1171275394.svg" alt="">
+              </a>
+              <a class="tiktok-img" href="https://www.tiktok.com/@bxsea_official?_t=8hl0H4KuNA0&_r=1" target="_blank">
+                <img src="image/tiktok.svg" alt="">
+              </a>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <section class="sectionBanner">
+      <div class="hero-wrap2">
+        <div class="container">
+          <div class="hero-image2">
+            <img src="image/bxsea_image_bg-visitor.png" alt="">
+          </div>
+          <div class="row descBanner padding-banner">
+            <h1 class="banner-title">INFORMASI PENGUNJUNG</h1>
+            <p class="banner-description">Maksimalkan kunjungan Anda di BXSea!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== WELCOME SECTION ===== -->
+    <section class="vi-welcome-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <h2 class="vi-welcome-title">Selamat Datang di BXSea!</h2>
+            <p class="vi-welcome-desc">Oceanarium kami mengundang pengunjung dari berbagai kalangan untuk menjelajahi keanekaragaman laut yang memukau di BXSea. Agar kunjungan Anda lebih maksimal, harap ikuti langkah-langkah sederhana berikut demi menjaga lingkungan yang aman dan nyaman bagi kita semua	</p>
+            <div class="vi-grid-image-top-sections d-flex gap-3">
+              <div class="vi-grid-image-item">
+                <img src="image/bxsea_image_penguin_visitor_information.png" alt="Activity Room">
+              </div>
+              <div class="vi-grid-image-item">
+                <img src="image/bxsea_image_penguin_visitor_information2.png" alt="Arrival">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="vi-hours-card">
+              <h4 class="vi-hours-title">Jam Operasional</h4>
+              <p class="vi-hours-desc">BXSea Oceanarium buka <strong>setiap hari</strong>. </p>
+              <div class="vi-hours-row">
+                <p class="vi-hours-time">Senin:</p>
+                <p class="vi-hours-day">10:00 – 10:00 WIB</p>
+              </div>
+              <div class="vi-hours-row">
+                <p class="vi-hours-time">Selasa:</p>
+                <p class="vi-hours-day">10:00 – 10:00 WIB</p>
+              </div>
+              <div class="vi-hours-row">
+                <p class="vi-hours-time">Rabu:</p>
+                <p class="vi-hours-day">10:00 – 10:00 WIB</p>
+              </div>
+              <div class="vi-hours-row">
+                <p class="vi-hours-time">Kamis:</p>
+                <p class="vi-hours-day">10:00 – 10:00 WIB</p>
+              </div>
+              <div class="vi-hours-row">
+                <p class="vi-hours-time">Jumat:</p>
+                <p class="vi-hours-day">10:00 – 10:00 WIB</p>
+              </div>
+              <div class="vi-hours-row">
+                <p class="vi-hours-time">Sabtu:</p>
+                <p class="vi-hours-day">09:00 – 22:00 WIB</p>
+              </div>
+              <div class="vi-hours-row">
+                <p class="vi-hours-time">Minggu:</p>
+                <p class="vi-hours-day">09:00 – 22:00 WIB</p>
+              </div>
+              <div class="vi-hours-divider"></div>
+              <div class="vi-hours-row-light">
+                <p class="vi-hours-day">Pembelian Tiket Terakhir pukul 21:00 setiap hari</p>
+              </div>
+              <div class="vi-hours-row-light">
+                <p class="vi-hours-time-light">* Seluruh waktu yang tertera dalam WIB (Waktu Indonesia Barat)</p>
+              </div>
+              <div class="vi-hours-row-light">
+                <p class="vi-hours-time-light">* Jam operasional dapat berubah sewaktu-waktu</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== KNOW BEFORE YOU ARRIVE ===== -->
+    <section class="vi-know-section">
+      <div class="container">
+        <h2 class="vi-section-title">Hal yang Perlu Diketahui Sebelum Berkunjung</h2>
+        <div class="row justify-content-center g-4 vi-know-grid">
+          <div class="col-md-6 col-xl-3">
+            <div class="vi-know-card">
+              <div class="vi-know-card-box">
+                <div class="vi-know-icon">
+                  <img src="image/bxsea_icon_respectfull.png" alt="Be mindful and respectful">
+                </div>
+                <h4>Saling Menghargai dan Peduli</h4>
+                <p>Hari libur dan jam sibuk biasanya akan sedikit lebih ramai, jadi harap tetap memperhatikan kenyamanan di sekitar Anda</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <div class="vi-know-card">
+              <div class="vi-know-card-box">
+                <div class="vi-know-icon">
+                  <img src="image/bxsea_icon_children.png" alt="Children must be supervised">
+                </div>
+                <h4>Anak-anak Harus dalam Pengawasan</h4>
+                <p>Demi keselamatan buah hati Anda, perlindungan biota laut, serta kenyamanan seluruh pengunjung, harap selalu dampingi dan pastikan anak-anak berada dalam pengawasan Anda setiap saat!</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <div class="vi-know-card">
+              <div class="vi-know-card-box">
+                <div class="vi-know-icon">
+                  <img src="image/bxsea_icon_no_flash.png" alt="No flash photography">
+                </div>
+                <h4>Dilarang Menggunakan flash kamera</h4>
+                <p>Mohon matikan flash kamera Anda saat memotret, karena cahayanya dapat menyilaukan, membuat stres, atau mengejutkan biota kami</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-3">
+            <div class="vi-know-card">
+              <div class="vi-know-card-box">
+                <div class="vi-know-icon">
+                  <img src="image/bxsea_icon_no_food.png" alt="No food or drinks">
+                </div>
+                <h4>Dilarang Membawa Makanan atau Minuman</h4>
+                <p>Mohon tidak membawa makanan dan minuman ke dalam BXSea. Hal ini demi melindungi biota dari risiko kontaminasi, tumpahan, serta pemberian makan yang tidak sesuai aturan</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== LEARN & CONSERVE WITH US ===== -->
+    <section class="vi-learn-section">
+      <div class="container">
+        <h2 class="vi-section-title vi-section-title--light">Edukasi &amp; Konservasi Bersama BXSea</h2>
+        <div class="vi-learn-carousel owl-carousel owl-theme">
+          <div class="vi-learn-card">
+            <div class="vi-learn-card-image">
+              <img src="image/bxsea_image_information_tablets.png" alt="Information Tablets">
+            </div>
+            <div class="vi-learn-card-body">
+              <span>EDUKASI</span>
+              <h4>Tablet Informasi</h4>
+              <p>Tersedia di setiap akuarium di seluruh zona Long Journey, Tablet Informasi kami menyajikan detail mendalam serta fakta-fakta menarik mengenai setiap biota di BXSea</p>
+            </div>
+          </div>
+          <div class="vi-learn-card">
+            <div class="vi-learn-card-image">
+              <img src="image/bxsea_image_touchpool_visitor.png" alt="Touch Pool">
+            </div>
+            <div class="vi-learn-card-body">
+              <span>EDUKASI</span>
+              <h4>Touch Pool</h4>
+              <p>Sentuh dan pelajari bintang laut, bulu babi, serta makhluk pesisir lainnya dengan lembut, dengan panduan langsung dari pemandu edukasi kami</p>
+            </div>
+          </div>
+          <div class="vi-learn-card">
+            <div class="vi-learn-card-image">
+              <img src="image/bxsea_image_bxsea_app.png" alt="BXSea Explore App">
+            </div>
+            <div class="vi-learn-card-body">
+              <span>EDUKASI</span>
+              <h4>BXSea Explore App</h4>
+              <p>Jelajahi setiap spesies melalui profil lengkap dan mendalam yang tersedia di aplikasi ini! </p>
+            </div>
+          </div>
+          <div class="vi-learn-card">
+            <div class="vi-learn-card-image">
+              <img src="image/bxsea_image_zona_konservasi.png" alt="Zona Konservasi">
+            </div>
+            <div class="vi-learn-card-body">
+              <span>EDUKASI</span>
+              <h4>Zona Konservasi</h4>
+              <p>Masuki Zona Mangrove kami dan saksikan bagaimana kami menjaga kelestarian spesies terancam punah dari seluruh dunia </p>
+            </div>
+          </div>
+          <div class="vi-learn-card">
+            <div class="vi-learn-card-image">
+              <img src="image/bxsea_image_meja_interaktif.png" alt="Meja Interaktif">
+            </div>
+            <div class="vi-learn-card-body">
+              <span>EDUKASI</span>
+              <h4>Meja Interaktif</h4>
+              <p>Jelajahi berbagai area dan biota di seluruh BXSea melalui meja interaktif kami</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== VISITOR GUIDE ===== -->
+    <section class="vi-guide-section">
+      <div class="container">
+        <h2 class="vi-section-title">Panduan Pengunjung</h2>
+        <!-- Filter Tabs -->
+        <div class="vi-guide-tabs">
+          <button class="vi-guide-tab active" data-target="getting-here">Cara Menuju ke Sini</button>
+          <button class="vi-guide-tab" data-target="how-to-explore">Panduan Menjelajah</button>
+          <button class="vi-guide-tab" data-target="explore-app">Cara Menjelajah</button>
+          <button class="vi-guide-tab" data-target="bxsea-app">BXSea Explore App</button>
+        </div>
+        <!-- Panel: Getting Here -->
+        <div class="vi-guide-panel active" id="getting-here">
+          <div class="row g-4">
+            <div class="col-lg-4">
+              <span>RENCANAKAN KUNJUNGAN ANDA</span>
+              <h5>Petunjuk Jalan &amp; Parkir</h5>
+              <div class="vi-guide-info-box">
+                <div class="vi-guide-info-icon">
+                  <img src="image/bxsea_icon_location.png" alt="">
+                </div>
+                <div class="vi-guide-location">
+                  <p>Lokasi Kami</p>
+                  <p class="vi-guide-address">Bintaro Jaya Xchange Mall, Lantai B1 Jalan Sektor VII No.2 Lt. B1 - B2, Pondok Jaya, Pondok Aren, Kota Tangerang Selatan, Banten 15277</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="vi-accordion">
+                <!-- BY TRAIN -->
+                <div class="vi-accordion-item">
+                  <div class="vi-accordion-header" onclick="toggleAccordion(this)">
+                    <span>NAIK KERETA</span>
+                    <i class="fa-solid fa-chevron-down vi-accordion-icon"></i>
+                  </div>
+                  <div class="vi-accordion-body">
+                    <div class="vi-accordion-padding">
+                      <p>BXSea terletak di Bintaro Jaya Xchange Mall 2, yang memiliki akses langsung ke Stasiun Jurangmangu. Cukup berjalan kaki melalui terowongan penghubung yang akan mengarahkan Anda langsung ke area mal.</p>
+                      <p>Saat hendak pulang, jangan lewatkan burung-burung cantik di BXBirds, aviari mini kami yang dapat dikunjungi secara gratis!</p>
+                      <div class="grid-image">
+                        <img src="image/bxsea_image_bytrain.png" alt="">
+                        <img src="image/bxsea_image_bytrain2.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- BY PRIVATE VEHICLE -->
+                <div class="vi-accordion-item">
+                  <div class="vi-accordion-header" onclick="toggleAccordion(this)">
+                    <span>KENDARAAN PRIBADI</span>
+                    <i class="fa-solid fa-chevron-down vi-accordion-icon"></i>
+                  </div>
+                  <div class="vi-accordion-body">
+                    <div class="vi-accordion-padding">
+                      <p>BXSea terletak di Bintaro Jaya Xchange Mall 2 dan dapat diakses melalui berbagai ruas jalan tol. Tersedia area parkir yang luas bagi Anda yang membawa kendaraan pribadi.</p>
+                      <p>
+                        <strong>Akses Jalan Tol</strong>
+                      </p>
+                      <p>Opsi 1: Dari Jakarta</p>
+                      <ol type="1">
+                        <li>Masuk ke Tol JORR ke arah Bintaro.</li>
+                        <li>Keluar melalui gerbang Tol Bintaro–Pondok Aren.</li>
+                        <li>Belok kiri ke arah Jl. Boulevard Bintaro Jaya.</li>
+                      </ol>
+                      <p>Opsi 2: Dari Serpong</p>
+                      <ol type="1">
+                        <li>Masuk ke Tol Jakarta–Serpong ke arah Bintaro.</li>
+                        <li>Belok kiri di gerbang keluar Bintaro–Pondok Aren.</li>
+                        <li>Belok kanan di Jl. Tegal Rotan Raya menuju Jl. Boulevard Bintaro Jaya.</li>
+                        <li>Putar balik dan belok kiri menuju BXChange Mall.</li>
+                      </ol>
+                      <p>
+                        <strong>Parkir</strong>
+                      </p>
+                      <p>BXSea dapat diakses melalui area parkir BXchange Mall 1 maupun Mall 2. Untuk posisi parkir terdekat dengan BXSea, Anda disarankan parkir di Mall 2, Lantai B2!</p>
+                      <div class="grid-image">
+                        <img src="image/bxsea_image_byvehicle.png" alt="">
+                        <img src="image/bxsea_image_byvehicle2.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- BY BUS -->
+                <div class="vi-accordion-item">
+                  <div class="vi-accordion-header" onclick="toggleAccordion(this)">
+                    <span>NAIK BUS</span>
+                    <i class="fa-solid fa-chevron-down vi-accordion-icon"></i>
+                  </div>
+                  <div class="vi-accordion-body">
+                    <div class="vi-accordion-padding">
+                      <p>
+                        <strong>IN-TRANS</strong>
+                      </p>
+                      <p>BXSea terletak di Bintaro Jaya Xchange Mall 2 dan dapat diakses menggunakan In-Trans, layanan bus jemputan (shuttle bus) gratis yang beroperasi di wilayah Bintaro Jaya.</p>
+                      <p>Terdapat 4 rute yang dapat Anda pilih untuk menuju BXSea:</p>
+                      <ul>
+                        <li>Bus Nomor 1: Bintaro > Kebayoran</li>
+                        <li>Bus Nomor 2: Bintaro > Emerald</li>
+                        <li>Bus Nomor 3: BXChange Mall > St. Pondok Ranji</li>
+                        <li>Bus Nomor 4: BXChange Mall > Graha Raya</li>
+                      </ul>
+                      <img class="bybus" src="image/bxsea_image_bybus.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Panel: How to Explore -->
+        <div class="vi-guide-panel" id="how-to-explore">
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="vi-guide-title">
+                <h1>Denah Oceanarium</h1>
+              </div>
+              <div class="vi-guide-desc">
+                <p>Jelajahi beragam kehidupan laut kami dengan mudah menggunakan Denah Oceanarium. Unduh langsung ke perangkat Anda!</p>
+              </div>
+              <div class="vi-guide-button">
+                <a href="map.html">Lihat Denah Oceanarium <div class="arrow-right-vi-guide-button">></div>
+                </a>
+              </div>
+              <div class="vi-guide-title">
+                <h1>Panduan Aksesibilitas</h1>
+              </div>
+              <div class="vi-guide-desc">
+                <p>BXSea hadir untuk semua! Simak Panduan Aksesibilitas kami agar kunjungan Anda berjalan senyaman mungkin</p>
+              </div>
+              <div class="vi-guide-button">
+                <a href="guide.html">Lihat Panduan Aksesibilitas <div class="arrow-right-vi-guide-button">></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="image-getting-around">
+                <img class="img-fluid" src="image/bxsea_image_gettingaround.png" alt="Accessibility Guide">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Panel: Explore App -->
+        <div class="vi-guide-panel" id="explore-app">
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="image-getting-around d-flex justify-content-center">
+                <img class="img-fluid" src="image/bxsea_image_waystoexplore.png" alt="Accessibility Guide">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="vi-guide-title">
+                <h1>Jadwal Pertunjukan</h1>
+              </div>
+              <div class="vi-guide-desc">
+                <p>Maksimalkan kunjungan Anda di BXSea dengan memeriksa Jadwal Pertunjukan terlebih dahulu! Pelajari lebih dalam tentang kehidupan laut kami melalui berbagai pertunjukan edukatif.</p>
+                <p>Tidak diperlukan tiket tambahan untuk menyaksikan pertunjukan harian kami. </p>
+              </div>
+              <div class="vi-guide-button">
+                <a href="schedule.html">Lihat Jadwal Pertunjukan <div class="arrow-right-vi-guide-button">></div>
+                </a>
+              </div>
+              <div class="vi-guide-title">
+                <h1>Makanan & Minuman</h1>
+              </div>
+              <div class="vi-guide-desc">
+                <p>Nikmati hidangan lezat dari berbagai tenan kami! </p>
+              </div>
+              <div class="vi-guide-button">
+                <a href="tenant.html">Lihat Tenant Kami <div class="arrow-right-vi-guide-button">></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Panel: BXSea App -->
+        <div class="vi-guide-panel" id="bxsea-app">
+          <div class="row g-4 align-items-center">
+            <!-- LEFT: IMAGE GRID -->
+            <div class="col-lg-7">
+              <div class="vi-guide-images">
+                <div class="row g-3">
+                  <div class="col-6 d-flex justify-content-end">
+                    <img src="image/bxsea_image_guideapp.png" class="img-fluid vi-guide-img" />
+                  </div>
+                  <div class="col-6">
+                    <img src="image/bxsea_image_guideapp2.png" class="img-fluid vi-guide-img" />
+                  </div>
+                  <div class="col-4 d-flex justify-content-end">
+                    <img src="image/bxsea_image_guideapp3.png" class="img-fluid vi-guide-img" />
+                  </div>
+                  <div class="col-4 d-flex justify-content-center">
+                    <img src="image/bxsea_image_guideapp4.png" class="img-fluid vi-guide-img" />
+                  </div>
+                  <div class="col-4">
+                    <img src="image/bxsea_image_guideapp5.png" class="img-fluid vi-guide-img" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- RIGHT: TEXT CONTENT -->
+            <div class="col-lg-5">
+              <div class="custom-guide-text">
+                <h2 class="guide-title">Panduan Digital</h2>
+                <p class="guide-desc"> Jangan lewatkan aplikasi <strong>BXSea Explore</strong>  untuk petualangan yang lebih seru di BXSea! </p>
+                <ol class="guide-list">
+                  <li>Pandu perjalanan Anda langsung di aplikasi melalui sensor Bluetooth di setiap zona.</li>
+                  <li>Jelajahi setiap spesies melalui profil lengkap dan detail yang tersedia di aplikasi ini!</li>
+                  <li>Selesaikan berbagai misi sepanjang perjalanan untuk BXSea Buddy Anda dengan permainan yang menyenangkan</li>
+                </ol>
+                <div class="vi-guide-app-badges">
+                  <a href="#" class="vi-guide-app-badge">
+                    <img src="image/bxsea_image_appstore.png" alt="">
+                  </a>
+                  <a href="#" class="vi-guide-app-badge">
+                    <img src="image/bxsea_image_playstore.png" alt="">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="Partnership">
+      <img class="wave-partnerships" src="image/wave-partnerships.png" alt="">
+      <div class="box-partnerships">
+        <div class="container">
+          <div class="title-partnerships">
+            <h1>Belum menemukan yang Anda cari?</h1>
+          </div>
+          <div class="desc-partnerships">
+            <p>
+             Simak Pertanyaan Umum (FAQ) kami untuk menemukan jawaban yang Anda butuhkan	
+            </p>
+          </div>
+          <div class="btn-partnerships">
+            <a href="faq.html">FAQ<img class="arrow-right-btn-partnerships" src="image/arrow-right-white.png" alt=""></a>
+          </div>
+        </div>
+      </div>      
+    </section>
+    <footer class="shadow">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 d-flex flex-column justify-content-between">
+            <div class="social-footer">
+              <a href="https://instagram.com/bxsea_official?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
+                <div class="instagram">
+                  <img src="image/Group 1171275076.png" alt="">
+                </div>
+              </a>
+              <a href="https://www.tiktok.com/@bxsea_official?_t=8hl0H4KuNA0&_r=1" target="_blank">
+                <div class="tiktok">
+                  <img src="image/Group 1171275074.png" alt="">
+                </div>
+              </a>
+              <a href="https://www.facebook.com/BXSeaofficial" target="_blank">
+                <div class="facebook">
+                  <img src="image/Group 117.png" alt="">
+                </div>
+              </a>
+            </div>
+            <div class="about-us-footer">
+              <a href="tentang.html">About Us <img src="image/arrow-right-white.png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2 box-center">
+            <div class="navbar-footer">
+              <h4>Plan Your Visit</h4>
+              <div class="items-navbar-footer">
+                <a href="ticketfee.html">Book Tickets</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="visitor-information.html">Visitor Information</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="schedule.html">Show Schedule</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="map.html">Oceanarium Maps</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="guide.html">Accessibility Guide</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 box-center">
+            <div class="navbar-footer">
+              <h4>Information</h4>
+              <div class="items-navbar-footer">
+                <a href="tentang.html">Latest News</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="tenant.html">Our Tenants</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="merchandise.html">Merchandise</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 box-center">
+            <div class="navbar-footer">
+              <h4>Help & Support</h4>
+              <div class="items-navbar-footer">
+                <a href="whats.html">Contact Us</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="faq.html">FAQs</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="SK.html">Terms & Conditions</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="privacy.html">Privacy Policy</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="brand-footer">
+              <img src="image/Jaya Property True White.png" alt="">
+              <img src="image/logo_footer.png" alt="">
+            </div>
+            <div class="address-footer">
+              <p>Bintaro Jaya Xchange Mall 2 Lt. B1 - B2 CBD Bintaro Jaya , Jalan Sektor VII No. 2 , Pd. Jaya, Kec. Pondok Aren, Tangerang Selatan, Banten 15277 Indonesia</p>
+            </div>
+            <div class="corporate-footer">
+              <div class="left-grid">
+                <p>PT Jaya Real Property, Tbk.</p>
+                <span>CBD Emerald Blok CE/A No. 1, Boulevard Bintaro Jaya, Tangerang 15227 Indonesia</span>
+              </div>
+              <div class="right-grid">
+                <p>Jadilah Bagian dari Keluarga BXSea!</p>
+                <div class="btn-partnerships-footer">
+                  <a href="partnership.html">Gabung Sekarang</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-darkline"></div>
+          <div class="copyright">
+            <p>Copyright . All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="bootstrap/js/jquery3.6.3.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="owl-carousel/dist/owl.carousel.min.js"></script>
+    <script src="gsap-public (3)/gsap-public/minified/gsap.min.js"></script>
+    <script src="gsap-public (3)/gsap-public/minified/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="gsap-public (3)/gsap-public/minified/CSSRulePlugin.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+      // ---- Learn & Conserve Carousel ----
+      $(document).ready(function() {
+        $('.vi-learn-carousel').owlCarousel({
+          loop: true,
+          margin: 24,
+          nav: true,
+          dots: false,
+          autoplay: true,
+          autoplayTimeout: 4000,
+          autoplayHoverPause: true,
+          responsive: {
+            0: {
+              items: 1
+            },
+            640: {
+              items: 2
+            },
+            1024: {
+              items: 3
+            }
+          }
+        });
+        // ---- Visitor Guide Filter Tabs ----
+        $('.vi-guide-tab').on('click', function() {
+          var target = $(this).data('target');
+          $('.vi-guide-tab').removeClass('active');
+          $(this).addClass('active');
+          $('.vi-guide-panel').removeClass('active');
+          $('#' + target).addClass('active');
+        });
+      });
+      // ---- Accordion ----
+      function toggleAccordion(header) {
+        var item = header.parentElement;
+        var body = item.querySelector('.vi-accordion-body');
+        var icon = header.querySelector('.vi-accordion-icon');
+        var isOpen = item.classList.contains('open');
+        // Close all siblings
+        var siblings = item.parentElement.querySelectorAll('.vi-accordion-item');
+        siblings.forEach(function(sib) {
+          sib.classList.remove('open');
+          sib.querySelector('.vi-accordion-body').style.maxHeight = null;
+          var sibIcon = sib.querySelector('.vi-accordion-icon');
+          if (sibIcon) sibIcon.style.transform = 'rotate(0deg)';
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          body.style.maxHeight = body.scrollHeight + 'px';
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      }
+    </script>
+  </body>
+</html>

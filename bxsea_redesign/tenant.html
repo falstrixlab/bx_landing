@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="owl-carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="owl-carousel/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="splide-4.1.3/splide-4.1.3/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="image/logo-BXSea.png" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J9ERF53WJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-5J9ERF53WJ');
+    </script>
+    <title>Tenant - BXSea</title>
+  </head>
+  <body>
+    <div class="loader-wrap">
+      <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#007bff" fill-opacity="1" d="M0,96L40,117.3C80,139,160,181,240,186.7C320,192,400,160,480,128C560,96,640,64,720,53.3C800,43,880,53,960,74.7C1040,96,1120,128,1200,138.7C1280,149,1360,139,1400,133.3L1440,128L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
+      </svg>
+    </div>
+    <div class="top-bar top-bar-bottom">
+      <div class="container top-bar-flex">
+        <div class="left-topbar">
+          <div class="time-secondbar">
+            <img src="image/icons8-clock-40.png" alt="">
+            <div class="time-block">
+              <h6>Senin - Minggu</h6>
+              <p>10:00 - 22:00 (Pembelian Tiket Terakhir pukul 21:00)</p>
+            </div>
+          </div>
+          <div class="adress-secondbar">
+            <img src="image/icons8-location-40.png" alt="">
+            <div class="address-block">
+              <h6>Bintaro Xchange Mall</h6>
+            </div>
+          </div>
+        </div>
+        <div class="right-topbar">
+          <div class="sosmed-topbar">
+            <a href="#" id="search-icon-btn" onclick="openSearchPopup(); return false;">
+              <img class="search-topbar" src="image/bxsea_icon_search.png" alt="">
+            </a>
+            <a href="https://instagram.com/bxsea_official?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" class="ig">
+              <img src="image/Group 1171275393.svg" alt="">
+            </a>
+            <a href="https://www.facebook.com/BXSeaofficial" target="_blank" class="fb">
+              <img src="image/Group 1171275394.svg" alt="">
+            </a>
+            <a href="https://www.tiktok.com/@bxsea_official?_t=8hl0H4KuNA0&_r=1" target="_blank" class="tiktok">
+              <img src="image/tiktok.svg" alt="">
+            </a>
+          </div>
+          <div class="dropdown">
+            <div class="select">
+              <img src="image/globe.svg" alt="">
+              <span class="selected">ID</span>
+              <div class="caret me-2"></div>
+            </div>
+            <div class="menu">
+              <li>
+                <a href="javascript:void(0)">EN</a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-navbar-contact top-bar-animation header-navbar-contact-bottom">
+      <nav class="nav">
+        <div class="container navbar__menu">
+          <a class="navbar-responsive" href="index.html">
+            <img src="image/logo-BXSea.png" alt="">
+          </a>
+          <div class="dropdown-">
+            <div class="select2">
+              <img src="image/globe.svg" alt="">
+              <span class="selected2">ID</span>
+              <div class="caret2 me-2"></div>
+            </div>
+            <div class="menu2">
+              <li>
+                <a href="javascript:void(0)">EN</a>
+              </li>
+            </div>
+          </div>
+          <div class="toggle__menu" id="toggle-menu">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </div>
+          <ul class="nav__list" id="nav-menu">
+            <div class="close__menu" id="close-menu">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <a href="index.html" class="logo-bexsea">
+              <img src="image/logo-BXSea.png" alt="">
+            </a>
+            <li class="nav__link">
+              <a href="index.html">Beranda</a>
+            </li>
+            <li class="dropdown__menu-">
+              <div class="text-dropdown-menu">
+                <p>Tiket</p>
+                <div class="arr-down"></div>
+              </div>
+              <div class="megamenu">
+                <ul class="content">
+                  <div class="title-megamenu-item">
+                    <h4>Tiket</h4>
+                  </div>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="ticketfee.html">Pesan Tiket</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="promotions.html">Promosi</a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="content">
+                  <div class="title-megamenu-item">
+                    <h4>Jelajahi BXSea Lebih Jauh</h4>
+                  </div>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="premium.html">Add-Ons</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="school.html">Program Sekolah</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="once.html">Momen Spesial</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="dropdown__menu-">
+              <div class="text-dropdown-menu">
+                <p>Jelajahi</p>
+                <div class="arr-down"></div>
+              </div>
+              <div class="megamenu">
+                <ul class="content">
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="highlight.html">Journey Utama</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="show.html">Pertunjukan</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="dropdown__menu-">
+              <div class="text-dropdown-menu">
+                <p>Info Kunjungan</p>
+                <div class="arr-down"></div>
+              </div>
+              <div class="megamenu">
+                <ul class="content">
+                  <div class="title-megamenu-item">
+                    <h4>Rencanakan Kunjunganmu</h4>
+                  </div>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="visitor-information.html">Informasi Pengunjung</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="schedule.html">Jadwal Pertunjukan</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="map.html">Denah Oceanarium</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="guide.html">Panduan Aksesibilitas</a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="content">
+                  <div class="title-megamenu-item">
+                    <h4>Info Selengkapnya</h4>
+                  </div>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="tenant.html">Tenant Kami</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="merchandise.html">Merchandise</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="faq.html">FAQ</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="contact.html">Hubungi Kami</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__link">
+              <a href="whats.html">Berita Terkini</a>
+            </li>
+            <div class="contact">
+              <a href="https://ticket.bxsea.co.id/">Pesan Tiket</a>
+            </div>
+            <div class="sosmed-topbar2">
+              <a href="https://instagram.com/bxsea_official?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
+                <img src="image/Group 1171275393.svg" alt="">
+              </a>
+              <a href="https://www.facebook.com/BXSeaofficial" target="_blank">
+                <img src="image/Group 1171275394.svg" alt="">
+              </a>
+              <a class="tiktok-img" href="https://www.tiktok.com/@bxsea_official?_t=8hl0H4KuNA0&_r=1" target="_blank">
+                <img src="image/tiktok.svg" alt="">
+              </a>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <section class="sectionBanner">
+      <div class="hero-wrap2">
+        <div class="hero-image2">
+          <img src="image/bxsea_image_bg-tenant.png" alt="">
+        </div>
+        <div class="container">
+          <div class="row descBanner">
+            <div class="col-lg-12 box-schoolpackage">
+              <div class="desc-schoolpackage">
+                <h1>TENAN KAMI</h1>
+                <p>Temukan beragam pengalaman unik di seluruh area akuarium</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section class="tenant">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-200 box-card-tenant">
+            <div class="hand">
+              <img class="img-fluid hand-image" src="image/image-card-tenant5.png" alt="">
+              <div class="overlay-barcode">
+                <img src="image/bxsea_image_tenant_wingstop_back.png" alt="">
+                <div class="box-overlay-barcode">
+                  <h2>Wingstop</h2>
+                  <p>Nikmati chicken wings ikonik dengan 9 pilihan rasa yang diolah langsung dengan tangan. Dibuat segar dan tersertifikasi halal, Wingstop adalah pelengkap sempurna untuk mengawali atau mengakhiri petualangan Anda di BXSea!	</p>
+                  <div class="btn-detail-tenant">
+                    <a href="#" onclick="openTenantPopup('wingstop'); return false;">Lihat Promo &rsaquo;</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-200 box-card-tenant">
+            <div class="hand">
+              <img class="img-fluid hand-image" src="image/image-card-tenant.png" alt="">
+              <div class="overlay-barcode">
+                <img src="image/bxsea_image_tenant_jolly_time_back.png" alt="">
+                <div class="box-overlay-barcode">
+                  <h2>Jolly Time</h2>
+                  <p>Manjakan diri Anda dengan popcorn segar di area istirahat kami untuk mengisi ulang tenaga sebelum petualangan berikutnya. Jolly Time popcorn hadir dalam berbagai pilihan rasa, pilih satu atau lebih dan nikmati kelezatannya!</p>
+                  <div class="btn-detail-tenant">
+                    <a href="#" onclick="openTenantPopup('jollytime'); return false;">Lihat Promo &rsaquo;</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-200 box-card-tenant">
+            <div class="hand">
+              <img class="img-fluid hand-image" src="image/image-card-tenant3.png" alt="">
+              <div class="overlay-barcode">
+                <img src="image/bxsea_image_tenant_hophop_back.png" alt="">
+                <div class="box-overlay-barcode">
+                  <h2>Hop Hop Signature</h2>
+                  <p>Nikmati kesegaran bubble tea yang menyejukkan hari Anda! Duduklah dengan santai dan nikmati minuman Anda di tengah suara alam dan satwa dari Hutan Hujan Kalimantan</p>
+                  <div class="btn-detail-tenant">
+                    <a href="#" onclick="openTenantPopup('hophop'); return false;">Lihat Promo &rsaquo;</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-200 box-card-tenant">
+            <div class="hand">
+              <img class="img-fluid hand-image" src="image/image-card-tenant2.png" alt="">
+              <div class="overlay-barcode">
+                <img src="image/bxsea_image_tenant_brushy_back.png" alt="">
+                <div class="box-overlay-barcode">
+                  <h2>Brushy Brush</h2>
+                  <p>Dapatkan lukisan tangan dan wajah dari seniman residen kami yang berbakat! Lanjutkan perjalanan Anda dengan penuh warna Cat neon kami menyala sempurna di bawah pencahayaan biru gelap BXSea dan instalasi imersif Kelana Kaia. Jangan khawatir dengan noda atau percikan, karena tintanya sangat mudah dibersihkan!</p>
+                  <div class="btn-detail-tenant">
+                    <a href="#" onclick="openTenantPopup('brushy'); return false;">Lihat Promo &rsaquo;</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-200 box-card-tenant">
+            <div class="hand">
+              <img class="img-fluid hand-image" src="image/BXSea-offficial-store.png" alt="">
+              <div class="overlay-barcode">
+                <img src="image/bxsea_image_tenant_bxseamerchan_back.png" alt="">
+                <div class="box-overlay-barcode">
+                  <h2>BXSea Official Merchandise Store</h2>
+                  <p>Abadikan petualangan Anda di BXSea dengan koleksi suvenir eksklusif kami! Mulai dari boneka yang menggemaskan, kaos yang nyaman, hingga gantungan kunci dari BXSea Official Merchandise Store!</p>
+                  <div class="btn-detail-tenant">
+                    <a href="#" onclick="openTenantPopup('merch'); return false;">Lihat Promo &rsaquo;</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-200 box-card-tenant">
+            <div class="hand">
+              <img class="img-fluid hand-image" src="image/image-card-tenant4.png" alt="">
+              <div class="overlay-barcode">
+                <img src="image/bxsea_image_tenant_kelanaia_back.png" alt="">
+                <div class="box-overlay-barcode">
+                  <h2>Kelana Kaia</h2>
+                  <p>Kelana Kaia mengajak Anda dalam perjalanan imersif yang penuh eksplorasi dan permainan interaktif, mengungkap keajaiban tersembunyi dari dunia bawah laut yang dalam. Gerakkan tangan Anda di sepanjang dinding dan saksikan cahaya mengikuti langkah Anda!</p>
+                  <div class="btn-detail-tenant">
+                    <a href="#" onclick="openTenantPopup('kelana'); return false;">Lihat Promo &rsaquo;</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-200 box-card-tenant">
+            <div class="hand">
+              <img class="img-fluid hand-image" src="image/image-card-tenant6.png" alt="">
+              <div class="overlay-barcode">
+                <img src="image/bxsea_image_tenant_fodegraf_back.png" alt="">
+                <div class="box-overlay-barcode">
+                  <h2>Fodegraf</h2>
+                  <p>Jadikan foto keluarga Anda lebih hidup menggunakan teknologi Integra System terbaru dari Fodegraf! Abadikan momen berharga ini bersama Fotografer Residen kami dan ambil foto Anda di Booth Utama di akhir perjalanan.	</p>
+                  <div class="btn-detail-tenant">
+                    <a href="#" onclick="openTenantPopup('fodegraf'); return false;">Lihat Promo &rsaquo;</a>
+                  </div>
+                </div>       
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== TENANT POPUPS ===== -->
+    <div class="tenant-popup-overlay" id="tenant-popup-overlay"></div>
+    <div class="fodegraf-popup" id="tenant-popup">
+      <div class="fodegraf-popup-header">
+        <h3 id="tenant-popup-title"></h3>
+        <button class="fodegraf-popup-close" id="tenant-popup-close">&#10005;</button>
+      </div>
+      <div class="fodegraf-popup-body" id="tenant-popup-body"></div>
+    </div>
+
+    <!-- Hidden content templates -->
+    <div style="display:none">
+
+      <div id="tpl-wingstop">
+        <p class="fodegraf-popup-intro">Nikmati Wingstop bersama grup atau orang tersayang kamu di BXSea. Pemesanan dalam jumlah banyak dapat dilakukan melalui tim BXSea!</p>
+        <div class="fodegraf-popup-promos">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+        </div>
+      </div>
+
+      <div id="tpl-jollytime">
+        <p class="fodegraf-popup-intro">Tidak perlu khawatir untuk pemesanan grup dalam jumlah banyak. Setiap rasa akan dihidangkan untuk grup atau rombongan kamu. Pesan melalui tim BXSea sekarang!</p>
+        <div class="fodegraf-popup-promos">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+        </div>
+      </div>
+
+      <div id="tpl-hophop">
+        <p class="fodegraf-popup-intro">Tidak perlu khawatir untuk pemesanan grup dalam jumlah banyak. Setiap rasa akan dihidangkan untuk grup atau rombongan kamu. Pesan melalui tim BXSea sekarang!</p>
+        <div class="fodegraf-popup-promos">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+        </div>
+      </div>
+
+      <div id="tpl-fodegraf">
+        <p class="fodegraf-popup-intro">Check out the schedule below to learn where our Fodegraf photographer is located throughout the day.</p>
+        <h4>Weekday (Monday&ndash;Friday)</h4>
+        <ul>
+          <li>10.00 - 12.00 at <strong>King Of River</strong></li>
+          <li>12.00 - 17.00 at <strong>Yellow Submarine</strong></li>
+          <li>18.00 - 21.00 at <strong>Sea Tunnel</strong></li>
+        </ul>
+        <h4>Weekend (Saturday&ndash;Sunday)</h4>
+        <ul>
+          <li>9.30 - 12.30 at <strong>Main Lobby Anemone</strong></li>
+          <li>12.30 - 18.00 at <strong>Yellow Submarine</strong></li>
+          <li>18.00 - 21.00 at <strong>Sea Theatre</strong></li>
+        </ul>
+        <p class="fodegraf-popup-note">*For school groups and groups with seniors, please book in advance. We will be on standby at the Lobby Anemone beforehand.</p>
+        <div class="fodegraf-popup-promos">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+        </div>
+      </div>
+
+      <div id="tpl-merch">
+        <p class="fodegraf-popup-intro">Bawa pulang suvenir untukmu sendiri atau rombongan! Untuk pemesanan grup dalam jumlah banyak, pesan langsung melalui tim BXSea.</p>
+        <div class="fodegraf-popup-promos">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+        </div>
+      </div>
+
+      <div id="tpl-brushy">
+        <p class="fodegraf-popup-intro">Temukan kami di <strong>Children Playground - King of River B2!</strong></p>
+        <h4>Jam Operasional</h4>
+        <ul>
+          <li><strong>Weekdays (Senin&ndash;Kamis):</strong> 10.00 &ndash; 21.00 WIB</li>
+          <li><strong>Weekend (Jumat&ndash;Minggu atau Hari Libur Nasional):</strong> 09.00 &ndash; 21.00 WIB</li>
+        </ul>
+        <div class="fodegraf-popup-promos">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+        </div>
+      </div>
+
+      <div id="tpl-kelana">
+        <p class="fodegraf-popup-intro">Temukan petualangan imersif yang seru di zona <strong>Jellyfish B2!</strong></p>
+        <h4>Jam Operasional</h4>
+        <ul>
+          <li><strong>Weekdays (Senin&ndash;Kamis):</strong> 10.00 &ndash; 21.00 WIB</li>
+          <li><strong>Weekend (Jumat&ndash;Minggu atau Hari Libur Nasional):</strong> 09.00 &ndash; 21.00 WIB</li>
+        </ul>
+        <div class="fodegraf-popup-promos">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+          <img src="image/bxsea_image_tenant_popup_comingsoon.png" alt="Promo Hemat">
+        </div>
+      </div>
+
+    </div>
+    <footer class="shadow">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 d-flex flex-column justify-content-between">
+            <div class="social-footer">
+              <a href="https://instagram.com/bxsea_official?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
+                <div class="instagram">
+                  <img src="image/Group 1171275076.png" alt="">
+                </div>
+              </a>
+              <a href="https://www.tiktok.com/@bxsea_official?_t=8hl0H4KuNA0&_r=1" target="_blank">
+                <div class="tiktok">
+                  <img src="image/Group 1171275074.png" alt="">
+                </div>
+              </a>
+              <a href="https://www.facebook.com/BXSeaofficial" target="_blank">
+                <div class="facebook">
+                  <img src="image/Group 117.png" alt="">
+                </div>
+              </a>
+            </div>
+            <div class="about-us-footer">
+              <a href="tentang.html">Tentang Kami <img src="image/arrow-right-white.png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2 box-center">
+            <div class="navbar-footer">
+              <h4>Rencanakan Kunjunganmu</h4>
+              <div class="items-navbar-footer">
+                <a href="ticketfee.html">Pesan Tiket</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="visitor-information.html">Informasi Pengunjung</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="schedule.html">Jadwal Pertunjukan</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="map.html">Denah Oceanarium</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="guide.html">Panduan Aksesibilitas</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 box-center">
+            <div class="navbar-footer">
+              <h4>Informasi</h4>
+              <div class="items-navbar-footer">
+                <a href="whats.html">Berita Terkini</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="tenant.html">Tenant Kami</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="merchandise.html">Merchandise</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 box-center">
+            <div class="navbar-footer">
+              <h4>Pusat Bantuan</h4>
+              <div class="items-navbar-footer">
+                <a href="contact.html">Hubungi Kami</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="faq.html">FAQ</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="index.html">Syarat & Ketentuan</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="index.html">Kebijakan Privasi</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="brand-footer">
+              <img src="image/Jaya Property True White.png" alt="">
+              <img src="image/logo_footer.png" alt="">
+            </div>
+            <div class="address-footer">
+              <p>Bintaro Jaya Xchange Mall 2 Lt. B1 - B2 CBD Bintaro Jaya , Jalan Sektor VII No. 2 , Pd. Jaya, Kec. Pondok Aren, Tangerang Selatan, Banten 15277 Indonesia</p>
+            </div>
+            <div class="corporate-footer">
+              <div class="left-grid">
+                <p>PT Jaya Real Property, Tbk.</p>
+                <span>CBD Emerald Blok CE/A No. 1, Boulevard Bintaro Jaya, Tangerang 15227 Indonesia</span>
+              </div>
+              <div class="right-grid">
+                <p>Jadilah Bagian dari Keluarga BXSea!</p>
+                <div class="btn-partnerships-footer">
+                  <a href="partnership.html">Gabung Sekarang</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="social-footer-mobile">
+              <a href="https://instagram.com/bxsea_official?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
+                <div class="instagram">
+                  <img src="image/Group 1171275076.png" alt="">
+                </div>
+              </a>
+              <a href="https://www.tiktok.com/@bxsea_official?_t=8hl0H4KuNA0&_r=1" target="_blank">
+                <div class="tiktok">
+                  <img src="image/Group 1171275074.png" alt="">
+                </div>
+              </a>
+              <a href="https://www.facebook.com/BXSeaofficial" target="_blank">
+                <div class="facebook">
+                  <img src="image/Group 117.png" alt="">
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="brand-footer-mobile">
+              <img src="image/Jaya Property True White.png" alt="">
+              <img src="image/logo_footer.png" alt="">
+            </div>
+          </div>
+          <div class="bg-darkline"></div>
+          <div class="copyright">
+            <p>Copyright . All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="bootstrap/js/jquery3.6.3.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="owl-carousel/dist/owl.carousel.min.js"></script>
+    <script src="gsap-public (3)/gsap-public/minified/gsap.min.js"></script>
+    <script src="gsap-public (3)/gsap-public/minified/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="gsap-public (3)/gsap-public/minified/CSSRulePlugin.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+      var popupTitles = {
+        wingstop: 'Wingstop',
+        jollytime: 'Jolly Time',
+        hophop: 'Hop Hop Signature',
+        fodegraf: 'Fodegraf Schedule',
+        merch: 'BXSea Official Merchandise Store',
+        brushy: 'Brushy Brush',
+        kelana: 'Kelana Kaia'
+      };
+
+      function openTenantPopup(id) {
+        var tpl = document.getElementById('tpl-' + id);
+        if (!tpl) return;
+        document.getElementById('tenant-popup-title').textContent = popupTitles[id] || '';
+        document.getElementById('tenant-popup-body').innerHTML = tpl.innerHTML;
+        document.getElementById('tenant-popup').classList.add('active');
+        document.getElementById('tenant-popup-overlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeTenantPopup() {
+        document.getElementById('tenant-popup').classList.remove('active');
+        document.getElementById('tenant-popup-overlay').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('tenant-popup-close').addEventListener('click', closeTenantPopup);
+      document.getElementById('tenant-popup-overlay').addEventListener('click', closeTenantPopup);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="owl-carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="owl-carousel/dist/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="splide-4.1.3/splide-4.1.3/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="image/logo-BXSea.png" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J9ERF53WJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-5J9ERF53WJ');
+    </script>
+    <title>Ticket Fee - BXSea</title>
+  </head>
+  <body>
+    <div class="loader-wrap">
+      <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#007bff" fill-opacity="1" d="M0,96L40,117.3C80,139,160,181,240,186.7C320,192,400,160,480,128C560,96,640,64,720,53.3C800,43,880,53,960,74.7C1040,96,1120,128,1200,138.7C1280,149,1360,139,1400,133.3L1440,128L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
+      </svg>
+    </div>
+    <div class="top-bar top-bar-bottom">
+      <div class="container top-bar-flex">
+        <div class="left-topbar">
+          <div class="time-secondbar">
+            <img src="image/icons8-clock-40.png" alt="">
+            <div class="time-block">
+              <h6>Senin - Minggu</h6>
+              <p>10:00 - 22:00 (Pembelian Tiket Terakhir pukul 21:00)</p>
+            </div>
+          </div>
+          <div class="adress-secondbar">
+            <img src="image/icons8-location-40.png" alt="">
+            <div class="address-block">
+              <h6>Bintaro Xchange Mall</h6>
+            </div>
+          </div>
+        </div>
+        <div class="right-topbar">
+          <div class="sosmed-topbar">
+            <a href="#" id="search-icon-btn" onclick="openSearchPopup(); return false;">
+              <img class="search-topbar" src="image/bxsea_icon_search.png" alt="">
+            </a>
+            <a href="https://instagram.com/bxsea_official?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" class="ig">
+              <img src="image/Group 1171275393.svg" alt="">
+            </a>
+            <a href="https://www.facebook.com/BXSeaofficial" target="_blank" class="fb">
+              <img src="image/Group 1171275394.svg" alt="">
+            </a>
+            <a href="https://www.tiktok.com/@bxsea_official?_t=8hl0H4KuNA0&_r=1" target="_blank" class="tiktok">
+              <img src="image/tiktok.svg" alt="">
+            </a>
+          </div>
+          <div class="dropdown">
+            <div class="select">
+              <img src="image/globe.svg" alt="">
+              <span class="selected">ID</span>
+              <div class="caret me-2"></div>
+            </div>
+            <div class="menu">
+              <li>
+                <a href="javascript:void(0)">EN</a>
+              </li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-navbar-contact top-bar-animation header-navbar-contact-bottom">
+      <nav class="nav">
+        <div class="container navbar__menu">
+          <a class="navbar-responsive" href="index.html">
+            <img src="image/logo-BXSea.png" alt="">
+          </a>
+          <div class="dropdown-">
+            <div class="select2">
+              <img src="image/globe.svg" alt="">
+              <span class="selected2">ID</span>
+              <div class="caret2 me-2"></div>
+            </div>
+            <div class="menu2">
+              <li>
+                <a href="javascript:void(0)">EN</a>
+              </li>
+            </div>
+          </div>
+          <div class="toggle__menu" id="toggle-menu">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </div>
+          <ul class="nav__list" id="nav-menu">
+            <div class="close__menu" id="close-menu">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <a href="index.html" class="logo-bexsea">
+              <img src="image/logo-BXSea.png" alt="">
+            </a>
+            <li class="nav__link">
+              <a href="index.html">Beranda</a>
+            </li>
+            <li class="dropdown__menu-">
+              <div class="text-dropdown-menu">
+                <p>Tiket</p>
+                <div class="arr-down"></div>
+              </div>
+              <div class="megamenu">
+                <ul class="content">
+                  <div class="title-megamenu-item">
+                    <h4>Tiket</h4>
+                  </div>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="ticketfee.html">Pesan Tiket</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="promotions.html">Promosi</a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="content">
+                  <div class="title-megamenu-item">
+                    <h4>Jelajahi BXSea Lebih Jauh</h4>
+                  </div>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="premium.html">Add-Ons</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="school.html">Program Sekolah</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="once.html">Momen Spesial</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="dropdown__menu-">
+              <div class="text-dropdown-menu">
+                <p>Jelajahi</p>
+                <div class="arr-down"></div>
+              </div>
+              <div class="megamenu">
+                <ul class="content">
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="highlight.html">Journey Utama</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="show.html">Pertunjukan</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="dropdown__menu-">
+              <div class="text-dropdown-menu">
+                <p>Info Kunjungan</p>
+                <div class="arr-down"></div>
+              </div>
+              <div class="megamenu">
+                <ul class="content">
+                  <div class="title-megamenu-item">
+                    <h4>Rencanakan Kunjunganmu</h4>
+                  </div>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="visitor-information.html">Informasi Pengunjung</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="schedule.html">Jadwal Pertunjukan</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="map.html">Denah Oceanarium</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="guide.html">Panduan Aksesibilitas</a>
+                    </div>
+                  </li>
+                </ul>
+                <ul class="content">
+                  <div class="title-megamenu-item">
+                    <h4>Info Selengkapnya</h4>
+                  </div>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="tenant.html">Tenant Kami</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="merchandise.html">Merchandise</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="faq.html">FAQ</a>
+                    </div>
+                  </li>
+                  <li class="megamenu__item">
+                    <div class="megamenu__link">
+                      <a href="contact.html">Hubungi Kami</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav__link">
+              <a href="whats.html">Berita Terkini</a>
+            </li>
+            <div class="contact">
+              <a href="https://ticket.bxsea.co.id/">Pesan Tiket</a>
+            </div>
+            <div class="sosmed-topbar2">
+              <a href="https://instagram.com/bxsea_official?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
+                <img src="image/Group 1171275393.svg" alt="">
+              </a>
+              <a href="https://www.facebook.com/BXSeaofficial" target="_blank">
+                <img src="image/Group 1171275394.svg" alt="">
+              </a>
+              <a class="tiktok-img" href="https://www.tiktok.com/@bxsea_official?_t=8hl0H4KuNA0&_r=1" target="_blank">
+                <img src="image/tiktok.svg" alt="">
+              </a>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <section class="sectionBanner">
+      <div class="hero-wrap2">
+        <div class="container">
+          <div class="hero-image2">
+            <img src="image/bxsea_image_bg-ticket.png" alt="">
+          </div>
+          <div class="row descBanner padding-banner">
+            <h1 class="banner-title">PESAN TIKET</h1>
+            <p class="banner-description">pesan tiket anda lebih awal agar rencana liburan makin nyaman</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="premiumpackage">
+      <div class="container">
+        <div class="title-premiumpackage">
+          <h1>Petualangan Menanti!</h1>
+          <p> Selamat datang di BXSea! Jelajahi terowongan bawah laut terbesar di Asia Tenggara! Temukan beragam spesies Biota laut dan nikmati keajaiban dunia bawah laut yang menakjubkan </p>
+        </div>
+        <div class="premiun-package-flex">
+          <div class="">
+            <div class="card-premiumpackage">
+              <div class="title-card-premium">
+                <h1>LONG JOURNEY</h1>
+              </div>
+              <div class="strength">
+                <p class="amount-zone">18 Zona</p>
+                <p> Dengan rute sepanjang kurang lebih 485 meter, 'Long Journey' akan membawamu melewati berbagai zona yang berisi koleksi ikan air tawar terbesar dan penuh warna, reptil, amfibi, dan masih banyak lagi! Temukan seluruh biota BXSea sepuasnya dengan paket Long Journey</p>
+                <div class="desc-strength">
+                  <img src="image/map_navigation 1.svg" alt="">
+                  <div class="box-zone-detail">
+                    <div class="zones-detail">
+                      <p>Sea Wave</p>
+                      <p>Hide & Seek</p>
+                      <p>Seahorse Empires</p>
+                      <p>Exotic Fish</p>
+                      <p>Schooling Fish</p>
+                      <p>Shark Path</p>
+                    </div>
+                    <div class="zones-detail">
+                      <p>Raja Ampat</p>
+                      <p>Rainforest</p>
+                      <p>Mangrove</p>
+                      <p>Touch pool</p>
+                      <p>King of River</p>
+                      <p>Children's playground</p>
+                    </div>
+                    <div class="zones-detail">
+                      <p>Jellyfish</p>
+                      <p>Activity room(For certain events)</p>
+                      <p>Sea Tunnel</p>
+                      <p>Sea Theatre</p>
+                      <p>Yellow Submarine</p>
+                      <p>Penguin</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img class="grass-gray" src="image/grass-gray.png" alt="">
+    </section>
+    <section class="ticketing">
+      <img class="grass-gray-rotate" src="image/grass-gray.png" alt="">
+      <img class="fishbuntal" src="image/fish-buntal.png" alt="">
+      <img class="shark4" src="image/fish.png" alt="">
+      <div class="container">
+        <div class="head-title-ticketing">
+          <h1>HARGA TIKET MASUK</h1>
+        </div>
+        <div class="box-nav-ticketing">
+          <a class="link-ourwork active" href="#work1" data-target="#work1">
+            <div class="title-ourwork">
+              <p>Regular</p>
+            </div>
+          </a>
+          <a class="link-ourwork" href="#work2" data-target="#work2">
+            <div class="title-ourwork">
+              <p>Group</p>
+            </div>
+          </a>
+        </div>
+        <div class="lity-hide" id="work1">
+          <div class="title-lityhide">
+            <p>Max. pembelian 10 tiket dalam 1x transaksi </p>
+          </div>
+          <div class="splide card-ticketing-splide" role="group" aria-label="">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide box-card-ticketing">
+                  <div class="card-ticketing">
+                    <div class="overlay-bg-card"></div>
+                    <div class="image-card-ticketing">
+                      <img src="image/bxsea-image-ticket-regular.png" alt="">
+                    </div>
+                    <div class="overlay-card-ticketing">
+                      <div class="desc-card-ticketing">
+                        <div class="title-card">
+                          <h3>Long Journey - Weekday</h3>
+                        </div>
+                        <p>Senin - Kamis</p>
+                        <div class="body-card-ticketing">
+                          <p>Rp.160.000</p>
+                          <div class="location-card-ticketing">
+                            <img src="image/dashicons_location.png" alt="">
+                            <p>18 Zona</p>
+                          </div>
+                        </div>
+                        <div class="footer-card-ticketing">
+                          <div class="link-buy-card-ticketing">
+                            <a href="javascript:void(0)">Segera Hadir</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="splide__slide box-card-ticketing">
+                  <div class="card-ticketing">
+                    <div class="overlay-bg-card"></div>
+                    <div class="image-card-ticketing">
+                      <img src="image/bxsea-image-ticket-regular2.png" alt="">
+                    </div>
+                    <div class="overlay-card-ticketing">
+                      <div class="desc-card-ticketing">
+                        <div class="title-card">
+                          <h3>Long Journey - Weekend</h3>
+                        </div>
+                        <p>Jumat - Minggu</p>
+                        <div class="body-card-ticketing">
+                          <p>Rp.190.000</p>
+                          <div class="location-card-ticketing">
+                            <img src="image/dashicons_location.png" alt="">
+                            <p>18 Zona</p>
+                          </div>
+                        </div>
+                        <div class="footer-card-ticketing">
+                          <div class="link-buy-card-ticketing">
+                            <a href="javascript:void(0)">Segera Hadir</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="lity-hide" id="work2">
+          <div class="title-lityhide">
+            <p>Max. pembelian 10 tiket dalam 1x transaksi</p>
+          </div>
+          <div class="splide card-ticketing-splide2" role="group" aria-label="">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide box-card-ticketing">
+                  <div class="card-ticketing">
+                    <div class="overlay-bg-card"></div>
+                    <div class="image-card-ticketing">
+                      <img src="image/bxsea-image-ticket-group.png" alt="">
+                    </div>
+                    <div class="overlay-card-ticketing">
+                      <div class="desc-card-ticketing">
+                        <div class="title-card">
+                          <h3>Long Journey - Weekday</h3>
+                        </div>
+                        <p>Senin - Kamis</p>
+                        <div class="body-card-ticketing">
+                          <p>Rp.145.000</p>
+                          <div class="location-card-ticketing">
+                            <img src="image/dashicons_location.png" alt="">
+                            <p>18 Zona</p>
+                          </div>
+                        </div>
+                        <div class="footer-card-ticketing">
+                          <div class="link-buy-card-ticketing">
+                            <a class="bg-blue-ticket" href="https://ticket.bxsea.co.id/group">Beli Sekarang</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="splide__slide box-card-ticketing">
+                  <div class="card-ticketing">
+                    <div class="overlay-bg-card"></div>
+                    <div class="image-card-ticketing">
+                      <img src="image/bxsea-image-ticket-group2.png" alt="">
+                    </div>
+                    <div class="overlay-card-ticketing">
+                      <div class="desc-card-ticketing">
+                        <div class="title-card">
+                          <h3>Long Journey - Weekend</h3>
+                        </div>
+                        <p>Jumat - Minggu</p>
+                        <div class="body-card-ticketing">
+                          <p>Rp.171.000</p>
+                          <div class="location-card-ticketing">
+                            <img src="image/dashicons_location.png" alt="">
+                            <p>18 Zona</p>
+                          </div>
+                        </div>
+                        <div class="footer-card-ticketing">
+                          <div class="link-buy-card-ticketing">
+                            <a class="bg-blue-ticket" href="https://ticket.bxsea.co.id/group">Beli Sekarang!</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="container explore-more">
+      <div class="left-grid">
+        <div class="title-explore-more">
+          <h1>Jelajahi pilihan <br> lainnya untuk Anda </h1>
+        </div>
+      </div>
+      <div class="right-grid">
+        <div class="box-explore-more">
+          <div class="image-box-explore-more">
+            <img src="image/boat-tour-image.png" alt="">
+            <div class="desc-box-explore-more">
+              <h4>Add-Ons</h4>
+            </div>
+          </div>
+        </div>
+        <div class="box-explore-more">
+          <div class="image-box-explore-more">
+            <img src="image/bxsea-image-ticket-group2.png" alt="">
+            <div class="desc-box-explore-more">
+              <h4>Program kunjungan Sekolah </h4>
+            </div>
+          </div>
+        </div>
+        <div class="box-explore-more">
+          <div class="image-box-explore-more">
+            <img src="image/bxsea_image_explore-more.png" alt="">
+            <div class="desc-box-explore-more">
+              <h4>Promosi</h4>
+            </div>
+          </div>
+        </div>
+    </section>
+    <footer class="shadow">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 d-flex flex-column justify-content-between">
+            <div class="social-footer">
+              <a href="https://instagram.com/bxsea_official?igshid=OGQ5ZDc2ODk2ZA==" target="_blank">
+                <div class="instagram">
+                  <img src="image/Group 1171275076.png" alt="">
+                </div>
+              </a>
+              <a href="https://www.tiktok.com/@bxsea_official?_t=8hl0H4KuNA0&_r=1" target="_blank">
+                <div class="tiktok">
+                  <img src="image/Group 1171275074.png" alt="">
+                </div>
+              </a>
+              <a href="https://www.facebook.com/BXSeaofficial" target="_blank">
+                <div class="facebook">
+                  <img src="image/Group 117.png" alt="">
+                </div>
+              </a>
+            </div>
+            <div class="about-us-footer">
+              <a href="tentang.html">About Us <img src="image/arrow-right-white.png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2 box-center">
+            <div class="navbar-footer">
+              <h4>Plan Your Visit</h4>
+              <div class="items-navbar-footer">
+                <a href="ticketfee.html">Book Tickets</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="visitor-information.html">Visitor Information</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="schedule.html">Show Schedule</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="map.html">Oceanarium Maps</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="guide.html">Accessibility Guide</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 box-center">
+            <div class="navbar-footer">
+              <h4>Information</h4>
+              <div class="items-navbar-footer">
+                <a href="tentang.html">Latest News</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="tenant.html">Our Tenants</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="merchandise.html">Merchandise</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-2 box-center">
+            <div class="navbar-footer">
+              <h4>Help & Support</h4>
+              <div class="items-navbar-footer">
+                <a href="whats.html">Contact Us</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="faq.html">FAQs</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="SK.html">Terms & Conditions</a>
+              </div>
+              <div class="items-navbar-footer">
+                <a href="privacy.html">Privacy Policy</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="brand-footer">
+              <img src="image/Jaya Property True White.png" alt="">
+              <img src="image/logo_footer.png" alt="">
+            </div>
+            <div class="address-footer">
+              <p>Bintaro Jaya Xchange Mall 2 Lt. B1 - B2 CBD Bintaro Jaya , Jalan Sektor VII No. 2 , Pd. Jaya, Kec. Pondok Aren, Tangerang Selatan, Banten 15277 Indonesia</p>
+            </div>
+            <div class="corporate-footer">
+              <div class="left-grid">
+                <p>PT Jaya Real Property, Tbk.</p>
+                <span>CBD Emerald Blok CE/A No. 1, Boulevard Bintaro Jaya, Tangerang 15227 Indonesia</span>
+              </div>
+              <div class="right-grid">
+                <p>Jadilah Bagian dari Keluarga BXSea!</p>
+                <div class="btn-partnerships-footer">
+                  <a href="partnership.html">Gabung Sekarang</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-darkline"></div>
+          <div class="copyright">
+            <p>Copyright . All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="bootstrap/js/jquery3.6.3.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="owl-carousel/dist/owl.carousel.min.js"></script>
+    <script src="gsap-public (3)/gsap-public/minified/gsap.min.js"></script>
+    <script src="splide-4.1.3/splide-4.1.3/dist/js/splide.min.js"></script>
+    <script src="splide-extension-auto-scroll-master/splide-extension-auto-scroll-master/dist/js/splide-extension-auto-scroll.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+      var splide2 = new Splide('.card-ticketing-splide', {
+        gap: 25,
+        snap: false,
+        perPage: 2,
+        pagination: false,
+        arrows: false,
+        breakpoints: {
+          500: {
+            perPage: 1,
+            gap: 10,
+          },
+          768: {
+            perPage: 2,
+            gap: 10,
+          },
+          992: {
+            perPage: 2,
+            gap: 10,
+          },
+          1024: {
+            perPage: 2,
+            gap: 10,
+          },
+          1200: {
+            perPage: 2,
+            gap: 10,
+          },
+        },
+      });
+      splide2.mount();
+      var splide7 = new Splide('.card-ticketing-splide2', {
+        gap: 25,
+        snap: false,
+        perPage: 2,
+        pagination: false,
+        arrows: false,
+        breakpoints: {
+          500: {
+            perPage: 1,
+            gap: 10,
+          },
+          768: {
+            perPage: 2,
+            gap: 10,
+          },
+          992: {
+            perPage: 2,
+            gap: 10,
+          },
+          1024: {
+            perPage: 2,
+            gap: 10,
+          },
+          1200: {
+            perPage: 2,
+            gap: 10,
+          },
+        },
+      });
+      splide7.mount();
+      $(document).ready(function() {
+        $('.lity-hide').not('#work1').hide();
+        $('.link-ourwork:first').addClass('active');
+        $('#work1').show();
+        $('.link-ourwork').on('click', function(e) {
+          e.preventDefault();
+          var target = $(this).attr('data-target');
+          $('.lity-hide').not(target).slideUp();
+          $(target).slideDown();
+          $('.link-ourwork').removeClass('active');
+          $(this).addClass('active');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<svg width="79" height="79" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_bii_1_779)">
+<circle cx="39.5" cy="39.5" r="39.5" fill="white" fill-opacity="0.1"/>
+<circle cx="39.5" cy="39.5" r="38.75" stroke="white" stroke-width="1.5"/>
+</g>
+<path d="M55.6816 34.5883C56.4821 35.014 57.1517 35.6494 57.6186 36.4266C58.0856 37.2037 58.3323 38.0933 58.3323 38.9999C58.3323 39.9066 58.0856 40.7961 57.6186 41.5733C57.1517 42.3505 56.4821 42.9859 55.6816 43.4116L34.3283 55.0233C30.89 56.8933 26.6666 54.4599 26.6666 50.6133V27.3883C26.6666 23.5383 30.89 21.1066 34.3283 22.9749L55.6816 34.5883Z" fill="white"/>
+<defs>
+<filter id="filter0_bii_1_779" x="-10.5333" y="-10.5333" width="100.067" height="100.067" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="5.26667"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_779"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_779" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-5.26667" dy="5.26667"/>
+<feGaussianBlur stdDeviation="2.63333"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="shape" result="effect2_innerShadow_1_779"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="5.26667" dy="-5.26667"/>
+<feGaussianBlur stdDeviation="2.63333"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.76 0 0 0 0 0.76 0 0 0 0 0.76 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="effect2_innerShadow_1_779" result="effect3_innerShadow_1_779"/>
+</filter>
+</defs>
+</svg>
