@@ -24,6 +24,8 @@ $reviewTitle = bxsea_plain_text($homeinfluencertitle[0]['masterdesc_title_en'] ?
 $ticketIntro = bxsea_plain_text($homedescticket[0]['masterdesc_desc_en'] ?? 'Get a BXSea ticket to enjoy access to a wide variety of unique marine species you have never seen before in Indonesia.');
 $newsTitle = bxsea_plain_text($homedescnews[0]['masterdesc_title_en'] ?? 'LATEST NEWS');
 $newsDesc = bxsea_plain_text($homedescnews[0]['masterdesc_desc_en'] ?? 'Stay updated with the latest BXSea events, programs, installations, and underwater experiences.');
+$experienceTitle = bxsea_plain_text($homedescexperience[0]['masterdesc_title_en'] ?? 'Get To Know More');
+$experienceDesc = bxsea_plain_text($homedescexperience[0]['masterdesc_desc_en'] ?? 'Our additional experiences bring you closer to marine life than ever before.');
 $reviewSlides = [];
 $normalizeHomeLabel = static function (?string $label, string $fallback = ''): string {
     $value = bxsea_plain_text($label ?? '') ?: $fallback;
@@ -131,13 +133,13 @@ if ($reviewSlides === []) {
 </section>
 
 <?php if (!empty($ticketexperience)): ?>
-<section class="container additional-experience">
+<section class="container additional-experience home-additional-experience">
     <div class="left-grid">
         <div class="title-additional-exp">
-            <h1>Get To Know <br> More <img class="arrow-right-additional-exp" src="<?= base_url('assets/landing/'); ?>image/arrow-right-blue.png" alt=""></h1>
+            <h1><?= esc($experienceTitle); ?> <img class="arrow-right-additional-exp" src="<?= base_url('assets/landing/'); ?>image/arrow-right-blue.png" alt=""></h1>
         </div>
         <div class="desc-additional-exp">
-            <p>Our additional experiences bring you closer to marine life than ever before.</p>
+            <p><?= esc($experienceDesc); ?></p>
         </div>
     </div>
     <div class="right-grid owl-carousel owl-additional-exp">

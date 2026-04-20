@@ -9,8 +9,6 @@ $seapecialSlides = array_values(array_slice(array_filter($allShows, static fn($s
 // Fallback: jika salah satu kosong, gunakan semua data
 if (empty($regularSlides)) { $regularSlides = array_values(array_slice($allShows, 0, 4)); }
 if (empty($seapecialSlides)) { $seapecialSlides = array_values(array_slice($allShows, 0, 4)); }
-$testimonialSource = !empty($hometestimoni) ? ($hometestimoni ?? []) : ($homeinfluencer ?? []);
-$testimonialSlides = array_slice($testimonialSource, 0, 2);
 $partnerSlides = array_slice($homepartner ?? [], 0, 1);
 $homeTicketCategories = array_values(array_filter($ticketcat ?? [], static function ($category) {
   return in_array((int) ($category['ticketcat_id'] ?? 0), [1, 2], true);
@@ -24,32 +22,84 @@ $shortcutShowAsset = bxsea_design_asset('home', 'shortcut_show', 'assets/landing
 $shortcutVisitorAsset = bxsea_design_asset('home', 'shortcut_visitor', 'assets/landing/image/visitor-information-icon-bxsea.png');
 $shortcutContactAsset = bxsea_design_asset('home', 'shortcut_contact', 'assets/landing/image/contactus-icon-bxsea.png');
 $ticketLocationIconAsset = bxsea_design_asset('ticket', 'location_icon', 'assets/landing/image/dashicons_location.png');
+$experienceHeading = bxsea_plain_text($homedescexperience[0]['masterdesc_title'] ?? '');
+$experienceDescription = bxsea_plain_text($homedescexperience[0]['masterdesc_desc'] ?? '');
+$partnerHeading = bxsea_plain_text($hometitlepartner[0]['masterdesc_desc'] ?? '') ?: 'Partner Kami';
+$normalizeTenantSummary = static function (?string $value, ?string $title = null, int $limit = 135): string {
+  $text = bxsea_plain_text($value);
+  $text = str_ireplace('souvernir', 'souvenir', $text);
+
+  if ($title && stripos($title, 'BXSea Merchandise Store') !== false) {
+    $text = 'Abadikan petualanganmu di BXSea dengan koleksi merchandise resmi kami yang bisa dibawa pulang sebagai kenang-kenangan spesial.';
+  }
+
+  if ($limit > 0) {
+    if (function_exists('mb_substr')) {
+      $text = mb_substr($text, 0, $limit);
+    } else {
+      $text = substr($text, 0, $limit);
+    }
+  }
+
+  return trim($text);
+};
+$defaultReviewSlides = [
+  [
+    'text' => 'Ini paket lengkap untuk liburan karena nyaman, seru! aku suka banget ke BXSea. Pasti aku dan keluarga bakal ke sini lagi',
+    'name' => 'Asri Welas',
+    'image' => base_url('assets/landing/image/testi1.jpg'),
+  ],
+  [
+    'text' => 'Happy bisa main di BXSea karena deket dari rumah jadi bisa bawa keluarga. Next mau ke sini lagi kalau udah ada pinguinnya!',
+    'name' => 'Aiman Ricky',
+    'image' => base_url('assets/landing/image/testi2.jpg'),
+  ],
+];
 $reviewSlides = [];
+$appendReviewSlide = static function (array &$target, string $text, string $name, string $image): void {
+  $text = trim($text);
+  $name = trim($name);
 
-foreach ($testimonialSlides as $slide) {
-  $reviewSlides[] = [
-    'text' => bxsea_plain_text($slide['testimoni_desc'] ?? ($slide['homeinfluencer_review'] ?? '')),
-    'name' => bxsea_plain_text($slide['testimoni_name'] ?? ($slide['homeinfluencer_name'] ?? '')),
-    'image' => !empty($slide['testimoni_pict'])
-      ? bxsea_asset_url('testimoni', $slide['testimoni_pict'], 'assets/landing/image/testi1.jpg')
-      : bxsea_asset_url('influencer', $slide['homeinfluencer_pict'] ?? '', 'assets/landing/image/testi1.jpg'),
+  if ($text === '' || $name === '') {
+    return;
+  }
+
+  $target[] = [
+    'text' => $text,
+    'name' => $name,
+    'image' => $image,
   ];
+};
+
+foreach (array_slice($hometestimoni ?? [], 0, 6) as $slide) {
+  $appendReviewSlide(
+    $reviewSlides,
+    bxsea_plain_text($slide['testimoni_desc'] ?? ''),
+    bxsea_plain_text($slide['testimoni_name'] ?? ''),
+    bxsea_asset_url('testimoni', $slide['testimoni_pict'] ?? '', 'assets/landing/image/testi1.jpg')
+  );
 }
 
-if ($reviewSlides === []) {
-  $reviewSlides = [
-    [
-      'text' => 'Ini paket lengkap untuk liburan karena nyaman, seru! aku suka banget ke BXSea. Pasti aku dan keluarga bakal ke sini lagi',
-      'name' => 'Asri Welas',
-      'image' => base_url('assets/landing/image/testi1.jpg'),
-    ],
-    [
-      'text' => 'Happy bisa main di BXSea karena deket dari rumah jadi bisa bawa keluarga. Next mau ke sini lagi kalau udah ada pinguinnya!',
-      'name' => 'Aiman Ricky',
-      'image' => base_url('assets/landing/image/testi2.jpg'),
-    ],
-  ];
+foreach (array_slice($homeinfluencer ?? [], 0, 6) as $slide) {
+  $appendReviewSlide(
+    $reviewSlides,
+    bxsea_plain_text($slide['homeinfluencer_review'] ?? ''),
+    bxsea_plain_text($slide['homeinfluencer_name'] ?? ''),
+    bxsea_asset_url('influencer', $slide['homeinfluencer_pict'] ?? '', 'assets/landing/image/testi2.jpg')
+  );
 }
+
+if (count($reviewSlides) < 2) {
+  foreach ($defaultReviewSlides as $slide) {
+    $reviewSlides[] = $slide;
+
+    if (count($reviewSlides) >= 2) {
+      break;
+    }
+  }
+}
+
+$reviewSlides = array_slice($reviewSlides, 0, 6);
 ?>
 
 <!-- Marquee Announcement -->
@@ -125,13 +175,13 @@ if ($reviewSlides === []) {
 
 <!-- Additional Experience -->
 <?php if(!empty($ticketexperience)): ?>
-<section class="container additional-experience">
+<section class="container additional-experience home-additional-experience">
   <div class="left-grid">
     <div class="title-additional-exp">
-      <h1>Kenali <br> Lebih Dalam <img class="arrow-right-additional-exp" src="<?= base_url('assets/landing/');?>image/arrow-right-blue.png" alt=""></h1>
+      <h1><?= esc($experienceHeading ?: 'Kenali <br> Lebih Dalam');?><img class="arrow-right-additional-exp" src="<?= base_url('assets/landing/');?>image/arrow-right-blue.png" alt=""></h1>
     </div>
     <div class="desc-additional-exp">
-      <p><?= isset($homedescexperience[0]) ? esc(bxsea_plain_text($homedescexperience[0]['masterdesc_desc'] ?? '')) : 'Pengalaman tambahan kami membawa Anda jauh lebih dekat dengan kehidupan laut!';?></p>
+      <p><?= esc($experienceDescription ?: 'Pengalaman tambahan kami membawa Anda jauh lebih dekat dengan kehidupan laut!');?></p>
     </div>
   </div>
   <div class="right-grid owl-carousel owl-additional-exp">
@@ -208,7 +258,7 @@ if ($reviewSlides === []) {
 <?php endif; ?>
 
 <?php if (!empty($homeEventItems)): ?>
-<section class="container event">
+<section class="container event home-event-section">
   <div class="left-grid">
     <div class="title-event">
       <h1>Event</h1>
@@ -242,7 +292,7 @@ if ($reviewSlides === []) {
 
 <!-- Reviews / Testimonial -->
 <?php if(!empty($reviewSlides)): ?>
-<section class="review-influencer">
+<section class="review-influencer home-review-section">
   <img class="frog" src="<?= base_url('assets/landing/');?>image/frog.png" alt="">
   <div class="image-absolute-review">
     <img class="image-absolute-review-influencer" src="<?= base_url('assets/landing/image/image-review-influencer4.png');?>" alt="">
@@ -278,7 +328,7 @@ if ($reviewSlides === []) {
 
 <!-- Tenant Section -->
 <?php if(!empty($tenantpict)): ?>
-<section class="Tenantus">
+<section class="Tenantus home-tenant-section">
   <div class="container">
     <div class="title-tenantus">
       <h1>Tenant Kami</h1>
@@ -300,10 +350,12 @@ if ($reviewSlides === []) {
       <ul class="splide__list">
         <?php foreach($tenantdesc AS $td): ?>
         <li class="splide__slide">
-          <div class="title-main-carousel">
-            <h1><?= esc(bxsea_plain_text($td['tenant_title'] ?? ''));?></h1>
+          <div class="tenant-home-summary">
+            <div class="title-main-carousel">
+              <h1><?= esc(bxsea_plain_text($td['tenant_title'] ?? ''));?></h1>
+            </div>
+            <p><?= esc($normalizeTenantSummary($td['tenant_desc'] ?? '', $td['tenant_title'] ?? ''));?></p>
           </div>
-          <p><?= esc(bxsea_plain_text($td['tenant_desc'] ?? ''));?></p>
         </li>
         <?php endforeach; ?>
       </ul>
@@ -367,7 +419,7 @@ if ($reviewSlides === []) {
 
 <!-- Ticket Section -->
 <?php if(!empty($ticketregular)): ?>
-<section class="ticketing">
+<section class="ticketing home-ticketing">
   <div class="container">
     <img class="octopus-ticket" src="<?= base_url('assets/landing/');?>image/octopus.png" alt="">
     <div class="head-title-ticketing">
@@ -451,7 +503,8 @@ if ($reviewSlides === []) {
   <img class="treasure-client" src="<?= base_url('assets/landing/');?>image/treasure.png" alt="">
   <div class="container">
     <div class="title-klienOcean">
-      <h2><?= isset($hometitlepartner[0]) ? esc(bxsea_plain_text($hometitlepartner[0]['masterdesc_desc'] ?? '')) : 'Mitra BXSea';?></h2>
+      <p class="label-klienOcean">Mitra BXSea</p>
+      <h2><?= esc($partnerHeading);?></h2>
     </div>
     <div class="row">
       <div class="splide klien-splide" role="group" aria-label="">

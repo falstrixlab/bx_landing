@@ -528,6 +528,7 @@ body {
     position: relative;
     width: 100%;
     padding-top: 15rem;
+    overflow: hidden;
 }
 .hero-image2 {
     position: absolute;
@@ -847,7 +848,7 @@ body {
 /* ADDITIONAL EXPERIENCE */
 .additional-experience {
     position: relative;
-    padding: 10rem 0 15rem 0;
+    padding: 5rem 0 7rem 0;
     display: flex;
     justify-content: center;
     gap: 2rem;
@@ -1039,7 +1040,7 @@ body {
 
 /* SHOW */
 .showocean {
-    padding-bottom: 20rem;
+    padding-bottom: 5rem;
 }
 .flex-show {
     display: flex;
@@ -1156,7 +1157,7 @@ body {
 /* EVENT */
 .event {
     position: relative;
-    padding-bottom: 10rem;
+    padding-bottom: 5rem;
     display: flex;
     gap: 5rem;
     justify-content: center;
@@ -1238,7 +1239,7 @@ body {
 /* REVIEW INFLUENCER */
 .review-influencer {
     position: relative;
-    padding-bottom: 25rem;
+    padding-bottom: 8rem;
 }
 .title-review-influencer  h1 {
     font-family: librebaskerville;
@@ -1248,7 +1249,7 @@ body {
     margin-bottom: 30px;
 }
 .review-influencer .container {
-    padding-top: 10rem;
+    padding-top: 4rem;
 }
 .background-white-review-influencer {
     position: absolute;
@@ -1403,7 +1404,7 @@ body {
 /* TENANT */
 .Tenantus {
     position: relative;
-    padding-bottom: 10rem;
+    padding-bottom: 5rem;
 }
 .title-tenantus h1 {
     position: relative;
@@ -1523,7 +1524,7 @@ body {
 /* INFORMATION */
 .new-information {
     position: relative;
-    padding: 0 7rem 10rem 7rem;
+    padding: 0 7rem 5rem 7rem;
 }
 .box-new-information {
     background-color: #F4F9FF;
@@ -1554,7 +1555,7 @@ body {
 }
 @media (max-width: 767px) {
     .new-information {
-        padding: 0 2rem 10rem 2rem;
+        padding: 0 2rem 5rem 2rem;
     }
     .box-new-information {
         background-color: #F4F9FF;
@@ -1764,7 +1765,7 @@ body {
 /* TICKETING */
 .ticketing {
     position: relative;
-    padding-bottom: 10rem;
+    padding-bottom: 5rem;
 }
 .octopus-ticket {
     position: absolute;
@@ -2079,7 +2080,7 @@ body {
  /* KLIEN OCEAN */
 .klienOcean {
     position:relative;
-    padding-bottom: 10rem;
+    padding-bottom: 5rem;
 }
 .title-klienOcean {
     position: relative;
@@ -2150,7 +2151,7 @@ body {
 }
 .box-partnerships {
     background-color: #f3f8fe;
-    padding: 0 0 10rem 0
+    padding: 0 0 5rem 0
 }
 .title-partnerships h1 {
     text-align: left;
@@ -2190,7 +2191,7 @@ body {
 }
 @media (max-width: 768px) {
     .box-partnerships {
-        padding: 2rem 0 10rem 0
+        padding: 2rem 0 5rem 0
     }
     .title-partnerships h1 {
         font-size: 32px;
@@ -2387,7 +2388,7 @@ footer {
 }
 .premiumpackage {
     position: relative;
-    padding: 5rem 0 10rem 0;
+    padding: 5rem 0 6rem 0;
 }
 .title-premiumpackage h1 {
     text-align: left;
@@ -2684,7 +2685,7 @@ footer {
 /* PROMOTIONS */
 .Promotions {
     position: relative;
-    padding: 10rem 0 25rem 0;
+    padding: 5rem 0 8rem 0;
 }
 .kerang {
     position: absolute;
@@ -2919,7 +2920,7 @@ body.no-scroll {
 /* ADDITIONAL EXPERIENCE DETAIL PAGE */
 .additional-experience-detail {
     position: relative;
-    padding: 10rem 0 15rem 0;
+    padding: 5rem 0 7rem 0;
     display: flex;
     justify-content: center;
     gap: 2rem;
@@ -3179,7 +3180,7 @@ body.no-scroll {
 }
 .contactus2 {
     position: relative;
-    padding-bottom: 10rem;
+    padding-bottom: 5rem;
 }
 .title-contactus2 {
     text-align: center;
@@ -3215,7 +3216,7 @@ body.no-scroll {
 }
 .contactus3 {
     position: relative;
-    padding-bottom: 10rem;
+    padding-bottom: 5rem;
 }
 .title-contactus3 {
     text-align: left;
@@ -3541,7 +3542,7 @@ body.no-scroll {
   line-height: 1.6;
 }
 .teacher-said {
-    padding: 10rem 0;
+    padding: 4rem 0;
 }
 .image-teacher-said-box {
     position: relative;
@@ -4280,7 +4281,7 @@ body.no-scroll {
   display: block;
 }
 .explore-mainjourney-section {
-    padding: 10rem 1rem;
+    padding: 5rem 1rem;
     position: relative;
 }
 .explore-mainjourney-section .title {
@@ -4375,7 +4376,7 @@ body.no-scroll {
     color: #00A9EE;
 }
 .additional-journey-zone {
-    padding: 10rem 0 5rem 0;
+    padding: 5rem 0;
     display: flex;
     justify-content: center;
     gap: 5rem;
@@ -5313,7 +5314,7 @@ body.no-scroll {
 /* FAQ */
 .FAQ {
     position: relative;
-    padding: 5rem 0 10rem 0;
+    padding: 5rem 0;
     color: #fff;
 }
 .title-faq {
@@ -5798,7 +5799,7 @@ body.no-scroll {
 
 /* WHATSNEW */
 .latest-news-section {
-    padding: 6rem 0;
+    padding: 4rem 0;
 }
 .latest-news-section-box {
     background-color: #F4F9FF;
@@ -5843,7 +5844,7 @@ body.no-scroll {
 }
 
 .whats-hub-section {
-    padding: 2rem 0 8rem;
+    padding: 2rem 0 4rem;
 }
 .whats-hub-tabs {
     display: flex;
@@ -6549,7 +6550,7 @@ body.no-scroll {
 /* MAP OCEANARIUM */
 .map-oceanarium {
     position: relative;
-    padding: 10rem 0;
+    padding: 5rem 0;
 }
 .desc-premium h1 {
     font-size: 50px;
@@ -6814,7 +6815,7 @@ body.no-scroll {
 /* SHOW BXSea */
 .ShowBXSea {
     position: relative;
-    padding: 10rem 0;
+    padding: 5rem 0;
 }
 .showbx-filter-tabs {
     display: flex;
@@ -13072,38 +13073,38 @@ body.no-scroll {
         padding-top: 5rem;
     }
     .SchoolPackage {
-        padding: 15rem 0 5rem 0;
+        padding: 5rem 0;
     }
     .Journeyutama {
-        padding-top: 15rem;
+        padding-top: 3rem;
     }
     .ShowBXSea {
-        padding: 15rem 0 10rem 0;
+        padding: 5rem 0;
     }
     .desc-premium {
         position: relative;
         z-index: 2;
     }
     .schedule {
-        padding: 15rem 0 15rem 0;
+        padding: 5rem 0;
     }
     .map-oceanarium {
-        padding: 15rem 0 10rem 0;
+        padding: 5rem 0;
     }
     .guide-acces {
-        padding: 20rem 0 5rem 0;
+        padding: 5rem 0;
     }
     .frog2 {
         top: 20%;
     }
     .Merchandise {
-        padding-top: 15rem;
+        padding-top: 3rem;
     }
     .FAQ {
-        padding: 10rem 0 10rem 0;
+        padding: 5rem 0;
     }
     .Contactus {
-        padding-top: 15rem;
+        padding-top: 3rem;
     }
     .octopus {
         top: 0;
@@ -13116,7 +13117,7 @@ body.no-scroll {
         z-index: 2;
     }
     .Oncelifetime {
-        padding: 10rem 0 5rem 0;
+        padding: 5rem 0;
     }
     .Aboutus {
         padding: 8rem 0 10rem 0;
@@ -14149,6 +14150,722 @@ body.no-scroll {
 /* END TENANT MOBILE */
 
 
+/* HOME TIDY OVERRIDES */
+.home-additional-experience {
+    padding: 6rem 0 8rem;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+.home-additional-experience .left-grid {
+    width: 360px;
+    flex: 0 0 360px;
+}
+
+.home-additional-experience .right-grid {
+    width: calc(100% - 360px);
+}
+
+.home-additional-experience .title-additional-exp h1 {
+    font-size: 64px;
+    line-height: .95;
+    margin-bottom: 1rem;
+}
+
+.home-additional-experience .desc-additional-exp {
+    max-width: 320px;
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+.home-additional-experience .box-additional-exp img {
+    height: 345px;
+}
+
+.home-additional-experience .desc-box-additional-exp {
+    max-height: 118px;
+}
+
+.home-additional-experience .desc-box-additional-exp .box-white {
+    padding: 0 14px 70px;
+}
+
+.home-additional-experience .desc-box-additional-exp h4 {
+    margin-bottom: .5rem;
+}
+
+.home-additional-experience .desc-box-additional-exp p {
+    font-size: 15px;
+    line-height: 1.45;
+}
+
+.home-additional-experience .box-additional-exp:hover .desc-box-additional-exp {
+    max-height: 220px;
+}
+
+.home-event-section {
+    padding: 2rem 0 7rem;
+    align-items: flex-start;
+    gap: 4rem;
+}
+
+.home-event-section .left-grid {
+    width: 320px;
+    flex: 0 0 320px;
+}
+
+.home-event-section .right-grid-box {
+    flex: 1;
+    min-width: 0;
+}
+
+.home-event-section .right-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.home-event-section .box-event {
+    max-width: none;
+}
+
+.home-event-section .image-box-event img {
+    height: 245px;
+    object-fit: cover;
+}
+
+.home-event-section .desc-box-event {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 16px 14px;
+    background: linear-gradient(180deg, rgba(0, 49, 105, 0.08) 0%, rgba(0, 33, 71, 0.84) 100%);
+    opacity: 1;
+    overflow: hidden;
+}
+
+.home-event-section .desc-box-event .box-white {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 16px;
+    padding: 14px 14px 12px;
+    transform: translateY(calc(100% - 76px));
+    transition: transform .3s ease;
+}
+
+.home-event-section .box-event:hover .desc-box-event .box-white {
+    transform: translateY(0);
+}
+
+.home-event-section .desc-box-event h4 {
+    font-size: 20px;
+    line-height: 1;
+    margin-bottom: .45rem;
+}
+
+.home-event-section .desc-box-event p {
+    font-size: 14px;
+    line-height: 1.45;
+    margin-bottom: 0;
+}
+
+.home-event-section .cta-ig-tiktok-event {
+    margin-top: 1.35rem;
+    font-size: 18px;
+}
+
+.review-influencer {
+    padding: 4rem 0 8rem;
+}
+
+.review-influencer .container {
+    position: relative;
+    padding-top: 3rem;
+}
+
+.background-white-review-influencer {
+    top: .5rem;
+    width: 520px;
+    height: 520px;
+}
+
+.title-review-influencer h1 {
+    max-width: 860px;
+    margin: 0 auto 1.75rem;
+    line-height: 1.1;
+}
+
+.review-influencer-splide {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.activies-said {
+    width: min(100%, 650px);
+    margin: 0 auto 2rem;
+    font-size: 22px;
+    line-height: 1.55;
+}
+
+.image-activies {
+    gap: .85rem;
+    padding-bottom: .35rem;
+}
+
+.review-influencer-splide .splide__arrow {
+    top: auto;
+    bottom: .2rem;
+}
+
+.review-influencer-splide .splide__arrow--prev {
+    left: calc(50% - 120px);
+}
+
+.review-influencer-splide .splide__arrow--next {
+    right: calc(50% - 120px);
+}
+
+.image-absolute-review-influencer,
+.image-absolute-review-influencer2,
+.image-absolute-review-influencer3,
+.image-absolute-review-influencer4 {
+    width: 240px;
+    height: 330px;
+}
+
+.image-absolute-review-influencer,
+.image-absolute-review-influencer2 {
+    top: 2rem;
+}
+
+.image-absolute-review-influencer3,
+.image-absolute-review-influencer4 {
+    top: 12rem;
+}
+
+.image-absolute-review-influencer3 {
+    right: 2rem;
+}
+
+.image-absolute-review-influencer4 {
+    left: 2rem;
+}
+
+.Tenantus {
+    padding: 2rem 0 6rem;
+}
+
+.title-tenantus h1 {
+    margin-bottom: 2.25rem;
+}
+
+#thumbnail-carousel {
+    width: min(100%, 1180px);
+    padding: 0 4rem;
+}
+
+#thumbnail-carousel .splide__list {
+    height: 230px;
+}
+
+#thumbnail-carousel .splide__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.45;
+}
+
+#thumbnail-carousel .splide__slide img {
+    width: 170px;
+    height: 170px;
+    margin-left: 0;
+}
+
+#thumbnail-carousel .splide__slide.is-active {
+    opacity: 1;
+    transform: scale(1.14);
+}
+
+#main-carousel {
+    max-width: 860px;
+    margin: 1rem auto 0;
+}
+
+.tenant-home-summary {
+    max-width: 660px;
+    margin: 0 auto;
+}
+
+.title-main-carousel h1 {
+    font-size: 58px;
+    margin-bottom: .9rem;
+}
+
+#main-carousel .splide__slide p {
+    width: min(100%, 620px);
+    font-size: 19px;
+    line-height: 1.65;
+}
+
+#main-carousel .splide__arrow {
+    top: 7.2rem;
+}
+
+#main-carousel .splide__arrow--prev {
+    left: -1rem;
+}
+
+#main-carousel .splide__arrow--next {
+    right: -1rem;
+}
+
+.btn-find-out-more-tenants {
+    margin-top: 1.5rem;
+}
+
+.home-ticketing {
+    padding-bottom: 4rem;
+}
+
+.home-ticketing .details-card-ticketing {
+    position: static;
+    transform: none;
+    margin-top: 2.25rem;
+    text-align: center;
+}
+
+.home-ticketing .box-nav-ticketing {
+    margin-bottom: 1.5rem;
+}
+
+.home-ticketing .ticket-tab-panel {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.home-ticketing .card-ticketing-splide .splide__list,
+.home-ticketing .card-ticketing-splide2 .splide__list {
+    gap: 1.5rem;
+}
+
+.klienOcean {
+    padding: 0 0 6rem;
+}
+
+.title-klienOcean {
+    margin-bottom: 2rem;
+}
+
+.label-klienOcean {
+    margin-bottom: .45rem;
+    color: #00A9EE;
+    font-family: montserrat_semibold;
+    font-size: 16px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.home-tenant-section {
+    padding-bottom: 2.5rem;
+}
+
+.home-tenant-section + .new-information {
+    padding-top: 0;
+}
+
+.ticket-page-banner .hero-wrap2 {
+    height: 68vh;
+    min-height: 520px;
+    padding-top: 10.5rem;
+}
+
+.ticket-page-banner .hero-image2,
+.ticket-page-banner .hero-image2 img {
+    height: 68vh;
+    min-height: 520px;
+}
+
+.ticket-page-banner .descBanner {
+    padding-top: 10rem;
+}
+
+.ticketfee-premiumpackage {
+    background: #dbe9fb;
+    padding: 4.5rem 0 5.5rem;
+}
+
+.ticketfee-premiumpackage .title-premiumpackage {
+    max-width: 1040px;
+    margin: 0 auto 2rem;
+}
+
+.ticketfee-premiumpackage .title-premiumpackage p {
+    width: min(100%, 960px);
+    margin-bottom: 2rem;
+}
+
+.ticketfee-premiumpackage .card-premiumpackage {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 34px 34px 30px;
+    box-shadow: 0 16px 34px rgba(0, 49, 105, 0.08);
+}
+
+.ticketfee-premiumpackage .strength p {
+    line-height: 1.45;
+}
+
+.ticketfee-premiumpackage .desc-strength {
+    display: block;
+    margin-bottom: 0;
+}
+
+.ticketfee-premiumpackage .desc-strength .row {
+    margin-top: .8rem;
+}
+
+.ticketfee-premiumpackage .grass-gray {
+    display: none;
+}
+
+.ticketfee-ticketing {
+    background: #dbe9fb;
+    padding: 3rem 0 4.5rem;
+    overflow: hidden;
+}
+
+.ticketfee-ticketing .head-title-ticketing {
+    margin-bottom: 2rem;
+}
+
+.ticketfee-ticketing .box-nav-ticketing {
+    margin-bottom: 1.25rem;
+}
+
+.ticketfee-ticketing .title-lityhide {
+    margin-bottom: 1rem;
+}
+
+.ticketfee-ticketing .ticket-tab-panel {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.ticketfee-ticketing .card-ticketing-splide .splide__list,
+.ticketfee-ticketing .card-ticketing-splide2 .splide__list {
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.ticketfee-ticketing .card-ticketing-splide .splide__slide,
+.ticketfee-ticketing .card-ticketing-splide2 .splide__slide {
+    max-width: 320px;
+}
+
+.ticketfee-ticketing .details-card-ticketing {
+    position: static;
+    transform: none;
+    margin-top: 2rem;
+}
+
+.ticketfee-ticketing .grass-gray-rotate,
+.ticketfee-ticketing .fishbuntal,
+.ticketfee-ticketing .shark4 {
+    display: none;
+}
+
+.ticketfee-explore-more {
+    background: #dbe9fb;
+    padding: 1rem 0 4.5rem;
+}
+
+.ticketfee-explore-more .left-grid {
+    width: 300px;
+    flex: 0 0 300px;
+}
+
+.ticketfee-explore-more .right-grid {
+    flex: 1;
+    justify-content: center;
+}
+
+.promotions-page {
+    background: #dbe9fb;
+    padding: 5rem 0 7rem;
+}
+
+.promotions-page .container {
+    max-width: 1180px;
+}
+
+.promotions-page .promotion-row {
+    align-items: center;
+    margin-bottom: 3rem !important;
+}
+
+.promotions-page .image-promotions img {
+    height: 420px;
+    border-radius: 24px;
+    box-shadow: 0 14px 30px rgba(0, 49, 105, 0.12);
+}
+
+.promotions-page .box-promotions {
+    min-height: 420px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 28px;
+    padding: 2rem 2.25rem;
+}
+
+.promotions-page .title-promotions h1 {
+    font-size: 42px;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.promotions-page .body-promotions,
+.promotions-page .body-promotions p,
+.promotions-page .body-promotions li {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #003169;
+}
+
+.promotions-page .kerang,
+.promotions-page .grass17 {
+    opacity: .85;
+}
+
+@media (max-width: 1400px) {
+    .home-additional-experience .title-additional-exp h1 {
+        font-size: 50px;
+    }
+
+    .home-event-section .right-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .background-white-review-influencer {
+        width: 480px;
+        height: 480px;
+    }
+
+    .image-absolute-review-influencer,
+    .image-absolute-review-influencer2,
+    .image-absolute-review-influencer3,
+    .image-absolute-review-influencer4 {
+        width: 210px;
+        height: 300px;
+    }
+
+    .title-main-carousel h1 {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 991px) {
+    .home-additional-experience {
+        display: block;
+        padding: 4rem 0 6rem;
+    }
+
+    .home-additional-experience .left-grid,
+    .home-additional-experience .right-grid {
+        width: 100%;
+    }
+
+    .home-additional-experience .left-grid {
+        margin-bottom: 2rem;
+    }
+
+    .home-event-section {
+        display: block;
+        padding-bottom: 5rem;
+    }
+
+    .home-event-section .left-grid {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .home-event-section .right-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .review-influencer {
+        padding: 3rem 0 9rem;
+    }
+
+    .background-white-review-influencer {
+        width: 430px;
+        height: 430px;
+    }
+
+    .activies-said {
+        font-size: 19px;
+    }
+
+    .image-absolute-review-influencer,
+    .image-absolute-review-influencer2,
+    .image-absolute-review-influencer3,
+    .image-absolute-review-influencer4 {
+        display: none;
+    }
+
+    #thumbnail-carousel {
+        padding: 0 2.5rem;
+    }
+
+    #thumbnail-carousel .splide__slide img {
+        width: 125px;
+        height: 125px;
+    }
+
+    .title-main-carousel h1 {
+        font-size: 40px;
+    }
+
+    #main-carousel .splide__slide p {
+        font-size: 17px;
+        width: min(100%, 520px);
+    }
+
+    #main-carousel .splide__arrow {
+        top: 5.9rem;
+    }
+
+    .ticket-page-banner .hero-wrap2,
+    .ticket-page-banner .hero-image2,
+    .ticket-page-banner .hero-image2 img {
+        min-height: 460px;
+    }
+
+    .ticketfee-premiumpackage,
+    .ticketfee-ticketing,
+    .ticketfee-explore-more,
+    .promotions-page {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .ticketfee-explore-more {
+        display: block;
+    }
+
+    .ticketfee-explore-more .left-grid {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .promotions-page .box-promotions {
+        min-height: auto;
+    }
+
+    .promotions-page .title-promotions h1 {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 767px) {
+    .ticket-page-banner .hero-wrap2 {
+        height: 54vh;
+        min-height: 360px;
+        padding-top: 8rem;
+    }
+
+    .ticket-page-banner .hero-image2,
+    .ticket-page-banner .hero-image2 img {
+        height: 54vh;
+        min-height: 360px;
+    }
+
+    .ticket-page-banner .descBanner {
+        padding-top: 7rem;
+    }
+
+    .home-additional-experience .title-additional-exp h1 {
+        font-size: 42px;
+    }
+
+    .home-event-section .right-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .review-influencer {
+        padding: 2rem 0 5rem;
+    }
+
+    .review-influencer .container {
+        padding-top: 2rem;
+    }
+
+    .background-white-review-influencer {
+        top: 45%;
+        width: min(86vw, 380px);
+        height: min(86vw, 380px);
+    }
+
+    .title-review-influencer h1 {
+        font-size: 34px;
+    }
+
+    .activies-said {
+        font-size: 18px;
+        margin-bottom: 1.5rem;
+    }
+
+    .review-influencer-splide .splide__arrow--prev {
+        left: calc(50% - 95px);
+    }
+
+    .review-influencer-splide .splide__arrow--next {
+        right: calc(50% - 95px);
+    }
+
+    .title-main-carousel h1 {
+        font-size: 34px;
+    }
+
+    .home-ticketing {
+        padding-bottom: 4rem;
+    }
+
+    .klienOcean {
+        padding: 0 0 5rem;
+    }
+
+    .ticketfee-premiumpackage {
+        padding: 3.5rem 0 4rem;
+    }
+
+    .ticketfee-premiumpackage .card-premiumpackage,
+    .promotions-page .box-promotions {
+        padding: 1.35rem;
+    }
+
+    .ticketfee-ticketing {
+        padding: 2.25rem 0 3.5rem;
+    }
+
+    .ticketfee-explore-more {
+        padding-bottom: 3.5rem;
+    }
+
+    .promotions-page {
+        padding: 3.5rem 0 5rem;
+    }
+
+    .promotions-page .image-promotions img {
+        height: auto;
+    }
+
+    .promotions-page .title-promotions h1 {
+        font-size: 28px;
+    }
+}
+/* END HOME TIDY OVERRIDES */
+
+
 /* =========================================
    SEARCH POPUP
    ========================================= */
@@ -14359,3 +15076,135 @@ body.no-scroll {
     }
 }
 /* END SEARCH POPUP */
+
+/* =========================================
+   PHASE 3 FIXES
+   ========================================= */
+
+/* Issue 8: Show slider - fix flex stretch gap */
+.flex-show {
+    align-items: flex-start;
+}
+
+/* Issue 9: Tenant section - fix #main-carousel excessive height */
+#main-carousel .splide__list {
+    height: auto !important;
+    align-items: flex-start !important;
+}
+#main-carousel .splide__slide {
+    height: auto !important;
+}
+
+/* Issue 10: Ticket section - fix card-ticketing-splide excessive height */
+.card-ticketing-splide .splide__list,
+.card-ticketing-splide2 .splide__list,
+.card-ticketing-splide3 .splide__list {
+    height: auto !important;
+    align-items: flex-start !important;
+}
+.card-ticketing-splide .splide__slide,
+.card-ticketing-splide2 .splide__slide,
+.card-ticketing-splide3 .splide__slide {
+    height: auto !important;
+}
+
+/* Issue 4: Tenant hover button - style button element */
+.btn-detail-tenant button {
+    display: inline-block;
+    padding: 8px 20px;
+    background: #003169;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: montserrat_medium;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.btn-detail-tenant button:hover {
+    background: #00a9ee;
+}
+
+/* Issue 6: Contact page - submit button style */
+.submit-message button {
+    padding: 10px 20px;
+    background-color: #FF3A93;
+    color: #fff;
+    font-family: montserrat_medium;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 1rem;
+}
+.submit-message button:hover {
+    background-color: #d6306e;
+}
+
+/* Issue 5: FAQ - ensure section background matches page */
+section.FAQ {
+    background-color: transparent;
+}
+
+/* Issue 3: Scroll-to-top FAB button */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 5rem;
+    width: 48px;
+    height: 48px;
+    background: #003169;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background 0.2s;
+    z-index: 9000;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}
+.scroll-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.scroll-to-top-btn:hover {
+    background: #00a9ee;
+}
+
+/* School program table - fix Splide height */
+.Schoolpackage-program-slide .splide__list {
+    height: auto !important;
+    align-items: flex-start !important;
+}
+.Schoolpackage-program-slide .splide__slide {
+    height: auto !important;
+}
+
+/* Page transition loader */
+.loader-wrap {
+    position: fixed;
+    z-index: 10000;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: #007bff;
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+    transition: transform 1.4s cubic-bezier(0.77, 0, 0.18, 1);
+    pointer-events: none;
+}
+.loader-wrap .wave {
+    width: 100%;
+    display: block;
+}
+.loader-wrap.loaded {
+    transform: translateY(-100%);
+}

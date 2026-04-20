@@ -164,10 +164,12 @@ $contactEmailAsset   = bxsea_design_asset('visit', 'contact_card_email',    'ass
                     <ul class="package-centers">
                       <li class="bg-blue-package">Basic</li>
                       <?php foreach($schoolvisitbasic AS $svb) { ?>
-                        <?php if ($svb['schoolvisit_basic'] != "-") { ?>
+                        <?php if ($svb['schoolvisit_basic'] === "-" || $svb['schoolvisit_basic'] === '') { ?>
+                        <li class="disabled"></li>
+                        <?php } elseif (is_numeric($svb['schoolvisit_basic'])) { ?>
                         <li><?= esc($svb['schoolvisit_basic']);?></li>
                         <?php } else { ?>
-                        <li class="disabled"></li>
+                        <li><img src="<?= base_url('assets/landing/');?>image/ceklist-schoolpackage.png" alt="✓" style="width:28px;height:28px;"></li>
                         <?php } ?>
                       <?php } ?>
                     </ul>
@@ -178,10 +180,12 @@ $contactEmailAsset   = bxsea_design_asset('visit', 'contact_card_email',    'ass
                     <ul class="package-centers">
                       <li class="bg-blue-package">Premium</li>
                       <?php foreach($schoolvisitpremium AS $svp) { ?>
-                        <?php if ($svp['schoolvisit_premium'] != "-") { ?>
+                        <?php if ($svp['schoolvisit_premium'] === "-" || $svp['schoolvisit_premium'] === '') { ?>
+                        <li class="disabled"></li>
+                        <?php } elseif (is_numeric($svp['schoolvisit_premium'])) { ?>
                         <li><?= esc($svp['schoolvisit_premium']);?></li>
                         <?php } else { ?>
-                        <li class="disabled"></li>
+                        <li><img src="<?= base_url('assets/landing/');?>image/ceklist-schoolpackage.png" alt="✓" style="width:28px;height:28px;"></li>
                         <?php } ?>
                       <?php } ?>
                     </ul>
@@ -192,10 +196,12 @@ $contactEmailAsset   = bxsea_design_asset('visit', 'contact_card_email',    'ass
                     <ul class="package-centers">
                       <li class="bg-blue-package">Special BXperience</li>
                       <?php foreach($schoolvisitspecial AS $svs) { ?>
-                        <?php if ($svs['schoolvisit_special'] != "-") { ?>
+                        <?php if ($svs['schoolvisit_special'] === "-" || $svs['schoolvisit_special'] === '') { ?>
+                        <li class="disabled"></li>
+                        <?php } elseif (is_numeric($svs['schoolvisit_special'])) { ?>
                         <li><?= esc($svs['schoolvisit_special']);?></li>
                         <?php } else { ?>
-                        <li class="disabled"></li>
+                        <li><img src="<?= base_url('assets/landing/');?>image/ceklist-schoolpackage.png" alt="✓" style="width:28px;height:28px;"></li>
                         <?php } ?>
                       <?php } ?>
                     </ul>
@@ -244,4 +250,25 @@ $contactEmailAsset   = bxsea_design_asset('visit', 'contact_card_email',    'ass
   </div>
 </section>
 
+<?= $this->endSection() ?>
+
+<?= $this->section('scripts') ?>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var el = document.querySelector('.Schoolpackage-program-slide');
+  if (el && window.Splide) {
+    var schoolSplide = new Splide('.Schoolpackage-program-slide', {
+      perPage   : 3,
+      pagination: false,
+      arrows    : false,
+      gap       : 5,
+      breakpoints: {
+        767: { perPage: 1, arrows: true },
+        992: { perPage: 2, arrows: true },
+      },
+    });
+    schoolSplide.mount();
+  }
+});
+</script>
 <?= $this->endSection() ?>

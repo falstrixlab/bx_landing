@@ -27,6 +27,8 @@
 </head>
 <body class="wrapgrid">
 
+  <div class="loader-wrap"><svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#007bff" fill-opacity="1" d="M0,96L40,117.3C80,139,160,181,240,186.7C320,192,400,160,480,128C560,96,640,64,720,53.3C800,43,880,53,960,74.7C1040,96,1120,128,1200,138.7C1280,149,1360,139,1400,133.3L1440,128L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path></svg></div>
+
   <?php
   $setupAddress = bxsea_plain_text($setup[0]['setup_address'] ?? 'Bintaro Xchange Mall');
   $setupTitle = bxsea_plain_text($setup[0]['setup_title'] ?? '') ?: 'BXSea';
@@ -187,17 +189,6 @@
         </ul>
       </div>
     </nav>
-  </div>
-
-  <!-- Search Popup -->
-  <div id="search-popup" class="search-popup" style="display:none;">
-    <div class="search-popup-inner">
-      <form action="<?= base_url('/id/berita');?>" method="get">
-        <input type="text" name="q" placeholder="Cari berita, promosi...">
-        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </form>
-      <button onclick="closeSearchPopup()" class="close-search"><i class="fa-solid fa-xmark"></i></button>
-    </div>
   </div>
 
   <?= $this->renderSection('content'); ?>
@@ -396,7 +387,7 @@
     mountSplideIfPresent('.card-ticketing-splide', {
       gap: 25,
       snap: false,
-      perPage: 4,
+      perPage: 2,
       pagination: false,
       arrows: false,
       breakpoints: {
@@ -414,11 +405,11 @@
           gap: 10,
         },
         1024: {
-          perPage: 3,
+          perPage: 2,
           gap: 10,
         },
         1200: {
-          perPage: 3,
+          perPage: 2,
           gap: 10,
         },
       },
@@ -527,23 +518,32 @@
       });
 
       var thumbnails = new Splide('#thumbnail-carousel', {
-        fixedWidth: 135,
-        fixedHeight: 135,
+        fixedWidth: 170,
+        fixedHeight: 170,
         rewind: true,
         perPage: 5,
-        gap: 10,
+        gap: 18,
         focus: 'center',
         type: 'loop',
         isNavigation: true,
         pagination: false,
+        padding: {
+          left: '2rem',
+          right: '2rem',
+        },
         breakpoints: {
+          991: {
+            fixedWidth: 125,
+            fixedHeight: 125,
+            gap: 14,
+          },
           600: {
             fixedWidth: 60,
             fixedHeight: 60,
           },
           768: {
-            fixedWidth: 80,
-            fixedHeight: 80,
+            fixedWidth: 90,
+            fixedHeight: 90,
           },
         },
       });
@@ -554,14 +554,72 @@
     });
 
     function openSearchPopup() {
-      document.getElementById('search-popup').style.display = 'flex';
+      var overlay = document.getElementById('search-popup-overlay');
+      if (overlay) overlay.style.display = 'flex';
     }
     function closeSearchPopup() {
-      document.getElementById('search-popup').style.display = 'none';
+      var overlay = document.getElementById('search-popup-overlay');
+      if (overlay) overlay.style.display = 'none';
     }
     document.addEventListener('keydown', function(e) {
       if(e.key === 'Escape') closeSearchPopup();
     });
+
+    // Scroll-to-top button
+    window.addEventListener('scroll', function() {
+      var btn = document.getElementById('scrollToTopBtn');
+      if (btn) {
+        if (window.scrollY > 300) { btn.classList.add('visible'); }
+        else { btn.classList.remove('visible'); }
+      }
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      var btn = document.getElementById('scrollToTopBtn');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+      }
+    });
+  </script>
+  <?= $this->renderSection('scripts'); ?>
+  <button class="scroll-to-top-btn" id="scrollToTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+  <script>
+    // Page transition loader: slide up after page loads
+    (function() {
+      var loader = document.querySelector('.loader-wrap');
+      function hideLoader() {
+        if (!loader) return;
+        setTimeout(function() {
+          loader.classList.add('loaded');
+          setTimeout(function() { loader.style.display = 'none'; }, 1500);
+        }, 150);
+      }
+      if (document.readyState === 'complete') {
+        hideLoader();
+      } else {
+        window.addEventListener('load', hideLoader);
+      }
+      // Re-show on link navigation
+      document.addEventListener('click', function(e) {
+        var a = e.target.closest('a[href]');
+        if (!a) return;
+        var href = a.getAttribute('href');
+        if (!href || href === '#' || href.startsWith('javascript') || href.startsWith('mailto') || href.startsWith('tel') || href.startsWith('http') && !href.includes(window.location.hostname)) return;
+        if (a.getAttribute('target') === '_blank') return;
+        loader = document.querySelector('.loader-wrap');
+        if (loader) {
+          loader.style.display = 'flex';
+          loader.style.transition = 'none';
+          loader.style.transform = 'translateY(100%)';
+          loader.offsetHeight; // force reflow
+          loader.style.transition = '';
+          loader.style.transform = 'translateY(0)';
+        }
+      });
+    })();
   </script>
 </body>
 </html>

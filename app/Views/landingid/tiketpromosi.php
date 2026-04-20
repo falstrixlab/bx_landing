@@ -5,6 +5,8 @@
 $promoHeroAsset = bxsea_design_asset('promotion', 'hero', 'assets/landing/image/bxsea_image_bg-ticket.png');
 $promoShellAsset = bxsea_design_asset('promotion', 'shell', 'assets/landing/image/BXSea Asset plus-13 1.png');
 $promoGrassAsset = bxsea_design_asset('promotion', 'grass', 'assets/landing/image/bg-grass.png');
+$promoTitle = bxsea_plain_text($promoheader[0]['masterdesc_title'] ?? 'PROMO SPESIAL');
+$promoDesc = bxsea_plain_text($promoheader[0]['masterdesc_desc'] ?? 'Jangan lewatkan penawaran terbaru dari kami!');
 
 function bxsea_clean_promotion_html(?string $html): string
 {
@@ -25,14 +27,14 @@ function bxsea_clean_promotion_html(?string $html): string
         <img src="<?= $promoHeroAsset; ?>" alt="">
       </div>
       <div class="row descBanner padding-banner">
-        <h1 class="banner-title">PROMO SPESIAL</h1>
-        <p class="banner-description">Jangan lewatkan penawaran terbaru dari kami!</p>
+        <h1 class="banner-title"><?= esc($promoTitle); ?></h1>
+        <p class="banner-description"><?= esc($promoDesc); ?></p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="Promotions">
+<section class="Promotions promotions-page">
   <img class="kerang" src="<?= $promoShellAsset; ?>" alt="">
   <div class="container">
     <?php if (!empty($promo)): ?>

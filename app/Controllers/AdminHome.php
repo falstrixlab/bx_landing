@@ -11,6 +11,105 @@ class AdminHome extends BaseController {
         $this->db = \Config\Database::connect();
         $this->session = \Config\Services::session();
     }
+
+    public function index()
+    {
+        if (session()->get('islogin') != TRUE)
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+
+        $countTable = function (string $table, array $where = []): int {
+            return count($this->Crud->readData('*', $table, $where, '', '', '', '', ''));
+        };
+
+        $data['primarySections'] = [
+            [
+                'title' => 'Announcement',
+                'description' => 'Teks marquee paling atas pada halaman home.',
+                'href' => base_url('adminsite/home/announcement'),
+                'meta' => $countTable('tbl_homeannouncement') . ' item',
+            ],
+            [
+                'title' => 'Banner Utama',
+                'description' => 'Visual hero banner di area utama homepage.',
+                'href' => base_url('adminsite/home/banner'),
+                'meta' => $countTable('tbl_homebanner') . ' item',
+            ],
+            [
+                'title' => 'Fitur Slide',
+                'description' => 'Slide utama setelah shortcut ticket dan map.',
+                'href' => base_url('adminsite/home/fiturslide'),
+                'meta' => $countTable('tbl_homefiturslide') . ' item',
+            ],
+            [
+                'title' => 'Deskripsi Home',
+                'description' => 'Copy per section untuk home seperti berita, testimoni, dan tiket.',
+                'href' => base_url('adminsite/home/description'),
+                'meta' => $countTable('tbl_masterdesc', ['masterdesc_menu' => 'home']) . ' section copy',
+            ],
+            [
+                'title' => 'Review Pengunjung',
+                'description' => 'Testimoni utama yang tampil pada slider review home.',
+                'href' => base_url('adminsite/home/testimoni'),
+                'meta' => $countTable('tbl_hometestimoni') . ' review',
+            ],
+            [
+                'title' => 'Review Influencer',
+                'description' => 'Cadangan review tambahan untuk slider home.',
+                'href' => base_url('adminsite/home/influencer'),
+                'meta' => $countTable('tbl_homeinfluencer') . ' review',
+            ],
+            [
+                'title' => 'Partner',
+                'description' => 'Logo partner yang tampil di bawah section tiket.',
+                'href' => base_url('adminsite/home/partner'),
+                'meta' => $countTable('tbl_homepartner') . ' partner',
+            ],
+            [
+                'title' => 'Konten Sosial Media',
+                'description' => 'Konten embed atau referensi sosial media untuk area home.',
+                'href' => base_url('adminsite/home/sosmedcontent'),
+                'meta' => $countTable('tbl_homesosmedcontent') . ' item',
+            ],
+            [
+                'title' => 'Setup Landing',
+                'description' => 'Identitas global landing seperti header, footer, dan kontak utama.',
+                'href' => base_url('adminsite/master/setup'),
+                'meta' => 'global',
+            ],
+        ];
+
+        $data['relatedSections'] = [
+            [
+                'title' => 'Event di Home',
+                'description' => 'Card event home mengambil data dari modul promotion.',
+                'href' => base_url('adminsite/ticketing/promotion'),
+                'meta' => $countTable('tbl_ticketpromotion') . ' event',
+            ],
+            [
+                'title' => 'Highlight Tiket',
+                'description' => 'Section pemesanan tiket home memakai data ticketing utama.',
+                'href' => base_url('adminsite/ticketing/masterticket'),
+                'meta' => $countTable('tbl_ticket') . ' tiket',
+            ],
+            [
+                'title' => 'Tenant di Home',
+                'description' => 'Carousel tenant home memakai data tenant dari Info Kunjungan.',
+                'href' => base_url('adminsite/visit/tenant'),
+                'meta' => $countTable('tbl_visittenant') . ' tenant',
+            ],
+            [
+                'title' => 'Berita di Home',
+                'description' => 'Card berita pada home memakai data artikel utama.',
+                'href' => base_url('adminsite/master/article'),
+                'meta' => $countTable('tbl_article') . ' artikel',
+            ],
+        ];
+
+        echo view('administrator/home/overview', $data);
+    }
     /* Banner Page */ 
     public function banner() {
         if(session()->get('islogin') == TRUE)

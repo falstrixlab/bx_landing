@@ -32,6 +32,8 @@ $contactEmailAsset = bxsea_design_asset('visit', 'contact_card_email', 'assets/l
 <?php endif; ?>
 
 <section class="Contactus">
+  <img class="octopus" src="<?= base_url('assets/landing/');?>image/BXSea Asset plus-07 1.svg" alt="">
+  <img class="octopus2" src="<?= base_url('assets/landing/');?>image/BXSea Asset plus-08 2.svg" alt="">
   <div class="container">
     <div class="title-Contactus">
       <h1>Kirimkan Pesan Anda</h1>

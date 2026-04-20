@@ -95,6 +95,113 @@
     color: #7e8299;
     font-size: 0.85rem;
   }
+
+  .bxsea-overview-page {
+    padding-bottom: 2rem;
+  }
+
+  .bxsea-overview-hero {
+    border: 0;
+    background: linear-gradient(135deg, #e9f4ff 0%, #ffffff 52%, #eef9f4 100%);
+    box-shadow: 0 18px 48px rgba(24, 28, 50, 0.08);
+  }
+
+  .bxsea-overview-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(54, 153, 255, 0.12);
+    color: #0b5ed7;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .bxsea-overview-title {
+    margin: 1rem 0 0.6rem;
+    color: #181c32;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .bxsea-overview-copy {
+    max-width: 60rem;
+    margin: 0;
+    color: #5e6278;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .bxsea-overview-card {
+    display: block;
+    border: 1px solid #edf2f7;
+    border-radius: 1rem;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    box-shadow: 0 10px 26px rgba(24, 28, 50, 0.05);
+  }
+
+  .bxsea-overview-card:hover {
+    transform: translateY(-4px);
+    border-color: #8bc4ff;
+    box-shadow: 0 18px 38px rgba(24, 28, 50, 0.12);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .bxsea-overview-card .card-body {
+    padding: 1.35rem;
+  }
+
+  .bxsea-overview-card h4 {
+    margin: 0.7rem 0 0.6rem;
+    color: #181c32;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .bxsea-overview-card p {
+    margin: 0;
+    color: #7e8299;
+    line-height: 1.65;
+    min-height: 4.9rem;
+  }
+
+  .bxsea-overview-meta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    background: #f3f6f9;
+    color: #3f4254;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .bxsea-overview-link {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: #0b5ed7;
+    font-weight: 700;
+  }
+
+  .bxsea-overview-card--related {
+    background: #fbfcfe;
+  }
+
+  @media (max-width: 991.98px) {
+    .bxsea-overview-title {
+      font-size: 1.55rem;
+    }
+
+    .bxsea-overview-card p {
+      min-height: 0;
+    }
+  }
 </style>
 
 <script>

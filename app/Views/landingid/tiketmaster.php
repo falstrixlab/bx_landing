@@ -10,27 +10,31 @@ $ticketExploreSchoolAsset = bxsea_design_asset('ticket', 'explore_school', 'asse
 $ticketExploreSpecialAsset = bxsea_design_asset('ticket', 'explore_special', 'assets/landing/image/bxsea_image_bg-special.png');
 $ticketLongTitleParts = explode('||', bxsea_plain_text($ticketlong[0]['masterdesc_title'] ?? '18 Zona'));
 $ticketLongDescParts = explode('||', bxsea_plain_text($ticketlong[0]['masterdesc_desc'] ?? ''));
+$ticketBannerTitle = bxsea_plain_text($ticketheader[0]['masterdesc_title'] ?? 'PESAN TIKET');
+$ticketBannerDesc = bxsea_plain_text($ticketheader[0]['masterdesc_desc'] ?? 'Pesan tiket anda lebih awal agar rencana liburan makin nyaman');
+$ticketJourneyTitle = bxsea_plain_text($ticketjourney[0]['masterdesc_title'] ?? 'Petualangan Menanti!');
+$ticketJourneyDesc = bxsea_plain_text($ticketjourney[0]['masterdesc_desc'] ?? 'Selamat datang di BXSea! Jelajahi terowongan bawah laut terbesar di Asia Tenggara! Temukan beragam spesies biota laut dan nikmati keajaiban dunia bawah laut yang menakjubkan');
 ?>
 
-<section class="sectionBanner">
+<section class="sectionBanner ticket-page-banner">
   <div class="hero-wrap2">
     <div class="container">
       <div class="hero-image2">
         <img src="<?= $ticketHeroAsset; ?>" alt="">
       </div>
       <div class="row descBanner padding-banner">
-        <h1 class="banner-title">PESAN TIKET</h1>
-        <p class="banner-description">pesan tiket anda lebih awal agar rencana liburan makin nyaman</p>
+        <h1 class="banner-title"><?= esc($ticketBannerTitle); ?></h1>
+        <p class="banner-description"><?= esc($ticketBannerDesc); ?></p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="premiumpackage">
+<section class="premiumpackage ticketfee-premiumpackage">
   <div class="container">
     <div class="title-premiumpackage">
-      <h1>Petualangan Menanti!</h1>
-      <p>Selamat datang di BXSea! Jelajahi terowongan bawah laut terbesar di Asia Tenggara! Temukan beragam spesies Biota laut dan nikmati keajaiban dunia bawah laut yang menakjubkan</p>
+      <h1><?= esc($ticketJourneyTitle); ?></h1>
+      <p><?= esc($ticketJourneyDesc); ?></p>
     </div>
     <div class="premiun-package-flex">
       <div class="card-premiumpackage">
@@ -67,7 +71,7 @@ $ticketLongDescParts = explode('||', bxsea_plain_text($ticketlong[0]['masterdesc
   </div>
 </section>
 
-<section class="ticketing">
+<section class="ticketing ticketfee-ticketing">
   <img class="grass-gray-rotate" src="<?= base_url('assets/landing/');?>image/grass-gray.png" alt="">
   <img class="fishbuntal" src="<?= base_url('assets/landing/');?>image/fish-buntal.png" alt="">
   <img class="shark4" src="<?= base_url('assets/landing/');?>image/fish.png" alt="">
@@ -156,7 +160,7 @@ $ticketLongDescParts = explode('||', bxsea_plain_text($ticketlong[0]['masterdesc
   </div>
 </section>
 
-<section class="container explore-more">
+<section class="container explore-more ticketfee-explore-more">
   <div class="left-grid">
     <div class="title-explore-more">
       <h1>Jelajahi pilihan <br> lainnya untuk Anda</h1>

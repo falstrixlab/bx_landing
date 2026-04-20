@@ -103,9 +103,13 @@
                     }
                 }
                 $query = $builder->get();
+                if ($query === false) {
+                    return [];
+                }
+
                 return $query->getResultArray();
             }
-            catch(\Exception $e) {
+            catch(\Throwable $e) {
                 log_message('error', $e->getMessage());
                 return [];
             }

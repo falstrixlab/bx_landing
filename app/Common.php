@@ -105,20 +105,30 @@ if (! function_exists('bxsea_design_asset_records')) {
 		if ($refresh || $records === null) {
 			$records = [];
 
-			$db = \Config\Database::connect();
-			if (! $db->tableExists('tbl_designasset')) {
-				return $records;
-			}
+			try {
+				$db = \Config\Database::connect();
+				if (! $db->tableExists('tbl_designasset')) {
+					return $records;
+				}
 
-			$rows = $db->table('tbl_designasset')
-				->where('designasset_status', 1)
-				->orderBy('designasset_group', 'ASC')
-				->orderBy('designasset_sort', 'ASC')
-				->get()
-				->getResultArray();
+				$query = $db->table('tbl_designasset')
+					->where('designasset_status', 1)
+					->orderBy('designasset_group', 'ASC')
+					->orderBy('designasset_sort', 'ASC')
+					->get();
 
-			foreach ($rows as $row) {
-				$records[$row['designasset_group']][$row['designasset_key']] = $row;
+				if ($query === false) {
+					return $records;
+				}
+
+				$rows = $query->getResultArray();
+
+				foreach ($rows as $row) {
+					$records[$row['designasset_group']][$row['designasset_key']] = $row;
+				}
+			} catch (\Throwable $e) {
+				log_message('error', $e->getMessage());
+				return [];
 			}
 		}
 

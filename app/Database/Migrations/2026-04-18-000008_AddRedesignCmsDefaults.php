@@ -11,6 +11,14 @@ class AddRedesignCmsDefaults extends Migration
         if ($this->db->tableExists('tbl_masterdesc')) {
             $defaults = [
                 [
+                    'masterdesc_position' => 'homedescexperience',
+                    'masterdesc_menu' => 'ticket',
+                    'masterdesc_title' => 'Kenali Lebih Dalam',
+                    'masterdesc_title_en' => 'Get To Know More',
+                    'masterdesc_desc' => 'Pengalaman tambahan kami membawa Anda jauh lebih dekat dengan kehidupan laut!',
+                    'masterdesc_desc_en' => 'Our additional experiences bring you even closer to marine life.',
+                ],
+                [
                     'masterdesc_position' => 'promotionheader',
                     'masterdesc_menu' => 'ticket',
                     'masterdesc_title' => 'PROMO SPESIAL',

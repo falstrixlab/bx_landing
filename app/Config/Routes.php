@@ -92,6 +92,7 @@ $routes->group('adminsite', function($routes){
     $routes->get('category/ticketcategory/delete/(:num)', 'AdminCategory::delete_ticketcategory/$1');
 
     // Home Routes
+    $routes->get('home', 'AdminHome::index');
     $routes->get('home/description', 'AdminHome::description');
     $routes->get('home/description/add', 'AdminHome::add_description');
     $routes->post('home/description/runadd', 'AdminHome::run_add_description');

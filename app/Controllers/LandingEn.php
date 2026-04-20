@@ -50,6 +50,7 @@ class LandingEn extends BaseController
         $data['homedescbanner'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'homedescbanner'], '', '', '', '', '');
         $data['homedescticket'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'homedescticket'], '', '', '', '', '');
         $data['homedescnews'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'homedescnews'], '', '', '', '', '');
+        $data['homedescexperience'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'homedescexperience'], '', '', '', '', '');
         $data['homedesctestimoni'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'homedesctestimoni'], '', '', '', '', '');
         $data['homedescsosmed'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'homedescsosmed'], '', '', '', '', '');
         $data['homedescpartner'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'homedescpartner'], '', '', '', '', '');
