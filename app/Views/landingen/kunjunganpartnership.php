@@ -1,10 +1,19 @@
-<?= $this->extend('landingen/landingbase'); ?>
+﻿<?= $this->extend('landingen/landingbase'); ?>
 <?= $this->section('content') ?>
+
+<?php
+$partnershipHeroAsset       = bxsea_design_asset('visit', 'hero_contact',                'assets/landing/image/bxsea_image_bg-tenant.png');
+$partnershipShowcase1       = bxsea_design_asset('visit', 'partnership_showcase_1',       'assets/landing/image/bxsea_image_partnership2.png');
+$partnershipShowcase2       = bxsea_design_asset('visit', 'partnership_showcase_2',       'assets/landing/image/bxsea_image_partnership.png');
+$partnershipOpportunity1    = bxsea_design_asset('visit', 'partnership_opportunity_1',    'assets/landing/image/bxsea_image_partnership_opportunity.png');
+$partnershipOpportunity2    = bxsea_design_asset('visit', 'partnership_opportunity_2',    'assets/landing/image/bxsea_image_partnership_opportunity2.png');
+$partnershipOpportunity3    = bxsea_design_asset('visit', 'partnership_opportunity_3',    'assets/landing/image/bxsea_image_partnership_opportunity3.png');
+?>
 
 <section class="sectionBanner">
   <div class="hero-wrap2">
     <div class="hero-image2">
-      <img src="<?= base_url('assets/landing/');?>image/bxsea_image_bg-tenant.png" alt="Partnership background">
+      <img src="<?= $partnershipHeroAsset; ?>" alt="">
     </div>
     <div class="container">
       <div class="row descBanner2">
@@ -26,8 +35,14 @@
       <p>As a home for thousands of marine species, BXSea is committed to delivering educational entertainment that inspires curiosity, conservation, and connection.</p>
     </div>
     <div class="row justify-content-center g-4 mb-5 pb-5">
-      <div class="col-md-4"><img src="<?= base_url('assets/landing/');?>image/bxsea_image_partnership2.png" class="img-fluid rounded-img" alt="Partnership image 1"></div>
-      <div class="col-md-4"><img src="<?= base_url('assets/landing/');?>image/bxsea_image_partnership.png" class="img-fluid rounded-img" alt="Partnership image 2"></div>
+      <?php if (!empty($partnershipImages)): foreach ($partnershipImages as $pi): ?>
+      <div class="col-md-4">
+        <img src="<?= bxsea_asset_url('partnership', $pi['partnership_pict'] ?? '', 'assets/landing/image/bxsea_image_partnership2.png');?>" class="img-fluid rounded-img" alt="">
+      </div>
+      <?php endforeach; else: ?>
+      <div class="col-md-4"><img src="<?= $partnershipShowcase1; ?>" class="img-fluid rounded-img" alt=""></div>
+      <div class="col-md-4"><img src="<?= $partnershipShowcase2; ?>" class="img-fluid rounded-img" alt=""></div>
+      <?php endif; ?>
     </div>
   </div>
 </section>
@@ -39,21 +54,21 @@
       <div class="row g-4">
         <div class="col-md-4">
           <div class="card-partner">
-            <img src="<?= base_url('assets/landing/');?>image/bxsea_image_partnership_opportunity.png" class="img-fluid card-img" alt="Mission alignment">
+            <img src="<?= $partnershipOpportunity1; ?>" class="img-fluid card-img" alt="">
             <h6>Mission Alignment</h6>
             <p>Join BXSea in inspiring people of all ages to value the ocean and support ongoing conservation efforts.</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card-partner">
-            <img src="<?= base_url('assets/landing/');?>image/bxsea_image_partnership_opportunity2.png" class="img-fluid card-img" alt="Community engagement">
+            <img src="<?= $partnershipOpportunity2; ?>" class="img-fluid card-img" alt="">
             <h6>Community Engagement</h6>
             <p>BXSea builds meaningful connections among families, educators, and curious individuals through shared educational experiences.</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card-partner">
-            <img src="<?= base_url('assets/landing/');?>image/bxsea_image_partnership_opportunity3.png" class="img-fluid card-img" alt="Brand awareness">
+            <img src="<?= $partnershipOpportunity3; ?>" class="img-fluid card-img" alt="">
             <h6>Brand Awareness</h6>
             <p>Create authentic visibility for both brands through a partnership grounded in real experiences and positive public impact.</p>
           </div>
@@ -63,9 +78,9 @@
   </div>
 </section>
 
-<?php if(session()->getFlashdata('success')): ?>
+<?php if (session()->getFlashdata('success')): ?>
 <div class="alert alert-success container mt-3">Your message has been sent successfully.</div>
-<?php elseif(session()->getFlashdata('failed')): ?>
+<?php elseif (session()->getFlashdata('failed')): ?>
 <div class="alert alert-danger container mt-3">Failed to send your message. Please try again.</div>
 <?php endif; ?>
 
@@ -80,16 +95,28 @@
       <input type="hidden" name="submit" value="1">
       <div class="row">
         <div class="col-lg-4 mb-200">
-          <div class="form-row"><div class="form-row1"><h5>Full Name</h5><input type="text" name="contact_fullname" required></div></div>
+          <div class="form-row"><div class="form-row1">
+            <h5>Full Name</h5>
+            <input type="text" name="contact_fullname" required>
+          </div></div>
         </div>
         <div class="col-lg-4 mb-200">
-          <div class="form-row"><div class="form-row1"><h5>Phone Number</h5><input type="text" name="contact_phone"></div></div>
+          <div class="form-row"><div class="form-row1">
+            <h5>Phone Number</h5>
+            <input type="tel" name="contact_phone">
+          </div></div>
         </div>
         <div class="col-lg-4 mb-200">
-          <div class="form-row"><div class="form-row1"><h5>Email</h5><input type="email" name="contact_email"></div></div>
+          <div class="form-row"><div class="form-row1">
+            <h5>Email</h5>
+            <input type="email" name="contact_email">
+          </div></div>
         </div>
         <div class="col-lg-12 mb-200">
-          <div class="form-row"><div class="form-row1"><h5>Message</h5><textarea name="contact_desc" rows="5"></textarea></div></div>
+          <div class="form-row"><div class="form-row1">
+            <h5>Message</h5>
+            <textarea name="contact_desc" rows="5"></textarea>
+          </div></div>
         </div>
         <div class="submit-message">
           <button type="submit">Send Message</button>
@@ -100,3 +127,4 @@
 </section>
 
 <?= $this->endSection(); ?>
+

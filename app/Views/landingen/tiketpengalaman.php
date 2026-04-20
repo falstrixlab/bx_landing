@@ -73,7 +73,7 @@ $normalizePremiumTitleEn = static function (?string $value, ?string $fallback = 
         $experienceDuration = $normalizePremiumTextEn($exp['experience_duration_en'] ?? '', $exp['experience_duration'] ?? '');
         $experienceSchedule = $normalizePremiumTextEn($exp['experience_schedule_en'] ?? '', $exp['experience_schedule'] ?? '');
         $experienceAudience = $normalizePremiumTextEn($exp['experience_age_en'] ?? '', $exp['experience_age'] ?? '');
-        $experienceLink = trim((string) ($exp['experience_link'] ?? 'https://ticket.bxsea.co.id/group'));
+        $experienceLink = trim((string) ($exp['experience_link'] ?? ''));
         $priceValue = $exp['experience_price_en'] ?? $exp['experience_price'] ?? '';
         $priceLabel = is_numeric($priceValue) ? 'Rp ' . number_format((float) $priceValue, 0, ',', '.') : $normalizePremiumTextEn((string) $priceValue);
       ?>
@@ -120,9 +120,11 @@ $normalizePremiumTitleEn = static function (?string $value, ?string $fallback = 
               </div>
             </div>
           </div>
+          <?php if (!empty($experienceLink)): ?>
           <div class="btn-ticket-add-ons">
             <a href="<?= esc($experienceLink);?>" target="_blank" rel="noopener noreferrer">Get BXSea Tickets Now</a>
           </div>
+          <?php endif; ?>
         </div>
       </div>
       <?php endif; ?>

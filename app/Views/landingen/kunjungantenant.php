@@ -3,9 +3,6 @@
 
 <?php
 $tenantHeroAsset    = bxsea_design_asset('tenant', 'hero',     'assets/landing/image/bxsea_image_bg-tenant.png');
-$contactCustomerAsset = bxsea_design_asset('visit', 'contact_card_customer', 'assets/landing/image/sosmed.png');
-$contactWhatsappAsset = bxsea_design_asset('visit', 'contact_card_whatsapp', 'assets/landing/image/sosmed2.png');
-$contactEmailAsset    = bxsea_design_asset('visit', 'contact_card_email',    'assets/landing/image/sosmed3.png');
 
 $normalizeTenantTextEn = static function (?string $value, ?string $fallbackValue = null, ?string $title = null, int $limit = 0): string {
   $text = bxsea_plain_text($value ?: $fallbackValue);

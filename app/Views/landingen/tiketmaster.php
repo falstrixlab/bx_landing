@@ -8,6 +8,12 @@ $ticketLocationIconAsset = bxsea_design_asset('ticket', 'location_icon', 'assets
 $ticketExploreAddonsAsset = bxsea_design_asset('ticket', 'explore_addons', 'assets/landing/image/bxsea_image_bg-addons.png');
 $ticketExploreSchoolAsset = bxsea_design_asset('ticket', 'explore_school', 'assets/landing/image/bxsea_image_bg-school.png');
 $ticketExploreSpecialAsset = bxsea_design_asset('ticket', 'explore_special', 'assets/landing/image/bxsea_image_bg-special.png');
+$ticketLongTitleParts = explode('||', bxsea_plain_text($ticketlong[0]['masterdesc_title_en'] ?? $ticketlong[0]['masterdesc_title'] ?? '18 Zones'));
+$ticketLongDescParts  = explode('||', bxsea_plain_text($ticketlong[0]['masterdesc_desc_en'] ?? $ticketlong[0]['masterdesc_desc'] ?? ''));
+$ticketBannerTitle    = bxsea_plain_text($ticketheader[0]['masterdesc_title_en'] ?? $ticketheader[0]['masterdesc_title'] ?? 'ORDER TICKETS');
+$ticketBannerDesc     = bxsea_plain_text($ticketheader[0]['masterdesc_desc_en'] ?? $ticketheader[0]['masterdesc_desc'] ?? 'Book your ticket in advance for a smoother holiday plan');
+$ticketJourneyTitle   = bxsea_plain_text($ticketjourney[0]['masterdesc_title_en'] ?? $ticketjourney[0]['masterdesc_title'] ?? 'Your Adventure Awaits!');
+$ticketJourneyDesc    = bxsea_plain_text($ticketjourney[0]['masterdesc_desc_en'] ?? $ticketjourney[0]['masterdesc_desc'] ?? 'Welcome to BXSea! Explore the largest underwater tunnel in Southeast Asia! Discover a variety of marine species and enjoy the wonders of the underwater world.');
 ?>
 
 <section class="sectionBanner ticket-page-banner">
@@ -17,8 +23,8 @@ $ticketExploreSpecialAsset = bxsea_design_asset('ticket', 'explore_special', 'as
         <img src="<?= $ticketHeroAsset; ?>" alt="">
       </div>
       <div class="row descBanner padding-banner">
-        <h1 class="banner-title">ORDER TICKETS</h1>
-        <p class="banner-description">book your ticket in advance for a smoother holiday plan</p>
+        <h1 class="banner-title"><?= esc($ticketBannerTitle); ?></h1>
+        <p class="banner-description"><?= esc($ticketBannerDesc); ?></p>
       </div>
     </div>
   </div>
@@ -27,8 +33,8 @@ $ticketExploreSpecialAsset = bxsea_design_asset('ticket', 'explore_special', 'as
 <section class="premiumpackage ticketfee-premiumpackage">
   <div class="container">
     <div class="title-premiumpackage">
-      <h1>Your Adventure Awaits!</h1>
-      <p>Welcome to BXSea! Explore the largest underwater tunnel in Southeast Asia. Discover a wide variety of marine species and enjoy the wonders of an immersive underwater world.</p>
+      <h1><?= esc($ticketJourneyTitle); ?></h1>
+      <p><?= esc($ticketJourneyDesc); ?></p>
     </div>
     <div class="premiun-package-flex">
       <div class="card-premiumpackage">

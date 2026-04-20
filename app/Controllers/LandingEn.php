@@ -422,5 +422,6 @@ class LandingEn extends BaseController
         $data['about'] = $this->Crud->readData('*', 'tbl_about', '', '', '', '', '', '');
 
         $data['title'] = 'About Us';
+        echo view('landingen/tentang', $data);
     }
 }
