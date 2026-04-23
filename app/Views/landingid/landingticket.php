@@ -458,27 +458,21 @@
 
         $(document).ready(function(){
 
-        $('.lity-hide').not('#work1').hide();
-
+        $('.lity-hide').not('#work1').css({'opacity': '0', 'visibility': 'hidden', 'height': '0', 'overflow': 'hidden'});
+        $('#work1').css({'opacity': '1', 'visibility': 'visible', 'height': 'auto', 'overflow': 'visible'});
 
         $('.link-ourwork:first').addClass('active');
-        $('#work1').show();
 
 
         $('.link-ourwork').on('click', function(e){
             e.preventDefault();
-            var target = $(this).attr('data-target'); 
+            var target = $(this).attr('data-target');
 
-          
-            $('.lity-hide').not(target).slideUp();
+            $('.lity-hide').not(target).css({'opacity': '0', 'visibility': 'hidden', 'height': '0', 'overflow': 'hidden'});
+            $(target).css({'height': 'auto', 'overflow': 'visible', 'visibility': 'visible', 'opacity': '0'})
+                     .animate({'opacity': 1}, 300);
 
-            
-            $(target).slideDown();
-
-            
             $('.link-ourwork').removeClass('active');
-
-            
             $(this).addClass('active');
             });
         });

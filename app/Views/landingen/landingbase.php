@@ -54,14 +54,14 @@
         <div class="time-secondbar">
           <img src="<?= bxsea_design_asset('global', 'clock_icon_en', 'assets/landing/image/icons8-clock-40.png');?>" alt="">
           <div class="time-block">
-            <h6><?= esc($setup[0]['setup_operation_day_en'] ?? 'Monday - Sunday');?></h6>
+            <p><?= esc($setup[0]['setup_operation_day_en'] ?? 'Monday - Sunday');?></p>
             <p><?= esc($topBarDuration);?></p>
           </div>
         </div>
         <div class="adress-secondbar">
           <img src="<?= bxsea_design_asset('global', 'location_icon_en', 'assets/landing/image/icons8-location-40.png');?>" alt="">
           <div class="address-block">
-            <h6><a target="_blank" href="<?= esc($setup[0]['setup_gmaps'] ?? '#');?>" style="text-decoration:none;color:inherit;"><?= esc($topBarAddress);?></a></h6>
+            <p><a target="_blank" href="<?= esc($setup[0]['setup_gmaps'] ?? '#');?>" style="text-decoration:none;color:inherit;"><?= esc($topBarAddress);?></a></p>
           </div>
         </div>
       </div>
@@ -124,13 +124,13 @@
               <ul class="content">
                 <div class="title-megamenu-item"><h4>Ticket</h4></div>
                 <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/tiket/harga');?>">Book Tickets</a></div></li>
-                <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/tiket/promosi');?>">Promotions</a></div></li>
+                <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/tiket/promosi');?>">Promotion</a></div></li>
               </ul>
               <ul class="content">
                 <div class="title-megamenu-item"><h4>Explore More</h4></div>
                 <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/tiket/pengalaman-premium');?>">Add-Ons</a></div></li>
-                <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/tiket/program-kunjungan-sekolah');?>">School Program</a></div></li>
-                <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/tiket/momen-istimewa');?>">Special Moments</a></div></li>
+                <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/tiket/program-kunjungan-sekolah');?>">School Programs</a></div></li>
+                <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/tiket/momen-istimewa');?>">Special Occasions</a></div></li>
               </ul>
             </div>
           </li>
@@ -156,10 +156,10 @@
                 <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/kunjungan/panduan-aksesibilitas');?>">Accessibility Guide</a></div></li>
               </ul>
               <ul class="content">
-                <div class="title-megamenu-item"><h4>More Info</h4></div>
+                <div class="title-megamenu-item"><h4>More Information</h4></div>
                 <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/kunjungan/tenant');?>">Our Tenants</a></div></li>
                 <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/kunjungan/merchandise');?>">Merchandise</a></div></li>
-                <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/kunjungan/faq');?>">FAQ</a></div></li>
+                <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/kunjungan/faq');?>">FAQs</a></div></li>
                 <li class="megamenu__item"><div class="megamenu__link"><a href="<?= base_url('/en/kunjungan/hubungi-kami');?>">Contact Us</a></div></li>
               </ul>
             </div>
@@ -167,7 +167,7 @@
 
           <li class="nav__link<?= $isNews ? ' is-active' : '';?>"><a href="<?= base_url('/en/berita');?>">Latest News</a></li>
 
-          <div class="contact">
+          <div class="contact-mobile">
             <a href="https://ticket.bxsea.co.id/" target="_blank" rel="noopener noreferrer">Book Tickets</a>
           </div>
           <div class="sosmed-topbar2">
@@ -178,6 +178,9 @@
             <?php endforeach; ?>
           </div>
         </ul>
+        <div class="contact">
+          <a href="https://ticket.bxsea.co.id/" target="_blank" rel="noopener noreferrer">Book Tickets</a>
+        </div>
       </div>
     </nav>
   </div>
@@ -224,7 +227,7 @@
                   <h4>Help &amp; Support</h4>
                   <div class="items-navbar-footer"><a href="<?= base_url('/en/kunjungan/hubungi-kami');?>">Contact Us</a></div>
                   <div class="items-navbar-footer"><a href="<?= base_url('/en/kunjungan/faq');?>">FAQs</a></div>
-                  <div class="items-navbar-footer"><a href="<?= base_url('/en/syarat-ketentuan');?>">Terms and Conditions</a></div>
+                  <div class="items-navbar-footer"><a href="<?= base_url('/en/syarat-ketentuan');?>">Terms & Conditions</a></div>
                   <div class="items-navbar-footer"><a href="<?= base_url('/en/privasi');?>">Privacy Policy</a></div>
                 </div>
               </div>
@@ -242,9 +245,9 @@
                     <span>CBD Emerald Block CE/A No. 1, Boulevard Bintaro Jaya, Tangerang 15227 Indonesia</span>
                   </div>
                   <div class="right-grid">
-                    <p>Be Part of the BXSea Family!</p>
+                    <p>Join The BXSea Family</p>
                     <div class="btn-partnerships-footer">
-                      <a href="<?= base_url('/en/kunjungan/partnership');?>">Join Now</a>
+                      <a href="<?= base_url('/en/kunjungan/partnership');?>">Become Partners</a>
                     </div>
                   </div>
                 </div>
@@ -277,7 +280,7 @@
         <script src="<?= base_url('assets/landing/');?>splide-4.1.3/splide-4.1.3/dist/js/splide.min.js"></script>
         <script src="<?= base_url('assets/landing/');?>splide-extension-auto-scroll-master/splide-extension-auto-scroll-master/dist/js/splide-extension-auto-scroll.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-        <script src="<?= base_url('assets/landing/');?>main.js?v=20260420f"></script>
+        <script src="<?= base_url('assets/landing/');?>main.js?v=20260423"></script>
 
       <script>
       var swiper = new Swiper(".mySwiper", {
@@ -334,34 +337,17 @@
         }
 
         var instance = new Splide(selector, options);
-              var hideTimer = null;
-              var forceHideTimer = null;
-
-              function forceHideLoader() {
-                if (!loader) return;
-                loader.classList.add('loaded');
-                loader.style.display = 'none';
-                loader.style.transform = '';
-                loader.style.transition = '';
-              }
-
         instance.mount(extensions);
 
-                if (hideTimer) clearTimeout(hideTimer);
-                hideTimer = setTimeout(function() {
+        return instance;
       }
-                  if (forceHideTimer) clearTimeout(forceHideTimer);
-                  forceHideTimer = setTimeout(forceHideLoader, 850);
-                }, 80);
+
+      mountSplideIfPresent('.klien-splide', {
         perPage: 3,
-
-              // Safety net: if anything blocks transitions, force-hide loader anyway.
-              forceHideTimer = setTimeout(forceHideLoader, 2600);
-
         pagination: false,
         arrows: false,
+        focus: 'center',
         breakpoints: {
-                document.addEventListener('DOMContentLoaded', hideLoader, { once: true });
           767: {
             perPage: 2,
             arrows: true,
@@ -374,27 +360,24 @@
           },
           1400: {
             perPage: 3,
-                  loader.classList.remove('loaded');
           },
         },
       });
 
 
-        let currentScroll = 0;
-        let isScrollingDown = true;
+      let currentScroll = 0;
+      let isScrollingDown = true;
 
+      let tween = null;
 
-        let tween = null;
-
-        if (document.querySelector('.marquee__inner')) {
-          tween = gsap.to('.marquee__inner', {
-            xPercent : -100,
-            repeat : -1,
-            duration : 25,
-            ease : 'linear',
-          }).
-          totalProgress(.5);
-        }
+      if (document.querySelector('.marquee__inner')) {
+        tween = gsap.to('.marquee__inner', {
+          xPercent: -100,
+          repeat: -1,
+          duration: 25,
+          ease: 'linear',
+        }).totalProgress(.5);
+      }
 
 
 
@@ -596,18 +579,18 @@
 
 
         document.addEventListener( 'DOMContentLoaded', function () {
-            if (typeof Splide === 'undefined' || !document.querySelector('#main-carousel') || !document.querySelector('#thumbnail-carousel')) {
+            if (typeof Splide === 'undefined' || !document.querySelector('.main-carousel') || !document.querySelector('.thumbnail-carousel')) {
               return;
             }
 
-            var main = new Splide('#main-carousel', {
+            var main = new Splide('.main-carousel', {
               type: 'fade',
               rewind: true,
               pagination: false,
               arrows: true,
             });
 
-            var thumbnails = new Splide('#thumbnail-carousel', {
+            var thumbnails = new Splide('.thumbnail-carousel', {
               fixedWidth: 170,
               fixedHeight: 170,
               rewind: true,
@@ -642,88 +625,22 @@
             main.mount();
             thumbnails.mount();
         });
-           //$('html').css({overflowX: 'hidden'});
 
-      
-      function openSearchPopup() {
-        var overlay = document.getElementById('search-popup-overlay');
-        if (overlay) overlay.style.display = 'flex';
-      }
-
-      function closeSearchPopup() {
-        var overlay = document.getElementById('search-popup-overlay');
-        if (overlay) overlay.style.display = 'none';
-      }
-
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          closeSearchPopup();
-        }
-      });
-
-      // Scroll-to-top button
-      window.addEventListener('scroll', function() {
-        var btn = document.getElementById('scrollToTopBtn');
-        if (btn) {
-          if (window.scrollY > 300) { btn.classList.add('visible'); }
-          else { btn.classList.remove('visible'); }
-        }
-      });
-
-      document.addEventListener('DOMContentLoaded', function() {
-        var btn = document.getElementById('scrollToTopBtn');
-        if (btn) {
-          btn.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          });
-        }
-      });
       </script>
 
       <?= $this->renderSection('scripts'); ?>
-      <button class="scroll-to-top-btn" id="scrollToTopBtn" aria-label="Scroll to top">
-        <i class="fa-solid fa-chevron-up"></i>
-      </button>
-
       <script>
-      // Page transition loader: slide up after page loads
-      (function() {
-        var loader = document.querySelector('.loader-wrap');
+      const tl = gsap.timeline();
 
-        function hideLoader() {
-          if (!loader) return;
-          setTimeout(function() {
-            loader.classList.add('loaded');
-            setTimeout(function() { loader.style.display = 'none'; }, 1500);
-          }, 150);
-        }
-
-        if (document.readyState === 'complete') {
-          hideLoader();
-        } else {
-          window.addEventListener('load', hideLoader);
-        }
-
-        // Re-show on link navigation
-        document.addEventListener('click', function(e) {
-          var a = e.target.closest('a[href]');
-          if (!a) return;
-
-          var href = a.getAttribute('href');
-          if (!href || href === '#' || href.startsWith('javascript') || href.startsWith('mailto') || href.startsWith('tel') || href.startsWith('http') && !href.includes(window.location.hostname)) return;
-          if (a.getAttribute('target') === '_blank') return;
-
-          loader = document.querySelector('.loader-wrap');
-          if (loader) {
-            loader.style.display = 'flex';
-            loader.style.transition = 'none';
-            loader.style.transform = 'translateY(100%)';
-            loader.offsetHeight;
-            loader.style.transition = '';
-            loader.style.transform = 'translateY(0)';
-          }
-        });
-      })();
+      tl.to('.loader-wrap', {
+        y: -1200,
+        duration: 2,
+        ease: 'power4.inOut'
+      });
+      tl.to('.loader-wrap', {
+        zIndex: -1,
+        display: 'none',
+      });
       </script>
 
 </body>

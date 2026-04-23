@@ -13,7 +13,7 @@ $merchDesc = 'Jadikan momen petualanganmu di BXSea semakin berkesan dengan kolek
       <img src="<?= $merchHeroAsset; ?>" alt="">
     </div>
     <div class="title-merchandise descBanner2">
-      <h1>OFFICIAL MERCHANDISE</h1>
+      <h1><?= esc(bxsea_plain_text($merchandiseheader[0]['masterdesc_title'] ?? ''));?></h1>
     </div>
   </div>
 </section>
@@ -21,8 +21,8 @@ $merchDesc = 'Jadikan momen petualanganmu di BXSea semakin berkesan dengan kolek
 <section class="Merchandise">
   <div class="container">
     <div class="title-merchandise2">
-      <h1><?= esc($merchTitle);?></h1>
-      <p><?= esc($merchDesc);?></p>
+      <h1><?= esc(bxsea_plain_text($merchandisedesc[0]['masterdesc_title'] ?? ''));?></h1>
+      <p><?= esc(bxsea_plain_text($merchandisedesc[0]['masterdesc_desc'] ?? ''));?></p>
     </div>
 
     <section id="Filter">

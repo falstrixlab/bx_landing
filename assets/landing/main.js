@@ -48,6 +48,8 @@ const initializeTicketTabs = () => {
 		tabPanels.forEach(panel => {
 			panel.classList.toggle('is-active', `#${panel.id}` === targetSelector);
 		});
+
+		setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 50);
 	};
 
 	const firstLink = tabLinks.find(link => document.querySelector(link.dataset.target)) || tabLinks[0];
@@ -138,8 +140,10 @@ const faqs = document.querySelectorAll('.faq');
 
 faqs.forEach(faq => {
 	faq.addEventListener('click', () => {
-		faq.classList.toggle('active')
-	})
+		const isActive = faq.classList.contains('active');
+		faqs.forEach(f => f.classList.remove('active'));
+		if (!isActive) faq.classList.add('active');
+	});
 });
 
 
@@ -227,6 +231,19 @@ $('.owl-once').owlCarousel({
 		},
 	}
 });
+
+var $owl = $('.owl-memories').owlCarousel({
+    loop: true,
+    items: 1,
+    margin: 0,
+    nav: false,
+    dots: false,
+    autoplay: false,
+    autoplayHoverPause: true,
+    animateOut: 'fadeOut'
+});
+$('#memories-prev').on('click', function() { $owl.trigger('prev.owl.carousel'); });
+$('#memories-next').on('click', function() { $owl.trigger('next.owl.carousel'); });
 
 
 

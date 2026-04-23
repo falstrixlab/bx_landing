@@ -12,6 +12,11 @@ class AdminExplore extends BaseController {
         $this->db = \Config\Database::connect();
         $this->session = \Config\Services::session();
     }
+
+    private function hasUploadedFile($file): bool
+    {
+        return $file && $file->isValid() && $file->getError() !== UPLOAD_ERR_NO_FILE && ! $file->hasMoved();
+    }
     /* Journey Page */ 
     public function journey() {
         if(session()->get('islogin') == TRUE)
@@ -71,6 +76,29 @@ class AdminExplore extends BaseController {
                         }
                     }
 
+                    /* Popup pict 1 */
+                    $popupPict1 = $this->request->getFile('journey_popup_pict1');
+                    $newPopupPict1 = '';
+                    if ($this->hasUploadedFile($popupPict1)) {
+                        if (! $this->validate(['journey_popup_pict1' => ['label' => 'Popup Image 1', 'rules' => ['uploaded[journey_popup_pict1]', 'mime_in[journey_popup_pict1,image/jpg,image/jpeg,image/png]']]])) {
+                            $this->session->setFlashdata('invalidate', '-');
+                            return redirect()->route(getenv('bxsea.admin').'/explore/journey/add');
+                        }
+                        $newPopupPict1 = 'bxsea_image_' . $popupPict1->getRandomName();
+                        $popupPict1->move(ROOTPATH . 'assets/upload/journey', $newPopupPict1, true);
+                    }
+                    /* Popup pict 2 */
+                    $popupPict2 = $this->request->getFile('journey_popup_pict2');
+                    $newPopupPict2 = '';
+                    if ($this->hasUploadedFile($popupPict2)) {
+                        if (! $this->validate(['journey_popup_pict2' => ['label' => 'Popup Image 2', 'rules' => ['uploaded[journey_popup_pict2]', 'mime_in[journey_popup_pict2,image/jpg,image/jpeg,image/png]']]])) {
+                            $this->session->setFlashdata('invalidate', '-');
+                            return redirect()->route(getenv('bxsea.admin').'/explore/journey/add');
+                        }
+                        $newPopupPict2 = 'bxsea_image_' . $popupPict2->getRandomName();
+                        $popupPict2->move(ROOTPATH . 'assets/upload/journey', $newPopupPict2, true);
+                    }
+
                     $data = [
                         'journey_title' => $this->request->getVar('journey_title'),
                         'journey_title_en' => $this->request->getVar('journey_title_en'),
@@ -78,6 +106,14 @@ class AdminExplore extends BaseController {
                         'journey_desc_en' => $this->request->getVar('journey_desc_en'),
                         'journey_pict' => $newjourneypict,
                         'journey_zone' => $this->request->getVar('journey_zone'),
+                        'journey_popup_desc_id' => $this->request->getVar('journey_popup_desc_id'),
+                        'journey_popup_desc_en' => $this->request->getVar('journey_popup_desc_en'),
+                        'journey_popup_pict1' => $newPopupPict1,
+                        'journey_popup_pict1_label_id' => $this->request->getVar('journey_popup_pict1_label_id'),
+                        'journey_popup_pict1_label_en' => $this->request->getVar('journey_popup_pict1_label_en'),
+                        'journey_popup_pict2' => $newPopupPict2,
+                        'journey_popup_pict2_label_id' => $this->request->getVar('journey_popup_pict2_label_id'),
+                        'journey_popup_pict2_label_en' => $this->request->getVar('journey_popup_pict2_label_en'),
                     ];
                     $insert = $this->Crud->createData('tbl_explorejourney', $data);
                     if ($insert) 
@@ -155,6 +191,31 @@ class AdminExplore extends BaseController {
                     }
                     /* End upload testimoni */
 
+                    /* Popup pict 1 update */
+                    $popupPict1 = $this->request->getFile('journey_popup_pict1');
+                    $newPopupPict1 = $this->request->getVar('journey_popup_pict1_temp');
+                    if ($this->hasUploadedFile($popupPict1)) {
+                        if (! $this->validate(['journey_popup_pict1' => ['label' => 'Popup Image 1', 'rules' => ['uploaded[journey_popup_pict1]', 'mime_in[journey_popup_pict1,image/jpg,image/jpeg,image/png]']]])) {
+                            $this->session->setFlashdata('invalidate', '-');
+                            return redirect()->route(getenv('bxsea.admin').'/explore/journey/update/'.$this->request->getVar('journey_id'));
+                        }
+                        if ($newPopupPict1 && is_file('assets/upload/journey/'.$newPopupPict1)) { unlink('assets/upload/journey/'.$newPopupPict1); }
+                        $newPopupPict1 = 'bxsea_image_' . $popupPict1->getRandomName();
+                        $popupPict1->move(ROOTPATH . 'assets/upload/journey', $newPopupPict1, true);
+                    }
+                    /* Popup pict 2 update */
+                    $popupPict2 = $this->request->getFile('journey_popup_pict2');
+                    $newPopupPict2 = $this->request->getVar('journey_popup_pict2_temp');
+                    if ($this->hasUploadedFile($popupPict2)) {
+                        if (! $this->validate(['journey_popup_pict2' => ['label' => 'Popup Image 2', 'rules' => ['uploaded[journey_popup_pict2]', 'mime_in[journey_popup_pict2,image/jpg,image/jpeg,image/png]']]])) {
+                            $this->session->setFlashdata('invalidate', '-');
+                            return redirect()->route(getenv('bxsea.admin').'/explore/journey/update/'.$this->request->getVar('journey_id'));
+                        }
+                        if ($newPopupPict2 && is_file('assets/upload/journey/'.$newPopupPict2)) { unlink('assets/upload/journey/'.$newPopupPict2); }
+                        $newPopupPict2 = 'bxsea_image_' . $popupPict2->getRandomName();
+                        $popupPict2->move(ROOTPATH . 'assets/upload/journey', $newPopupPict2, true);
+                    }
+
                     $data = [
                         'journey_title' => $this->request->getVar('journey_title'),
                         'journey_title_en' => $this->request->getVar('journey_title_en'),
@@ -162,6 +223,14 @@ class AdminExplore extends BaseController {
                         'journey_desc_en' => $this->request->getVar('journey_desc_en'),
                         'journey_pict' => ($journeypict != "") ? $newjourneypict : $this->request->getVar('journey_pict_temp'),
                         'journey_zone' => $this->request->getVar('journey_zone'),
+                        'journey_popup_desc_id' => $this->request->getVar('journey_popup_desc_id'),
+                        'journey_popup_desc_en' => $this->request->getVar('journey_popup_desc_en'),
+                        'journey_popup_pict1' => $newPopupPict1,
+                        'journey_popup_pict1_label_id' => $this->request->getVar('journey_popup_pict1_label_id'),
+                        'journey_popup_pict1_label_en' => $this->request->getVar('journey_popup_pict1_label_en'),
+                        'journey_popup_pict2' => $newPopupPict2,
+                        'journey_popup_pict2_label_id' => $this->request->getVar('journey_popup_pict2_label_id'),
+                        'journey_popup_pict2_label_en' => $this->request->getVar('journey_popup_pict2_label_en'),
                     ];
                     $update = $this->Crud->updateData('tbl_explorejourney', $data, ['journey_id' => $this->request->getVar('journey_id')]);
                     if ($update) 
@@ -216,6 +285,170 @@ class AdminExplore extends BaseController {
         }
     }
     /* Journey Page */ 
+
+    /* Main Carousel Page */
+    public function maincarousel() {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_explore_main_carousel', '', '', '', '', ['carousel_id' => 'ASC'], '');
+            echo view('administrator/explore/maincarousel/index', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function add_maincarousel()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            echo view('administrator/explore/maincarousel/add');
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_add_maincarousel()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $submit = $this->request->getVar('submit');
+            if (isset($submit))
+            {
+                try
+                {
+                    $img = $this->request->getFile('carousel_image');
+                    $newImg = '';
+                    if ($this->hasUploadedFile($img)) {
+                        if (! $this->validate(['carousel_image' => ['label' => 'Image File', 'rules' => ['uploaded[carousel_image]', 'mime_in[carousel_image,image/jpg,image/jpeg,image/png]']]])) {
+                            $this->session->setFlashdata('invalidate', '-');
+                            return redirect()->route(getenv('bxsea.admin').'/explore/maincarousel/add');
+                        }
+                        $newImg = 'bxsea_image_' . $img->getRandomName();
+                        $img->move(ROOTPATH . 'assets/upload/maincarousel', $newImg, true);
+                    }
+                    $data = [
+                        'carousel_title_id' => $this->request->getVar('carousel_title_id'),
+                        'carousel_title_en' => $this->request->getVar('carousel_title_en'),
+                        'carousel_desc_id'  => $this->request->getVar('carousel_desc_id'),
+                        'carousel_desc_en'  => $this->request->getVar('carousel_desc_en'),
+                        'carousel_image'    => $newImg,
+                        'carousel_created_at' => date('Y-m-d H:i:s'),
+                    ];
+                    $insert = $this->Crud->createData('tbl_explore_main_carousel', $data);
+                    if ($insert) {
+                        $this->session->setFlashdata('success', '-');
+                        return redirect()->route(getenv('bxsea.admin').'/explore/maincarousel');
+                    } else {
+                        $this->session->setFlashdata('failed', '-');
+                        return redirect()->route(getenv('bxsea.admin').'/explore/maincarousel/add');
+                    }
+                }
+                catch(Exception $ex)
+                {
+                    echo 'Message: ' .$ex->getMessage();
+                }
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function update_maincarousel($carousel_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_explore_main_carousel', ['carousel_id' => $carousel_id], '', '', '', '', '');
+            echo view('administrator/explore/maincarousel/update', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_update_maincarousel()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $submit = $this->request->getVar('submit');
+            if (isset($submit))
+            {
+                try
+                {
+                    $img = $this->request->getFile('carousel_image');
+                    $newImg = $this->request->getVar('carousel_image_temp');
+                    if ($this->hasUploadedFile($img)) {
+                        if (! $this->validate(['carousel_image' => ['label' => 'Image File', 'rules' => ['uploaded[carousel_image]', 'mime_in[carousel_image,image/jpg,image/jpeg,image/png]']]])) {
+                            $this->session->setFlashdata('invalidate', '-');
+                            return redirect()->route(getenv('bxsea.admin').'/explore/maincarousel/update/'.$this->request->getVar('carousel_id'));
+                        }
+                        if ($newImg && is_file('assets/upload/maincarousel/'.$newImg)) { unlink('assets/upload/maincarousel/'.$newImg); }
+                        $newImg = 'bxsea_image_' . $img->getRandomName();
+                        $img->move(ROOTPATH . 'assets/upload/maincarousel', $newImg, true);
+                    }
+                    $data = [
+                        'carousel_title_id' => $this->request->getVar('carousel_title_id'),
+                        'carousel_title_en' => $this->request->getVar('carousel_title_en'),
+                        'carousel_desc_id'  => $this->request->getVar('carousel_desc_id'),
+                        'carousel_desc_en'  => $this->request->getVar('carousel_desc_en'),
+                        'carousel_image'    => $newImg,
+                    ];
+                    $update = $this->Crud->updateData('tbl_explore_main_carousel', $data, ['carousel_id' => $this->request->getVar('carousel_id')]);
+                    if ($update) {
+                        $this->session->setFlashdata('success', '-');
+                        return redirect()->route(getenv('bxsea.admin').'/explore/maincarousel');
+                    } else {
+                        $this->session->setFlashdata('failed', '-');
+                        return redirect()->route(getenv('bxsea.admin').'/explore/maincarousel');
+                    }
+                }
+                catch(Exception $ex)
+                {
+                    echo 'Message: ' .$ex->getMessage();
+                }
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function delete_maincarousel($carousel_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $getimage = $this->Crud->readData('carousel_image', 'tbl_explore_main_carousel', ['carousel_id' => $carousel_id], '', '', '', '', '');
+                foreach($getimage AS $val)
+                {
+                    if ($val['carousel_image'] && is_file('assets/upload/maincarousel/'.$val['carousel_image'])) {
+                        unlink('assets/upload/maincarousel/'.$val['carousel_image']);
+                    }
+                }
+                $this->Crud->deleteData('tbl_explore_main_carousel', ['carousel_id' => $carousel_id]);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/explore/maincarousel');
+            }
+            catch(Exception $ex)
+            {
+                echo 'Message: ' .$ex->getMessage();
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    /* Main Carousel Page */
 
     /* Show Page */ 
     public function show() {

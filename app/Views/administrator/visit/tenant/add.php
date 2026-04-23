@@ -79,12 +79,55 @@
                             <textarea name="tenant_desc_en" class="form-control" placeholder="Entry Desc ID" id="kt-ckeditor-2" rows="6"></textarea>
                         </div>
                         <div class="form-group">
+                            <label>Location ID</label>
+                            <input name="tenant_location" type="text" class="form-control" placeholder="Enter Tenant Location ID (e.g. Zona A, Lantai 1)"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Location EN</label>
+                            <input name="tenant_location_en" type="text" class="form-control" placeholder="Enter Tenant Location EN (e.g. Zone A, Level 1)"/>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleTextarea">Thumbnail Pict <span class="text-danger">*</span></label>
                             <input type="file" name="tenant_thumbnail_pict" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="exampleTextarea">main Pict <span class="text-danger">*</span></label>
+                            <label for="exampleTextarea">Main Pict <span class="text-danger">*</span></label>
                             <input type="file" name="tenant_main_pict" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Button Text ID <small class="text-muted">(teks tombol, default: "Lihat Detail")</small></label>
+                            <input type="text" name="tenant_btn_text" class="form-control" placeholder="Lihat Detail">
+                        </div>
+                        <div class="form-group">
+                            <label>Button Text EN <small class="text-muted">(button text, default: "View Details")</small></label>
+                            <input type="text" name="tenant_btn_text_en" class="form-control" placeholder="View Details">
+                        </div>
+                        <hr>
+                        <h5 class="mb-4">Popup Content</h5>
+                        <div class="form-group">
+                            <label>Popup Image <span class="text-danger">*</span></label>
+                            <input type="file" name="tenant_popup_image" class="form-control" accept=".png,.jpg,.jpeg">
+                            <small class="text-muted">Gambar khusus untuk popup (berbeda dari main image)</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Popup Description ID</label>
+                            <textarea name="tenant_popup_desc_id" class="form-control" id="kt-ckeditor-popup-id" rows="6" placeholder="Deskripsi popup (ID)"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Popup Description EN</label>
+                            <textarea name="tenant_popup_desc_en" class="form-control" id="kt-ckeditor-popup-en" rows="6" placeholder="Popup description (EN)"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Gallery Image 1 <span class="text-danger">*</span> <small class="text-muted">(min 1, maks 3)</small></label>
+                            <input type="file" name="tenant_gallery1" class="form-control" accept=".png,.jpg,.jpeg">
+                        </div>
+                        <div class="form-group">
+                            <label>Gallery Image 2</label>
+                            <input type="file" name="tenant_gallery2" class="form-control" accept=".png,.jpg,.jpeg">
+                        </div>
+                        <div class="form-group">
+                            <label>Gallery Image 3</label>
+                            <input type="file" name="tenant_gallery3" class="form-control" accept=".png,.jpg,.jpeg">
                         </div>
                     </div>
                     <div class="card-footer">

@@ -49,7 +49,6 @@
       <?php endif; ?>
     </div>
   </div>
-  <img class="grass17" src="<?= base_url('assets/landing/');?>image/bg-grass.png" alt="">
 </section>
 
 <?= $this->endSection() ?>

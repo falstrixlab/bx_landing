@@ -1,0 +1,98 @@
+CRITICAL - 2026-04-21 19:14:01 --> ErrorException: Undefined variable $reviewTitle
+[Method: GET, Route: id]
+in APPPATH\Views\landingid\home.php on line 306.
+ 1 APPPATH\Views\landingid\home.php(306): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $reviewTitle', 'C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingid\\home.php', 306)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingid\\home.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('landingid/home', [], true)
+ 5 APPPATH\Controllers\Landing.php(67): view('landingid/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Landing->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 19:17:20 --> ErrorException: Undefined array key "text_en"
+[Method: GET, Route: en]
+in APPPATH\Views\landingen\home.php on line 274.
+ 1 APPPATH\Views\landingen\home.php(274): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "text_en"', 'C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\home.php', 274)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\home.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('landingen/home', [], true)
+ 5 APPPATH\Controllers\LandingEn.php(66): view('landingen/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\LandingEn->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingEn))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 19:22:20 --> ErrorException: Undefined variable $appendReviewSlide
+[Method: GET, Route: en]
+in APPPATH\Views\landingen\home.php on line 55.
+ 1 APPPATH\Views\landingen\home.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $appendReviewSlide', 'C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\home.php', 55)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\home.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('landingen/home', [], true)
+ 5 APPPATH\Controllers\LandingEn.php(66): view('landingen/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\LandingEn->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingEn))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 19:30:12 --> ErrorException: Undefined variable $testimonialSlides
+[Method: GET, Route: en]
+in APPPATH\Views\landingen\home.php on line 42.
+ 1 APPPATH\Views\landingen\home.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $testimonialSlides', 'C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\home.php', 42)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\home.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('landingen/home', [], true)
+ 5 APPPATH\Controllers\LandingEn.php(66): view('landingen/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\LandingEn->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingEn))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:06:51 --> ErrorException: Undefined variable $ticketExploreMaps
+[Method: GET, Route: en/tiket/harga]
+in APPPATH\Views\landingen\tiketmaster.php on line 49.
+ 1 APPPATH\Views\landingen\tiketmaster.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $ticketExploreMaps', 'C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\tiketmaster.php', 49)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\tiketmaster.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('landingen/tiketmaster', [], true)
+ 5 APPPATH\Controllers\LandingEn.php(91): view('landingen/tiketmaster', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\LandingEn->tiketmaster()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingEn))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:17:49 --> ErrorException: Undefined variable $partnerHeading
+[Method: GET, Route: en]
+in APPPATH\Views\landingen\home.php on line 487.
+ 1 APPPATH\Views\landingen\home.php(487): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $partnerHeading', 'C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\home.php', 487)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\home.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('landingen/home', [], true)
+ 5 APPPATH\Controllers\LandingEn.php(66): view('landingen/home', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\LandingEn->index()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingEn))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-21 22:33:38 --> ErrorException: Undefined variable $tcat
+[Method: GET, Route: en/tiket/harga]
+in APPPATH\Views\landingen\tiketmaster.php on line 130.
+ 1 APPPATH\Views\landingen\tiketmaster.php(130): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tcat', 'C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\tiketmaster.php', 130)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\tiketmaster.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('landingen/tiketmaster', [], true)
+ 5 APPPATH\Controllers\LandingEn.php(91): view('landingen/tiketmaster', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\LandingEn->tiketmaster()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingEn))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

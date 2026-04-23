@@ -41,7 +41,7 @@ class LandingEn extends BaseController
         $data['journeydesc'] = $this->Crud->readData('*', 'tbl_explorejourney', '', '', '', '', '', '');
         $data['show'] = $this->Crud->readData('*', 'tbl_exploreshow', '', '', '', '', '', '');
         $data['tenantpict'] = $this->Crud->readData('tenant_thumbnail_pict, tenant_main_pict', 'tbl_visittenant', '', '', '', '', '', '');
-        $data['tenantdesc'] = $this->Crud->readData('tenant_title, tenant_desc_en', 'tbl_visittenant', '', '', '', '', '', '');
+        $data['tenantdesc'] = $this->Crud->readData('tenant_title, tenant_desc_en, tenant_location, tenant_location_en', 'tbl_visittenant', '', '', '', '', '', '');
         $data['article'] = $this->Crud->readData('*', 'tbl_article', '', '', '', '', ['article_created_date' => 'desc'], '');
         $data['articletop'] = $this->Crud->readData('*', 'tbl_article', '', '', '', '', ['article_created_date' => 'desc'], ['limit' => 4]);
         $data['homepromo'] = $this->Crud->readData('*', 'tbl_ticketpromotion', '', '', '', '', ['promotion_id' => 'desc'], ['limit' => 4]);
@@ -100,7 +100,7 @@ class LandingEn extends BaseController
         /*--------------------*/
 
         $data['promoheader'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'promotionheader'], '', '', '', '', '');
-        $data['promo'] = $this->Crud->readData('*', 'tbl_ticketpromotion', '', '', '', '', '', '');
+        $data['promo'] = $this->Crud->readData('*', 'tbl_ticketpromosi', '', '', '', '', '', '');
         echo view('landingen/tiketpromosi', $data);
     }
     public function tiketpengalaman()
@@ -114,6 +114,9 @@ class LandingEn extends BaseController
         $data['experience'] = $this->Crud->readData('*', 'tbl_ticketexperience', '', '', '', '', '', '');
         $data['premiumheader'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'premiumheader'], '', '', '', '', '');
         $data['premiumdesc'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'premiumdescription'], '', '', '', '', '');
+        // New additional experience data
+        $data['additional'] = $this->Crud->readData('*', 'tbl_additional_experience', '', '', '', '', '', '');
+        $data['additionalitems'] = $this->Crud->readData('*', 'tbl_additional_experience_item', ['item_status' => 1], '', '', '', '', '');
 
         echo view('landingen/tiketpengalaman', $data);
     }
@@ -133,6 +136,10 @@ class LandingEn extends BaseController
         $data['schoolvisitbasic'] = $this->Crud->readData('schoolvisit_basic', 'tbl_schoolvisit', '', '', '', '', '', '');
         $data['schoolvisitpremium'] = $this->Crud->readData('schoolvisit_premium', 'tbl_schoolvisit', '', '', '', '', '', '');
         $data['schoolvisitspecial'] = $this->Crud->readData('schoolvisit_special', 'tbl_schoolvisit', '', '', '', '', '', '');
+        // New school sections data
+        $data['schoolwhybxsea'] = $this->Crud->readData('*', 'tbl_school_why_bxsea', '', '', '', '', '', '');
+        $data['schoolincluded'] = $this->Crud->readData('*', 'tbl_school_what_included', ['included_status' => 1], '', '', '', '', '');
+        $data['teachertestimonial'] = $this->Crud->readData('*', 'tbl_school_teacher_said', '', '', '', '', ['teacher_created_at' => 'DESC'], '1');
         
         echo view('landingen/tiketkunjungansekolah', $data);
     }
@@ -147,6 +154,8 @@ class LandingEn extends BaseController
         $data['moment'] = $this->Crud->readData('*', 'tbl_ticketmoment', '', '', '', '', '', '');
         $data['momentheader'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'momentheader'], '', '', '', '', '');
         $data['momentdesc'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'momentdescription'], '', '', '', '', '');
+        // New memories data
+        $data['memories'] = $this->Crud->readData('*', 'tbl_moment_memories', ['memory_status' => 1], '', '', '', '', '');
 
         echo view('landingen/tiketmomenistimewa', $data);
     }
@@ -160,6 +169,7 @@ class LandingEn extends BaseController
         /*--------------------*/
         $data['journey'] = $this->Crud->readData('*', 'tbl_explorejourney', '', '', '', '', '', '');
         $data['journeyheader'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'journeyheader'], '', '', '', '', '');
+        $data['maincarousel'] = $this->Crud->readData('*', 'tbl_explore_main_carousel', '', '', '', '', ['carousel_id' => 'ASC'], '');
 
         echo view('landingen/jelajahutama', $data);
     }

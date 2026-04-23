@@ -71,9 +71,17 @@
                             <label>Total Journey <span class="text-danger">*</span></label>
                             <input type="text" name="ticket_total_journey" class="form-control" value="<?= $rs["ticket_total_journey"];?>"/>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Subtitle / Info Tambahan</label>
                             <input type="text" name="ticket_subtitle" class="form-control" value="<?= $rs["ticket_subtitle"] ?? '';?>" placeholder="Misal: Senin - Minggu, Semua Zona"/>
+                        </div> -->
+                        <div class="form-group">
+                            <label>Schedule ID</label>
+                            <input type="text" name="ticket_schedule" class="form-control" value="<?= esc($rs['ticket_schedule'] ?? '');?>" placeholder="Contoh: Senin - Jumat, 09.00 - 17.00"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Schedule EN</label>
+                            <input type="text" name="ticket_schedule_en" class="form-control" value="<?= esc($rs['ticket_schedule_en'] ?? '');?>" placeholder="E.g. Monday - Friday, 09.00 - 17.00"/>
                         </div>
                         <div class="form-group">
                             <label>Link Beli Tiket (URL)</label>

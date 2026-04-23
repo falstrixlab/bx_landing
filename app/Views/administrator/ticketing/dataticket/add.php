@@ -78,9 +78,17 @@
                             <label>Total Journey <span class="text-danger">*</span></label>
                             <input name="ticket_total_journey" type="text" class="form-control"  placeholder="Enter Total Journey" required="required"/>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Subtitle / Info Tambahan</label>
                             <input name="ticket_subtitle" type="text" class="form-control" placeholder="Misal: Senin - Minggu, Semua Zona"/>
+                        </div> -->
+                        <div class="form-group">
+                            <label>Schedule ID</label>
+                            <input name="ticket_schedule" type="text" class="form-control" placeholder="Contoh: Senin - Jumat, 09.00 - 17.00"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Schedule EN</label>
+                            <input name="ticket_schedule_en" type="text" class="form-control" placeholder="E.g. Monday - Friday, 09.00 - 17.00"/>
                         </div>
                         <div class="form-group">
                             <label>Link Beli Tiket (URL)</label>

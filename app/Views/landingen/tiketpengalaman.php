@@ -11,9 +11,9 @@ $contactWhatsappAsset = bxsea_design_asset('visit', 'contact_card_whatsapp', 'as
 $contactEmailAsset = bxsea_design_asset('visit', 'contact_card_email', 'assets/landing/image/sosmed3.png');
 
 $premiumBannerTitle = 'PREMIUM EXPERIENCES';
-$premiumIntroTitle = 'Explore More Than the Main Journey';
-$premiumIntroDesc = 'Our oceanarium experiences are designed to spark curiosity and build a deeper connection between people and marine life. Discover a range of extra experiences created to be both educational and entertaining.';
-$premiumNote = 'These experiences are not included in the main admission ticket and can only be purchased directly on-site.';
+$premiumIntroTitle = !empty($additional[0]['additional_title_en']) ? bxsea_plain_text($additional[0]['additional_title_en']) : 'Explore More Than the Main Journey';
+$premiumIntroDesc = !empty($additional[0]['additional_desc_en']) ? bxsea_plain_text($additional[0]['additional_desc_en']) : 'Our oceanarium experiences are designed to spark curiosity and build a deeper connection between people and marine life. Discover a range of extra experiences created to be both educational and entertaining.';
+$premiumNote = !empty($additional[0]['additional_notes_en']) ? bxsea_plain_text($additional[0]['additional_notes_en']) : 'These experiences are not included in the main admission ticket and can only be purchased directly on-site.';
 
 $normalizePremiumTextEn = static function (?string $value, ?string $fallback = null): string {
   $text = bxsea_plain_text($value ?: $fallback);
@@ -64,104 +64,67 @@ $normalizePremiumTitleEn = static function (?string $value, ?string $fallback = 
           </div>
         </div>
       </div>
-      <?php if (!empty($experience)): ?>
-      <?php foreach ($experience as $exp): ?>
-      <?php if (($exp['experience_status'] ?? '') != '0'): ?>
+      <?php if (!empty($additionalitems)): ?>
+      <?php foreach ($additionalitems as $item): ?>
       <?php
-        $experienceTitle = $normalizePremiumTitleEn($exp['experience_title_en'] ?? '', $exp['experience_title'] ?? '');
-        $experienceDesc = $normalizePremiumTextEn($exp['experience_desc_en'] ?? '', $exp['experience_desc'] ?? '');
-        $experienceDuration = $normalizePremiumTextEn($exp['experience_duration_en'] ?? '', $exp['experience_duration'] ?? '');
-        $experienceSchedule = $normalizePremiumTextEn($exp['experience_schedule_en'] ?? '', $exp['experience_schedule'] ?? '');
-        $experienceAudience = $normalizePremiumTextEn($exp['experience_age_en'] ?? '', $exp['experience_age'] ?? '');
-        $experienceLink = trim((string) ($exp['experience_link'] ?? ''));
-        $priceValue = $exp['experience_price_en'] ?? $exp['experience_price'] ?? '';
-        $priceLabel = is_numeric($priceValue) ? 'Rp ' . number_format((float) $priceValue, 0, ',', '.') : $normalizePremiumTextEn((string) $priceValue);
+        $itemTitle = bxsea_plain_text($item['item_title_en'] ?? $item['item_title_id'] ?? '');
+        $itemDesc = bxsea_plain_text($item['item_desc_en'] ?? $item['item_desc_id'] ?? '');
+        $itemDuration = str_ireplace(['<br>', '<br/>', '<br />'], "\n", $item['item_duration_en'] ?? $item['item_duration_id'] ?? '');
+        $itemSchedule = str_ireplace(['<br>', '<br/>', '<br />'], "\n", $item['item_schedule_en'] ?? $item['item_schedule_id'] ?? '');
+        $itemLocation = str_ireplace(['<br>', '<br/>', '<br />'], "\n", $item['item_location_en'] ?? $item['item_location_id'] ?? '');
+        $itemButton = bxsea_plain_text($item['item_button_en'] ?? $item['item_button_id'] ?? '');
       ?>
       <div class="col-md-6 col-lg-4">
         <div class="box-additional-exp-detail">
           <div class="image-box-additional-exp-detail">
-            <?php if (!empty($exp['experience_pict'])): ?>
-            <img src="<?= bxsea_asset_url('experience', $exp['experience_pict'] ?? '', 'assets/landing/image/boat-tour-image.png');?>" alt="<?= esc($experienceTitle);?>">
+            <?php if (!empty($item['item_image'])): ?>
+            <img src="<?= bxsea_asset_url('additional_exp_item', $item['item_image'], 'assets/landing/image/boat-tour-image.png');?>" alt="<?= esc($itemTitle);?>">
             <?php else: ?>
-            <img src="<?= $premiumHeroAsset; ?>" alt="<?= esc($experienceTitle);?>">
+            <img src="<?= $premiumHeroAsset; ?>" alt="<?= esc($itemTitle);?>">
             <?php endif; ?>
             <div class="desc-box-additional-exp-detail">
               <img class="img-wave-additional-exp-detail" src="<?= $premiumWaveAsset; ?>" alt="">
               <div class="box-white">
-                <h4><?= esc($experienceTitle);?></h4>
-                <p><?= esc($experienceDesc);?></p>
-                <?php if ($experienceDuration !== ''): ?>
+                <h4><?= esc($itemTitle);?></h4>
+                <p><?= esc($itemDesc);?></p>
+                <?php if ($itemDuration !== ''): ?>
                 <div class="duration">
-                  <img src="<?= $premiumDurationIconAsset; ?>" alt="">
-                  <p>Duration: <?= esc($experienceDuration);?></p>
+                  <img src="<?= !empty($item['item_duration_icon']) ? bxsea_asset_url('additional_exp_item', $item['item_duration_icon'], 'assets/landing/image/duration-icon.svg') : $premiumDurationIconAsset; ?>" alt="Duration Icon">
+                  <p><?= nl2br(esc($itemDuration));?></p>
                 </div>
                 <?php endif; ?>
-                <?php if ($priceLabel !== ''): ?>
+                <?php if ($itemSchedule !== ''): ?>
                 <div class="prize">
-                  <img src="<?= $premiumTicketIconAsset; ?>" alt="">
+                  <img src="<?= !empty($item['item_schedule_icon']) ? bxsea_asset_url('additional_exp_item', $item['item_schedule_icon'], 'assets/landing/image/ticket-icon.svg') : $premiumTicketIconAsset; ?>" alt="Schedule Icon">
                   <div class="time">
                     <div class="weekday">
-                      <p>Price: <?= esc($priceLabel);?></p>
+                      <p><?= nl2br(esc($itemSchedule));?></p>
                     </div>
-                    <?php if ($experienceSchedule !== ''): ?>
-                    <div class="weekend">
-                      <p><?= esc($experienceSchedule);?></p>
-                    </div>
-                    <?php endif; ?>
                   </div>
                 </div>
                 <?php endif; ?>
-                <?php if ($experienceAudience !== ''): ?>
+                <?php if ($itemLocation !== ''): ?>
                 <div class="location">
-                  <img src="<?= $premiumLocationIconAsset; ?>" alt="">
-                  <p><?= esc($experienceAudience);?></p>
+                  <img src="<?= !empty($item['item_location_icon']) ? bxsea_asset_url('additional_exp_item', $item['item_location_icon'], 'assets/landing/image/location-icon.svg') : $premiumLocationIconAsset; ?>" alt="Location Icon">
+                  <p><?= nl2br(esc($itemLocation));?></p>
                 </div>
                 <?php endif; ?>
               </div>
             </div>
           </div>
-          <?php if (!empty($experienceLink)): ?>
+          <?php if ($itemButton !== ''): ?>
           <div class="btn-ticket-add-ons">
-            <a href="<?= esc($experienceLink);?>" target="_blank" rel="noopener noreferrer">Get BXSea Tickets Now</a>
+            <a href="https://bxsea.com/en/ticket" target="_blank" rel="noopener noreferrer"><?= esc($itemButton);?></a>
           </div>
           <?php endif; ?>
         </div>
       </div>
-      <?php endif; ?>
       <?php endforeach; ?>
+      <?php else: ?>
+      <div class="col-12 text-center py-5">
+        <p>No additional experiences data available.</p>
+      </div>
       <?php endif; ?>
-    </div>
-  </div>
-</section>
-
-<section class="contactus2">
-  <div class="container">
-    <div class="title-contactus2"><h1>Contact Us</h1></div>
-    <div class="row box-contact">
-      <div class="col-lg-4 col-md-4 col-sm-4 box-card-contactus">
-        <div class="card-contactus2">
-          <a href="<?= esc($setup[0]['setup_customer'] ?? '#');?>" target="_blank" rel="noopener noreferrer">
-            <div class="image-contactus2"><img class="img-fluid" src="<?= $contactCustomerAsset; ?>" alt=""></div>
-            <div class="desc-card-contactus2"><p>Customer Services</p></div>
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 box-card-contactus">
-        <div class="card-contactus2">
-          <a href="https://wa.me/<?= preg_replace('/[^0-9]/', '', $setup[0]['setup_phone'] ?? '');?>" target="_blank" rel="noopener noreferrer">
-            <div class="image-contactus2"><img class="img-fluid" src="<?= $contactWhatsappAsset; ?>" alt=""></div>
-            <div class="desc-card-contactus2"><p>WhatsApp</p></div>
-          </a>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 box-card-contactus">
-        <div class="card-contactus2">
-          <a href="mailto:<?= esc($setup[0]['setup_email'] ?? '');?>">
-            <div class="image-contactus2"><img class="img-fluid" src="<?= $contactEmailAsset; ?>" alt=""></div>
-            <div class="desc-card-contactus2"><p>Email</p></div>
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 </section>

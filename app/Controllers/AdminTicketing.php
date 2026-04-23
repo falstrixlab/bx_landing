@@ -81,6 +81,8 @@ class AdminTicketing extends BaseController {
                         'ticket_title' => $this->request->getVar('ticket_title'),
                         'ticket_title_en' => $this->request->getVar('ticket_title_en'),
                         'ticket_subtitle' => $this->request->getVar('ticket_subtitle'),
+                        'ticket_schedule' => $this->request->getVar('ticket_schedule'),
+                        'ticket_schedule_en' => $this->request->getVar('ticket_schedule_en'),
                         'ticket_total_journey' => $this->request->getVar('ticket_total_journey'),
                         'ticket_link' => $this->request->getVar('ticket_link'),
                         'ticket_pict' => $newticketpict,
@@ -167,6 +169,8 @@ class AdminTicketing extends BaseController {
                         'ticket_title' => $this->request->getVar('ticket_title'),
                         'ticket_title_en' => $this->request->getVar('ticket_title_en'),
                         'ticket_subtitle' => $this->request->getVar('ticket_subtitle'),
+                        'ticket_schedule' => $this->request->getVar('ticket_schedule'),
+                        'ticket_schedule_en' => $this->request->getVar('ticket_schedule_en'),
                         'ticket_total_journey' => $this->request->getVar('ticket_total_journey'),
                         'ticket_link' => $this->request->getVar('ticket_link'),
                         'ticket_pict' => $newticketpict,
@@ -807,6 +811,210 @@ class AdminTicketing extends BaseController {
     }
     /* Promotion Page */ 
 
+    /* Promosi Tiket Page */
+    public function promosi()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_ticketpromosi', '', '', '', '', '', '');
+            echo view('administrator/ticketing/promosi/index', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function add_promosi()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            echo view('administrator/ticketing/promosi/add');
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_add_promosi()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $submit = $this->request->getVar("submit");
+            if (isset($submit))
+            {
+                try
+                {
+                    $promosipict = $this->request->getFile('promosi_pict');
+                    $newpromosipict = '';
+                    $hasPromosiPict = $this->hasUploadedFile($promosipict);
+                    if ($hasPromosiPict)
+                    {
+                        $validationRule = [
+                            'promosi_pict' => [
+                                'label' => 'Image File',
+                                'rules' => [
+                                    'uploaded[promosi_pict]',
+                                    'mime_in[promosi_pict,image/jpg,image/jpeg,image/png]',
+                                ],
+                            ],
+                        ];
+                        if (! $this->validate($validationRule))
+                        {
+                            $this->session->setFlashdata('invalidate', '-');
+                            return redirect()->route(getenv('bxsea.admin').'/ticketing/promosi/add');
+                        }
+                        $newpromosipict = 'bxsea_image_' . $promosipict->getRandomName();
+                        $promosipict->move(ROOTPATH . 'assets/upload/promosi', $newpromosipict, true);
+                    }
+                    $data = [
+                        'promosi_title'    => $this->request->getVar('promosi_title'),
+                        'promosi_title_en' => $this->request->getVar('promosi_title_en'),
+                        'promosi_pict'     => $newpromosipict,
+                        'promosi_desc'     => $this->request->getVar('promosi_desc'),
+                        'promosi_desc_en'  => $this->request->getVar('promosi_desc_en'),
+                        'promosi_link'     => $this->request->getVar('promosi_link'),
+                        'promosi_tnc'      => $this->request->getVar('promosi_tnc'),
+                        'promosi_tnc_en'   => $this->request->getVar('promosi_tnc_en'),
+                    ];
+                    $insert = $this->Crud->createData('tbl_ticketpromosi', $data);
+                    if ($insert)
+                    {
+                        $this->session->setFlashdata('success', '-');
+                        return redirect()->route(getenv('bxsea.admin').'/ticketing/promosi');
+                    }
+                    else
+                    {
+                        $this->session->setFlashdata('failed', '-');
+                        return redirect()->route(getenv('bxsea.admin').'/ticketing/promosi/add');
+                    }
+                }
+                catch(Exception $ex)
+                {
+                    echo 'Message: ' . $ex->getMessage();
+                }
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function update_promosi($promosi_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_ticketpromosi', ['promosi_id' => $promosi_id], '', '', '', '', '');
+            echo view('administrator/ticketing/promosi/update', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_update_promosi()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $submit = $this->request->getVar('submit');
+            if (isset($submit))
+            {
+                try
+                {
+                    $promosipict = $this->request->getFile('promosi_pict');
+                    $newpromosipict = $this->request->getVar('promosi_pict_temp');
+                    $hasPromosiPict = $this->hasUploadedFile($promosipict);
+                    if ($hasPromosiPict)
+                    {
+                        $validationRule = [
+                            'promosi_pict' => [
+                                'label' => 'Image File',
+                                'rules' => [
+                                    'uploaded[promosi_pict]',
+                                    'mime_in[promosi_pict,image/jpg,image/jpeg,image/png]',
+                                ],
+                            ],
+                        ];
+                        if (! $this->validate($validationRule))
+                        {
+                            $this->session->setFlashdata('invalidate', '-');
+                            return redirect()->route(getenv('bxsea.admin').'/ticketing/promosi/update/'.$this->request->getVar('promosi_id'));
+                        }
+                        $newpromosipict = 'bxsea_image_' . $promosipict->getRandomName();
+                        if (is_file('assets/upload/promosi/' . $this->request->getVar('promosi_pict_temp')))
+                        {
+                            unlink('assets/upload/promosi/' . $this->request->getVar('promosi_pict_temp'));
+                        }
+                        $promosipict->move(ROOTPATH . 'assets/upload/promosi', $newpromosipict, true);
+                    }
+                    $data = [
+                        'promosi_title'    => $this->request->getVar('promosi_title'),
+                        'promosi_title_en' => $this->request->getVar('promosi_title_en'),
+                        'promosi_pict'     => $newpromosipict,
+                        'promosi_desc'     => $this->request->getVar('promosi_desc'),
+                        'promosi_desc_en'  => $this->request->getVar('promosi_desc_en'),
+                        'promosi_link'     => $this->request->getVar('promosi_link'),
+                        'promosi_tnc'      => $this->request->getVar('promosi_tnc'),
+                        'promosi_tnc_en'   => $this->request->getVar('promosi_tnc_en'),
+                    ];
+                    $update = $this->Crud->updateData('tbl_ticketpromosi', $data, ['promosi_id' => $this->request->getVar('promosi_id')]);
+                    if ($update)
+                    {
+                        $this->session->setFlashdata('success', '-');
+                        return redirect()->route(getenv('bxsea.admin').'/ticketing/promosi');
+                    }
+                    else
+                    {
+                        $this->session->setFlashdata('failed', '-');
+                        return redirect()->route(getenv('bxsea.admin').'/ticketing/promosi');
+                    }
+                }
+                catch(Exception $ex)
+                {
+                    echo 'Message: ' . $ex->getMessage();
+                }
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function delete_promosi($promosi_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $getimage = $this->Crud->readData('promosi_pict', 'tbl_ticketpromosi', ['promosi_id' => $promosi_id], '', '', '', '', '');
+                foreach($getimage AS $val)
+                {
+                    if (is_file('assets/upload/promosi/' . $val['promosi_pict']))
+                    {
+                        unlink('assets/upload/promosi/' . $val['promosi_pict']);
+                    }
+                }
+                $this->Crud->deleteData('tbl_ticketpromosi', ['promosi_id' => $promosi_id]);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/promosi');
+            }
+            catch(Exception $ex)
+            {
+                echo 'Message: ' . $ex->getMessage();
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    /* Promosi Tiket Page */
+
     /* School Program Page */ 
     public function schoolprogram() {
         if(session()->get('islogin') == TRUE)
@@ -1293,6 +1501,934 @@ class AdminTicketing extends BaseController {
         }
     }
     /* School Visit Program */ 
+
+    /* Additional Experience Header */
+    public function additionalexp()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_additional_experience', '', '', '', '', '', '');
+            echo view('administrator/ticketing/additionalexp/index', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function update_additionalexp($additional_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_additional_experience', ['additional_id' => $additional_id], '', '', '', '', '');
+            echo view('administrator/ticketing/additionalexp/index', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_add_additionalexp()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $data = [
+                    'additional_title_id' => $this->request->getPost('additional_title_id'),
+                    'additional_title_en' => $this->request->getPost('additional_title_en'),
+                    'additional_desc_id' => $this->request->getPost('additional_desc_id'),
+                    'additional_desc_en' => $this->request->getPost('additional_desc_en'),
+                    'additional_notes_id' => $this->request->getPost('additional_notes_id'),
+                    'additional_notes_en' => $this->request->getPost('additional_notes_en')
+                ];
+                
+                $this->Crud->createData('tbl_additional_experience', $data);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/additionalexp');
+            }
+            catch(Exception $ex)
+            {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/additionalexp');
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_update_additionalexp()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $additional_id = $this->request->getPost('additional_id');
+                $data = [
+                    'additional_title_id' => $this->request->getPost('additional_title_id'),
+                    'additional_title_en' => $this->request->getPost('additional_title_en'),
+                    'additional_desc_id' => $this->request->getPost('additional_desc_id'),
+                    'additional_desc_en' => $this->request->getPost('additional_desc_en'),
+                    'additional_notes_id' => $this->request->getPost('additional_notes_id'),
+                    'additional_notes_en' => $this->request->getPost('additional_notes_en')
+                ];
+                
+                $this->Crud->updateData('tbl_additional_experience', $data, ['additional_id' => $additional_id]);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/additionalexp');
+            }
+            catch(Exception $ex)
+            {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/additionalexp/update/'.$additional_id);
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    /* Additional Experience Header */
+
+    /* Additional Experience Item */
+    public function additionalexpitem()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_additional_experience_item', '', '', '', '', '', '');
+            echo view('administrator/ticketing/additionalexpitem/index', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function add_additionalexpitem()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            echo view('administrator/ticketing/additionalexpitem/add');
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_add_additionalexpitem()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $data = [
+                    'item_title_id' => $this->request->getPost('item_title_id'),
+                    'item_title_en' => $this->request->getPost('item_title_en'),
+                    'item_desc_id' => $this->request->getPost('item_desc_id'),
+                    'item_desc_en' => $this->request->getPost('item_desc_en'),
+                    'item_duration_id' => $this->request->getPost('item_duration_id'),
+                    'item_duration_en' => $this->request->getPost('item_duration_en'),
+                    'item_schedule_id' => $this->request->getPost('item_schedule_id'),
+                    'item_schedule_en' => $this->request->getPost('item_schedule_en'),
+                    'item_location_id' => $this->request->getPost('item_location_id'),
+                    'item_location_en' => $this->request->getPost('item_location_en'),
+                    'item_button_id' => $this->request->getPost('item_button_id'),
+                    'item_button_en' => $this->request->getPost('item_button_en'),
+                    'item_status' => $this->request->getPost('item_status')
+                ];
+
+                // Upload main image
+                $file = $this->request->getFile('item_image');
+                if ($this->hasUploadedFile($file))
+                {
+                    $newname = 'bxsea_image_' . time() . '.' . $file->getExtension();
+                    if($file->move('./assets/upload/additional_exp_item/', $newname))
+                    {
+                        $data['item_image'] = $newname;
+                    }
+                    else
+                    {
+                        $this->session->setFlashdata('failedmovefile', '-');
+                        return redirect()->route(getenv('bxsea.admin').'/ticketing/additionalexpitem/add');
+                    }
+                }
+
+                // Upload duration icon
+                $durationIcon = $this->request->getFile('item_duration_icon');
+                if ($this->hasUploadedFile($durationIcon))
+                {
+                    $iconName = 'bxsea_icon_duration_' . time() . '.' . $durationIcon->getExtension();
+                    if($durationIcon->move('./assets/upload/additional_exp_item/', $iconName))
+                    {
+                        $data['item_duration_icon'] = $iconName;
+                    }
+                }
+
+                // Upload schedule icon
+                $scheduleIcon = $this->request->getFile('item_schedule_icon');
+                if ($this->hasUploadedFile($scheduleIcon))
+                {
+                    $iconName = 'bxsea_icon_schedule_' . time() . '.' . $scheduleIcon->getExtension();
+                    if($scheduleIcon->move('./assets/upload/additional_exp_item/', $iconName))
+                    {
+                        $data['item_schedule_icon'] = $iconName;
+                    }
+                }
+
+                // Upload location icon
+                $locationIcon = $this->request->getFile('item_location_icon');
+                if ($this->hasUploadedFile($locationIcon))
+                {
+                    $iconName = 'bxsea_icon_location_' . time() . '.' . $locationIcon->getExtension();
+                    if($locationIcon->move('./assets/upload/additional_exp_item/', $iconName))
+                    {
+                        $data['item_location_icon'] = $iconName;
+                    }
+                }
+                
+                $this->Crud->createData('tbl_additional_experience_item', $data);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/additionalexpitem');
+            }
+            catch(Exception $ex)
+            {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/additionalexpitem/add');
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function update_additionalexpitem($item_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_additional_experience_item', ['item_id' => $item_id], '', '', '', '', '');
+            echo view('administrator/ticketing/additionalexpitem/update', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_update_additionalexpitem()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $item_id = $this->request->getPost('item_id');
+                $data = [
+                    'item_title_id' => $this->request->getPost('item_title_id'),
+                    'item_title_en' => $this->request->getPost('item_title_en'),
+                    'item_desc_id' => $this->request->getPost('item_desc_id'),
+                    'item_desc_en' => $this->request->getPost('item_desc_en'),
+                    'item_duration_id' => $this->request->getPost('item_duration_id'),
+                    'item_duration_en' => $this->request->getPost('item_duration_en'),
+                    'item_schedule_id' => $this->request->getPost('item_schedule_id'),
+                    'item_schedule_en' => $this->request->getPost('item_schedule_en'),
+                    'item_location_id' => $this->request->getPost('item_location_id'),
+                    'item_location_en' => $this->request->getPost('item_location_en'),
+                    'item_button_id' => $this->request->getPost('item_button_id'),
+                    'item_button_en' => $this->request->getPost('item_button_en'),
+                    'item_status' => $this->request->getPost('item_status')
+                ];
+
+                // Upload main image
+                $file = $this->request->getFile('item_image');
+                if ($this->hasUploadedFile($file))
+                {
+                    $newname = 'bxsea_image_' . time() . '.' . $file->getExtension();
+                    if($file->move('./assets/upload/additional_exp_item/', $newname))
+                    {
+                        $data['item_image'] = $newname;
+                        $oldpicture = $this->request->getPost('oldpicture');
+                        if (!empty($oldpicture) && file_exists('./assets/upload/additional_exp_item/'.$oldpicture))
+                        {
+                            unlink('./assets/upload/additional_exp_item/'.$oldpicture);
+                        }
+                    }
+                }
+
+                // Upload duration icon
+                $durationIcon = $this->request->getFile('item_duration_icon');
+                if ($this->hasUploadedFile($durationIcon))
+                {
+                    $iconName = 'bxsea_icon_duration_' . time() . '.' . $durationIcon->getExtension();
+                    if($durationIcon->move('./assets/upload/additional_exp_item/', $iconName))
+                    {
+                        $data['item_duration_icon'] = $iconName;
+                        $oldIcon = $this->request->getPost('old_duration_icon');
+                        if (!empty($oldIcon) && file_exists('./assets/upload/additional_exp_item/'.$oldIcon))
+                        {
+                            unlink('./assets/upload/additional_exp_item/'.$oldIcon);
+                        }
+                    }
+                }
+
+                // Upload schedule icon
+                $scheduleIcon = $this->request->getFile('item_schedule_icon');
+                if ($this->hasUploadedFile($scheduleIcon))
+                {
+                    $iconName = 'bxsea_icon_schedule_' . time() . '.' . $scheduleIcon->getExtension();
+                    if($scheduleIcon->move('./assets/upload/additional_exp_item/', $iconName))
+                    {
+                        $data['item_schedule_icon'] = $iconName;
+                        $oldIcon = $this->request->getPost('old_schedule_icon');
+                        if (!empty($oldIcon) && file_exists('./assets/upload/additional_exp_item/'.$oldIcon))
+                        {
+                            unlink('./assets/upload/additional_exp_item/'.$oldIcon);
+                        }
+                    }
+                }
+
+                // Upload location icon
+                $locationIcon = $this->request->getFile('item_location_icon');
+                if ($this->hasUploadedFile($locationIcon))
+                {
+                    $iconName = 'bxsea_icon_location_' . time() . '.' . $locationIcon->getExtension();
+                    if($locationIcon->move('./assets/upload/additional_exp_item/', $iconName))
+                    {
+                        $data['item_location_icon'] = $iconName;
+                        $oldIcon = $this->request->getPost('old_location_icon');
+                        if (!empty($oldIcon) && file_exists('./assets/upload/additional_exp_item/'.$oldIcon))
+                        {
+                            unlink('./assets/upload/additional_exp_item/'.$oldIcon);
+                        }
+                    }
+                }
+                
+                $this->Crud->updateData('tbl_additional_experience_item', $data, ['item_id' => $item_id]);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/additionalexpitem');
+            }
+            catch(Exception $ex)
+            {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/additionalexpitem/update/'.$item_id);
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function delete_additionalexpitem($item_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $data = $this->Crud->readData('*', 'tbl_additional_experience_item', ['item_id' => $item_id], '', '', '', '', '');
+                
+                // Delete main image
+                if (!empty($data[0]['item_image']) && file_exists('./assets/upload/additional_exp_item/'.$data[0]['item_image']))
+                {
+                    unlink('./assets/upload/additional_exp_item/'.$data[0]['item_image']);
+                }
+                
+                // Delete duration icon
+                if (!empty($data[0]['item_duration_icon']) && file_exists('./assets/upload/additional_exp_item/'.$data[0]['item_duration_icon']))
+                {
+                    unlink('./assets/upload/additional_exp_item/'.$data[0]['item_duration_icon']);
+                }
+                
+                // Delete schedule icon
+                if (!empty($data[0]['item_schedule_icon']) && file_exists('./assets/upload/additional_exp_item/'.$data[0]['item_schedule_icon']))
+                {
+                    unlink('./assets/upload/additional_exp_item/'.$data[0]['item_schedule_icon']);
+                }
+                
+                // Delete location icon
+                if (!empty($data[0]['item_location_icon']) && file_exists('./assets/upload/additional_exp_item/'.$data[0]['item_location_icon']))
+                {
+                    unlink('./assets/upload/additional_exp_item/'.$data[0]['item_location_icon']);
+                }
+                
+                $this->Crud->deleteData('tbl_additional_experience_item', ['item_id' => $item_id]);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/additionalexpitem');
+            }
+            catch(Exception $ex)
+            {
+                echo 'Message: ' .$ex->getMessage();
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    /* Additional Experience Item */
+
+    /* School Why BXSEA */
+    public function schoolwhybxsea()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_school_why_bxsea', '', '', '', '', '', '');
+            echo view('administrator/ticketing/schoolwhybxsea/index', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function update_schoolwhybxsea($why_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_school_why_bxsea', ['why_id' => $why_id], '', '', '', '', '');
+            echo view('administrator/ticketing/schoolwhybxsea/index', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_add_schoolwhybxsea()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $data = [
+                    'why_title_id' => $this->request->getPost('why_title_id'),
+                    'why_title_en' => $this->request->getPost('why_title_en'),
+                    'why_content_id' => $this->request->getPost('why_content_id'),
+                    'why_content_en' => $this->request->getPost('why_content_en')
+                ];
+                
+                $this->Crud->createData('tbl_school_why_bxsea', $data);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolwhybxsea');
+            }
+            catch(Exception $ex)
+            {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolwhybxsea');
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_update_schoolwhybxsea()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $why_id = $this->request->getPost('why_id');
+                $data = [
+                    'why_title_id' => $this->request->getPost('why_title_id'),
+                    'why_title_en' => $this->request->getPost('why_title_en'),
+                    'why_content_id' => $this->request->getPost('why_content_id'),
+                    'why_content_en' => $this->request->getPost('why_content_en')
+                ];
+                
+                $this->Crud->updateData('tbl_school_why_bxsea', $data, ['why_id' => $why_id]);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolwhybxsea');
+            }
+            catch(Exception $ex)
+            {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolwhybxsea/update/'.$why_id);
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    /* School Why BXSEA */
+
+    /* School What Included */
+    public function schoolincluded()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_school_what_included', '', '', '', '', '', '');
+            echo view('administrator/ticketing/schoolincluded/index', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function add_schoolincluded()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            echo view('administrator/ticketing/schoolincluded/add');
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_add_schoolincluded()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $data = [
+                    'included_title_id' => $this->request->getPost('included_title_id'),
+                    'included_title_en' => $this->request->getPost('included_title_en'),
+                    'included_desc_id' => $this->request->getPost('included_desc_id'),
+                    'included_desc_en' => $this->request->getPost('included_desc_en'),
+                    'included_status' => $this->request->getPost('included_status')
+                ];
+
+                $file = $this->request->getFile('included_image');
+                if ($this->hasUploadedFile($file))
+                {
+                    $newname = 'bxsea_image_' . time() . '.' . $file->getExtension();
+                    if($file->move('./assets/upload/school_included/', $newname))
+                    {
+                        $data['included_image'] = $newname;
+                    }
+                    else
+                    {
+                        $this->session->setFlashdata('failedmovefile', '-');
+                        return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolincluded/add');
+                    }
+                }
+                
+                $this->Crud->createData('tbl_school_what_included', $data);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolincluded');
+            }
+            catch(Exception $ex)
+            {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolincluded/add');
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function update_schoolincluded($included_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_school_what_included', ['included_id' => $included_id], '', '', '', '', '');
+            echo view('administrator/ticketing/schoolincluded/update', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_update_schoolincluded()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $included_id = $this->request->getPost('included_id');
+                $data = [
+                    'included_title_id' => $this->request->getPost('included_title_id'),
+                    'included_title_en' => $this->request->getPost('included_title_en'),
+                    'included_desc_id' => $this->request->getPost('included_desc_id'),
+                    'included_desc_en' => $this->request->getPost('included_desc_en'),
+                    'included_status' => $this->request->getPost('included_status')
+                ];
+
+                $file = $this->request->getFile('included_image');
+                if ($this->hasUploadedFile($file))
+                {
+                    $newname = 'bxsea_image_' . time() . '.' . $file->getExtension();
+                    if($file->move('./assets/upload/school_included/', $newname))
+                    {
+                        $data['included_image'] = $newname;
+                        $oldpicture = $this->request->getPost('oldpicture');
+                        if (!empty($oldpicture) && file_exists('./assets/upload/school_included/'.$oldpicture))
+                        {
+                            unlink('./assets/upload/school_included/'.$oldpicture);
+                        }
+                    }
+                }
+                
+                $this->Crud->updateData('tbl_school_what_included', $data, ['included_id' => $included_id]);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolincluded');
+            }
+            catch(Exception $ex)
+            {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolincluded/update/'.$included_id);
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function delete_schoolincluded($included_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $data = $this->Crud->readData('*', 'tbl_school_what_included', ['included_id' => $included_id], '', '', '', '', '');
+                if (!empty($data[0]['included_image']) && file_exists('./assets/upload/school_included/'.$data[0]['included_image']))
+                {
+                    unlink('./assets/upload/school_included/'.$data[0]['included_image']);
+                }
+                $this->Crud->deleteData('tbl_school_what_included', ['included_id' => $included_id]);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolincluded');
+            }
+            catch(Exception $ex)
+            {
+                echo 'Message: ' .$ex->getMessage();
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    /* School What Included */
+
+    /* School Teacher Said */
+    public function schoolteacher()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_school_teacher_said', '', '', '', '', ['teacher_created_at' => 'DESC'], '');
+            echo view('administrator/ticketing/schoolteacher/index', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function add_schoolteacher()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            echo view('administrator/ticketing/schoolteacher/add');
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_add_schoolteacher()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $data = [
+                    'teacher_name' => $this->request->getPost('teacher_name'),
+                    'teacher_title_id' => $this->request->getPost('teacher_title_id'),
+                    'teacher_title_en' => $this->request->getPost('teacher_title_en'),
+                    'teacher_desc_id' => $this->request->getPost('teacher_desc_id'),
+                    'teacher_desc_en' => $this->request->getPost('teacher_desc_en')
+                ];
+
+                $file = $this->request->getFile('teacher_image');
+                if ($this->hasUploadedFile($file))
+                {
+                    $newname = 'bxsea_image_' . time() . '.' . $file->getExtension();
+                    if($file->move('./assets/upload/school_teacher/', $newname))
+                    {
+                        $data['teacher_image'] = $newname;
+                    }
+                    else
+                    {
+                        $this->session->setFlashdata('failedmovefile', '-');
+                        return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolteacher/add');
+                    }
+                }
+                
+                $this->Crud->createData('tbl_school_teacher_said', $data);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolteacher');
+            }
+            catch(Exception $ex)
+            {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolteacher/add');
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function update_schoolteacher($teacher_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_school_teacher_said', ['teacher_id' => $teacher_id], '', '', '', '', '');
+            echo view('administrator/ticketing/schoolteacher/update', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_update_schoolteacher()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $teacher_id = $this->request->getPost('teacher_id');
+                $data = [
+                    'teacher_name' => $this->request->getPost('teacher_name'),
+                    'teacher_title_id' => $this->request->getPost('teacher_title_id'),
+                    'teacher_title_en' => $this->request->getPost('teacher_title_en'),
+                    'teacher_desc_id' => $this->request->getPost('teacher_desc_id'),
+                    'teacher_desc_en' => $this->request->getPost('teacher_desc_en')
+                ];
+
+                $file = $this->request->getFile('teacher_image');
+                if ($this->hasUploadedFile($file))
+                {
+                    $newname = 'bxsea_image_' . time() . '.' . $file->getExtension();
+                    if($file->move('./assets/upload/school_teacher/', $newname))
+                    {
+                        $data['teacher_image'] = $newname;
+                        $oldpicture = $this->request->getPost('oldpicture');
+                        if (!empty($oldpicture) && file_exists('./assets/upload/school_teacher/'.$oldpicture))
+                        {
+                            unlink('./assets/upload/school_teacher/'.$oldpicture);
+                        }
+                    }
+                }
+                
+                $this->Crud->updateData('tbl_school_teacher_said', $data, ['teacher_id' => $teacher_id]);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolteacher');
+            }
+            catch(Exception $ex)
+            {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolteacher/update/'.$teacher_id);
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function delete_schoolteacher($teacher_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $data = $this->Crud->readData('*', 'tbl_school_teacher_said', ['teacher_id' => $teacher_id], '', '', '', '', '');
+                if (!empty($data[0]['teacher_image']) && file_exists('./assets/upload/school_teacher/'.$data[0]['teacher_image']))
+                {
+                    unlink('./assets/upload/school_teacher/'.$data[0]['teacher_image']);
+                }
+                $this->Crud->deleteData('tbl_school_teacher_said', ['teacher_id' => $teacher_id]);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolteacher');
+            }
+            catch(Exception $ex)
+            {
+                echo 'Message: ' .$ex->getMessage();
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    /* School Teacher Said */
+
+    /* Moment Memories */
+    public function momentmemories()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_moment_memories', '', '', '', '', '', '');
+            echo view('administrator/ticketing/momentmemories/index', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function add_momentmemories()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            echo view('administrator/ticketing/momentmemories/add');
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_add_momentmemories()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $data = [
+                    'memory_title_id' => $this->request->getPost('memory_title_id'),
+                    'memory_title_en' => $this->request->getPost('memory_title_en'),
+                    'memory_status' => $this->request->getPost('memory_status')
+                ];
+
+                $file = $this->request->getFile('memory_image');
+                if ($this->hasUploadedFile($file))
+                {
+                    $newname = 'bxsea_image_' . time() . '.' . $file->getExtension();
+                    if($file->move('./assets/upload/moment_memory/', $newname))
+                    {
+                        $data['memory_image'] = $newname;
+                    }
+                    else
+                    {
+                        $this->session->setFlashdata('failedmovefile', '-');
+                        return redirect()->route(getenv('bxsea.admin').'/ticketing/momentmemories/add');
+                    }
+                }
+                
+                $this->Crud->createData('tbl_moment_memories', $data);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/momentmemories');
+            }
+            catch(Exception $ex)
+            {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/momentmemories/add');
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function update_momentmemories($memory_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_moment_memories', ['memory_id' => $memory_id], '', '', '', '', '');
+            echo view('administrator/ticketing/momentmemories/update', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function run_update_momentmemories()
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $memory_id = $this->request->getPost('memory_id');
+                $data = [
+                    'memory_title_id' => $this->request->getPost('memory_title_id'),
+                    'memory_title_en' => $this->request->getPost('memory_title_en'),
+                    'memory_status' => $this->request->getPost('memory_status')
+                ];
+
+                $file = $this->request->getFile('memory_image');
+                if ($this->hasUploadedFile($file))
+                {
+                    $newname = 'bxsea_image_' . time() . '.' . $file->getExtension();
+                    if($file->move('./assets/upload/moment_memory/', $newname))
+                    {
+                        $data['memory_image'] = $newname;
+                        $oldpicture = $this->request->getPost('oldpicture');
+                        if (!empty($oldpicture) && file_exists('./assets/upload/moment_memory/'.$oldpicture))
+                        {
+                            unlink('./assets/upload/moment_memory/'.$oldpicture);
+                        }
+                    }
+                }
+                
+                $this->Crud->updateData('tbl_moment_memories', $data, ['memory_id' => $memory_id]);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/momentmemories');
+            }
+            catch(Exception $ex)
+            {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/momentmemories/update/'.$memory_id);
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    public function delete_momentmemories($memory_id = NULL)
+    {
+        if(session()->get('islogin') == TRUE)
+        {
+            try
+            {
+                $data = $this->Crud->readData('*', 'tbl_moment_memories', ['memory_id' => $memory_id], '', '', '', '', '');
+                if (!empty($data[0]['memory_image']) && file_exists('./assets/upload/moment_memory/'.$data[0]['memory_image']))
+                {
+                    unlink('./assets/upload/moment_memory/'.$data[0]['memory_image']);
+                }
+                $this->Crud->deleteData('tbl_moment_memories', ['memory_id' => $memory_id]);
+                $this->session->setFlashdata('success', '-');
+                return redirect()->route(getenv('bxsea.admin').'/ticketing/momentmemories');
+            }
+            catch(Exception $ex)
+            {
+                echo 'Message: ' .$ex->getMessage();
+            }
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+    /* Moment Memories */
 }
 
 ?>

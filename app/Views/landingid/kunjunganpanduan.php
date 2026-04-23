@@ -40,11 +40,13 @@ foreach (array_slice($guide ?? [], 0, 3) as $index => $item) {
 if ($guideCards === []) {
   $guideCards = $fallbackGuideCards;
 }
+
+$guideHeroTitle = bxsea_plain_text($guideheader[0]['masterdesc_title_en'] ?? 'ACCESSIBILITY GUIDE');
+$guideHeroTitle = str_ireplace('Accessibility Guidelines', 'Accessibility Guide', $guideHeroTitle);
 ?>
 
 <section class="sectionBanner">
   <div class="hero-wrap2">
-    <div class="overlay-darkblue-bg-banner"></div>
     <div class="hero-image2">
       <img src="<?= $guideHeroAsset; ?>" alt="">
     </div>
@@ -52,7 +54,7 @@ if ($guideCards === []) {
       <div class="row descBanner2">
         <div class="col-lg-12 box-premium">
           <div class="desc-premium">
-            <h1 class="banner-title">PANDUAN AKSESIBILITAS</h1>
+            <h1 class="banner-title"><?= esc($guideHeroTitle); ?></h1>
           </div>
         </div>
       </div>
@@ -71,7 +73,7 @@ if ($guideCards === []) {
       <div class="col-md-4">
         <div class="card-custom">
           <img src="<?= $card['image']; ?>" class="img-fluid" alt="<?= esc($card['title']); ?>">
-          <p><?= esc($card['title']); ?></p>
+          <p><?= esc($card['desc']); ?></p>
         </div>
       </div>
       <?php endforeach; ?>

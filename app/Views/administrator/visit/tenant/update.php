@@ -71,6 +71,14 @@
                             <textarea name="tenant_desc_en" class="form-control" placeholder="Entry Desc ID" id="kt-ckeditor-2" rows="6"><?= $rs["tenant_desc_en"];?></textarea>
                         </div>
                         <div class="form-group">
+                            <label>Location ID</label>
+                            <input name="tenant_location" type="text" class="form-control" value="<?= esc($rs['tenant_location'] ?? '');?>" placeholder="Enter Tenant Location ID (e.g. Zona A, Lantai 1)"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Location EN</label>
+                            <input name="tenant_location_en" type="text" class="form-control" value="<?= esc($rs['tenant_location_en'] ?? '');?>" placeholder="Enter Tenant Location EN (e.g. Zone A, Level 1)"/>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputPassword1">Thumbnail Image <span class="text-danger">*</span></label><br>
                             <div class="image-input image-input-outline" id="kt_image_1">
                                 <div class="image-input-wrapper" style="background-image: url(<?= base_url('assets/upload/tenant/'.$rs["tenant_thumbnail_pict"])?>)"></div>
@@ -98,6 +106,43 @@
                                 </span>
                             </div>
                         </div>
+                        <hr>
+                        <h5 class="mb-4">Button & Popup Content</h5>
+                        <div class="form-group">
+                            <label>Button Text ID <small class="text-muted">(teks tombol, default: "Lihat Detail")</small></label>
+                            <input type="text" name="tenant_btn_text" class="form-control" value="<?= esc($rs['tenant_btn_text']??'');?>" placeholder="Lihat Detail">
+                        </div>
+                        <div class="form-group">
+                            <label>Button Text EN <small class="text-muted">(button text, default: "View Details")</small></label>
+                            <input type="text" name="tenant_btn_text_en" class="form-control" value="<?= esc($rs['tenant_btn_text_en']??'');?>" placeholder="View Details">
+                        </div>
+                        <div class="form-group">
+                            <label>Popup Image</label><br>
+                            <?php if(!empty($rs['tenant_popup_image'])):?>
+                            <div class="mb-2"><img src="<?= base_url('assets/upload/tenant/'.esc($rs['tenant_popup_image']));?>" style="max-height:100px;"></div>
+                            <?php endif;?>
+                            <input type="file" name="tenant_popup_image" class="form-control" accept=".png,.jpg,.jpeg">
+                            <input type="hidden" name="tenant_popup_image_temp" value="<?= esc($rs['tenant_popup_image']??'');?>">
+                            <small class="text-muted">Gambar khusus untuk popup. Biarkan kosong jika tidak diganti.</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Popup Description ID</label>
+                            <textarea name="tenant_popup_desc_id" class="form-control" id="kt-ckeditor-popup-id" rows="6"><?= $rs['tenant_popup_desc_id']??'';?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Popup Description EN</label>
+                            <textarea name="tenant_popup_desc_en" class="form-control" id="kt-ckeditor-popup-en" rows="6"><?= $rs['tenant_popup_desc_en']??'';?></textarea>
+                        </div>
+                        <?php foreach(['tenant_gallery1','tenant_gallery2','tenant_gallery3'] as $gi => $gKey):?>
+                        <div class="form-group">
+                            <label>Gallery Image <?= $gi+1; ?> <?= $gi===0 ? '<span class="text-danger">*</span>' : '';?></label><br>
+                            <?php if(!empty($rs[$gKey])):?>
+                            <div class="mb-2"><img src="<?= base_url('assets/upload/tenant/'.esc($rs[$gKey]));?>" style="max-height:80px;"></div>
+                            <?php endif;?>
+                            <input type="file" name="<?= $gKey;?>" class="form-control" accept=".png,.jpg,.jpeg">
+                            <input type="hidden" name="<?= $gKey;?>_temp" value="<?= esc($rs[$gKey]??'');?>">
+                        </div>
+                        <?php endforeach;?>
                     </div>
                     <div class="card-footer">
                         <input type="hidden" name="tenant_id" value="<?= $rs["tenant_id"];?>">

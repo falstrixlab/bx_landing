@@ -51,7 +51,7 @@ $normalizeTenantTextEn = static function (?string $value, ?string $fallbackValue
                 <h2><?= esc($te['tenant_title'] ?? '');?></h2>
                 <p><?= esc($normalizeTenantTextEn($te['tenant_desc_en'] ?? '', $te['tenant_desc'] ?? '', $te['tenant_title'] ?? '', 120));?></p>
                 <button class="btn-detail-tenant" onclick="openTenantPopup('tenant-<?= (int)$te['tenant_id'];?>')">
-                  View Details
+                  <?= esc(!empty($te['tenant_btn_text_en']) ? $te['tenant_btn_text_en'] : (!empty($te['tenant_btn_text']) ? $te['tenant_btn_text'] : 'View Details'));?> &rsaquo;
                 </button>
               </div>
             </div>
@@ -67,14 +67,32 @@ $normalizeTenantTextEn = static function (?string $value, ?string $fallbackValue
 
 <?php foreach ($tenant as $te): ?>
 <div class="fodegraf-popup" id="tenant-<?= (int)$te['tenant_id'];?>" style="display:none;">
-  <button class="close-popup-btn" onclick="closeTenantPopup()"><i class="fa-solid fa-xmark"></i></button>
-  <div class="row align-items-center">
-    <div class="col-lg-6">
-      <img class="img-fluid" src="<?= bxsea_asset_url('tenant', $te['tenant_main_pict'] ?? '', 'assets/landing/image/bxsea_image_tenant_wingstop_back.png');?>" alt="<?= esc($te['tenant_title'] ?? '');?>">
+  <div class="fodegraf-popup-header">
+    <h2><?= esc($te['tenant_title'] ?? '');?></h2>
+    <button class="fodegraf-popup-close" onclick="closeTenantPopup()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="row align-items-start fodegraf-popup-body">
+    <div class="col-lg-12">
+      <?php $popupDesc = !empty($te['tenant_popup_desc_en']) ? $te['tenant_popup_desc_en'] : ($te['tenant_desc'] ?? ''); ?>
+      <?= bxsea_render_html($popupDesc, '<p><br><strong><em><ul><ol><li><h4><h5><h6><span><div>');?>
     </div>
-    <div class="col-lg-6">
-      <h2><?= esc($te['tenant_title'] ?? '');?></h2>
-      <p><?= nl2br(esc($normalizeTenantTextEn($te['tenant_desc_en'] ?? '', $te['tenant_desc'] ?? '', $te['tenant_title'] ?? '')));?></p>
+    <div class="col-lg-12">
+      <?php
+        $galleries = array_filter([
+          $te['tenant_gallery1'] ?? '',
+          $te['tenant_gallery2'] ?? '',
+          $te['tenant_gallery3'] ?? '',
+        ]);
+        if(!empty($galleries)):
+      ?>
+      <div class="row g-2 mt-1">
+        <?php foreach($galleries as $g): ?>
+        <div class="col-4">
+          <img class="img-fluid rounded" src="<?= bxsea_asset_url('tenant', $g, '');?>" alt="">
+        </div>
+        <?php endforeach; ?>
+      </div>
+      <?php endif; ?>
     </div>
   </div>
 </div>

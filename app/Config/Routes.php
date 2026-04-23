@@ -192,12 +192,59 @@ $routes->group('adminsite', function($routes){
     $routes->post('ticketing/promotion/runupdate', 'AdminTicketing::run_update_promotion');
     $routes->get('ticketing/promotion/delete/(:num)', 'AdminTicketing::delete_promotion/$1');
 
+    $routes->get('ticketing/promosi', 'AdminTicketing::promosi');
+    $routes->get('ticketing/promosi/add', 'AdminTicketing::add_promosi');
+    $routes->post('ticketing/promosi/runadd', 'AdminTicketing::run_add_promosi');
+    $routes->get('ticketing/promosi/update/(:num)', 'AdminTicketing::update_promosi/$1');
+    $routes->post('ticketing/promosi/runupdate', 'AdminTicketing::run_update_promosi');
+    $routes->get('ticketing/promosi/delete/(:num)', 'AdminTicketing::delete_promosi/$1');
+
     $routes->get('ticketing/schoolprogram', 'AdminTicketing::schoolprogram');
     $routes->get('ticketing/schoolprogram/add', 'AdminTicketing::add_schoolprogram');
     $routes->post('ticketing/schoolprogram/runadd', 'AdminTicketing::run_add_schoolprogram');
     $routes->get('ticketing/schoolprogram/update/(:num)', 'AdminTicketing::update_schoolprogram/$1');
     $routes->post('ticketing/schoolprogram/runupdate', 'AdminTicketing::run_update_schoolprogram');
     $routes->get('ticketing/schoolprogram/delete/(:num)', 'AdminTicketing::delete_schoolprogram/$1');
+
+    $routes->get('ticketing/additionalexp', 'AdminTicketing::additionalexp');
+    $routes->get('ticketing/additionalexp/add', 'AdminTicketing::add_additionalexp');
+    $routes->post('ticketing/additionalexp/runadd', 'AdminTicketing::run_add_additionalexp');
+    $routes->get('ticketing/additionalexp/update/(:num)', 'AdminTicketing::update_additionalexp/$1');
+    $routes->post('ticketing/additionalexp/runupdate', 'AdminTicketing::run_update_additionalexp');
+
+    $routes->get('ticketing/additionalexpitem', 'AdminTicketing::additionalexpitem');
+    $routes->get('ticketing/additionalexpitem/add', 'AdminTicketing::add_additionalexpitem');
+    $routes->post('ticketing/additionalexpitem/runadd', 'AdminTicketing::run_add_additionalexpitem');
+    $routes->get('ticketing/additionalexpitem/update/(:num)', 'AdminTicketing::update_additionalexpitem/$1');
+    $routes->post('ticketing/additionalexpitem/runupdate', 'AdminTicketing::run_update_additionalexpitem');
+    $routes->get('ticketing/additionalexpitem/delete/(:num)', 'AdminTicketing::delete_additionalexpitem/$1');
+
+    $routes->get('ticketing/schoolwhybxsea', 'AdminTicketing::schoolwhybxsea');
+    $routes->get('ticketing/schoolwhybxsea/add', 'AdminTicketing::add_schoolwhybxsea');
+    $routes->post('ticketing/schoolwhybxsea/runadd', 'AdminTicketing::run_add_schoolwhybxsea');
+    $routes->get('ticketing/schoolwhybxsea/update/(:num)', 'AdminTicketing::update_schoolwhybxsea/$1');
+    $routes->post('ticketing/schoolwhybxsea/runupdate', 'AdminTicketing::run_update_schoolwhybxsea');
+
+    $routes->get('ticketing/schoolincluded', 'AdminTicketing::schoolincluded');
+    $routes->get('ticketing/schoolincluded/add', 'AdminTicketing::add_schoolincluded');
+    $routes->post('ticketing/schoolincluded/runadd', 'AdminTicketing::run_add_schoolincluded');
+    $routes->get('ticketing/schoolincluded/update/(:num)', 'AdminTicketing::update_schoolincluded/$1');
+    $routes->post('ticketing/schoolincluded/runupdate', 'AdminTicketing::run_update_schoolincluded');
+    $routes->get('ticketing/schoolincluded/delete/(:num)', 'AdminTicketing::delete_schoolincluded/$1');
+
+    $routes->get('ticketing/schoolteacher', 'AdminTicketing::schoolteacher');
+    $routes->get('ticketing/schoolteacher/add', 'AdminTicketing::add_schoolteacher');
+    $routes->post('ticketing/schoolteacher/runadd', 'AdminTicketing::run_add_schoolteacher');
+    $routes->get('ticketing/schoolteacher/update/(:num)', 'AdminTicketing::update_schoolteacher/$1');
+    $routes->post('ticketing/schoolteacher/runupdate', 'AdminTicketing::run_update_schoolteacher');
+    $routes->get('ticketing/schoolteacher/delete/(:num)', 'AdminTicketing::delete_schoolteacher/$1');
+
+    $routes->get('ticketing/momentmemories', 'AdminTicketing::momentmemories');
+    $routes->get('ticketing/momentmemories/add', 'AdminTicketing::add_momentmemories');
+    $routes->post('ticketing/momentmemories/runadd', 'AdminTicketing::run_add_momentmemories');
+    $routes->get('ticketing/momentmemories/update/(:num)', 'AdminTicketing::update_momentmemories/$1');
+    $routes->post('ticketing/momentmemories/runupdate', 'AdminTicketing::run_update_momentmemories');
+    $routes->get('ticketing/momentmemories/delete/(:num)', 'AdminTicketing::delete_momentmemories/$1');
 
     // Explore
     $routes->get('explore/description', 'AdminExplore::description');
@@ -213,6 +260,13 @@ $routes->group('adminsite', function($routes){
     $routes->get('explore/journey/update/(:num)', 'AdminExplore::update_journey/$1');
     $routes->post('explore/journey/runupdate', 'AdminExplore::run_update_journey');
     $routes->get('explore/journey/delete/(:num)', 'AdminExplore::delete_journey/$1');
+
+    $routes->get('explore/maincarousel', 'AdminExplore::maincarousel');
+    $routes->get('explore/maincarousel/add', 'AdminExplore::add_maincarousel');
+    $routes->post('explore/maincarousel/runadd', 'AdminExplore::run_add_maincarousel');
+    $routes->get('explore/maincarousel/update/(:num)', 'AdminExplore::update_maincarousel/$1');
+    $routes->post('explore/maincarousel/runupdate', 'AdminExplore::run_update_maincarousel');
+    $routes->get('explore/maincarousel/delete/(:num)', 'AdminExplore::delete_maincarousel/$1');
 
     $routes->get('explore/show', 'AdminExplore::show');
     $routes->get('explore/show/add', 'AdminExplore::add_show');

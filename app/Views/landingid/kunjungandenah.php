@@ -16,7 +16,7 @@ $mapHeroAsset = bxsea_design_asset('visit', 'hero_map', 'assets/landing/image/bx
       <div class="row descBanner2">
         <div class="col-lg-12 box-premium">
           <div class="desc-premium">
-            <h1 class="banner-title">DENAH OCEANARIUM</h1>
+            <h1><?= esc(bxsea_plain_text($map[0]['map_title_en'] ?? 'BXSea Map'));?></h1>
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@ $mapHeroAsset = bxsea_design_asset('visit', 'hero_map', 'assets/landing/image/bx
 </section>
 
 <section class="map-oceanarium">
-  <div class="container">
+  <div class="container image-map-oceanarium">
     <img class="iguana3" src="<?= base_url('assets/landing/');?>image/BXSEA_Rainforest_Assets.png" alt="">
     <?php if (!empty($map[0]['map_pict'])): ?>
     <img class="bxsea-map" src="<?= bxsea_asset_url('map', $map[0]['map_pict'] ?? '', 'assets/landing/image/FULL BXSea MAP [Revised]-1.png');?>" alt="<?= esc($map[0]['map_title'] ?? 'Denah BXSea');?>">

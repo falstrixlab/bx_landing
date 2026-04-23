@@ -12,7 +12,7 @@ $merchDesc = 'Bring your BXSea adventure home with our official merchandise coll
           <img src="<?= $merchHeroAsset; ?>" alt="">
         </div>
         <div class="title-merchandise descBanner2">
-        <h1>OFFICIAL MERCHANDISE</h1>
+        <h1><?= esc(bxsea_plain_text($merchandiseheader[0]['masterdesc_title_en'] ?? ''));?></h1>
         </div>
       </div>        
   </section>
@@ -21,8 +21,8 @@ $merchDesc = 'Bring your BXSea adventure home with our official merchandise coll
   <section class="Merchandise">
     <div class="container">
       <div class="title-merchandise2">
-      <h1><?= esc($merchTitle);?></h1>
-        <p><?= esc($merchDesc);?></p>
+        <h1><?= esc(bxsea_plain_text($merchandisedesc[0]['masterdesc_title_en'] ?? ''));?></h1>
+        <p><?= esc(bxsea_plain_text($merchandisedesc[0]['masterdesc_desc_en'] ?? ''));?></p>
       </div>
 
 
@@ -66,7 +66,6 @@ $merchDesc = 'Bring your BXSea adventure home with our official merchandise coll
 
       </section>
     </div>
-    <img class="grass17" src="<?= base_url('assets/landing/')?>image/bg-grass.png" alt="">
   </section>
 <script>
 var itemsPerPage = 8;

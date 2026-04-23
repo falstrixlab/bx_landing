@@ -112,7 +112,38 @@ class AdminVisit extends BaseController {
                         'tenant_title' => $this->request->getVar('tenant_title'),
                         'tenant_desc' => $this->request->getVar('tenant_desc'),
                         'tenant_desc_en' => $this->request->getVar('tenant_desc_en'),
+                        'tenant_location' => $this->request->getVar('tenant_location'),
+                        'tenant_location_en' => $this->request->getVar('tenant_location_en'),
                     ];
+                    /* upload tenant popup image */
+                    $tenantpopupimg = $this->request->getFile('tenant_popup_image');
+                    if ($this->hasUploadedFile($tenantpopupimg)) {
+                        if (! $this->validate(['tenant_popup_image' => ['label' => 'Popup Image', 'rules' => ['uploaded[tenant_popup_image]', 'mime_in[tenant_popup_image,image/jpg,image/jpeg,image/png]']]])) {
+                            $this->session->setFlashdata('invalidate', '-');
+                            return redirect()->route(getenv('bxsea.admin').'/visit/tenant/add');
+                        }
+                        $data['tenant_popup_image'] = 'bxsea_image_' . $tenantpopupimg->getRandomName();
+                        $tenantpopupimg->move(ROOTPATH . 'assets/upload/tenant', $data['tenant_popup_image'], true);
+                    }
+                    /* upload tenant galleries (min 1 max 3) */
+                    $galleryNames = ['tenant_gallery1', 'tenant_gallery2', 'tenant_gallery3'];
+                    $uploadedGalleries = 0;
+                    foreach ($galleryNames as $gKey) {
+                        $gFile = $this->request->getFile($gKey);
+                        if ($this->hasUploadedFile($gFile)) {
+                            if (! $this->validate([$gKey => ['label' => 'Gallery Image', 'rules' => ['uploaded['.$gKey.']', 'mime_in['.$gKey.',image/jpg,image/jpeg,image/png]']]])) {
+                                $this->session->setFlashdata('invalidate', '-');
+                                return redirect()->route(getenv('bxsea.admin').'/visit/tenant/add');
+                            }
+                            $data[$gKey] = 'bxsea_image_' . $gFile->getRandomName();
+                            $gFile->move(ROOTPATH . 'assets/upload/tenant', $data[$gKey], true);
+                            $uploadedGalleries++;
+                        }
+                    }
+                    $data['tenant_popup_desc_id'] = $this->request->getVar('tenant_popup_desc_id');
+                    $data['tenant_popup_desc_en'] = $this->request->getVar('tenant_popup_desc_en');
+                    $data['tenant_btn_text']    = $this->request->getVar('tenant_btn_text');
+                    $data['tenant_btn_text_en'] = $this->request->getVar('tenant_btn_text_en');
                     $insert = $this->Crud->createData('tbl_visittenant', $data);
                     if ($insert) 
                     {
@@ -223,7 +254,42 @@ class AdminVisit extends BaseController {
                         'tenant_title' => $this->request->getVar('tenant_title'),
                         'tenant_desc' => $this->request->getVar('tenant_desc'),
                         'tenant_desc_en' => $this->request->getVar('tenant_desc_en'),
+                        'tenant_location' => $this->request->getVar('tenant_location'),
+                        'tenant_location_en' => $this->request->getVar('tenant_location_en'),
                     ];
+                    /* update tenant popup image */
+                    $tenantpopupimg = $this->request->getFile('tenant_popup_image');
+                    $newtenantpopupimg = $this->request->getVar('tenant_popup_image_temp');
+                    if ($this->hasUploadedFile($tenantpopupimg)) {
+                        if (! $this->validate(['tenant_popup_image' => ['label' => 'Popup Image', 'rules' => ['uploaded[tenant_popup_image]', 'mime_in[tenant_popup_image,image/jpg,image/jpeg,image/png]']]])) {
+                            $this->session->setFlashdata('invalidate', '-');
+                            return redirect()->route(getenv('bxsea.admin').'/visit/tenant/update/'.$this->request->getVar('tenant_id'));
+                        }
+                        if ($newtenantpopupimg && is_file('assets/upload/tenant/'.$newtenantpopupimg)) { unlink('assets/upload/tenant/'.$newtenantpopupimg); }
+                        $newtenantpopupimg = 'bxsea_image_' . $tenantpopupimg->getRandomName();
+                        $tenantpopupimg->move(ROOTPATH . 'assets/upload/tenant', $newtenantpopupimg, true);
+                    }
+                    $data['tenant_popup_image'] = $newtenantpopupimg;
+                    /* update tenant galleries */
+                    $galleryNames = ['tenant_gallery1', 'tenant_gallery2', 'tenant_gallery3'];
+                    foreach ($galleryNames as $gKey) {
+                        $gFile = $this->request->getFile($gKey);
+                        $newGVal = $this->request->getVar($gKey.'_temp');
+                        if ($this->hasUploadedFile($gFile)) {
+                            if (! $this->validate([$gKey => ['label' => 'Gallery Image', 'rules' => ['uploaded['.$gKey.']', 'mime_in['.$gKey.',image/jpg,image/jpeg,image/png]']]])) {
+                                $this->session->setFlashdata('invalidate', '-');
+                                return redirect()->route(getenv('bxsea.admin').'/visit/tenant/update/'.$this->request->getVar('tenant_id'));
+                            }
+                            if ($newGVal && is_file('assets/upload/tenant/'.$newGVal)) { unlink('assets/upload/tenant/'.$newGVal); }
+                            $newGVal = 'bxsea_image_' . $gFile->getRandomName();
+                            $gFile->move(ROOTPATH . 'assets/upload/tenant', $newGVal, true);
+                        }
+                        $data[$gKey] = $newGVal;
+                    }
+                    $data['tenant_popup_desc_id'] = $this->request->getVar('tenant_popup_desc_id');
+                    $data['tenant_popup_desc_en'] = $this->request->getVar('tenant_popup_desc_en');
+                    $data['tenant_btn_text']    = $this->request->getVar('tenant_btn_text');
+                    $data['tenant_btn_text_en'] = $this->request->getVar('tenant_btn_text_en');
                     $update = $this->Crud->updateData('tbl_visittenant', $data, ['tenant_id' => $this->request->getVar('tenant_id')]);
                     if ($update) 
                     {

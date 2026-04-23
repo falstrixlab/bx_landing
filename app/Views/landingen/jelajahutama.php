@@ -32,6 +32,17 @@ $journeyArrowAsset = bxsea_design_asset('journey', 'arrow', 'assets/landing/imag
   <h2 class="title">Explore Our Zones</h2>
   <p class="subtitle">Explore our various zones and experience visiting diverse habitats of biota from around the world!</p>
   <div class="owl-carousel owl-theme explore-mainjourney-carousel">
+    <?php if(!empty($maincarousel)): ?>
+    <?php foreach($maincarousel AS $mc): ?>
+    <div class="card">
+      <img src="<?= bxsea_asset_url('maincarousel', $mc['carousel_image']??'', 'assets/landing/image/bxsea_image_journey_zone1.png');?>" alt="<?= esc($mc['carousel_title_en']??'');?>" />
+      <div class="info-box">
+        <h3><?= esc(bxsea_plain_text($mc['carousel_title_en']??''));?></h3>
+        <p><?= esc(bxsea_plain_text($mc['carousel_desc_en']??''));?></p>
+      </div>
+    </div>
+    <?php endforeach; ?>
+    <?php else: ?>
     <?php foreach($journey AS $jn): ?>
     <div class="card">
       <img src="<?= bxsea_asset_url('journey', $jn['journey_animal_pict'] ?? ($jn['journey_pict'] ?? ''), 'assets/landing/image/bxsea_image_journey_zone1.png');?>" alt="<?= esc($jn['journey_title_en'] ?? '');?>" />
@@ -42,6 +53,7 @@ $journeyArrowAsset = bxsea_design_asset('journey', 'arrow', 'assets/landing/imag
       </div>
     </div>
     <?php endforeach; ?>
+    <?php endif; ?>
   </div>
 </section>
 
@@ -50,7 +62,16 @@ $journeyArrowAsset = bxsea_design_asset('journey', 'arrow', 'assets/landing/imag
     <div class="row gy-4" id="journeyZoneGrid">
       <?php foreach($journey AS $jn): ?>
       <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="box-journey-zone">
+        <div class="box-journey-zone"
+             data-title="<?= esc(bxsea_plain_text($jn['journey_title_en']??($jn['journey_title']??'')));?>"
+             data-zone="<?= esc($jn['journey_zone']??'');?>"
+             data-desc="<?= esc(bxsea_plain_text($jn['journey_desc_en']??($jn['journey_desc']??'')));?>"
+             data-img="<?= bxsea_asset_url('journey', $jn['journey_pict']??'', 'assets/landing/image/bxsea_image_journey_zone1.png');?>"
+             data-popup-desc="<?= esc(bxsea_plain_text($jn['journey_popup_desc_en']??($jn['journey_popup_desc_id']??'')));?>"
+             data-popup-pict1="<?= !empty($jn['journey_popup_pict1']) ? bxsea_asset_url('journey', $jn['journey_popup_pict1'], '') : '';?>"
+             data-popup-pict1-label="<?= esc($jn['journey_popup_pict1_label_en']??($jn['journey_popup_pict1_label_id']??''));?>"
+             data-popup-pict2="<?= !empty($jn['journey_popup_pict2']) ? bxsea_asset_url('journey', $jn['journey_popup_pict2'], '') : '';?>"
+             data-popup-pict2-label="<?= esc($jn['journey_popup_pict2_label_en']??($jn['journey_popup_pict2_label_id']??''));?>">
           <div class="image-box-journey-zone">
             <img src="<?= bxsea_asset_url('journey', $jn['journey_pict'] ?? '', 'assets/landing/image/bxsea_image_journey_zone1.png');?>" alt="<?= esc($jn['journey_title_en'] ?? '');?>">
             <div class="desc-box-journey-zone">
@@ -63,7 +84,7 @@ $journeyArrowAsset = bxsea_design_asset('journey', 'arrow', 'assets/landing/imag
             </div>
           </div>
           <div class="btn-detail-journey-zone">
-            <a href="#javascript"><img src="<?= $journeyArrowAsset; ?>" alt=""></a>
+            <a href="#"><img src="<?= $journeyArrowAsset; ?>" alt=""></a>
           </div>
         </div>
       </div>
@@ -153,20 +174,29 @@ document.addEventListener('DOMContentLoaded', function () {
   function closeModal() { modal.classList.remove('is-active'); modal.setAttribute('aria-hidden','true'); document.body.classList.remove('no-scroll'); }
 
   function setModalContent(card) {
-    var titleNode = card.querySelector('.box-white h4');
-    var zoneNode = card.querySelector('.box-white span');
-    var descNode = card.querySelector('.box-white p');
-    var imgNode = card.querySelector('.image-box-journey-zone > img');
-    var title = titleNode ? titleNode.textContent : 'Journey Zone';
-    var zone = zoneNode ? zoneNode.textContent : 'ZONE';
-    var description = descNode ? descNode.textContent : '';
-    var imgSrc = imgNode ? imgNode.getAttribute('src') : '';
-    var zoneMatch = zone.match(/\d+/);
-    var normalizedZone = zoneMatch ? 'ZONE: ' + zoneMatch[0] : zone;
+    var title = card.dataset.title || 'Journey Zone';
+    var zone = card.dataset.zone || '';
+    var description = card.dataset.desc || '';
+    var imgSrc = card.dataset.img || '';
+    var popupDesc = card.dataset.popupDesc || description;
+    var pict1 = card.dataset.popupPict1 || '';
+    var pict1Label = card.dataset.popupPict1Label || title;
+    var pict2 = card.dataset.popupPict2 || '';
+    var pict2Label = card.dataset.popupPict2Label || '';
+    var normalizedZone = zone ? 'ZONE: ' + zone.replace(/^zone\s*/i,'') : '';
     titleEl.textContent = title;
     zoneEl.textContent = normalizedZone;
-    descEl.textContent = description.trim();
-    findGridEl.innerHTML = '<div class="journey-zone-modal-find-card"><img src="' + imgSrc + '" alt="' + title + '"><p>' + title + '</p></div>';
+    descEl.textContent = popupDesc.trim();
+    var gridHtml = '';
+    if (pict1) {
+      gridHtml += '<div class="journey-zone-modal-find-card"><img src="' + pict1 + '" alt="' + pict1Label + '"><p>' + pict1Label + '</p></div>';
+    } else if (imgSrc) {
+      gridHtml += '<div class="journey-zone-modal-find-card"><img src="' + imgSrc + '" alt="' + title + '"><p>' + title + '</p></div>';
+    }
+    if (pict2) {
+      gridHtml += '<div class="journey-zone-modal-find-card"><img src="' + pict2 + '" alt="' + pict2Label + '"><p>' + pict2Label + '</p></div>';
+    }
+    findGridEl.innerHTML = gridHtml;
   }
 
   cards.forEach(function(card) {

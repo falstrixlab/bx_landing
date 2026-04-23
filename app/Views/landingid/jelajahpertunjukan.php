@@ -35,29 +35,41 @@ $showArrowAsset = bxsea_design_asset('show', 'arrow', 'assets/landing/image/arro
       <button class="showbx-filter-tab" data-showbx="seapecial">SEA-PECIAL SHOWS</button>
     </div>
     <div class="row">
-      <?php foreach ($show as $sh): ?>
-      <div class="col-lg-4 col-md-6 mb-200 box-show showbx-card" data-showbx="<?= esc($sh['show_type'] ?? 'regular');?>">
-        <div class="hand">
-          <img class="hand-image" src="<?= bxsea_asset_url('show', $sh['show_pict'] ?? '', 'assets/landing/image/bxsea_image_regular_show.png');?>" alt="<?= esc($sh['show_title'] ?? '');?>">
-          <div class="overlay-show">
-            <div class="desc-ooverlay-show">
-              <div class="title-show">
-                <h2><?= esc($sh['show_title'] ?? '');?></h2>
-              </div>
-              <div class="desc-show">
-                <p><?= esc(bxsea_plain_text($sh['show_desc'] ?? ''));?></p>
+      <?php foreach($show as $sh) { 
+          $type = $sh['show_type'] ?? 'regular';
+          $colClass = ($type === 'seapecial') ? 'col-lg-6' : 'col-lg-4';
+        ?>
+          <div class="<?= $colClass; ?> col-md-6 mb-200 box-show showbx-card"
+              data-showbx="<?= esc($type); ?>">
+            <div class="hand">
+              <img 
+                class="img-fluid hand-image" 
+                src="<?= base_url('assets/upload/show/'.$sh['show_pict']);?>" 
+                alt="<?= esc(bxsea_plain_text($sh['show_title_id'] ?? $sh['show_title'] ?? '')); ?>"
+              >
+              <div class="overlay-show">
+                <div class="desc-ooverlay-show">
+
+                  <div class="title-show">
+                    <h2>
+                      <?= esc(bxsea_plain_text($sh['show_title_id'] ?? $sh['show_title'] ?? '')); ?>
+                    </h2>
+                  </div>
+
+                  <div class="desc-show">
+                    <p>
+                      <?= nl2br(esc(bxsea_plain_text($sh['show_desc_id'] ?? $sh['show_desc'] ?? ''))); ?>
+                    </p>
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="title-hand">
-          <h1><?= esc($sh['show_title'] ?? '');?></h1>
-        </div>
-      </div>
-      <?php endforeach; ?>
+        <?php } ?>
     </div>
     <div class="btn-show">
-      <a href="<?= base_url('/id/kunjungan/jadwal-aquarium');?>">Lihat Jadwal Pertunjukan <img src="<?= $showArrowAsset; ?>" alt=""></a>
+      <a href="<?= base_url('/id/kunjungan/jadwal-aquarium');?>">Jadwal Pertunjukan <img class='arrow-right-btn-show' src="<?= base_url('assets/landing/');?>image/arrow-right-white.png" alt=""></a>
     </div>
   </div>
 </section>

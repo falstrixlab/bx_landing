@@ -3,7 +3,6 @@
 
 <section class="sectionBanner">
   <div class="hero-wrap2">
-    <div class="overlay-blue-bg-banner"></div>
     <div class="hero-image2">
       <img src="<?= base_url('assets/landing/');?>image/banner-denah-BXSea.png" alt="">
     </div>
@@ -16,8 +15,8 @@
 <section class="SK">
   <div class="container">
     <div class="maxwidth">
-      <?php if (!empty($legal[0]['masterlegal_content'])): ?>
-        <?= bxsea_render_html($legal[0]['masterlegal_content']) ?>
+      <?php if (!empty($legal[0]['masterlegal_desc'])): ?>
+        <?= bxsea_render_html($legal[0]['masterlegal_desc']) ?>
       <?php else: ?>
         <p>Persyaratan Masuk BXSea sangat memprioritaskan keselamatan tamu dan hewan, dan berkomitmen untuk memastikan bahwa standar tinggi dipatuhi oleh semua pengunjung. Diharapkan kerjasama Anda untuk menjaga Wahana dan fasilitasnya tetap aman sebagai tempat untuk menikmati pengalaman yang menyenangkan dan menarik.</p>
         <div class="titleSK">
@@ -51,7 +50,6 @@
       <?php endif; ?>
     </div>
   </div>
-  <img class="grass17" src="<?= base_url('assets/landing/');?>image/bg-grass.png" alt="">
 </section>
 
 <?= $this->endSection() ?>

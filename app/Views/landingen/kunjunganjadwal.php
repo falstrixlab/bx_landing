@@ -81,7 +81,7 @@ $initialYear = (int) date('Y');
     <div class="btn-schedule">
       <a href="https://ticket.bxsea.co.id/" target="_blank" rel="noopener noreferrer">Get Your BXSea Tickets Now!</a>
     </div>
-    <div class="note-schedule"><?= bxsea_render_html($ticketdescschedule[0]['masterdesc_desc_en'] ?? 'Penguin Feeding Fun is now available as one of BXSea\'s most exciting extra experiences!');?></div>
+    <div class="note-schedule"><?= bxsea_render_html($ticketdescschedule[0]['masterdesc_title_en'] ?? 'Penguin Feeding Fun is now available as one of BXSea\'s most exciting extra experiences!');?></div>
     <div class="btn-schedule-more">
       <a href="<?= base_url('/en/tiket/pengalaman-premium');?>">Find out more <img class="arrow-right-btn-schedule-more" src="<?= base_url('assets/landing/');?>image/arrow-right-blue.png" alt=""></a>
     </div>

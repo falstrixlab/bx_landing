@@ -93,6 +93,48 @@
                             <label>Zone / Area</label>
                             <input name="journey_zone" type="text" class="form-control" placeholder="e.g. Zone A, Zona Laut" value="<?= $rs['journey_zone'] ?? ''?>"/>
                         </div>
+                        <hr>
+                        <h5 class="mb-4">Popup Content</h5>
+                        <div class="form-group">
+                            <label>Popup Description ID</label>
+                            <textarea name="journey_popup_desc_id" class="form-control" rows="4"><?= esc($rs['journey_popup_desc_id'] ?? '');?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Popup Description EN</label>
+                            <textarea name="journey_popup_desc_en" class="form-control" rows="4"><?= esc($rs['journey_popup_desc_en'] ?? '');?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Popup Image 1</label><br>
+                            <?php if(!empty($rs['journey_popup_pict1'])):?>
+                            <div class="mb-2"><img src="<?= base_url('assets/upload/journey/'.esc($rs['journey_popup_pict1']));?>" style="max-height:100px;"></div>
+                            <?php endif;?>
+                            <input type="file" name="journey_popup_pict1" class="form-control" accept=".png,.jpg,.jpeg">
+                            <input type="hidden" name="journey_popup_pict1_temp" value="<?= esc($rs['journey_popup_pict1'] ?? '');?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Label Image 1 (ID)</label>
+                            <input type="text" name="journey_popup_pict1_label_id" class="form-control" value="<?= esc($rs['journey_popup_pict1_label_id'] ?? '');?>" placeholder="Label gambar 1 (ID)">
+                        </div>
+                        <div class="form-group">
+                            <label>Label Image 1 (EN)</label>
+                            <input type="text" name="journey_popup_pict1_label_en" class="form-control" value="<?= esc($rs['journey_popup_pict1_label_en'] ?? '');?>" placeholder="Image 1 label (EN)">
+                        </div>
+                        <div class="form-group">
+                            <label>Popup Image 2</label><br>
+                            <?php if(!empty($rs['journey_popup_pict2'])):?>
+                            <div class="mb-2"><img src="<?= base_url('assets/upload/journey/'.esc($rs['journey_popup_pict2']));?>" style="max-height:100px;"></div>
+                            <?php endif;?>
+                            <input type="file" name="journey_popup_pict2" class="form-control" accept=".png,.jpg,.jpeg">
+                            <input type="hidden" name="journey_popup_pict2_temp" value="<?= esc($rs['journey_popup_pict2'] ?? '');?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Label Image 2 (ID)</label>
+                            <input type="text" name="journey_popup_pict2_label_id" class="form-control" value="<?= esc($rs['journey_popup_pict2_label_id'] ?? '');?>" placeholder="Label gambar 2 (ID)">
+                        </div>
+                        <div class="form-group">
+                            <label>Label Image 2 (EN)</label>
+                            <input type="text" name="journey_popup_pict2_label_en" class="form-control" value="<?= esc($rs['journey_popup_pict2_label_en'] ?? '');?>" placeholder="Image 2 label (EN)">
+                        </div>
                     </div>
                     <div class="card-footer">
                         <input type="submit" name="submit" value="Submit Data" class="btn btn-success mr-2">

@@ -14,6 +14,7 @@ $homeTicketCategories = array_values(array_filter($ticketcat ?? [], static funct
   return in_array((int) ($category['ticketcat_id'] ?? 0), [1, 2], true);
 }));
 $homeEventItems = array_slice($homepromo ?? [], 0, 4);
+$reviewTitle = bxsea_plain_text($homeinfluencertitle[0]['masterdesc_title'] ?? 'INFLUENCER REVIEW');
 $featuredArticle = $articletop[0] ?? null;
 $marqueeStarAsset = bxsea_design_asset('home', 'marquee_star', 'assets/landing/image/3d_cartoon_style_red_starfish_with_yellow_dots_icon-removebg-preview 1.png');
 $shortcutTicketAsset = bxsea_design_asset('home', 'shortcut_ticket', 'assets/landing/image/book-ticket-icon-bxsea.png');
@@ -24,7 +25,7 @@ $shortcutContactAsset = bxsea_design_asset('home', 'shortcut_contact', 'assets/l
 $ticketLocationIconAsset = bxsea_design_asset('ticket', 'location_icon', 'assets/landing/image/dashicons_location.png');
 $experienceHeading = bxsea_plain_text($homedescexperience[0]['masterdesc_title'] ?? '');
 $experienceDescription = bxsea_plain_text($homedescexperience[0]['masterdesc_desc'] ?? '');
-$partnerHeading = bxsea_plain_text($hometitlepartner[0]['masterdesc_desc'] ?? '') ?: 'Partner Kami';
+$partnerHeading = bxsea_plain_text($hometitlepartner[0]['masterdesc_title'] ?? '') ?: 'Partner Kami';
 $normalizeTenantSummary = static function (?string $value, ?string $title = null, int $limit = 135): string {
   $text = bxsea_plain_text($value);
   $text = str_ireplace('souvernir', 'souvenir', $text);
@@ -214,15 +215,15 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
         <button class="show-filter-tab" data-show="seapecial">SEA-PECIAL SHOWS</button>
       </div>
       <div class="relative-show">
+        <h6>REGULAR SHOWS</h6>
         <img class="bg-show" src="<?= base_url('assets/landing/');?>image/bg-show.png" alt="">
-        <h4>REGULAR SHOWS</h4>
         <div class="splide show-splide" role="group" aria-label="">
           <div class="splide__track">
             <ul class="splide__list">
               <?php foreach($regularSlides AS $sh): ?>
               <li class="splide__slide">
                 <a href="<?= base_url('/id/journey/pertunjukan');?>">
-                  <img class="img-fluid" src="<?= bxsea_asset_url('show', $sh['show_pict'] ?? '', 'assets/landing/image/bxsea_image_regular_show.png');?>" alt="<?= esc($sh['show_title']);?>">
+                  <img class="img-fluid" src="<?= bxsea_asset_url('show', $sh['show_poster'] ?? '', 'assets/landing/image/bxsea_image_regular_show.png');?>" alt="<?= esc($sh['show_title']);?>">
                 </a>
               </li>
               <?php endforeach; ?>
@@ -233,7 +234,7 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
     </div>
     <div class="box-title-show-ocean">
       <div class="relative-show2">
-        <h4>SEA-PECIAL SHOWS</h4>
+        <h6>SEA-PECIAL SHOWS</h6>
         <img class="bg-show2" src="<?= base_url('assets/landing/');?>image/bg-show2.png" alt="">
         <div class="splide show-splide2" role="group" aria-label="">
           <div class="splide__track">
@@ -250,7 +251,7 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
         </div>
       </div>
       <div class="btn-show-schedule">
-        <a href="<?= base_url('/id/kunjungan/jadwal-aquarium');?>">View Show Schedule <img class="arrow-right-btn-show-schedule" src="<?= base_url('assets/landing/');?>image/arrow-right-white.png" alt=""></a>
+        <a href="<?= base_url('/id/journey/pertunjukan');?>">View Show Schedule <img class="arrow-right-btn-show-schedule" src="<?= base_url('assets/landing/');?>image/arrow-right-white.png" alt=""></a>
       </div>
     </div>
   </div>
@@ -258,7 +259,7 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
 <?php endif; ?>
 
 <?php if (!empty($homeEventItems)): ?>
-<section class="container event home-event-section">
+<section class="event">
   <div class="left-grid">
     <div class="title-event">
       <h1>Event</h1>
@@ -292,18 +293,18 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
 
 <!-- Reviews / Testimonial -->
 <?php if(!empty($reviewSlides)): ?>
-<section class="review-influencer home-review-section">
+<section class="review-influencer">
   <img class="frog" src="<?= base_url('assets/landing/');?>image/frog.png" alt="">
   <div class="image-absolute-review">
-    <img class="image-absolute-review-influencer" src="<?= base_url('assets/landing/image/image-review-influencer4.png');?>" alt="">
-    <img class="image-absolute-review-influencer2" src="<?= base_url('assets/landing/image/image-review-influencer2.png');?>" alt="">
-    <img class="image-absolute-review-influencer3" src="<?= base_url('assets/landing/image/image-review-influencer3.png');?>" alt="">
-    <img class="image-absolute-review-influencer4" src="<?= base_url('assets/landing/image/image-review-influencer1.png');?>" alt="">
+    <img class="image-absolute-review-influencer" src="<?= base_url('assets/landing/image/image-review-influencer4.png'); ?>" alt="">
+    <img class="image-absolute-review-influencer2" src="<?= base_url('assets/landing/image/image-review-influencer2.png'); ?>" alt="">
+    <img class="image-absolute-review-influencer3" src="<?= base_url('assets/landing/image/image-review-influencer3.png'); ?>" alt="">
+    <img class="image-absolute-review-influencer4" src="<?= base_url('assets/landing/image/image-review-influencer1.png'); ?>" alt="">
   </div>
   <div class="container">
     <div class="background-white-review-influencer"></div>
     <div class="title-review-influencer">
-      <h1><?= isset($homedesctestimoni[0]) ? esc(bxsea_plain_text($homedesctestimoni[0]['masterdesc_desc'] ?? '')) : 'Cerita dari Pengunjung Kami';?></h1>
+      <h1><?= esc($reviewTitle); ?></h1>
     </div>
     <div class="splide review-influencer-splide" role="group" aria-label="">
       <div class="splide__track">
@@ -328,13 +329,13 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
 
 <!-- Tenant Section -->
 <?php if(!empty($tenantpict)): ?>
-<section class="Tenantus home-tenant-section">
+<section class="Tenantus">
   <div class="container">
     <div class="title-tenantus">
       <h1>Tenant Kami</h1>
     </div>
   </div>
-  <section id="thumbnail-carousel" class="splide" aria-label="">
+  <section class="thumbnail-carousel splide" aria-label="">
     <div class="splide__track">
       <ul class="splide__list">
         <?php foreach($tenantpict AS $tp): ?>
@@ -345,17 +346,18 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
       </ul>
     </div>
   </section>
-  <section id="main-carousel" class="splide" aria-label="">
+  <section class="main-carousel splide" aria-label="">
     <div class="splide__track">
       <ul class="splide__list">
         <?php foreach($tenantdesc AS $td): ?>
         <li class="splide__slide">
-          <div class="tenant-home-summary">
             <div class="title-main-carousel">
               <h1><?= esc(bxsea_plain_text($td['tenant_title'] ?? ''));?></h1>
             </div>
             <p><?= esc($normalizeTenantSummary($td['tenant_desc'] ?? '', $td['tenant_title'] ?? ''));?></p>
-          </div>
+            <?php if (!empty($td['tenant_location'] ?? '')): ?>
+            <p><span class="bold-text">Location :</span> <?= esc($td['tenant_location'] ?? '');?></p>
+            <?php endif; ?>
         </li>
         <?php endforeach; ?>
       </ul>
@@ -416,10 +418,10 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
   </div>
 </section>
 <?php endif; ?>
-
+  
 <!-- Ticket Section -->
 <?php if(!empty($ticketregular)): ?>
-<section class="ticketing home-ticketing">
+<section class="ticketing">
   <div class="container">
     <img class="octopus-ticket" src="<?= base_url('assets/landing/');?>image/octopus.png" alt="">
     <div class="head-title-ticketing">
@@ -461,6 +463,7 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
                 <div class="overlay-card-ticketing">
                   <div class="desc-card-ticketing">
                     <div class="title-card"><h3><?= esc(bxsea_plain_text($tkt['ticket_title'] ?? ''));?></h3></div>
+                    <p><?= esc(bxsea_plain_text($tkt['ticket_schedule'] ?? '')); ?></p>
                     <?php if(!empty($tkt['ticket_subtitle'])): ?><p><?= esc(bxsea_plain_text($tkt['ticket_subtitle']));?></p><?php endif; ?>
                     <div class="body-card-ticketing">
                       <p>Rp <?= number_format($tkt['ticket_price'],0,',','.');?></p>
@@ -491,7 +494,7 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
     </div>
     <?php endforeach; endif; ?>
     <div class="details-card-ticketing">
-      <a href="<?= base_url('/id/tiket/harga');?>">Lihat Add-Ons <img class="arrow-right-details-card-ticketing" src="<?= base_url('assets/landing/');?>image/arrow-right-white.png" alt=""></a>
+      <a href="<?= base_url('/id/tiket/pengalaman-premium');?>">Lihat Add-Ons <img class="arrow-right-details-card-ticketing" src="<?= base_url('assets/landing/');?>image/arrow-right-white.png" alt=""></a>
     </div>
   </div>
 </section>
@@ -503,7 +506,6 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
   <img class="treasure-client" src="<?= base_url('assets/landing/');?>image/treasure.png" alt="">
   <div class="container">
     <div class="title-klienOcean">
-      <p class="label-klienOcean">Mitra BXSea</p>
       <h2><?= esc($partnerHeading);?></h2>
     </div>
     <div class="row">
@@ -535,7 +537,7 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
         <p>Kami sangat antusias untuk membangun kemitraan yang bermakna dalam mendukung edukasi, konservasi, serta pengalaman yang tak terlupakan di BXSea.</p>
       </div>
       <div class="btn-partnerships">
-        <a href="<?= base_url('/id/kunjungan/hubungi-kami');?>">Hubungi Kami<img class="arrow-right-btn-partnerships" src="<?= base_url('assets/landing/');?>image/arrow-right-white.png" alt=""></a>
+        <a href="<?= base_url('/id/kunjungan/hubungi-kami');?>">Hubungi Kami <img class="arrow-right-btn-partnerships" src="<?= base_url('assets/landing/');?>image/arrow-right-white.png" alt=""></a>
       </div>
     </div>
   </div>

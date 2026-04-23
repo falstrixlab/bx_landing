@@ -22,8 +22,11 @@
       $segment2 = $uri->getSegment(2);
       $segment3 = $uri->getSegment(3);
       $isMasterMenu = $segment2 === 'master' && in_array($segment3, ['legal', 'socialmedia', 'designasset'], true);
-      $isHomeMenu = $segment2 === 'home' || ($segment2 === 'master' && $segment3 === 'setup');
+      $isHomeMenu = $segment2 === 'home' || ($segment2 === 'master' && $segment3 === 'setup') || ($segment2 === 'ticketing' && $segment3 === 'promotion');
       $isNewsMenu = $segment2 === 'whatsnew' || ($segment2 === 'master' && $segment3 === 'article') || ($segment2 === 'category' && $segment3 === 'articlecategory');
+      $isMomentMenu = $segment2 === 'ticketing' && in_array($segment3, ['moment', 'momentmemories'], true);
+      $isAdditionalExpMenu = $segment2 === 'ticketing' && in_array($segment3, ['additionalexp', 'additionalexpitem'], true);
+      $isSchoolMenu = $segment2 === 'ticketing' && in_array($segment3, ['schoolprogram', 'schoolvisit', 'schoolwhybxsea', 'schoolincluded', 'schoolteacher'], true);
     ?>
   </head>
   <body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
@@ -194,6 +197,14 @@
                           <span class="menu-text">Ringkasan Home</span>
                         </a>
                       </li>
+                      <li class="menu-item <?= ($segment2 == "home" && $segment3 == "description") ? "menu-item-active":"";?>" aria-haspopup="true">
+                        <a href="<?= base_url('adminsite/home/description');?>" class="menu-link ">
+                            <i class="menu-bullet menu-bullet-dot">
+                                <span></span>
+                            </i>
+                          <span class="menu-text">Deskripsi Section</span>
+                        </a>
+                      </li>
                       <li class="menu-item <?= ($segment2 == "home" && $segment3 == "announcement") ? "menu-item-active":"";?>" aria-haspopup="true">
                         <a href="<?= base_url('adminsite/home/announcement');?>" class="menu-link ">
                           <i class="menu-bullet menu-bullet-dot">
@@ -202,28 +213,20 @@
                           <span class="menu-text">Announcement</span>
                         </a>
                       </li>
-                      <li class="menu-item <?= ($segment2 == "home" && $segment3 == "banner") ? "menu-item-active":"";?>" aria-haspopup="true">
+                      <!-- <li class="menu-item <?= ($segment2 == "home" && $segment3 == "banner") ? "menu-item-active":"";?>" aria-haspopup="true">
                         <a href="<?= base_url('adminsite/home/banner');?>" class="menu-link ">
                           <i class="menu-bullet menu-bullet-dot">
                             <span></span>
                           </i>
                           <span class="menu-text">Banner Utama</span>
                         </a>
-                      </li>
+                      </li> -->
                       <li class="menu-item <?= ($segment2 == "home" && $segment3 == "fiturslide") ? "menu-item-active":"";?>" aria-haspopup="true">
                         <a href="<?= base_url('adminsite/home/fiturslide');?>" class="menu-link ">
                           <i class="menu-bullet menu-bullet-dot">
                             <span></span>
                           </i>
                           <span class="menu-text">Fitur Slide</span>
-                        </a>
-                      </li>
-                      <li class="menu-item <?= ($segment2 == "home" && $segment3 == "description") ? "menu-item-active":"";?>" aria-haspopup="true">
-                        <a href="<?= base_url('adminsite/home/description');?>" class="menu-link ">
-                            <i class="menu-bullet menu-bullet-dot">
-                                <span></span>
-                            </i>
-                          <span class="menu-text">Deskripsi Section</span>
                         </a>
                       </li>
                       <li class="menu-item <?= ($segment2 == "home" && $segment3 == "testimoni") ? "menu-item-active":"";?>" aria-haspopup="true">
@@ -264,6 +267,22 @@
                             <span></span>
                           </i>
                           <span class="menu-text">Setup Landing</span>
+                        </a>
+                      </li>
+                      <li class="menu-item <?= ($segment2 == "ticketing" && $segment3 == "promotion") ? "menu-item-active":"";?>" aria-haspopup="true">
+                        <a href="<?= base_url('adminsite/ticketing/promotion');?>" class="menu-link ">
+                          <i class="menu-bullet menu-bullet-dot">
+                            <span></span>
+                          </i>
+                          <span class="menu-text">Event</span>
+                        </a>
+                      </li>
+                      <li class="menu-item <?= ($segment2 == "ticketing" && $segment3 == "experience") || ($segment2 == "home" && $segment3 == "experience") ? "menu-item-active":"";?>" aria-haspopup="true">
+                        <a href="<?= base_url('adminsite/ticketing/experience');?>" class="menu-link ">
+                          <i class="menu-bullet menu-bullet-dot">
+                            <span></span>
+                          </i>
+                          <span class="menu-text">Additional Experience</span>
                         </a>
                       </li>
                     </ul>
@@ -307,45 +326,109 @@
                           <span class="menu-text">Data Tiket</span>
                         </a>
                       </li>
-                      <li class="menu-item <?= ($segment2 == "ticketing" && $segment3 == "experience") ? "menu-item-active":"";?>" aria-haspopup="true">
-                        <a href="<?= base_url('adminsite/ticketing/experience');?>" class="menu-link ">
+                      <li class="menu-item <?= ($segment2 == "ticketing" && $segment3 == "promosi") ? "menu-item-active":"";?>" aria-haspopup="true">
+                        <a href="<?= base_url('adminsite/ticketing/promosi');?>" class="menu-link ">
                           <i class="menu-bullet menu-bullet-dot">
                             <span></span>
                           </i>
-                          <span class="menu-text">Experience</span>
+                          <span class="menu-text">Promosi Tiket</span>
                         </a>
                       </li>
-                      <li class="menu-item <?= ($segment2 == "ticketing" && $segment3 == "promotion") ? "menu-item-active":"";?>" aria-haspopup="true">
-                        <a href="<?= base_url('adminsite/ticketing/promotion');?>" class="menu-link ">
-                          <i class="menu-bullet menu-bullet-dot">
-                            <span></span>
-                          </i>
-                          <span class="menu-text">Promotion</span>
-                        </a>
-                      </li>
-                      <li class="menu-item <?= ($segment2 == "ticketing" && $segment3 == "moment") ? "menu-item-active":"";?>" aria-haspopup="true">
-                        <a href="<?= base_url('adminsite/ticketing/moment');?>" class="menu-link ">
+                      <li class="menu-item menu-item-submenu <?= $isMomentMenu ? "menu-item-open" : "";?>" aria-haspopup="true" data-menu-toggle="hover">
+                        <a href="javascript:;" class="menu-link menu-toggle">
                           <i class="menu-bullet menu-bullet-dot">
                             <span></span>
                           </i>
                           <span class="menu-text">Moment</span>
+                          <i class="menu-arrow"></i>
                         </a>
+                        <div class="menu-submenu">
+                          <i class="menu-arrow"></i>
+                          <ul class="menu-subnav">
+                            <li class="menu-item <?= ($segment3 == "moment") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/ticketing/moment');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-line"><span></span></i>
+                                <span class="menu-text">Moment Header</span>
+                              </a>
+                            </li>
+                            <li class="menu-item <?= ($segment3 == "momentmemories") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/ticketing/momentmemories');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-line"><span></span></i>
+                                <span class="menu-text">Memories Carousel</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
                       </li>
-                      <li class="menu-item <?= ($segment2 == "ticketing" && $segment3 == "schoolprogram") ? "menu-item-active":"";?>" aria-haspopup="true">
-                        <a href="<?= base_url('adminsite/ticketing/schoolprogram');?>" class="menu-link ">
+                      <li class="menu-item menu-item-submenu <?= $isAdditionalExpMenu ? "menu-item-open" : "";?>" aria-haspopup="true" data-menu-toggle="hover">
+                        <a href="javascript:;" class="menu-link menu-toggle">
                           <i class="menu-bullet menu-bullet-dot">
                             <span></span>
                           </i>
-                          <span class="menu-text">School Program</span>
+                          <span class="menu-text">Additional Experience</span>
+                          <i class="menu-arrow"></i>
                         </a>
+                        <div class="menu-submenu">
+                          <i class="menu-arrow"></i>
+                          <ul class="menu-subnav">
+                            <li class="menu-item <?= ($segment3 == "additionalexp") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/ticketing/additionalexp');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-line"><span></span></i>
+                                <span class="menu-text">Header</span>
+                              </a>
+                            </li>
+                            <li class="menu-item <?= ($segment3 == "additionalexpitem") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/ticketing/additionalexpitem');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-line"><span></span></i>
+                                <span class="menu-text">Items</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
                       </li>
-                      <li class="menu-item <?= ($segment2 == "ticketing" && $segment3 == "schoolvisit") ? "menu-item-active":"";?>" aria-haspopup="true">
-                        <a href="<?= base_url('adminsite/ticketing/schoolvisit');?>" class="menu-link ">
+                      <li class="menu-item menu-item-submenu <?= $isSchoolMenu ? "menu-item-open" : "";?>" aria-haspopup="true" data-menu-toggle="hover">
+                        <a href="javascript:;" class="menu-link menu-toggle">
                           <i class="menu-bullet menu-bullet-dot">
                             <span></span>
                           </i>
-                          <span class="menu-text">School Visit Program</span>
+                          <span class="menu-text">School Visit</span>
+                          <i class="menu-arrow"></i>
                         </a>
+                        <div class="menu-submenu">
+                          <i class="menu-arrow"></i>
+                          <ul class="menu-subnav">
+                            <li class="menu-item <?= ($segment3 == "schoolprogram") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/ticketing/schoolprogram');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-line"><span></span></i>
+                                <span class="menu-text">School Program</span>
+                              </a>
+                            </li>
+                            <li class="menu-item <?= ($segment3 == "schoolvisit") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/ticketing/schoolvisit');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-line"><span></span></i>
+                                <span class="menu-text">Visit Program</span>
+                              </a>
+                            </li>
+                            <li class="menu-item <?= ($segment3 == "schoolwhybxsea") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/ticketing/schoolwhybxsea');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-line"><span></span></i>
+                                <span class="menu-text">Why BXSEA</span>
+                              </a>
+                            </li>
+                            <li class="menu-item <?= ($segment3 == "schoolincluded") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/ticketing/schoolincluded');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-line"><span></span></i>
+                                <span class="menu-text">What Included</span>
+                              </a>
+                            </li>
+                            <li class="menu-item <?= ($segment3 == "schoolteacher") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/ticketing/schoolteacher');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-line"><span></span></i>
+                                <span class="menu-text">Teacher Testimonial</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
                       </li>
                     </ul>
                   </div>

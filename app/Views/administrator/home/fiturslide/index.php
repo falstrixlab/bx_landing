@@ -41,7 +41,7 @@
             <h3 class="card-label"> Fitur Slide Page <span class="d-block text-muted pt-2 font-size-sm">sorting & pagination remote datasource</span>
             </h3>
         </div>
-        <!-- <div class="card-toolbar">
+        <div class="card-toolbar">
             
             
             <a href="<?= base_url('adminsite/home/fiturslide/add');?>" class="btn btn-primary font-weight-bolder">
@@ -57,7 +57,7 @@
                 
             </span> New Record </a>
            
-        </div> -->
+        </div>
         </div>
         <div class="card-body">
         <?php if(session()->getFlashdata('success')):?>
@@ -105,10 +105,10 @@
                         <i class="flaticon-edit-1 icon-lg" title="Edit Content"></i>
                         <span class="pulse-ring"></span>
                     </a>
-                    <!-- <a onclick="return confirm('Are you sure you want to delete this data ?')" class="btn btn-sm btn-icon btn-light-danger pulse pulse-danger mr-5" href="<?= base_url('adminsite/home/fiturslide/delete/'.$rs["homefiturslide_id"])?>">
+                    <a onclick="return confirm('Are you sure you want to delete this data ?')" class="btn btn-sm btn-icon btn-light-danger pulse pulse-danger mr-5" href="<?= base_url('adminsite/home/fiturslide/delete/'.$rs["homefiturslide_id"])?>">
                         <i class="flaticon2-trash icon-lg" title="Delete Content"></i>
                         <span class="pulse-ring"></span>
-                    </a> -->
+                    </a>
                 </td>
             </tr>
             <?php $i++;} ?>

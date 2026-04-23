@@ -48,9 +48,9 @@ $contactEmailAsset   = bxsea_design_asset('visit', 'contact_card_email',    'ass
       <div class="col-lg-12">
         <div class="why-bxsea">
           <div class="container">
-            <h2 class="title"><?= esc(bxsea_plain_text($schoolprogram[1]['schoolprogram_title'] ?? 'Fasilitas yang Didapatkan'));?></h2>
+            <h2 class="title"><?= !empty($schoolwhybxsea[0]['why_title_id']) ? esc(bxsea_plain_text($schoolwhybxsea[0]['why_title_id'])) : 'Mengapa Memilih BXSea?';?></h2>
             <div class="list">
-              <?= bxsea_render_html($schoolprogram[1]['schoolprogram_desc'] ?? '', '<p><br><strong><em><ul><ol><li><h4>');?>
+              <?= !empty($schoolwhybxsea[0]['why_content_id']) ? bxsea_render_html($schoolwhybxsea[0]['why_content_id'], '<p><br><strong><em><ul><ol><li><h4><h5><h6>') : '<p>Pengalaman edukatif yang tak terlupakan menanti Anda di BXSea.</p>';?>
             </div>
           </div>
         </div>
@@ -61,65 +61,60 @@ $contactEmailAsset   = bxsea_design_asset('visit', 'contact_card_email',    'ass
 
 <section class="what-included py-5">
   <div class="container">
-    <h2 class="text-center title mb-4">Mengapa BXSea?</h2>
+    <h2 class="text-center title mb-4">Fasilitas yang Didapatkan</h2>
+    <?php if (!empty($schoolincluded)): ?>
     <div class="row g-4">
+      <?php foreach ($schoolincluded as $item): ?>
       <div class="col-md-6 col-lg-4 col-xl-3">
         <div class="card custom-card h-100">
+          <?php if (!empty($item['included_image'])): ?>
+          <img src="<?= bxsea_asset_url('school_included', $item['included_image'], 'assets/landing/image/bxsea_image_included_default.png'); ?>" class="card-img-top" alt="<?= esc(bxsea_plain_text($item['included_title_id'] ?? '')); ?>">
+          <?php else: ?>
           <img src="<?= $included1; ?>" class="card-img-top" alt="">
+          <?php endif; ?>
           <div class="card-body">
-            <h5 class="card-title">Guided Tour of Main Journey</h5>
-            <p class="card-text">Rombongan Anda akan dipandu oleh salah satu pemandu edukasi kami yang berpengalaman. Nikmati perjalanan yang lebih mendalam dan imersif melalui setiap area. Jangan ragu untuk bertanya apa saja!</p>
+            <h5 class="card-title"><?= !empty($item['included_title_id']) ? esc(bxsea_plain_text($item['included_title_id'])) : ''; ?></h5>
+            <p class="card-text"><?= !empty($item['included_desc_id']) ? esc(bxsea_plain_text($item['included_desc_id'])) : ''; ?></p>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card custom-card h-100">
-          <img src="<?= $included2; ?>" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title">Guided Tour of Behind The Sea</h5>
-            <p class="card-text">Program ini sudah termasuk tiket masuk ke Behind The Sea. Pelajari tentang proses karantina dan konservasi, serta temui dokter hewan kami secara langsung!</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card custom-card h-100">
-          <img src="<?= $included3; ?>" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title">Guided Touch Pool Experience</h5>
-            <p class="card-text">Anak-anak akan diajak untuk berinteraksi langsung dengan biota BXSea melalui Touch Pool kami yang dipandu oleh edukator berpengalaman.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card custom-card h-100">
-          <img src="<?= $included4; ?>" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title">Activities in the Activity Room</h5>
-            <p class="card-text">Activity Room berfungsi sebagai ruang untuk berkumpul dan merefleksikan apa yang telah dipelajari selama tur.</p>
-          </div>
-        </div>
+      <?php endforeach; ?>
+    </div>
+    <?php else: ?>
+    <div class="row g-4">
+      <div class="col-12 text-center">
+        <p>Tidak ada data tersedia saat ini.</p>
       </div>
     </div>
+    <?php endif; ?>
   </div>
 </section>
 
-<?php if (!empty($schoolteachersaid)): ?>
+<?php if (!empty($teachertestimonial)): ?>
 <section class="teacher-said">
   <div class="container">
     <div class="row">
       <div class="col-lg-5 d-flex align-items-center justify-content-end">
         <div class="image-teacher-said-box">
           <div class="bullets"></div>
+          <?php if (!empty($teachertestimonial[0]['teacher_image'])): ?>
+          <img src="<?= bxsea_asset_url('school_teacher', $teachertestimonial[0]['teacher_image'], 'assets/landing/image/bxsea_image_teacher.png'); ?>" alt="<?= esc($teachertestimonial[0]['teacher_name'] ?? 'Guru'); ?>">
+          <?php else: ?>
           <img src="<?= $teacherImg; ?>" alt="Teacher">
+          <?php endif; ?>
         </div>
       </div>
       <div class="col-lg-7">
         <div class="teacher-said-box">
           <h2 class="title">Testimoni dari Para Guru</h2>
-          <p><?= esc(bxsea_plain_text($schoolteachersaid[0]['masterdesc_title'] ?? ''));?></p>
+          <p><?= !empty($teachertestimonial[0]['teacher_desc_id']) ? esc(bxsea_plain_text($teachertestimonial[0]['teacher_desc_id'])) : 'Pengalaman yang luar biasa untuk para siswa kami.'; ?></p>
           <div class="image-teacher-said-box-mobile">
+            <?php if (!empty($teachertestimonial[0]['teacher_image'])): ?>
+            <img src="<?= bxsea_asset_url('school_teacher', $teachertestimonial[0]['teacher_image'], 'assets/landing/image/bxsea_image_teacher.png'); ?>" alt="<?= esc($teachertestimonial[0]['teacher_name'] ?? 'Guru'); ?>">
+            <?php else: ?>
             <img src="<?= $teacherImg; ?>" alt="Teacher">
-            <span><?= esc(bxsea_plain_text($schoolteachersaid[0]['masterdesc_desc'] ?? ''));?></span>
+            <?php endif; ?>
+            <span><?= !empty($teachertestimonial[0]['teacher_name']) ? esc($teachertestimonial[0]['teacher_name']) : 'Guru'; ?></span>
           </div>
         </div>
       </div>
@@ -220,6 +215,7 @@ $contactEmailAsset   = bxsea_design_asset('visit', 'contact_card_email',    'ass
   <div class="container">
     <div class="title-contactus2">
       <h1>Pesan Sekarang</h1>
+      <p>Hubungi kami untuk memesan Kunjungan Sekolah di BXSea Oceanarium!</p>
     </div>
     <div class="row box-contact">
       <div class="col-lg-4 col-md-4 col-sm-4 box-card-contactus">

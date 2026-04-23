@@ -61,10 +61,10 @@ $contactEmailAsset = bxsea_design_asset('visit', 'contact_card_email', 'assets/l
         <img src="<?= base_url('assets/landing/');?>image/bxsea_image_arrow_left_moment.png" alt="prev">
       </button>
       <div class="owl-carousel owl-memories">
-        <?php if (!empty($moment)): ?>
-          <?php foreach ($moment as $memory): ?>
+        <?php if (!empty($memories)): ?>
+          <?php foreach ($memories as $memory): ?>
           <div class="memories-slide">
-            <img src="<?= !empty($memory['moment_pict']) ? bxsea_asset_url('moment', $memory['moment_pict'], 'assets/landing/image/image-once.png') : base_url('assets/landing/image/bxsea_image_bg-special.png'); ?>" alt="<?= esc($memory['moment_title'] ?? 'Visitor Memory') ?>" class="img-fluid">
+            <img src="<?= !empty($memory['memory_image']) ? bxsea_asset_url('moment_memory', $memory['memory_image'], 'assets/landing/image/bxsea_image_memories.png') : base_url('assets/landing/image/bxsea_image_memories.png'); ?>" alt="<?= esc($memory['memory_title_id'] ?? 'Kenangan Pengunjung') ?>" class="img-fluid">
           </div>
           <?php endforeach; ?>
         <?php else: ?>
@@ -86,7 +86,10 @@ $contactEmailAsset = bxsea_design_asset('visit', 'contact_card_email', 'assets/l
 
 <section class="contactus2">
   <div class="container">
-    <div class="title-contactus2"><h1>Pesan Sekarang</h1></div>
+    <div class="title-contactus2">
+      <h1>Pesan Sekarang</h1>
+      <p>Hubungi kami untuk merayakan momen spesial Anda di BXSea Oceanarium!</p>
+    </div>
     <div class="row box-contact">
       <div class="col-lg-4 col-md-4 col-sm-4 box-card-contactus">
         <div class="card-contactus2">

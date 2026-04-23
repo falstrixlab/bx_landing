@@ -48,9 +48,9 @@ $contactEmailAsset    = bxsea_design_asset('visit', 'contact_card_email', 'asset
       <div class="col-lg-12">
         <div class="why-bxsea">
           <div class="container">
-            <h2 class="title"><?= esc(bxsea_plain_text($schoolprogram[1]['schoolprogram_title_en'] ?? ($schoolprogram[1]['schoolprogram_title'] ?? 'What You Get')));?></h2>
+            <h2 class="title"><?= !empty($schoolwhybxsea[0]['why_title_en']) ? esc(bxsea_plain_text($schoolwhybxsea[0]['why_title_en'])) : (!empty($schoolwhybxsea[0]['why_title_id']) ? esc(bxsea_plain_text($schoolwhybxsea[0]['why_title_id'])) : 'Why Choose BXSea?');?></h2>
             <div class="list">
-              <?= bxsea_render_html($schoolprogram[1]['schoolprogram_desc_en'] ?? ($schoolprogram[1]['schoolprogram_desc'] ?? ''), '<p><br><strong><em><ul><ol><li><h4>');?>
+              <?= !empty($schoolwhybxsea[0]['why_content_en']) ? bxsea_render_html($schoolwhybxsea[0]['why_content_en'], '<p><br><strong><em><ul><ol><li><h4><h5><h6>') : (!empty($schoolwhybxsea[0]['why_content_id']) ? bxsea_render_html($schoolwhybxsea[0]['why_content_id'], '<p><br><strong><em><ul><ol><li><h4><h5><h6>') : '<p>An unforgettable educational experience awaits you at BXSea.</p>');?>
             </div>
           </div>
         </div>
@@ -61,65 +61,60 @@ $contactEmailAsset    = bxsea_design_asset('visit', 'contact_card_email', 'asset
 
 <section class="what-included py-5">
   <div class="container">
-    <h2 class="text-center title mb-4">Why BXSea?</h2>
+    <h2 class="text-center title mb-4">What's Included</h2>
+    <?php if (!empty($schoolincluded)): ?>
     <div class="row g-4">
+      <?php foreach ($schoolincluded as $item): ?>
       <div class="col-md-6 col-lg-4 col-xl-3">
         <div class="card custom-card h-100">
+          <?php if (!empty($item['included_image'])): ?>
+          <img src="<?= bxsea_asset_url('school_included', $item['included_image'], 'assets/landing/image/bxsea_image_included_default.png'); ?>" class="card-img-top" alt="<?= esc(bxsea_plain_text($item['included_title_en'] ?? $item['included_title_id'] ?? '')); ?>">
+          <?php else: ?>
           <img src="<?= $included1; ?>" class="card-img-top" alt="">
+          <?php endif; ?>
           <div class="card-body">
-            <h5 class="card-title">Guided Tour of Main Journey</h5>
-            <p class="card-text">Your group will be accompanied by one of our experienced educational guides. Enjoy a deeper and more immersive journey across each zone, and ask as many questions as you like.</p>
+            <h5 class="card-title"><?= !empty($item['included_title_en']) ? esc(bxsea_plain_text($item['included_title_en'])) : (!empty($item['included_title_id']) ? esc(bxsea_plain_text($item['included_title_id'])) : ''); ?></h5>
+            <p class="card-text"><?= !empty($item['included_desc_en']) ? esc(bxsea_plain_text($item['included_desc_en'])) : (!empty($item['included_desc_id']) ? esc(bxsea_plain_text($item['included_desc_id'])) : ''); ?></p>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card custom-card h-100">
-          <img src="<?= $included2; ?>" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title">Guided Tour of Behind The Sea</h5>
-            <p class="card-text">This program includes access to Behind The Sea. Learn about quarantine and conservation processes, and meet our veterinarians directly.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card custom-card h-100">
-          <img src="<?= $included3; ?>" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title">Guided Touch Pool Experience</h5>
-            <p class="card-text">Students are invited to interact directly with BXSea marine life in our Touch Pool, guided by experienced educators.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card custom-card h-100">
-          <img src="<?= $included4; ?>" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title">Activities in the Activity Room</h5>
-            <p class="card-text">The Activity Room serves as a collaborative space for students to gather, discuss, and reflect on what they learned during the tour.</p>
-          </div>
-        </div>
+      <?php endforeach; ?>
+    </div>
+    <?php else: ?>
+    <div class="row g-4">
+      <div class="col-12 text-center">
+        <p>No data available at the moment.</p>
       </div>
     </div>
+    <?php endif; ?>
   </div>
 </section>
 
-<?php if (!empty($schoolteachersaid)): ?>
+<?php if (!empty($teachertestimonial)): ?>
 <section class="teacher-said">
   <div class="container">
     <div class="row">
       <div class="col-lg-5 d-flex align-items-center justify-content-end">
         <div class="image-teacher-said-box">
           <div class="bullets"></div>
+          <?php if (!empty($teachertestimonial[0]['teacher_image'])): ?>
+          <img src="<?= bxsea_asset_url('school_teacher', $teachertestimonial[0]['teacher_image'], 'assets/landing/image/bxsea_image_teacher.png'); ?>" alt="<?= esc($teachertestimonial[0]['teacher_name'] ?? 'Teacher'); ?>">
+          <?php else: ?>
           <img src="<?= $teacherImg; ?>" alt="Teacher">
+          <?php endif; ?>
         </div>
       </div>
       <div class="col-lg-7">
         <div class="teacher-said-box">
           <h2 class="title">Teacher Testimonials</h2>
-          <p><?= esc(bxsea_plain_text($schoolteachersaid[0]['masterdesc_title_en'] ?? ($schoolteachersaid[0]['masterdesc_title'] ?? '')));?></p>
+          <p><?= !empty($teachertestimonial[0]['teacher_desc_en']) ? esc(bxsea_plain_text($teachertestimonial[0]['teacher_desc_en'])) : (!empty($teachertestimonial[0]['teacher_desc_id']) ? esc(bxsea_plain_text($teachertestimonial[0]['teacher_desc_id'])) : 'An amazing experience for our students.'); ?></p>
           <div class="image-teacher-said-box-mobile">
+            <?php if (!empty($teachertestimonial[0]['teacher_image'])): ?>
+            <img src="<?= bxsea_asset_url('school_teacher', $teachertestimonial[0]['teacher_image'], 'assets/landing/image/bxsea_image_teacher.png'); ?>" alt="<?= esc($teachertestimonial[0]['teacher_name'] ?? 'Teacher'); ?>">
+            <?php else: ?>
             <img src="<?= $teacherImg; ?>" alt="Teacher">
-            <span><?= esc(bxsea_plain_text($schoolteachersaid[0]['masterdesc_desc_en'] ?? ($schoolteachersaid[0]['masterdesc_desc'] ?? '')));?></span>
+            <?php endif; ?>
+            <span><?= !empty($teachertestimonial[0]['teacher_name']) ? esc($teachertestimonial[0]['teacher_name']) : 'Teacher'; ?></span>
           </div>
         </div>
       </div>
@@ -220,6 +215,7 @@ $contactEmailAsset    = bxsea_design_asset('visit', 'contact_card_email', 'asset
   <div class="container">
     <div class="title-contactus2">
       <h1>Book Now</h1>
+      <p>Contact us to book a School Visit at BXSea Oceanarium!</p>
     </div>
     <div class="row box-contact">
       <div class="col-lg-4 col-md-4 col-sm-4 box-card-contactus">

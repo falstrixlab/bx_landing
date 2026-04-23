@@ -90,6 +90,40 @@
                             <label>Zone / Area</label>
                             <input name="journey_zone" type="text" class="form-control" placeholder="e.g. Zone A, Zona Laut"/>
                         </div>
+                        <hr>
+                        <h5 class="mb-4">Popup Content</h5>
+                        <div class="form-group">
+                            <label>Popup Description ID</label>
+                            <textarea name="journey_popup_desc_id" class="form-control" rows="4" placeholder="Deskripsi popup (ID)"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Popup Description EN</label>
+                            <textarea name="journey_popup_desc_en" class="form-control" rows="4" placeholder="Popup description (EN)"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Popup Image 1 <small class="text-muted">(maks 2 gambar)</small></label>
+                            <input type="file" name="journey_popup_pict1" class="form-control" accept=".png,.jpg,.jpeg">
+                        </div>
+                        <div class="form-group">
+                            <label>Label Image 1 (ID)</label>
+                            <input type="text" name="journey_popup_pict1_label_id" class="form-control" placeholder="Label gambar 1 (ID)">
+                        </div>
+                        <div class="form-group">
+                            <label>Label Image 1 (EN)</label>
+                            <input type="text" name="journey_popup_pict1_label_en" class="form-control" placeholder="Image 1 label (EN)">
+                        </div>
+                        <div class="form-group">
+                            <label>Popup Image 2</label>
+                            <input type="file" name="journey_popup_pict2" class="form-control" accept=".png,.jpg,.jpeg">
+                        </div>
+                        <div class="form-group">
+                            <label>Label Image 2 (ID)</label>
+                            <input type="text" name="journey_popup_pict2_label_id" class="form-control" placeholder="Label gambar 2 (ID)">
+                        </div>
+                        <div class="form-group">
+                            <label>Label Image 2 (EN)</label>
+                            <input type="text" name="journey_popup_pict2_label_en" class="form-control" placeholder="Image 2 label (EN)">
+                        </div>
                     </div>
                     <div class="card-footer">
                         <input type="submit" name="submit" value="Submit Data" class="btn btn-success mr-2">

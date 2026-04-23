@@ -3,7 +3,6 @@
 
 <section class="sectionBanner">
   <div class="hero-wrap2">
-    <div class="overlay-blue-bg-banner"></div>
     <div class="hero-image2">
       <img src="<?= base_url('assets/landing/');?>image/banner-denah-BXSea.png" alt="">
     </div>
@@ -16,8 +15,8 @@
 <section class="SK">
   <div class="container">
     <div class="maxwidth">
-      <?php if (!empty($legal[0]['masterlegal_content'])): ?>
-        <?= bxsea_render_html($legal[0]['masterlegal_content']) ?>
+      <?php if (!empty($legal[0]['masterlegal_desc'])): ?>
+        <?= bxsea_render_html($legal[0]['masterlegal_desc']) ?>
       <?php else: ?>
         <h4>BXSea Privacy Policy</h4>
         <h5>Terakhir diperbarui pada [11/12/2023]</h5>

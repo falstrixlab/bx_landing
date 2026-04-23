@@ -3,7 +3,6 @@
 
 <section class="sectionBanner">
   <div class="hero-wrap2">
-    <div class="overlay-blue-bg-banner"></div>
     <div class="hero-image2">
       <img src="<?= base_url('assets/landing/');?>image/banner-denah-BXSea.png" alt="">
     </div>
@@ -53,7 +52,6 @@
       <?php endif; ?>
     </div>
   </div>
-  <img class="grass17" src="<?= base_url('assets/landing/');?>image/bg-grass.png" alt="">
 </section>
 
 <?= $this->endSection() ?>

@@ -47,7 +47,6 @@ $guideHeroTitle = str_ireplace('Accessibility Guidelines', 'Accessibility Guide'
 
 <section class="sectionBanner">
   <div class="hero-wrap2">
-    <div class="overlay-darkblue-bg-banner"></div>
     <div class="hero-image2">
       <img src="<?= $guideHeroAsset; ?>" alt="">
     </div>
@@ -67,19 +66,19 @@ $guideHeroTitle = str_ireplace('Accessibility Guidelines', 'Accessibility Guide'
   <div class="container">
     <h5 class="title"><?= esc(bxsea_plain_text($guidedesc[0]['masterdesc_title_en'] ?? 'Welcome to BXSea!')); ?></h5>
     <p class="desc"><?= esc(bxsea_plain_text($guidedesc[0]['masterdesc_desc_en'] ?? 'BXSea Oceanarium welcomes every guest and works to ensure all attractions can be accessed comfortably. Explore the underwater world without limits.')); ?></p>
-    <h6 class="sub-title mt-4">For Guests With Limited Mobility</h6>
-    <p class="sub-desc">BXSea is fully wheelchair accessible. This includes the entrance, walkways, major public areas, elevators, and supporting facilities.</p>
+    <h6 class="sub-title mt-4">For Visitors with Reduced Mobility</h6>
+    <p class="sub-desc">BXSea is fully wheelchair accessible! This includes all entrances, walkways, exhibits, elevators, and facilities. </p>
     <div class="row mt-2 g-4">
       <?php foreach ($guideCards as $card): ?>
       <div class="col-md-4">
         <div class="card-custom">
           <img src="<?= $card['image']; ?>" class="img-fluid" alt="<?= esc($card['title']); ?>">
-          <p><?= esc($card['title']); ?></p>
+          <p><?= esc($card['desc']); ?></p>
         </div>
       </div>
       <?php endforeach; ?>
     </div>
-    <p class="note">For extra convenience, a limited number of wheelchairs are available for guests to borrow from our Guest Services desk.</p>
+    <p class="note">For added convenience, BXSea offers a limited number of wheelchairs available for rent at our Guest Services desk. </p>
   </div>
 </section>
 
@@ -87,7 +86,7 @@ $guideHeroTitle = str_ireplace('Accessibility Guidelines', 'Accessibility Guide'
   <div class="container">
     <div class="title-contactus3">
       <h1>Contact Us</h1>
-      <p>If you have any questions or need help regarding accessibility at BXSea, please contact us and our team will assist you as soon as possible.</p>
+      <p>If you have any questions or concerns about Accessibility at BXSea, please reach out to us and we will have them answered immediately. </p>
     </div>
     <div class="row">
       <div class="col-lg-2 col-md-4 col-sm-4 box-card-contactus">

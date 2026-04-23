@@ -1,0 +1,14 @@
+CRITICAL - 2026-04-23 10:59:59 --> ErrorException: Undefined variable $normalizeTenantText
+[Method: GET, Route: en/kunjungan/tenant]
+in APPPATH\Views\landingen\kunjungantenant.php on line 77.
+ 1 APPPATH\Views\landingen\kunjungantenant.php(77): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $normalizeTenantText', 'C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\kunjungantenant.php', 77)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\kunjungantenant.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('landingen/kunjungantenant', [], true)
+ 5 APPPATH\Controllers\LandingEn.php(240): view('landingen/kunjungantenant', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\LandingEn->kunjungantenant()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingEn))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
