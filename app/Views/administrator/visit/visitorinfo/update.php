@@ -23,6 +23,7 @@
                         <form method="POST" action="<?= base_url('adminsite/visit/visitorinfo/runupdate') ?>" enctype="multipart/form-data">
                             <div class="card-body">
                                 <input type="hidden" name="visitorinfo_id" value="<?= esc((string) $getdata['visitorinfo_id']) ?>">
+                                <input type="hidden" name="back_url" value="<?= esc($back_url ?? base_url('adminsite/visit/visitorinfo')) ?>">
                                 <div class="form-group">
                                     <label>Section <span class="text-danger">*</span></label>
                                     <select name="visitorinfo_section" class="form-control" required>
@@ -37,6 +38,20 @@
                                 <div class="form-group">
                                     <label>Title EN</label>
                                     <input name="visitorinfo_title_en" type="text" class="form-control" value="<?= esc($getdata['visitorinfo_title_en'] ?? '') ?>">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Label ID <small class="text-muted">(untuk section Learn, misal: EDUKASI)</small></label>
+                                            <input name="visitorinfo_label" type="text" class="form-control" value="<?= esc($getdata['visitorinfo_label'] ?? '') ?>" placeholder="Cth: EDUKASI">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Label EN</label>
+                                            <input name="visitorinfo_label_en" type="text" class="form-control" value="<?= esc($getdata['visitorinfo_label_en'] ?? '') ?>" placeholder="e.g.: LEARN">
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Description ID <span class="text-danger">*</span></label>
@@ -86,7 +101,7 @@
                             </div>
                             <div class="card-footer">
                                 <input type="submit" name="submit" value="Submit Data" class="btn btn-success mr-2">
-                                <a href="<?= base_url('adminsite/visit/visitorinfo') ?>" class="btn btn-secondary">Cancel</a>
+                                <a href="<?= esc($back_url ?? base_url('adminsite/visit/visitorinfo')) ?>" class="btn btn-secondary">Cancel</a>
                             </div>
                         </form>
                     </div>

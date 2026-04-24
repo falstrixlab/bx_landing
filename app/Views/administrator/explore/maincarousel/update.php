@@ -42,6 +42,10 @@
                                 <input name="carousel_title_id" type="text" class="form-control" value="<?= esc($rs['carousel_title_id']??'');?>" required/>
                             </div>
                             <div class="form-group">
+                                <label>Zone</label>
+                                <input name="carousel_zone" type="text" class="form-control" value="<?= esc($rs['carousel_zone']??'');?>" placeholder="Contoh: Zona A, Zona Laut"/>
+                            </div>
+                            <div class="form-group">
                                 <label>Title EN <span class="text-danger">*</span></label>
                                 <input name="carousel_title_en" type="text" class="form-control" value="<?= esc($rs['carousel_title_en']??'');?>" required/>
                             </div>

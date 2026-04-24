@@ -6,11 +6,12 @@ $journeyHeroAsset = bxsea_design_asset('journey', 'hero', 'assets/landing/image/
 $journeyBadgeAsset = bxsea_design_asset('journey', 'badge', 'assets/landing/image/img-animal-focus.png');
 $journeyWaveAsset = bxsea_design_asset('journey', 'wave', 'assets/landing/image/wave-additional-exp-desc.png');
 $journeyArrowAsset = bxsea_design_asset('journey', 'arrow', 'assets/landing/image/arrow-right-mainjourney.png');
+$additionalJourneys = array_values(array_filter($journey ?? [], fn($j) => in_array((string)($j['journey_zone'] ?? ''), ['19', '20'])));
+$mainJourneys = array_values(array_filter($journey ?? [], fn($j) => !in_array((string)($j['journey_zone'] ?? ''), ['19', '20'])));
 ?>
 
 <section class="sectionBanner">
   <div class="hero-wrap2">
-    <div class="overlay-blue-bg-banner"></div>
     <div class="hero-image2">
       <img src="<?= $journeyHeroAsset; ?>" alt="">
     </div>
@@ -30,7 +31,7 @@ $journeyArrowAsset = bxsea_design_asset('journey', 'arrow', 'assets/landing/imag
 <section class="container explore-mainjourney-section">
   <div class="badge"><img src="<?= $journeyBadgeAsset; ?>" alt=""></div>
   <h2 class="title">Explore Our Zones</h2>
-  <p class="subtitle">Explore our various zones and experience visiting diverse habitats of biota from around the world!</p>
+  <p class="subtitle">Journey through our zones to experience the various wildlife habitats around the world!</p>
   <div class="owl-carousel owl-theme explore-mainjourney-carousel">
     <?php if(!empty($maincarousel)): ?>
     <?php foreach($maincarousel AS $mc): ?>
@@ -38,6 +39,7 @@ $journeyArrowAsset = bxsea_design_asset('journey', 'arrow', 'assets/landing/imag
       <img src="<?= bxsea_asset_url('maincarousel', $mc['carousel_image']??'', 'assets/landing/image/bxsea_image_journey_zone1.png');?>" alt="<?= esc($mc['carousel_title_en']??'');?>" />
       <div class="info-box">
         <h3><?= esc(bxsea_plain_text($mc['carousel_title_en']??''));?></h3>
+        <?php if(!empty($mc['carousel_zone'])): ?><span class="zone">ZONE: <?= esc($mc['carousel_zone']);?></span><?php endif; ?>
         <p><?= esc(bxsea_plain_text($mc['carousel_desc_en']??''));?></p>
       </div>
     </div>
@@ -60,7 +62,7 @@ $journeyArrowAsset = bxsea_design_asset('journey', 'arrow', 'assets/landing/imag
 <section class="journey-zone">
   <div class="container">
     <div class="row gy-4" id="journeyZoneGrid">
-      <?php foreach($journey AS $jn): ?>
+      <?php foreach($mainJourneys AS $jn): ?>
       <div class="col-md-6 col-lg-4 col-xl-3">
         <div class="box-journey-zone"
              data-title="<?= esc(bxsea_plain_text($jn['journey_title_en']??($jn['journey_title']??'')));?>"
@@ -100,38 +102,33 @@ $journeyArrowAsset = bxsea_design_asset('journey', 'arrow', 'assets/landing/imag
         </div>
       </div>
       <div class="right-grid">
-        <div class="box-journey-zone box-journey-zone-additional">
+        <?php foreach ($additionalJourneys as $jn): ?>
+        <div class="box-journey-zone box-journey-zone-additional"
+             data-title="<?= esc(bxsea_plain_text($jn['journey_title_en']??($jn['journey_title']??'')));?>"
+             data-zone="<?= esc($jn['journey_zone']??'');?>"
+             data-desc="<?= esc(bxsea_plain_text($jn['journey_desc_en']??($jn['journey_desc']??'')));?>"
+             data-img="<?= bxsea_asset_url('journey', $jn['journey_pict']??'', 'assets/landing/image/behind-the-sea-image.png');?>"
+             data-popup-desc="<?= esc(bxsea_plain_text($jn['journey_popup_desc_en']??($jn['journey_popup_desc_id']??'')));?>"
+             data-popup-pict1="<?= !empty($jn['journey_popup_pict1']) ? bxsea_asset_url('journey', $jn['journey_popup_pict1'], '') : '';?>"
+             data-popup-pict1-label="<?= esc($jn['journey_popup_pict1_label_en']??($jn['journey_popup_pict1_label_id']??''));?>"
+             data-popup-pict2="<?= !empty($jn['journey_popup_pict2']) ? bxsea_asset_url('journey', $jn['journey_popup_pict2'], '') : '';?>"
+             data-popup-pict2-label="<?= esc($jn['journey_popup_pict2_label_en']??($jn['journey_popup_pict2_label_id']??''));?>">
           <div class="image-box-journey-zone">
-            <img src="<?= bxsea_design_asset('journey', 'behind_the_sea_pict', 'assets/landing/image/behind-the-sea-image.png');?>" alt="Behind The Sea">
+            <img src="<?= bxsea_asset_url('journey', $jn['journey_pict'] ?? '', 'assets/landing/image/behind-the-sea-image.png');?>" alt="<?= esc($jn['journey_title_en'] ?? ($jn['journey_title'] ?? ''));?>">
             <div class="desc-box-journey-zone">
               <img class="img-wave-journey-zone" src="<?= $journeyWaveAsset; ?>" alt="">
               <div class="box-white">
-                <span>ZONE 19</span>
-                <h4>Behind The Sea</h4>
-                <p>Our Behind The Sea program brings you closer to the underwater world! Visitors will get exclusive access to see another side of BXSea. From biota quarantine and aquarium Life Support Systems, to food preparation and water quality laboratories — satisfy your curiosity to see the inner workings behind the magnificence of BXSea.</p>
+                <?php if(!empty($jn['journey_zone'])): ?><span>ZONE <?= esc($jn['journey_zone']);?></span><?php endif; ?>
+                <h4><?= esc(bxsea_plain_text($jn['journey_title_en'] ?? ($jn['journey_title'] ?? '')));?></h4>
+                <p><?= esc(bxsea_plain_text($jn['journey_desc_en'] ?? ($jn['journey_desc'] ?? '')));?></p>
               </div>
             </div>
           </div>
           <div class="btn-detail-journey-zone">
-            <a href="#javascript"><img src="<?= $journeyArrowAsset; ?>" alt=""></a>
+            <a href="#"><img src="<?= $journeyArrowAsset; ?>" alt=""></a>
           </div>
         </div>
-        <div class="box-journey-zone box-journey-zone-additional">
-          <div class="image-box-journey-zone">
-            <img src="<?= bxsea_design_asset('journey', 'boat_tour_pict', 'assets/landing/image/boat-tour-image.png');?>" alt="Boat Tour">
-            <div class="desc-box-journey-zone">
-              <img class="img-wave-journey-zone" src="<?= $journeyWaveAsset; ?>" alt="">
-              <div class="box-white">
-                <span>ZONE 20</span>
-                <h4>Boat Tour</h4>
-                <p>See our biota up close from above the water surface! Join our experienced Education Guide along an 80-meter route that circles the Main Tank, while learning the secrets of the underwater world. Don't miss the chance to feed our fish!</p>
-              </div>
-            </div>
-          </div>
-          <div class="btn-detail-journey-zone">
-            <a href="#javascript"><img src="<?= $journeyArrowAsset; ?>" alt=""></a>
-          </div>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>

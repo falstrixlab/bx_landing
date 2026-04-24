@@ -268,6 +268,162 @@ class AdminDashboard extends BaseController {
             return redirect()->route(getenv('bxsea.admin'));
         }
     }
+    /* About Page CMS */
+    public function about_page()
+    {
+        if (session()->get('islogin') == TRUE)
+        {
+            $rows = $this->Crud->readData('*', 'tbl_about_page', ['id' => 1], '', '', '', '', '');
+            $data['aboutPage'] = !empty($rows) ? $rows[0] : [];
+            echo view('administrator/about/page', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+
+    public function run_update_about_page($section = null)
+    {
+        if (session()->get('islogin') == TRUE)
+        {
+            $submit = $this->request->getVar('submit');
+            if (!isset($submit))
+            {
+                return redirect()->to(base_url('adminsite/about/page'));
+            }
+            try
+            {
+                $data = [];
+
+                if ($section === 'intro')
+                {
+                    $data = [
+                        'intro_title_id'  => $this->request->getVar('intro_title_id'),
+                        'intro_title_en'  => $this->request->getVar('intro_title_en'),
+                        'intro_desc_id'   => $this->request->getVar('intro_desc_id'),
+                        'intro_desc_en'   => $this->request->getVar('intro_desc_en'),
+                    ];
+                }
+                elseif ($section === 'subcircle')
+                {
+                    $data = [
+                        'subcircle_desc_id' => $this->request->getVar('subcircle_desc_id'),
+                        'subcircle_desc_en' => $this->request->getVar('subcircle_desc_en'),
+                    ];
+                }
+                elseif ($section === 'bubbles')
+                {
+                    for ($i = 1; $i <= 7; $i++) {
+                        $data['bubble'.$i.'_id'] = $this->request->getVar('bubble'.$i.'_id');
+                        $data['bubble'.$i.'_en'] = $this->request->getVar('bubble'.$i.'_en');
+                    }
+                }
+                elseif ($section === 'gallery')
+                {
+                    $uploadDir = ROOTPATH . 'assets/upload/about/gallery/';
+                    if (!is_dir($uploadDir)) { mkdir($uploadDir, 0755, true); }
+                    foreach ([1, 2, 3] as $g)
+                    {
+                        $file = $this->request->getFile('gallery_'.$g);
+                        if ($file && $file->isValid() && !$file->hasMoved())
+                        {
+                            $validationRule = ['gallery_'.$g => ['label' => 'Gallery Image '.$g, 'rules' => ['mime_in[gallery_'.$g.',image/jpg,image/jpeg,image/png]']]];
+                            if ($this->validate($validationRule))
+                            {
+                                $newName = 'bxsea_image_' . $file->getRandomName();
+                                $old = $this->request->getVar('gallery_'.$g.'_temp');
+                                if ($old && is_file($uploadDir . $old)) { unlink($uploadDir . $old); }
+                                $file->move($uploadDir, $newName, true);
+                                $data['gallery_'.$g] = $newName;
+                            }
+                        }
+                        else
+                        {
+                            $data['gallery_'.$g] = $this->request->getVar('gallery_'.$g.'_temp') ?? '';
+                        }
+                    }
+                }
+                elseif ($section === 'textblock')
+                {
+                    $uploadDir = ROOTPATH . 'assets/upload/about/';
+                    if (!is_dir($uploadDir)) { mkdir($uploadDir, 0755, true); }
+
+                    // Handle main textblock image
+                    $imgFile = $this->request->getFile('textblock_image');
+                    if ($imgFile && $imgFile->isValid() && !$imgFile->hasMoved())
+                    {
+                        $validationRule = ['textblock_image' => ['label' => 'Textblock Image', 'rules' => ['mime_in[textblock_image,image/jpg,image/jpeg,image/png]']]];
+                        if ($this->validate($validationRule))
+                        {
+                            $newName = 'bxsea_image_' . $imgFile->getRandomName();
+                            $old = $this->request->getVar('textblock_image_temp');
+                            if ($old && is_file($uploadDir . $old)) { unlink($uploadDir . $old); }
+                            $imgFile->move($uploadDir, $newName, true);
+                            $data['textblock_image'] = $newName;
+                        }
+                        else
+                        {
+                            $data['textblock_image'] = $this->request->getVar('textblock_image_temp') ?? '';
+                        }
+                    }
+                    else
+                    {
+                        $data['textblock_image'] = $this->request->getVar('textblock_image_temp') ?? '';
+                    }
+
+                    $data['textblock_left_desc_id']  = $this->request->getVar('textblock_left_desc_id');
+                    $data['textblock_left_desc_en']  = $this->request->getVar('textblock_left_desc_en');
+                    $data['textblock_title1_id']     = $this->request->getVar('textblock_title1_id');
+                    $data['textblock_title1_en']     = $this->request->getVar('textblock_title1_en');
+                    $data['textblock_desc1_id']      = $this->request->getVar('textblock_desc1_id');
+                    $data['textblock_desc1_en']      = $this->request->getVar('textblock_desc1_en');
+                    $data['textblock_btn1_id']       = $this->request->getVar('textblock_btn1_id');
+                    $data['textblock_btn1_en']       = $this->request->getVar('textblock_btn1_en');
+                    $data['textblock_title2_id']     = $this->request->getVar('textblock_title2_id');
+                    $data['textblock_title2_en']     = $this->request->getVar('textblock_title2_en');
+                    $data['textblock_desc2_id']      = $this->request->getVar('textblock_desc2_id');
+                    $data['textblock_desc2_en']      = $this->request->getVar('textblock_desc2_en');
+                    $data['textblock_btn2_id']       = $this->request->getVar('textblock_btn2_id');
+                    $data['textblock_btn2_en']       = $this->request->getVar('textblock_btn2_en');
+                }
+
+                if (!empty($data))
+                {
+                    $data['updated_at'] = date('Y-m-d H:i:s');
+                    // Check if row exists, if not insert it first
+                    $exists = $this->Crud->readData('id', 'tbl_about_page', ['id' => 1], '', '', '', '', '');
+                    if (empty($exists))
+                    {
+                        $data['id'] = 1;
+                        $this->Crud->createData('tbl_about_page', $data);
+                    }
+                    else
+                    {
+                        $this->Crud->updateData('tbl_about_page', $data, ['id' => 1]);
+                    }
+                    $this->session->setFlashdata('success', '-');
+                }
+                else
+                {
+                    $this->session->setFlashdata('failed', '-');
+                }
+            }
+            catch (Exception $ex)
+            {
+                echo 'Message: ' . $ex->getMessage();
+                return;
+            }
+            return redirect()->to(base_url('adminsite/about/page'));
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+
     /* User Page */ 
 
     public function user() {

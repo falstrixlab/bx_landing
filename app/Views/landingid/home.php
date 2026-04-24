@@ -25,6 +25,7 @@ $shortcutContactAsset = bxsea_design_asset('home', 'shortcut_contact', 'assets/l
 $ticketLocationIconAsset = bxsea_design_asset('ticket', 'location_icon', 'assets/landing/image/dashicons_location.png');
 $experienceHeading = bxsea_plain_text($homedescexperience[0]['masterdesc_title'] ?? '');
 $experienceDescription = bxsea_plain_text($homedescexperience[0]['masterdesc_desc'] ?? '');
+$experienceSectionPict = $homedescexperience[0]['masterdesc_pict'] ?? '';
 $partnerHeading = bxsea_plain_text($hometitlepartner[0]['masterdesc_title'] ?? '') ?: 'Partner Kami';
 $normalizeTenantSummary = static function (?string $value, ?string $title = null, int $limit = 135): string {
   $text = bxsea_plain_text($value);
@@ -184,10 +185,15 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
     <div class="desc-additional-exp">
       <p><?= esc($experienceDescription ?: 'Pengalaman tambahan kami membawa Anda jauh lebih dekat dengan kehidupan laut!');?></p>
     </div>
+    <?php if (!empty($experienceSectionPict)): ?>
+    <div class="image-additional-exp-section">
+      <img src="<?= base_url('assets/upload/masterdesc/' . esc($experienceSectionPict)) ?>" alt="" class="img-fluid">
+    </div>
+    <?php endif; ?>
   </div>
   <div class="right-grid owl-carousel owl-additional-exp">
     <?php foreach($ticketexperience AS $exp): ?>
-    <div class="box-additional-exp">
+    <a class="box-additional-exp" href="<?= base_url('/id/tiket/pengalaman-premium'); ?>">
       <div class="image-box-additional-exp">
         <img src="<?= bxsea_asset_url('experience', $exp['experience_pict'] ?? '', 'assets/landing/image/boat-tour-image.png');?>" alt="<?= esc($exp['experience_title']);?>">
         <div class="desc-box-additional-exp">
@@ -198,7 +204,7 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
           </div>
         </div>
       </div>
-    </div>
+    </a>
     <?php endforeach; ?>
   </div>
 </section>
@@ -271,7 +277,8 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
   <div class="right-grid-box">
     <div class="right-grid">
       <?php foreach ($homeEventItems as $promoItem): ?>
-      <div class="box-event">
+      <?php $promoHref = !empty($promoItem['promotion_link']) ? esc($promoItem['promotion_link']) : base_url('/id/promo/event'); ?>
+      <a class="box-event" href="<?= $promoHref; ?>" <?= !empty($promoItem['promotion_link']) ? 'target="_blank" rel="noopener noreferrer"' : ''; ?>>
         <div class="image-box-event">
           <img src="<?= bxsea_asset_url('promotion', $promoItem['promotion_pict'] ?? '', 'assets/landing/image/image-promotions.png');?>" alt="<?= esc($promoItem['promotion_title'] ?? 'Event');?>">
           <div class="desc-box-event">
@@ -281,7 +288,7 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
             </div>
           </div>
         </div>
-      </div>
+      </a>
       <?php endforeach; ?>
     </div>
     <div class="cta-ig-tiktok-event">

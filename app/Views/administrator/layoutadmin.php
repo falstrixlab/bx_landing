@@ -19,10 +19,12 @@
     <link rel="shortcut icon" href="<?= base_url();?>assets/image/logobxsea.png" />
     <?php
       $uri = service('uri');
-      $segment2 = $uri->getSegment(2);
-      $segment3 = $uri->getSegment(3);
+      $uriSegments = $uri->getSegments();
+      $segment2 = $uriSegments[1] ?? '';
+      $segment3 = $uriSegments[2] ?? '';
+      $segment4 = $uriSegments[3] ?? '';
       $isMasterMenu = $segment2 === 'master' && in_array($segment3, ['legal', 'socialmedia', 'designasset'], true);
-      $isHomeMenu = $segment2 === 'home' || ($segment2 === 'master' && $segment3 === 'setup') || ($segment2 === 'ticketing' && $segment3 === 'promotion');
+      $isHomeMenu = $segment2 === 'home' || ($segment2 === 'master' && $segment3 === 'setup') || ($segment2 === 'ticketing' && in_array($segment3, ['promotion', 'additionalexp', 'additionalexpitem'], true));
       $isNewsMenu = $segment2 === 'whatsnew' || ($segment2 === 'master' && $segment3 === 'article') || ($segment2 === 'category' && $segment3 === 'articlecategory');
       $isMomentMenu = $segment2 === 'ticketing' && in_array($segment3, ['moment', 'momentmemories'], true);
       $isAdditionalExpMenu = $segment2 === 'ticketing' && in_array($segment3, ['additionalexp', 'additionalexpitem'], true);
@@ -108,11 +110,38 @@
                     <span class="menu-text">Dashboard</span>
                   </a>
                 </li>
-                <li class="menu-item <?= ($uri->getSegment(2) == "about") ? "menu-item-open menu-item-here" : "";?>" aria-haspopup="true">
-                  <a href="<?= base_url('adminsite/about');?>" class="menu-link ">
+                <?php
+                  $isAboutMenu = $segment2 === 'about' || ($segment2 === 'partnership' && in_array($segment3, ['content', 'opportunity'], true));
+                ?>
+                <li class="menu-item menu-item-submenu <?= $isAboutMenu ? 'menu-item-open menu-item-here' : ''; ?>" aria-haspopup="true" data-menu-toggle="hover">
+                  <a href="javascript:;" class="menu-link menu-toggle">
                     <i class="menu-icon flaticon2-paper-plane"></i>
                     <span class="menu-text">About</span>
+                    <i class="menu-arrow"></i>
                   </a>
+                  <div class="menu-submenu">
+                    <i class="menu-arrow"></i>
+                    <ul class="menu-subnav">
+                      <li class="menu-item <?= ($segment2 === 'about' && $segment3 !== 'page') ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
+                        <a href="<?= base_url('adminsite/about');?>" class="menu-link">
+                          <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                          <span class="menu-text">About List</span>
+                        </a>
+                      </li>
+                      <li class="menu-item <?= ($segment2 === 'about' && $segment3 === 'page') ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
+                        <a href="<?= base_url('adminsite/about/page');?>" class="menu-link">
+                          <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                          <span class="menu-text">Konten Halaman Tentang</span>
+                        </a>
+                      </li>
+                      <li class="menu-item <?= ($segment2 === 'partnership' && $segment3 === 'content') ? 'menu-item-active' : ''; ?>" aria-haspopup="true">
+                        <a href="<?= base_url('adminsite/partnership/content');?>" class="menu-link">
+                          <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                          <span class="menu-text">Konten Kemitraan</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
                 <?php if(session()->get("role") == 1) {?>
                 <li class="menu-item <?= ($uri->getSegment(2) == "user") ? "menu-item-open menu-item-here" : "";?>" aria-haspopup="true">
@@ -229,14 +258,14 @@
                           <span class="menu-text">Fitur Slide</span>
                         </a>
                       </li>
-                      <li class="menu-item <?= ($segment2 == "home" && $segment3 == "testimoni") ? "menu-item-active":"";?>" aria-haspopup="true">
+                      <!-- <li class="menu-item <?= ($segment2 == "home" && $segment3 == "testimoni") ? "menu-item-active":"";?>" aria-haspopup="true">
                         <a href="<?= base_url('adminsite/home/testimoni');?>" class="menu-link ">
                           <i class="menu-bullet menu-bullet-dot">
                             <span></span>
                           </i>
                           <span class="menu-text">Review Pengunjung</span>
                         </a>
-                      </li>
+                      </li> -->
                       <li class="menu-item <?= ($segment2 == "home" && $segment3 == "influencer") ? "menu-item-active":"";?>" aria-haspopup="true">
                         <a href="<?= base_url('adminsite/home/influencer');?>" class="menu-link ">
                           <i class="menu-bullet menu-bullet-dot">
@@ -253,22 +282,22 @@
                           <span class="menu-text">Partner</span>
                         </a>
                       </li>
-                      <li class="menu-item <?= ($segment2 == "home" && $segment3 == "sosmedcontent") ? "menu-item-active":"";?>" aria-haspopup="true">
+                      <!-- <li class="menu-item <?= ($segment2 == "home" && $segment3 == "sosmedcontent") ? "menu-item-active":"";?>" aria-haspopup="true">
                         <a href="<?= base_url('adminsite/home/sosmedcontent');?>" class="menu-link ">
                           <i class="menu-bullet menu-bullet-dot">
                             <span></span>
                           </i>
                           <span class="menu-text">Sosmed Content</span>
                         </a>
-                      </li>
-                      <li class="menu-item <?= ($segment2 == "master" && $segment3 == "setup") ? "menu-item-active":"";?>" aria-haspopup="true">
+                      </li> -->
+                      <!-- <li class="menu-item <?= ($segment2 == "master" && $segment3 == "setup") ? "menu-item-active":"";?>" aria-haspopup="true">
                         <a href="<?= base_url('adminsite/master/setup');?>" class="menu-link ">
                           <i class="menu-bullet menu-bullet-dot">
                             <span></span>
                           </i>
                           <span class="menu-text">Setup Landing</span>
                         </a>
-                      </li>
+                      </li> -->
                       <li class="menu-item <?= ($segment2 == "ticketing" && $segment3 == "promotion") ? "menu-item-active":"";?>" aria-haspopup="true">
                         <a href="<?= base_url('adminsite/ticketing/promotion');?>" class="menu-link ">
                           <i class="menu-bullet menu-bullet-dot">
@@ -288,7 +317,7 @@
                     </ul>
                   </div>
                 </li>
-                <li class="menu-item  menu-item-submenu <?= ($segment2 == "ticketing" || ($segment2 == 'category' && $segment3 == 'ticketcategory')) ? "menu-item-open menu-item-here" : "";?>" aria-haspopup="true" data-menu-toggle="hover">
+                <li class="menu-item  menu-item-submenu <?= (($segment2 == "ticketing" && !in_array($segment3, ['promotion', 'additionalexp', 'additionalexpitem'], true)) || ($segment2 == 'category' && $segment3 == 'ticketcategory')) ? "menu-item-open menu-item-here" : "";?>" aria-haspopup="true" data-menu-toggle="hover">
                   <a href="javascript:;" class="menu-link menu-toggle">
                     <i class="menu-icon flaticon-layers"></i>
                     <span class="menu-text">Tiket</span>
@@ -455,6 +484,14 @@
                           <span class="menu-text">Deskripsi Jelajahi</span>
                         </a>
                       </li>
+                      <li class="menu-item <?= ($segment2 == "explore" && $segment3 == "maincarousel") ? "menu-item-active":"";?>" aria-haspopup="true">
+                        <a href="<?= base_url('adminsite/explore/maincarousel');?>" class="menu-link ">
+                          <i class="menu-bullet menu-bullet-dot">
+                            <span></span>
+                          </i>
+                          <span class="menu-text">Main Carousel</span>
+                        </a>
+                      </li>
                       <li class="menu-item <?= ($segment2 == "explore" && $segment3 == "journey") ? "menu-item-active":"";?>" aria-haspopup="true">
                         <a href="<?= base_url('adminsite/explore/journey');?>" class="menu-link ">
                           <i class="menu-bullet menu-bullet-dot">
@@ -496,13 +533,48 @@
                           <span class="menu-text">Deskripsi Info Kunjungan</span>
                         </a>
                       </li>
-                      <li class="menu-item <?= ($segment2 == "visit" && $segment3 == "visitorinfo") ? "menu-item-active":"";?>" aria-haspopup="true">
-                        <a href="<?= base_url('adminsite/visit/visitorinfo');?>" class="menu-link ">
-                          <i class="menu-bullet menu-bullet-dot">
-                            <span></span>
-                          </i>
-                          <span class="menu-text">Visitor Info</span>
+                      <?php $isVIMenu = ($segment2 == "visit" && (($segment3 == "visitorpage" && in_array($segment4, ["banner","welcome","guide"])) || ($segment3 == "visitorinfo" && in_array($segment4, ["know","learn"])))); ?>
+                      <li class="menu-item menu-item-submenu <?= $isVIMenu ? 'menu-item-open menu-item-here' : ''; ?>" aria-haspopup="true" data-menu-toggle="hover">
+                        <a href="javascript:;" class="menu-link menu-toggle">
+                          <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                          <span class="menu-text">Informasi Pengunjung</span>
+                          <i class="menu-arrow"></i>
                         </a>
+                        <div class="menu-submenu">
+                          <i class="menu-arrow"></i>
+                          <ul class="menu-subnav">
+                            <li class="menu-item <?= ($segment2 == "visit" && $segment3 == "visitorpage" && $segment4 == "banner") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/visit/visitorpage/banner');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                <span class="menu-text">Banner</span>
+                              </a>
+                            </li>
+                            <li class="menu-item <?= ($segment2 == "visit" && $segment3 == "visitorpage" && $segment4 == "welcome") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/visit/visitorpage/welcome');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                <span class="menu-text">Welcome &amp; Jam Ops</span>
+                              </a>
+                            </li>
+                            <li class="menu-item <?= ($segment2 == "visit" && $segment3 == "visitorinfo" && $segment4 == "know") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/visit/visitorinfo/know');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                <span class="menu-text">Know Section</span>
+                              </a>
+                            </li>
+                            <li class="menu-item <?= ($segment2 == "visit" && $segment3 == "visitorinfo" && $segment4 == "learn") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/visit/visitorinfo/learn');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                <span class="menu-text">Learn Section</span>
+                              </a>
+                            </li>
+                            <!-- <li class="menu-item <?= ($segment2 == "visit" && $segment3 == "visitorpage" && $segment4 == "guide") ? "menu-item-active":"";?>" aria-haspopup="true">
+                              <a href="<?= base_url('adminsite/visit/visitorpage/guide');?>" class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                                <span class="menu-text">Guide Section</span>
+                              </a>
+                            </li> -->
+                          </ul>
+                        </div>
                       </li>
                       <li class="menu-item <?= ($segment2 == "visit" && $segment3 == "schedule") ? "menu-item-active":"";?>" aria-haspopup="true">
                         <a href="<?= base_url('adminsite/visit/schedule');?>" class="menu-link ">

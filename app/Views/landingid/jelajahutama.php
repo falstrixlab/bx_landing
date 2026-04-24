@@ -6,11 +6,12 @@ $journeyHeroAsset = bxsea_design_asset('journey', 'hero', 'assets/landing/image/
 $journeyBadgeAsset = bxsea_design_asset('journey', 'badge', 'assets/landing/image/img-animal-focus.png');
 $journeyWaveAsset = bxsea_design_asset('journey', 'wave', 'assets/landing/image/wave-additional-exp-desc.png');
 $journeyArrowAsset = bxsea_design_asset('journey', 'arrow', 'assets/landing/image/arrow-right-mainjourney.png');
+$additionalJourneys = array_values(array_filter($journey ?? [], fn($j) => in_array((string)($j['journey_zone'] ?? ''), ['19', '20'])));
+$mainJourneys = array_values(array_filter($journey ?? [], fn($j) => !in_array((string)($j['journey_zone'] ?? ''), ['19', '20'])));
 ?>
 
 <section class="sectionBanner">
   <div class="hero-wrap2">
-    <div class="overlay-blue-bg-banner"></div>
     <div class="hero-image2">
       <img src="<?= $journeyHeroAsset; ?>" alt="">
     </div>
@@ -32,35 +33,23 @@ $journeyArrowAsset = bxsea_design_asset('journey', 'arrow', 'assets/landing/imag
   <h2 class="title">Jelajahi Zona Kami</h2>
   <p class="subtitle">Jelajahi berbagai zona kami dan rasakan pengalaman mengunjungi beragam habitat biota dari seluruh dunia!</p>
   <div class="owl-carousel owl-theme explore-mainjourney-carousel">
-    <?php if(!empty($maincarousel)): ?>
     <?php foreach($maincarousel AS $mc): ?>
     <div class="card">
       <img src="<?= bxsea_asset_url('maincarousel', $mc['carousel_image']??'', 'assets/landing/image/bxsea_image_journey_zone1.png');?>" alt="<?= esc($mc['carousel_title_id']??'');?>" />
       <div class="info-box">
         <h3><?= esc(bxsea_plain_text($mc['carousel_title_id']??''));?></h3>
+        <?php if(!empty($mc['carousel_zone'])): ?><span class="zone">ZONA: <?= esc($mc['carousel_zone']);?></span><?php endif; ?>
         <p><?= esc(bxsea_plain_text($mc['carousel_desc_id']??''));?></p>
       </div>
     </div>
     <?php endforeach; ?>
-    <?php else: ?>
-    <?php foreach($journey AS $jn): ?>
-    <div class="card">
-      <img src="<?= bxsea_asset_url('journey', $jn['journey_animal_pict'] ?? ($jn['journey_pict'] ?? ''), 'assets/landing/image/bxsea_image_journey_zone1.png');?>" alt="<?= esc($jn['journey_title'] ?? '');?>" />
-      <div class="info-box">
-        <h3><?= esc(bxsea_plain_text($jn['journey_title'] ?? ''));?></h3>
-        <?php if(!empty($jn['journey_zone'])): ?><span class="zone">ZONA: <?= esc($jn['journey_zone']);?></span><?php endif; ?>
-        <p><?= esc(bxsea_plain_text($jn['journey_desc'] ?? ''));?></p>
-      </div>
-    </div>
-    <?php endforeach; ?>
-    <?php endif; ?>
   </div>
 </section>
 
 <section class="journey-zone">
   <div class="container">
     <div class="row gy-4" id="journeyZoneGrid">
-      <?php foreach($journey AS $jn): ?>
+      <?php foreach($mainJourneys AS $jn): ?>
       <div class="col-md-6 col-lg-4 col-xl-3">
         <div class="box-journey-zone"
              data-title="<?= esc(bxsea_plain_text($jn['journey_title']??''));?>"
@@ -100,38 +89,33 @@ $journeyArrowAsset = bxsea_design_asset('journey', 'arrow', 'assets/landing/imag
         </div>
       </div>
       <div class="right-grid">
-        <div class="box-journey-zone box-journey-zone-additional">
+        <?php foreach ($additionalJourneys as $jn): ?>
+        <div class="box-journey-zone box-journey-zone-additional"
+             data-title="<?= esc(bxsea_plain_text($jn['journey_title']??''));?>"
+             data-zone="<?= esc($jn['journey_zone']??'');?>"
+             data-desc="<?= esc(bxsea_plain_text($jn['journey_desc']??''));?>"
+             data-img="<?= bxsea_asset_url('journey', $jn['journey_pict']??'', 'assets/landing/image/behind-the-sea-image.png');?>"
+             data-popup-desc="<?= esc(bxsea_plain_text($jn['journey_popup_desc_id']??''));?>"
+             data-popup-pict1="<?= !empty($jn['journey_popup_pict1']) ? bxsea_asset_url('journey', $jn['journey_popup_pict1'], '') : '';?>"
+             data-popup-pict1-label="<?= esc($jn['journey_popup_pict1_label_id']??'');?>"
+             data-popup-pict2="<?= !empty($jn['journey_popup_pict2']) ? bxsea_asset_url('journey', $jn['journey_popup_pict2'], '') : '';?>"
+             data-popup-pict2-label="<?= esc($jn['journey_popup_pict2_label_id']??'');?>">
           <div class="image-box-journey-zone">
-            <img src="<?= bxsea_design_asset('journey', 'behind_the_sea_pict', 'assets/landing/image/behind-the-sea-image.png');?>" alt="Behind The Sea">
+            <img src="<?= bxsea_asset_url('journey', $jn['journey_pict'] ?? '', 'assets/landing/image/behind-the-sea-image.png');?>" alt="<?= esc($jn['journey_title'] ?? '');?>">
             <div class="desc-box-journey-zone">
               <img class="img-wave-journey-zone" src="<?= $journeyWaveAsset; ?>" alt="">
               <div class="box-white">
-                <span>ZONE 19</span>
-                <h4>Behind The Sea</h4>
-                <p>Program Behind The Sea kami membawa Anda lebih dekat dengan dunia bawah air! Pengunjung akan mendapatkan akses eksklusif untuk melihat sisi lain dari BXSea. Mulai dari karantina biota dan Life Support System akuarium, hingga persiapan makanan dan laboratorium kualitas air puaskan rasa ingin tahu Anda untuk melihat cara kerja internal di balik megahnya BXSea</p>
+                <?php if(!empty($jn['journey_zone'])): ?><span>ZONE <?= esc($jn['journey_zone']);?></span><?php endif; ?>
+                <h4><?= esc(bxsea_plain_text($jn['journey_title'] ?? ''));?></h4>
+                <p><?= esc(bxsea_plain_text($jn['journey_desc'] ?? ''));?></p>
               </div>
             </div>
           </div>
           <div class="btn-detail-journey-zone">
-            <a href="#javascript"><img src="<?= $journeyArrowAsset; ?>" alt=""></a>
+            <a href="#"><img src="<?= $journeyArrowAsset; ?>" alt=""></a>
           </div>
         </div>
-        <div class="box-journey-zone box-journey-zone-additional">
-          <div class="image-box-journey-zone">
-            <img src="<?= bxsea_design_asset('journey', 'boat_tour_pict', 'assets/landing/image/boat-tour-image.png');?>" alt="Boat Tour">
-            <div class="desc-box-journey-zone">
-              <img class="img-wave-journey-zone" src="<?= $journeyWaveAsset; ?>" alt="">
-              <div class="box-white">
-                <span>ZONE 20</span>
-                <h4>Boat Tour</h4>
-                <p>Lihat lebih dekat biota kami tepat dari atas permukaan air! Ikuti Education Guide kami yang berpengalaman menyusuri rute sepanjang 80 meter yang mengelilingi Akuarium Utama (Main Tank), sambil mempelajari rahasia dunia bawah laut. Jangan lewatkan juga kesempatan untuk memberi makan ikan-ikan kami!</p>
-              </div>
-            </div>
-          </div>
-          <div class="btn-detail-journey-zone">
-            <a href="#javascript"><img src="<?= $journeyArrowAsset; ?>" alt=""></a>
-          </div>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>

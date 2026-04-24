@@ -308,6 +308,23 @@ $routes->group('adminsite', function($routes){
     $routes->post('visit/visitorinfo/runupdate', 'AdminVisit::run_update_visitorinfo');
     $routes->get('visit/visitorinfo/delete/(:num)', 'AdminVisit::delete_visitorinfo/$1');
 
+    // Visitor Info - Know Section (vi-know-section, rule items)
+    $routes->get('visit/visitorinfo/know', 'AdminVisit::visitorinfo_know');
+    $routes->get('visit/visitorinfo/know/add', 'AdminVisit::add_visitorinfo_know');
+    $routes->post('visit/visitorinfo/know/runadd', 'AdminVisit::run_add_visitorinfo_know');
+
+    // Visitor Info - Learn Section (vi-learn-section, learn items)
+    $routes->get('visit/visitorinfo/learn', 'AdminVisit::visitorinfo_learn');
+    $routes->get('visit/visitorinfo/learn/add', 'AdminVisit::add_visitorinfo_learn');
+    $routes->post('visit/visitorinfo/learn/runadd', 'AdminVisit::run_add_visitorinfo_learn');
+
+    // Visitor Page sections
+    $routes->get('visit/visitorpage', 'AdminVisit::visitorpage');            $routes->get('visit/visitorpage/banner', 'AdminVisit::visitorpage_banner');    $routes->get('visit/visitorpage/welcome', 'AdminVisit::visitorpage_welcome');
+    $routes->get('visit/visitorpage/guide', 'AdminVisit::visitorpage_guide');
+    $routes->get('visit/visitorpage/add/(:segment)', 'AdminVisit::add_visitorpage_bykey/$1');
+    $routes->get('visit/visitorpage/update/(:num)', 'AdminVisit::update_visitorpage/$1');
+    $routes->post('visit/visitorpage/runupdate', 'AdminVisit::run_update_visitorpage');
+
     $routes->get('visit/guide', 'AdminVisit::guide');
     $routes->get('visit/guide/add', 'AdminVisit::add_guide');
     $routes->post('visit/guide/runadd', 'AdminVisit::run_add_guide');
@@ -434,6 +451,20 @@ $routes->group('adminsite', function($routes) {
     $routes->get('whatsnew/update/(:num)', 'AdminWhatsNew::update/$1');
     $routes->post('whatsnew/runupdate/(:num)', 'AdminWhatsNew::run_update/$1');
     $routes->get('whatsnew/delete/(:num)', 'AdminWhatsNew::delete/$1');
+
+    // About Page CMS (tbl_about_page - single row)
+    $routes->get('about/page', 'AdminDashboard::about_page');
+    $routes->post('about/page/update/(:segment)', 'AdminDashboard::run_update_about_page/$1');
+
+    // Partnership Content & Opportunity CMS
+    $routes->get('partnership/content', 'AdminPartnership::content');
+    $routes->post('partnership/content/update/(:segment)', 'AdminPartnership::run_update_content/$1');
+    $routes->get('partnership/opportunity', 'AdminPartnership::opportunity');
+    $routes->get('partnership/opportunity/add', 'AdminPartnership::add_opportunity');
+    $routes->post('partnership/opportunity/runadd', 'AdminPartnership::run_add_opportunity');
+    $routes->get('partnership/opportunity/update/(:num)', 'AdminPartnership::update_opportunity/$1');
+    $routes->post('partnership/opportunity/runupdate', 'AdminPartnership::run_update_opportunity');
+    $routes->get('partnership/opportunity/delete/(:num)', 'AdminPartnership::delete_opportunity/$1');
 });
 
 // Frontend routes untuk halaman baru

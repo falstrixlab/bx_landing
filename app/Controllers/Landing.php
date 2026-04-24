@@ -332,6 +332,7 @@ class Landing extends BaseController
         $data['articleall'] = $this->Crud->readData('*', 'tbl_article', '', '', '', '', ['article_created_date' => 'desc'], ['limit' => 4]);
         $data['articlenews'] = $this->Crud->readData('*', 'tbl_article', ['article_category' => 1], '', '', '', ['article_created_date' => 'desc'], '');
         $data['articlereward'] = $this->Crud->readData('*', 'tbl_article', ['article_category' => 2], '', '', '', ['article_created_date' => 'desc'], '');
+        $data['articleconservation'] = $this->Crud->readData('*', 'tbl_article', ['article_category' => 3], '', '', '', ['article_created_date' => 'desc'], '');
 
         echo view('landingid/berita', $data);
     }
@@ -380,6 +381,8 @@ class Landing extends BaseController
         $data['sosmed_header_b'] = $this->Crud->readData('*', 'tbl_mastersocialmedia', '', '', '', '', '', '');
         /*--------------------*/
         $data['about'] = $this->Crud->readData('*', 'tbl_about', '', '', '', '', '', '');
+        $aboutPageRows = $this->Crud->readData('*', 'tbl_about_page', ['id' => 1], '', '', '', '', '');
+        $data['aboutPage'] = !empty($aboutPageRows) ? $aboutPageRows[0] : [];
 
         echo view('landingid/tentang', $data);
     }
@@ -390,6 +393,9 @@ class Landing extends BaseController
         $data['sosmed'] = $this->Crud->readData('*', 'tbl_mastersocialmedia', '', '', '', '', '', '');
         $data['sosmed_header_a'] = $this->Crud->readData('*', 'tbl_mastersocialmedia', '', '', '', '', '', '');
         $data['sosmed_header_b'] = $this->Crud->readData('*', 'tbl_mastersocialmedia', '', '', '', '', '', '');
+        $pcRows = $this->Crud->readData('*', 'tbl_partnership_content', ['id' => 1], '', '', '', '', '');
+        $data['partnershipContent'] = !empty($pcRows) ? $pcRows[0] : [];
+        $data['partnershipOpportunities'] = $this->Crud->readData('*', 'tbl_partnership_opportunity', '', '', '', '', ['opp_sort' => 'ASC'], '');
         echo view('landingid/kunjunganpartnership', $data);
     }
     public function kunjunganpartnershipproses()
@@ -431,6 +437,8 @@ class Landing extends BaseController
         $data['sosmed_header_b'] = $this->Crud->readData('*', 'tbl_mastersocialmedia', '', '', '', '', '', '');
         $data['visitorInfoRules'] = $this->Crud->readData('*', 'tbl_visitvisitorinfo', ['visitorinfo_section' => 'rule', 'visitorinfo_status' => 1], '', '', '', ['visitorinfo_sort' => 'ASC'], '');
         $data['visitorInfoLearn'] = $this->Crud->readData('*', 'tbl_visitvisitorinfo', ['visitorinfo_section' => 'learn', 'visitorinfo_status' => 1], '', '', '', ['visitorinfo_sort' => 'ASC'], '');
+        $vpRows = $this->Crud->readData('*', 'tbl_visitvisitorpage', '', '', '', '', ['visitorpage_id' => 'ASC'], '');
+        $data['visitorPageData'] = !empty($vpRows) ? array_column($vpRows, null, 'visitorpage_key') : [];
         echo view('landingid/kunjunganinfopengunjung', $data);
     }
 }

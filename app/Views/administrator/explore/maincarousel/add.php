@@ -37,6 +37,10 @@
                                 <input name="carousel_title_id" type="text" class="form-control" placeholder="Judul (ID)" required/>
                             </div>
                             <div class="form-group">
+                                <label>Zone</label>
+                                <input name="carousel_zone" type="text" class="form-control" placeholder="Contoh: Zona A, Zona Laut"/>
+                            </div>
+                            <div class="form-group">
                                 <label>Title EN <span class="text-danger">*</span></label>
                                 <input name="carousel_title_en" type="text" class="form-control" placeholder="Title (EN)" required/>
                             </div>

@@ -2,7 +2,6 @@
 <?= $this->section('content') ?>
 <section class="sectionBanner">
     <div class="hero-wrap2">
-      <div class="overlay-darkblue-bg-banner"></div>
       <div class="hero-image2">
         <img src="<?= base_url('assets/landing/');?>image/bxsea_image_bg-show.png" alt="">
       </div>

@@ -48,6 +48,7 @@
                         <tr>
                             <th>#</th>
                             <th>Image</th>
+                            <th>Zone</th>
                             <th>Title ID</th>
                             <th>Title EN</th>
                             <th>Desc ID</th>
@@ -64,6 +65,7 @@
                                     <div class="image-input-wrapper" style="background-image:url(<?= base_url('assets/upload/maincarousel/'.esc($rs['carousel_image']??''))?>)"></div>
                                 </div>
                             </td>
+                            <td><?= esc($rs['carousel_zone']??'');?></td>
                             <td><?= esc($rs['carousel_title_id']??'');?></td>
                             <td><?= esc($rs['carousel_title_en']??'');?></td>
                             <td><p style="white-space:pre-wrap;max-width:200px;"><?= esc($rs['carousel_desc_id']??'');?></p></td>

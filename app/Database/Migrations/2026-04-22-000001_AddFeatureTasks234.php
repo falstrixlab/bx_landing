@@ -16,6 +16,7 @@ class AddFeatureTasks234 extends Migration
                 'carousel_title_en' => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true],
                 'carousel_desc_id'  => ['type' => 'TEXT', 'null' => true],
                 'carousel_desc_en'  => ['type' => 'TEXT', 'null' => true],
+                'carousel_zone'     => ['type' => 'VARCHAR', 'constraint' => 100, 'null' => true],
                 'carousel_image'    => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true],
                 'carousel_created_at' => ['type' => 'DATETIME', 'null' => true, 'default' => null],
             ]);

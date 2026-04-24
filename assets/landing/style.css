@@ -40,7 +40,12 @@ body {
 }
 .bold-text {
     font-family: montserrat_bold;
-}   
+    color: #003169;
+} 
+.data-no-available {
+    font-family: montserrat_medium;
+    color: #003169;
+}  
 .loader-wrap {
     position: fixed;
     z-index: 1002;
@@ -267,7 +272,7 @@ html[lang="en"] .marquee {
 }
 .header-navbar-contact {
     position: fixed;
-    top: 60px;
+    top: 59px;
     z-index: 1000;
     width: 100%;
     background-color: #ffffff;
@@ -489,6 +494,18 @@ html[lang="en"] .marquee {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 100px;
+}
+html[lang="id"] .hero-image2 img {
+    object-position: center 80px;
+}
+@media (max-width: 992px) {
+    .hero-image2 img {
+        object-position: center;
+    }
+    html[lang="id"] .hero-image2 img {
+        object-position: center;
+    }
 }
 .hero-image3 {
     position: absolute;
@@ -680,6 +697,7 @@ html[lang="en"] .marquee {
     transition: 500ms;
     margin-left: auto;
     margin-right: 8em;
+    font-family: montserrat_medium;
 }
 .overlay-oceanariumtours .btn-overlay-oceanariumtours:hover {
     background-color: #9747FF;
@@ -4069,6 +4087,11 @@ body.no-scroll {
     color: #003169;
     margin-bottom: 0;
 }
+.desc-box-journey-zone span {
+    font-family: montserrat_medium;
+    color: #003169;
+    font-size: 14px;
+}
 .desc-box-journey-zone p {
     font-family: montserrat_medium;
     color: #003169;
@@ -4416,6 +4439,7 @@ body.no-scroll {
     font-weight: 600;
     transition: all 300ms ease-in-out;
     cursor: pointer;
+    font-family: montserrat_bold;
 }
 .btn-load-more:hover {
     background-color: #fff;
@@ -7109,7 +7133,7 @@ body.no-scroll {
     object-fit: cover;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1500px) {
     .explore-mainjourney-carousel .owl-nav {
         position: static;
         transform: none;
@@ -7156,11 +7180,17 @@ body.no-scroll {
 .custom-about {
     position: relative;
     padding: 5rem 0;
-    background-image: url(/image/bxsea_image_bg_about_forest.png);
+    width: 100%;
+    z-index: 0;
+}
+.custom-about::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/bxsea/assets/landing/image/bxsea_image_bg_about_forest.png');
     background-size: cover;
     background-position-y: -600px;
-    width: 100%;
-    z-index: -2;
+    z-index: -1;
 }
 .gurita-about {
     position: absolute;
@@ -7518,6 +7548,9 @@ body.no-scroll {
     border-radius: 12px;
     bottom: -330px;
     right: 30px;
+}
+.about-card p strong {
+    font-family: montserrat_bold;
 }
 @media (max-width: 991px) {
     .about-card p {
@@ -13112,10 +13145,11 @@ body.no-scroll {
     line-height: 1.2;
 }
 .vi-welcome-desc {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.8;
     color: #003169;
     margin-bottom: 32px;
+    font-family: montserrat_medium;
 }
 .vi-welcome-btn {
     display: inline-block;
@@ -13150,9 +13184,27 @@ body.no-scroll {
     color: #003169;
     margin-bottom: 24px;    
 }
+.vi-hours-card p {
+    font-size: 15px;
+    color: #003169;
+    line-height: 1.8;
+    margin: 0;
+    font-family: montserrat_medium;
+}
+.vi-hours-card p em,
+.vi-hours-card p strong {
+    font-size: 14px;
+    color: #003169;
+    line-height: 1.8;
+    margin: 0;
+    font-family: montserrat_bold;
+}
+.vi-hours-card strong {
+    padding-left: 20px;
+}
 .vi-grid-image-top-sections .vi-grid-image-item img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 16px;
 }
@@ -13238,6 +13290,10 @@ body.no-scroll {
     color: #fff;
     font-size: 26px;
 }
+.vi-know-icon img {
+    width: 100%;
+    height: 100%;
+}
 .vi-know-card h4 {
     font-family: leaguespartan_bold;
     font-size: 32px;
@@ -13271,10 +13327,9 @@ body.no-scroll {
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-    height: 100%;
 }
 .vi-learn-card-image {
-    height: 400px;
+    height: 350px;
     overflow: hidden;
 }
 .vi-learn-card-image img {
@@ -13288,12 +13343,13 @@ body.no-scroll {
 }
 .vi-learn-card-body {
     padding: 24px;
-    min-height: 300px;
+    min-height: 360px;
 }
 .vi-learn-card-body span {
     font-size: 14px;
     color: #003169;
     margin-bottom: 8px;
+    font-family: montserrat_medium;
 }
 .vi-learn-card-body h4 {
     font-family: leaguespartan_bold;
@@ -13305,6 +13361,7 @@ body.no-scroll {
     color: #003169;
     line-height: 1.7;
     margin: 0;
+    font-family: montserrat_medium;
 }
 /* Carousel nav buttons */
 .vi-carousel-nav {

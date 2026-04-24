@@ -8,7 +8,6 @@ $showArrowAsset = bxsea_design_asset('show', 'arrow', 'assets/landing/image/arro
 
 <section class="sectionBanner">
   <div class="hero-wrap2">
-    <div class="overlay-darkblue-bg-banner"></div>
     <div class="hero-image2">
       <img src="<?= $showHeroAsset; ?>" alt="">
     </div>
