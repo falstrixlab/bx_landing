@@ -147,6 +147,9 @@ body {
     font-size: 32px;
     text-transform: capitalize;
 }
+html[lang="id"] .marquee {
+    margin-top: 110px;
+}
 html[lang="en"] .marquee {
     margin-top: 110px;
 }
@@ -154,6 +157,9 @@ html[lang="en"] .marquee {
     .marquee {
         margin-top: 30px;
         font-size: 24px;
+    }
+    html[lang="id"] .marquee {
+        margin-top: 50px;
     }
     html[lang="en"] .marquee {
         margin-top: 50px;
