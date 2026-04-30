@@ -1,0 +1,28 @@
+CRITICAL - 2026-04-24 07:43:36 --> ErrorException: Undefined variable $visitorpage_pict1
+[Method: GET, Route: en/kunjungan/informasi-pengunjung]
+in APPPATH\Views\landingen\kunjunganinfopengunjung.php on line 107.
+ 1 APPPATH\Views\landingen\kunjunganinfopengunjung.php(107): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $visitorpage_pict1', 'C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\kunjunganinfopengunjung.php', 107)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingen\\kunjunganinfopengunjung.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('landingen/kunjunganinfopengunjung', [], true)
+ 5 APPPATH\Controllers\LandingEn.php(374): view('landingen/kunjunganinfopengunjung', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\LandingEn->kunjunganinfopengunjung()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingEn))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-24 07:48:29 --> ErrorException: Array to string conversion
+[Method: GET, Route: id/kunjungan/informasi-pengunjung]
+in APPPATH\Views\landingid\kunjunganinfopengunjung.php on line 137.
+ 1 APPPATH\Views\landingid\kunjunganinfopengunjung.php(137): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingid\\kunjunganinfopengunjung.php', 137)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingid\\kunjunganinfopengunjung.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('landingid/kunjunganinfopengunjung', [], true)
+ 5 APPPATH\Controllers\Landing.php(442): view('landingid/kunjunganinfopengunjung', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Landing->kunjunganinfopengunjung()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
