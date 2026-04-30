@@ -351,7 +351,7 @@ class AdminVisit extends BaseController {
     public function contact() {
         if(session()->get('islogin') == TRUE)
         {
-            $data['getdata'] = $this->Crud->readData('*', 'tbl_visitcontact', '', '', '', '', '', '');
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_visitcontact', '', '', '', '', ['contact_id' => 'DESC'], '');
             echo view('administrator/visit/contact/index', $data);
         }
         else

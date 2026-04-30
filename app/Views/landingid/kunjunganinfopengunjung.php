@@ -390,8 +390,12 @@ $visitorGuideGettingHereItems = [
               <li>Selesaikan berbagai misi sepanjang perjalanan untuk BXSea Buddy Anda dengan permainan yang menyenangkan.</li>
             </ol>
             <div class="vi-guide-app-badges">
-              <a href="#" class="vi-guide-app-badge"><img src="<?= $visitorAppStore ?>" alt="App Store"></a>
-              <a href="#" class="vi-guide-app-badge"><img src="<?= $visitorPlayStore ?>" alt="Play Store"></a>
+              <a href="https://apps.apple.com/id/app/bxsea-xplore/id6740195734" class="vi-guide-app-badge" target="_blank" rel="noopener">
+                <img src="<?= $visitorAppStore ?>" alt="App Store">
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.bxsea" class="vi-guide-app-badge" target="_blank" rel="noopener">
+                <img src="<?= $visitorPlayStore ?>" alt="Play Store">
+              </a>
             </div>
           </div>
         </div>

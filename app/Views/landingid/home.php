@@ -9,7 +9,7 @@ $seapecialSlides = array_values(array_slice(array_filter($allShows, static fn($s
 // Fallback: jika salah satu kosong, gunakan semua data
 if (empty($regularSlides)) { $regularSlides = array_values(array_slice($allShows, 0, 4)); }
 if (empty($seapecialSlides)) { $seapecialSlides = array_values(array_slice($allShows, 0, 4)); }
-$partnerSlides = array_slice($homepartner ?? [], 0, 1);
+$partnerSlides = $homepartner ?? [];
 $homeTicketCategories = array_values(array_filter($ticketcat ?? [], static function ($category) {
   return in_array((int) ($category['ticketcat_id'] ?? 0), [1, 2], true);
 }));
@@ -163,7 +163,7 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
                 <p><?= esc(bxsea_plain_text($hfs['homefiturslide_shortdesc'] ?? ''));?></p>
               </div>
               <div class="btn-overlay-oceanariumtours">
-                <a href="<?= base_url('/id/journey/journey-utama');?>">Jelajahi Semua Zona</a>
+                <a href="<?= base_url('/id/journey/journey-utama');?>">Lihat semua Zona</a>
                 <img class="image-chevron-oceanariumtours" src="<?= base_url('assets/landing/');?>image/arrow-right-white.png" alt="">
               </div>
             </div>
@@ -470,8 +470,8 @@ $reviewSlides = array_slice($reviewSlides, 0, 6);
                 <div class="overlay-card-ticketing">
                   <div class="desc-card-ticketing">
                     <div class="title-card"><h3><?= esc(bxsea_plain_text($tkt['ticket_title'] ?? ''));?></h3></div>
-                    <p><?= esc(bxsea_plain_text($tkt['ticket_schedule'] ?? '')); ?></p>
-                    <?php if(!empty($tkt['ticket_subtitle'])): ?><p><?= esc(bxsea_plain_text($tkt['ticket_subtitle']));?></p><?php endif; ?>
+                    <p class="text-ticket-schedule"><?= esc(bxsea_plain_text($tkt['ticket_schedule'] ?? '')); ?></p>
+                    <?php if(!empty($tkt['ticket_subtitle'])): ?><p class="text-ticket-schedule"><?= esc(bxsea_plain_text($tkt['ticket_subtitle']));?></p><?php endif; ?>
                     <div class="body-card-ticketing">
                       <p>Rp <?= number_format($tkt['ticket_price'],0,',','.');?></p>
                       <?php if(!empty($tkt['ticket_total_journey'])): ?>

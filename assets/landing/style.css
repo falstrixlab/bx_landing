@@ -542,12 +542,13 @@ html[lang="id"] .hero-image2 img {
     font-size: 50px;
     color: #fff;
     font-family: leaguespartan_bold;
+    text-transform: uppercase;
 }
 .banner-description {
     text-align: center;
     font-size: 20px;
     color: #fff;
-    font-family: montserrat_medium;
+    font-family: montserrat_semibold;
 } 
 /* END BANNER HOMPAGE */
 
@@ -697,7 +698,8 @@ html[lang="id"] .hero-image2 img {
     transition: 500ms;
     margin-left: auto;
     margin-right: 8em;
-    font-family: montserrat_medium;
+    font-family: montserrat_semibold;
+    font-size: 16px;
 }
 .overlay-oceanariumtours .btn-overlay-oceanariumtours:hover {
     background-color: #9747FF;
@@ -1628,7 +1630,7 @@ html[lang="id"] .main-carousel .splide__slide {
 }
 .cta-news .latest-news a {
     font-family: montserrat_semibold;
-    font-size: 20px;
+    font-size: 16px;
     background-color: #00A9EE;
     padding: 7px 20px;
     border-radius: 10px;
@@ -1646,7 +1648,7 @@ html[lang="id"] .main-carousel .splide__slide {
 }
 .cta-news .conversation-stories a {
     font-family: montserrat_semibold;
-    font-size: 20px;
+    font-size: 16px;
     background-color: #00A9EE;
     padding: 7px 20px;
     border-radius: 10px;
@@ -1726,6 +1728,7 @@ html[lang="id"] .main-carousel .splide__slide {
     padding: 7px 20px;
     border-radius: 10px;
     transition: all 300ms ease-in-out;
+    font-size: 12px;
 }
 .right-grid .read-more-news a:hover {
     background-color: #fff;
@@ -1835,7 +1838,7 @@ html[lang="id"] .main-carousel .splide__slide {
 }
 .head-title-ticketing h1{
     font-size: 58px;
-    font-family: leaguespartan_bold;
+    font-family: librebaskerville;
     color: #003169;
 }
 .head-title-ticketing p {
@@ -1844,6 +1847,12 @@ html[lang="id"] .main-carousel .splide__slide {
     color: #003169;
     font-size: 20px;
     font-family: montserrat_medium;
+}
+.text-ticket-schedule {
+    text-align: left;
+    color: #003169;
+    font-family: montserrat_medium;
+    font-size: 12px;
 }
 .box-card-ticketing:nth-child(even) {
     margin-top: 3rem;
@@ -2423,7 +2432,7 @@ footer {
 }
 .desc-premium p {
     font-size: 20px;
-    font-family: montserrat_medium;
+    font-family: montserrat_semibold;
 }
 .premiumpackage {
     position: relative;
@@ -2626,7 +2635,7 @@ footer {
 }
 .title-explore-more h1 {
     font-family: leaguespartan_bold;
-    font-size: 48px;
+    font-size: 36px;
     color: #003169;
 }
 .explore-more .right-grid {
@@ -3008,6 +3017,7 @@ body.no-scroll {
     height: auto;
     border-radius: 0;
     transition: bottom 320ms ease;
+    margin-bottom: -50px;
 }
 .image-box-additional-exp-detail {
     position: relative;
@@ -3079,9 +3089,9 @@ body.no-scroll {
     border-radius: 10px;
     color: #fff;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     transition: all 300ms ease-in-out;
-    font-family: montserrat_bold;
+    font-family: montserrat_medium;
 }
 .btn-ticket-add-ons a:hover {
     background-color: #fff;
@@ -3169,11 +3179,13 @@ body.no-scroll {
     font-family: leaguespartan_bold;
     font-size: 58px;
     color: #fff;
+    text-transform: uppercase;
 }
 .desc-schoolpackage p {
     width: 80%;
     margin: 0 auto; 
-    font-family: montserrat_medium;
+    font-family: montserrat_semibold;
+    font-size: 20px;
 }
 .box-schoolpackage {
     text-align: center;
@@ -3193,10 +3205,11 @@ body.no-scroll {
     font-size: 58px;
 }
 .title-SchoolPackage p {
-    text-align: justify;
+    text-align: left;
     color: #003961;
     font-family: montserrat_medium;
     font-size: 16px;
+    max-width: 700px;
 }
 .box-image-schoolpackage {
     position: relative;
@@ -3208,7 +3221,7 @@ body.no-scroll {
     object-fit: cover;
     width: 100%;
     height: 385px;
-    border-radius: 46px;
+    border-radius: 10px;
 }
 .box-image-schoolpackage .image-schoolpackage-2 {
     object-fit: cover;
@@ -3551,7 +3564,7 @@ body.no-scroll {
 .why-bxsea .title {
     font-family: librebaskerville;
     color: #003961;
-    font-size: 58px;
+    font-size: 32px;
     margin-bottom: 20px;
 }
 .why-bxsea .number {
@@ -3573,7 +3586,7 @@ body.no-scroll {
   margin-bottom: 20px;
   font-family: montserrat_medium;
   padding-left: 21px;
-  font-size: 16px;
+  font-size: 20px;
 }
 .what-included .title {
   font-family: librebaskerville;
@@ -4062,6 +4075,7 @@ body.no-scroll {
     height: auto;
     border-radius: 0;
     transition: bottom 320ms ease;
+    margin-bottom: -40px;
 }
 .image-box-journey-zone {
     position: relative;
@@ -5889,7 +5903,6 @@ body.no-scroll {
     margin-bottom: 1.5rem;
 }
 .latest-news-feature {
-    padding: 20px;
     display: grid;
     align-items: center;
     grid-template-columns: 430px 1fr;
@@ -6064,7 +6077,13 @@ body.no-scroll {
 .whats-conservation-intro p {
     font-family: montserrat_medium;
     color: #003169;
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 1.2;
+}
+.whats-conservation-intro p strong {
+    font-family: montserrat_bold;
+    color: #003169;
+    font-size: 16px;
     line-height: 1.2;
 }
 
@@ -6101,7 +6120,7 @@ body.no-scroll {
 .whats-card-large-overlay h4 {
     color: #fff;
     font-family: leaguespartan_bold;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 1;
     margin-bottom: 6px;
 }
@@ -13139,7 +13158,7 @@ body.no-scroll {
 }
 .vi-welcome-title {
     font-family: librebaskerville;
-    font-size: 58px;
+    font-size: 48px;
     color: #003169;
     margin-bottom: 20px;
     line-height: 1.2;
@@ -13326,7 +13345,6 @@ body.no-scroll {
     background: #fff;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
 }
 .vi-learn-card-image {
     height: 350px;
@@ -13357,7 +13375,7 @@ body.no-scroll {
     color: #003169;
 }
 .vi-learn-card-body p {
-    font-size: 20px;
+    font-size: 16px;
     color: #003169;
     line-height: 1.7;
     margin: 0;

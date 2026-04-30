@@ -1,0 +1,278 @@
+CRITICAL - 2026-04-30 12:50:41 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: id/kunjungan/partnership]
+in APPPATH\Controllers\Landing.php on line 502.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\bxsea\\app\\Controllers\\Landing.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Landing')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Landing')
+ 4 SYSTEMPATH\Router\Router.php(792): class_exists('\\App\\Controllers\\Landing')
+ 5 SYSTEMPATH\Router\Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH\CodeIgniter.php(829): CodeIgniter\Router\Router->handle('id/kunjungan/partnership')
+ 7 SYSTEMPATH\CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 12:51:37 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: id/kunjungan/partnership]
+in APPPATH\Controllers\Landing.php on line 502.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\bxsea\\app\\Controllers\\Landing.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Landing')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Landing')
+ 4 SYSTEMPATH\Router\Router.php(792): class_exists('\\App\\Controllers\\Landing')
+ 5 SYSTEMPATH\Router\Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH\CodeIgniter.php(829): CodeIgniter\Router\Router->handle('id/kunjungan/partnership')
+ 7 SYSTEMPATH\CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 12:51:42 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: id/kunjungan/partnership]
+in APPPATH\Controllers\Landing.php on line 502.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\bxsea\\app\\Controllers\\Landing.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Landing')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Landing')
+ 4 SYSTEMPATH\Router\Router.php(792): class_exists('\\App\\Controllers\\Landing')
+ 5 SYSTEMPATH\Router\Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH\CodeIgniter.php(829): CodeIgniter\Router\Router->handle('id/kunjungan/partnership')
+ 7 SYSTEMPATH\CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 12:51:43 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: id/kunjungan/partnership]
+in APPPATH\Controllers\Landing.php on line 502.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\bxsea\\app\\Controllers\\Landing.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Landing')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Landing')
+ 4 SYSTEMPATH\Router\Router.php(792): class_exists('\\App\\Controllers\\Landing')
+ 5 SYSTEMPATH\Router\Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH\CodeIgniter.php(829): CodeIgniter\Router\Router->handle('id/kunjungan/partnership')
+ 7 SYSTEMPATH\CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 12:51:44 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: id/kunjungan/partnership]
+in APPPATH\Controllers\Landing.php on line 502.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\bxsea\\app\\Controllers\\Landing.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Landing')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Landing')
+ 4 SYSTEMPATH\Router\Router.php(792): class_exists('\\App\\Controllers\\Landing')
+ 5 SYSTEMPATH\Router\Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH\CodeIgniter.php(829): CodeIgniter\Router\Router->handle('id/kunjungan/partnership')
+ 7 SYSTEMPATH\CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 12:51:46 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: id/kunjungan/partnership]
+in APPPATH\Controllers\Landing.php on line 502.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\bxsea\\app\\Controllers\\Landing.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Landing')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Landing')
+ 4 SYSTEMPATH\Router\Router.php(792): class_exists('\\App\\Controllers\\Landing')
+ 5 SYSTEMPATH\Router\Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH\CodeIgniter.php(829): CodeIgniter\Router\Router->handle('id/kunjungan/partnership')
+ 7 SYSTEMPATH\CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 12:51:46 --> ParseError: syntax error, unexpected token "public"
+[Method: GET, Route: id/kunjungan/partnership]
+in APPPATH\Controllers\Landing.php on line 502.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\bxsea\\app\\Controllers\\Landing.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Landing')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Landing')
+ 4 SYSTEMPATH\Router\Router.php(792): class_exists('\\App\\Controllers\\Landing')
+ 5 SYSTEMPATH\Router\Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH\CodeIgniter.php(829): CodeIgniter\Router\Router->handle('id/kunjungan/partnership')
+ 7 SYSTEMPATH\CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 13:22:13 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/c37c04112f85166d769a8df4507eac98]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/gurita.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('c37c04112f85166d769a8df4507eac98')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 13:22:13 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/c37c04112f85166d769a8df4507eac98]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/gurita.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('c37c04112f85166d769a8df4507eac98')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 13:22:25 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/e0a1e39f72cab3a806fbcc3e4ea6c949]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/bxseahd.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('e0a1e39f72cab3a806fbcc3e4ea6c949')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 13:22:25 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/e0a1e39f72cab3a806fbcc3e4ea6c949]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/bxseahd.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('e0a1e39f72cab3a806fbcc3e4ea6c949')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 13:28:35 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/711e01f60b7275a87bc12f1e4afebb8c]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/gurita.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('711e01f60b7275a87bc12f1e4afebb8c')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 13:28:35 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/711e01f60b7275a87bc12f1e4afebb8c]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/gurita.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('711e01f60b7275a87bc12f1e4afebb8c')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 13:28:43 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/df5b7b03ae79ff40d2f907d7d4aaf702]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('df5b7b03ae79ff40d2f907d7d4aaf702')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 13:28:43 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/df5b7b03ae79ff40d2f907d7d4aaf702]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('df5b7b03ae79ff40d2f907d7d4aaf702')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 13:45:51 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/cef62805d9e61bebb9935f9c4335b2b6]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/gurita.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('cef62805d9e61bebb9935f9c4335b2b6')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 13:45:51 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/cef62805d9e61bebb9935f9c4335b2b6]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/gurita.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('cef62805d9e61bebb9935f9c4335b2b6')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 14:26:48 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/19ec543fc6c3dd7bcc8223be28825f99]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('19ec543fc6c3dd7bcc8223be28825f99')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 14:26:48 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/19ec543fc6c3dd7bcc8223be28825f99]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('19ec543fc6c3dd7bcc8223be28825f99')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 14:31:30 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/0363e9c381bd788e7544128f9fe2f162]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('0363e9c381bd788e7544128f9fe2f162')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 14:31:30 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/0363e9c381bd788e7544128f9fe2f162]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('0363e9c381bd788e7544128f9fe2f162')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 16:44:40 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/1289e6d62e0589ce5c49c367823affcc]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/gurita.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('1289e6d62e0589ce5c49c367823affcc')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 16:44:40 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/1289e6d62e0589ce5c49c367823affcc]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/gurita.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('1289e6d62e0589ce5c49c367823affcc')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 16:57:07 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/cef9254eed63b2a42f456ebcc6317bf2]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('cef9254eed63b2a42f456ebcc6317bf2')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 16:57:07 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/cef9254eed63b2a42f456ebcc6317bf2]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('cef9254eed63b2a42f456ebcc6317bf2')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

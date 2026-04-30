@@ -33,7 +33,7 @@ $contactEmailAsset    = bxsea_design_asset('visit', 'contact_card_email', 'asset
 
 <section class="SchoolPackage">
   <div class="container">
-    <div class="row mb-100">
+    <div class="row g-5">
       <div class="col-lg-7 order-lg-1 d-flex align-items-center">
         <div class="title-SchoolPackage">
           <h1><?= esc(bxsea_plain_text($schoolprogram[0]['schoolprogram_title_en'] ?? ($schoolprogram[0]['schoolprogram_title'] ?? 'Our Program')));?></h1>
@@ -66,7 +66,7 @@ $contactEmailAsset    = bxsea_design_asset('visit', 'contact_card_email', 'asset
     <div class="row g-4">
       <?php foreach ($schoolincluded as $item): ?>
       <div class="col-md-6 col-lg-4 col-xl-3">
-        <div class="card custom-card h-100">
+        <div class="custom-card h-100">
           <?php if (!empty($item['included_image'])): ?>
           <img src="<?= bxsea_asset_url('school_included', $item['included_image'], 'assets/landing/image/bxsea_image_included_default.png'); ?>" class="card-img-top" alt="<?= esc(bxsea_plain_text($item['included_title_en'] ?? $item['included_title_id'] ?? '')); ?>">
           <?php else: ?>

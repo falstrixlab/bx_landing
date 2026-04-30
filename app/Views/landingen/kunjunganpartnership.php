@@ -69,6 +69,8 @@ $defaultOpportunityImages   = [$partnershipOpportunity1, $partnershipOpportunity
 
 <?php if (session()->getFlashdata('success')): ?>
 <div class="alert alert-success container mt-3">Your message has been sent successfully.</div>
+<?php elseif (session()->getFlashdata('captcha_error')): ?>
+<div class="alert alert-danger container mt-3">Verification answer is incorrect. Please try again.</div>
 <?php elseif (session()->getFlashdata('failed')): ?>
 <div class="alert alert-danger container mt-3">Failed to send your message. Please try again.</div>
 <?php endif; ?>
@@ -86,25 +88,30 @@ $defaultOpportunityImages   = [$partnershipOpportunity1, $partnershipOpportunity
         <div class="col-lg-4 mb-200">
           <div class="form-row"><div class="form-row1">
             <h5>Full Name</h5>
-            <input type="text" name="contact_fullname" required>
+            <input type="text" name="contact_fullname" required maxlength="200" pattern="[A-Za-z ]+" title="Letters and spaces only">
           </div></div>
         </div>
         <div class="col-lg-4 mb-200">
           <div class="form-row"><div class="form-row1">
             <h5>Phone Number</h5>
-            <input type="tel" name="contact_phone">
+            <input type="tel" name="contact_phone" maxlength="20" pattern="[0-9]+" title="Numbers only">
           </div></div>
         </div>
         <div class="col-lg-4 mb-200">
           <div class="form-row"><div class="form-row1">
             <h5>Email</h5>
-            <input type="email" name="contact_email">
+            <input type="email" name="contact_email" maxlength="100">
           </div></div>
         </div>
         <div class="col-lg-12 mb-200">
           <div class="form-row"><div class="form-row1">
             <h5>Message</h5>
             <textarea name="contact_desc" rows="5"></textarea>
+          </div></div>
+        </div>
+        <div class="col-lg-12 mb-200">
+          <div class="form-row"><div class="form-row1">
+            <?= view('partials/slider_captcha', ['captcha_token' => $captcha_token, 'captcha_gap_y' => $captcha_gap_y, 'captcha_lang' => 'en']) ?>
           </div></div>
         </div>
         <div class="submit-message">
@@ -116,4 +123,3 @@ $defaultOpportunityImages   = [$partnershipOpportunity1, $partnershipOpportunity
 </section>
 
 <?= $this->endSection(); ?>
-

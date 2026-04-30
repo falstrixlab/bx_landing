@@ -76,7 +76,7 @@ $featuredArticle = $articleatop[0] ?? null;
     <div class="whats-hub-panel" data-panel="conservation">
       <div class="whats-conservation-intro">
         <p>BXSea berkomitmen terhadap perlindungan dan konservasi satwa liar serta berupaya menghadirkan <strong>pengalaman edukatif berbasis konservasi</strong> untuk semua kalangan.</p>
-        <p>Melalui <strong>pembiakan spesies yang terancam punah</strong> dan pemulihan habitat yang rusak, kami ingin menginspirasi Anda untuk turut menjaga dunia kita dan menjaga lautan tetap sehat dan penuh kehidupan!</p>
+        <p>Melalui <strong>pembiakan spesies yang terancam punah</strong> dan <strong>pemulihan habitat yang rusak</strong>, kami ingin menginspirasi Anda untuk turut menjaga dunia kita dan menjaga lautan tetap sehat dan penuh kehidupan!</p>
       </div>
       <div class="whats-grid-large">
         <?php if (!empty($articleconservation)): ?>

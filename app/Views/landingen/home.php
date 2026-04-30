@@ -450,8 +450,8 @@ if (count($reviewSlides) < 2) {
                                 <div class="overlay-card-ticketing">
                                     <div class="desc-card-ticketing">
                                         <div class="title-card"><h3><?= esc(bxsea_plain_text($tkt['ticket_title_en'] ?? $tkt['ticket_title'] ?? 'Ticket')); ?></h3></div>
-                                        <p><?= esc(bxsea_plain_text($tkt['ticket_schedule_en'] ?? $tkt['ticket_schedule'] ?? '')); ?></p>
-                                        <?php if (!empty($tkt['ticket_subtitle_en']) || !empty($tkt['ticket_subtitle'])): ?><p><?= esc(bxsea_plain_text($tkt['ticket_subtitle_en'] ?? $tkt['ticket_subtitle'] ?? '')); ?></p><?php endif; ?>
+                                        <p class="text-ticket-schedule"><?= esc(bxsea_plain_text($tkt['ticket_schedule_en'] ?? $tkt['ticket_schedule'] ?? '')); ?></p>
+                                        <?php if (!empty($tkt['ticket_subtitle_en']) || !empty($tkt['ticket_subtitle'])): ?><p class="text-ticket-schedule"><?= esc(bxsea_plain_text($tkt['ticket_subtitle_en'] ?? $tkt['ticket_subtitle'] ?? '')); ?></p><?php endif; ?>
                                         <div class="body-card-ticketing">
                                             <p>Rp <?= number_format($tkt['ticket_price'], 0, ',', '.'); ?></p>
                                             <?php if (!empty($tkt['ticket_total_journey'])): ?>

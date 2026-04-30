@@ -356,6 +356,11 @@ $routes->group('adminsite', function($routes){
 
 $routes->get('/', 'Landing::first');
 
+// Slider captcha image/refresh endpoints
+$routes->get('captcha/slide-bg/(:segment)',    'CaptchaController::slideBackground/$1');
+$routes->get('captcha/slide-piece/(:segment)', 'CaptchaController::slidePiece/$1');
+$routes->get('captcha/slide-refresh',          'CaptchaController::slideRefresh');
+
 $routes->group('id', function($routes){
     $routes->get('/', 'Landing::index');
     $routes->get('tiket/harga', 'Landing::tiketmaster');
@@ -373,6 +378,8 @@ $routes->group('id', function($routes){
     $routes->get('kunjungan/faq', 'Landing::kunjunganfaq');
     $routes->get('kunjungan/hubungi-kami', 'Landing::kunjunganhubungi');
     $routes->post('kunjungan/hubungi-kami-proses', 'Landing::kunjunganhubungiproses');
+    $routes->get('kunjungan/partnership', 'Landing::kunjunganpartnership');
+    $routes->post('kunjungan/partnership-proses', 'Landing::kunjunganpartnershipproses');
     $routes->get('kunjungan/informasi-pengunjung', 'Landing::kunjunganinfopengunjung');
     $routes->get('berita', 'Landing::berita');
     $routes->get('berita/detail/(:num)', 'Landing::beritadetail/$1');

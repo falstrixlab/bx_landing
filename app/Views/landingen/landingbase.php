@@ -264,7 +264,7 @@
                 </div>
               </div>
               <div class="bg-darkline"></div>
-              <div class="copyright">Copyright . All Rights Reserved.</div>
+              <div class="copyright">Copyright 2026 . All Rights Reserved.</div>
             </div>
           </div>
         </footer>
