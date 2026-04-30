@@ -9,7 +9,7 @@ $regularSlides = array_values(array_slice(array_filter($allShows, static fn($s) 
 $seapecialSlides = array_values(array_slice(array_filter($allShows, static fn($s) => ($s['show_type'] ?? 'regular') === 'seapecial'), 0, 4));
 if (empty($regularSlides)) { $regularSlides = array_values(array_slice($allShows, 0, 4)); }
 if (empty($seapecialSlides)) { $seapecialSlides = array_values(array_slice($allShows, 0, 4)); }
-$partnerSlides = array_slice($homepartner ?? [], 0, 1);
+$partnerSlides = $homepartner ?? [];
 $homeTicketCategories = array_values(array_filter($ticketcat ?? [], static function ($category) {
     return in_array((int) ($category['ticketcat_id'] ?? 0), [1, 2], true);
 }));
