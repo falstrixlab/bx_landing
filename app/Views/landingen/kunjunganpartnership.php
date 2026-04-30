@@ -2,12 +2,15 @@
 <?= $this->section('content') ?>
 
 <?php
+$pc = $partnershipContent ?? [];
+$opps = $partnershipOpportunities ?? [];
 $partnershipHeroAsset       = bxsea_design_asset('visit', 'hero_contact',                'assets/landing/image/bxsea_image_bg-tenant.png');
-$partnershipShowcase1       = bxsea_design_asset('visit', 'partnership_showcase_1',       'assets/landing/image/bxsea_image_partnership2.png');
-$partnershipShowcase2       = bxsea_design_asset('visit', 'partnership_showcase_2',       'assets/landing/image/bxsea_image_partnership.png');
+$partnershipShowcase1       = !empty($pc['meaningful_img1']) ? base_url('assets/upload/partnership/'.$pc['meaningful_img1']) : bxsea_design_asset('visit', 'partnership_showcase_1', 'assets/landing/image/bxsea_image_partnership2.png');
+$partnershipShowcase2       = !empty($pc['meaningful_img2']) ? base_url('assets/upload/partnership/'.$pc['meaningful_img2']) : bxsea_design_asset('visit', 'partnership_showcase_2', 'assets/landing/image/bxsea_image_partnership.png');
 $partnershipOpportunity1    = bxsea_design_asset('visit', 'partnership_opportunity_1',    'assets/landing/image/bxsea_image_partnership_opportunity.png');
 $partnershipOpportunity2    = bxsea_design_asset('visit', 'partnership_opportunity_2',    'assets/landing/image/bxsea_image_partnership_opportunity2.png');
 $partnershipOpportunity3    = bxsea_design_asset('visit', 'partnership_opportunity_3',    'assets/landing/image/bxsea_image_partnership_opportunity3.png');
+$defaultOpportunityImages   = [$partnershipOpportunity1, $partnershipOpportunity2, $partnershipOpportunity3];
 ?>
 
 <section class="sectionBanner">
@@ -19,8 +22,8 @@ $partnershipOpportunity3    = bxsea_design_asset('visit', 'partnership_opportuni
       <div class="row descBanner2">
         <div class="col-lg-12 box-premium">
           <div class="desc-premium">
-            <h1 class="banner-title">Partner With Us</h1>
-            <p>Learn how a partnership with BXSea can create long-term impact through shared goals and meaningful collaboration.</p>
+            <h1 class="banner-title">BECOME OUR PARTNER</h1>
+            <p>Learn how partnering with BXSea will help create a lasting impact through shared goals and collaboration.</p>
           </div>
         </div>
       </div>
@@ -31,18 +34,12 @@ $partnershipOpportunity3    = bxsea_design_asset('visit', 'partnership_opportuni
 <section class="meaningful-section">
   <div class="container">
     <div class="text-center header-section">
-      <h2>Working Together for Meaningful Change</h2>
-      <p>As a home for thousands of marine species, BXSea is committed to delivering educational entertainment that inspires curiosity, conservation, and connection.</p>
+      <h2><?= !empty($pc['meaningful_title_en']) ? esc(bxsea_plain_text($pc['meaningful_title_en'])) : 'Working Together for Meaningful Change'; ?></h2>
+      <p><?= !empty($pc['meaningful_desc_en']) ? esc(bxsea_plain_text($pc['meaningful_desc_en'])) : 'As a home for thousands of marine species, BXSea is committed to delivering educational entertainment that inspires curiosity, conservation, and connection.'; ?></p>
     </div>
     <div class="row justify-content-center g-4 mb-5 pb-5">
-      <?php if (!empty($partnershipImages)): foreach ($partnershipImages as $pi): ?>
-      <div class="col-md-4">
-        <img src="<?= bxsea_asset_url('partnership', $pi['partnership_pict'] ?? '', 'assets/landing/image/bxsea_image_partnership2.png');?>" class="img-fluid rounded-img" alt="">
-      </div>
-      <?php endforeach; else: ?>
       <div class="col-md-4"><img src="<?= $partnershipShowcase1; ?>" class="img-fluid rounded-img" alt=""></div>
       <div class="col-md-4"><img src="<?= $partnershipShowcase2; ?>" class="img-fluid rounded-img" alt=""></div>
-      <?php endif; ?>
     </div>
   </div>
 </section>
@@ -52,27 +49,19 @@ $partnershipOpportunity3    = bxsea_design_asset('visit', 'partnership_opportuni
     <div class="partnership-box">
       <h5 class="text-center mb-4">Partnership Opportunities</h5>
       <div class="row g-4">
+        <?php if (!empty($opps)): $oppIdx = 0; foreach ($opps as $opp): ?>
         <div class="col-md-4">
           <div class="card-partner">
-            <img src="<?= $partnershipOpportunity1; ?>" class="img-fluid card-img" alt="">
-            <h6>Mission Alignment</h6>
-            <p>Join BXSea in inspiring people of all ages to value the ocean and support ongoing conservation efforts.</p>
+            <img src="<?= !empty($opp['opp_image']) ? base_url('assets/upload/partnership/'.$opp['opp_image']) : ($defaultOpportunityImages[$oppIdx] ?? $defaultOpportunityImages[0]); ?>" class="img-fluid card-img" alt="">
+            <h6><?= esc(bxsea_plain_text($opp['opp_title_en'] ?? '')); ?></h6>
+            <p><?= esc(bxsea_plain_text($opp['opp_desc_en'] ?? '')); ?></p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card-partner">
-            <img src="<?= $partnershipOpportunity2; ?>" class="img-fluid card-img" alt="">
-            <h6>Community Engagement</h6>
-            <p>BXSea builds meaningful connections among families, educators, and curious individuals through shared educational experiences.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card-partner">
-            <img src="<?= $partnershipOpportunity3; ?>" class="img-fluid card-img" alt="">
-            <h6>Brand Awareness</h6>
-            <p>Create authentic visibility for both brands through a partnership grounded in real experiences and positive public impact.</p>
-          </div>
-        </div>
+        <?php $oppIdx++; endforeach; else: ?>
+        <div class="col-md-4"><div class="card-partner"><img src="<?= $partnershipOpportunity1; ?>" class="img-fluid card-img" alt=""><h6>Mission Alignment</h6><p>Join BXSea in inspiring people of all ages to value the ocean and support ongoing conservation efforts.</p></div></div>
+        <div class="col-md-4"><div class="card-partner"><img src="<?= $partnershipOpportunity2; ?>" class="img-fluid card-img" alt=""><h6>Community Engagement</h6><p>BXSea builds meaningful connections among families, educators, and curious individuals through shared educational experiences.</p></div></div>
+        <div class="col-md-4"><div class="card-partner"><img src="<?= $partnershipOpportunity3; ?>" class="img-fluid card-img" alt=""><h6>Brand Awareness</h6><p>Create authentic visibility for both brands through a partnership grounded in real experiences and positive public impact.</p></div></div>
+        <?php endif; ?>
       </div>
     </div>
   </div>
@@ -80,6 +69,8 @@ $partnershipOpportunity3    = bxsea_design_asset('visit', 'partnership_opportuni
 
 <?php if (session()->getFlashdata('success')): ?>
 <div class="alert alert-success container mt-3">Your message has been sent successfully.</div>
+<?php elseif (session()->getFlashdata('captcha_error')): ?>
+<div class="alert alert-danger container mt-3">Verification answer is incorrect. Please try again.</div>
 <?php elseif (session()->getFlashdata('failed')): ?>
 <div class="alert alert-danger container mt-3">Failed to send your message. Please try again.</div>
 <?php endif; ?>
@@ -97,25 +88,30 @@ $partnershipOpportunity3    = bxsea_design_asset('visit', 'partnership_opportuni
         <div class="col-lg-4 mb-200">
           <div class="form-row"><div class="form-row1">
             <h5>Full Name</h5>
-            <input type="text" name="contact_fullname" required>
+            <input type="text" name="contact_fullname" required maxlength="200" pattern="[A-Za-z ]+" title="Letters and spaces only">
           </div></div>
         </div>
         <div class="col-lg-4 mb-200">
           <div class="form-row"><div class="form-row1">
             <h5>Phone Number</h5>
-            <input type="tel" name="contact_phone">
+            <input type="tel" name="contact_phone" maxlength="20" pattern="[0-9]+" title="Numbers only">
           </div></div>
         </div>
         <div class="col-lg-4 mb-200">
           <div class="form-row"><div class="form-row1">
             <h5>Email</h5>
-            <input type="email" name="contact_email">
+            <input type="email" name="contact_email" maxlength="100">
           </div></div>
         </div>
         <div class="col-lg-12 mb-200">
           <div class="form-row"><div class="form-row1">
             <h5>Message</h5>
             <textarea name="contact_desc" rows="5"></textarea>
+          </div></div>
+        </div>
+        <div class="col-lg-12 mb-200">
+          <div class="form-row"><div class="form-row1">
+            <?= view('partials/slider_captcha', ['captcha_token' => $captcha_token, 'captcha_gap_y' => $captcha_gap_y, 'captcha_lang' => 'en']) ?>
           </div></div>
         </div>
         <div class="submit-message">
@@ -127,4 +123,3 @@ $partnershipOpportunity3    = bxsea_design_asset('visit', 'partnership_opportuni
 </section>
 
 <?= $this->endSection(); ?>
-

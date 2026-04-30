@@ -15,6 +15,8 @@ class VisitorInfoModel extends Model
         'visitorinfo_section',
         'visitorinfo_title',
         'visitorinfo_title_en',
+        'visitorinfo_label',
+        'visitorinfo_label_en',
         'visitorinfo_desc',
         'visitorinfo_desc_en',
         'visitorinfo_icon',
@@ -31,8 +33,7 @@ class VisitorInfoModel extends Model
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
 
-    protected $useSoftDeletes = true;
-    protected $deletedField = 'deleted_at';
+    protected $useSoftDeletes = false;
 
     protected $validationRules = [
         'visitorinfo_section' => 'required|in_list[rule,learn]',

@@ -57,25 +57,33 @@
         <table class="table table-bordered table-checkable" id="kt_datatable">
             <thead>
             <tr>
-                <th>Record ID</th>
-                <th>Fullname</th>
-                <th>Phone</th>
+                <th>No</th>
+                <th>Nama</th>
+                <th>No. Telepon</th>
                 <th>Email</th>
-                <th>Desc</th>
-                <th style="width: 150px !important;">Actions</th>
+                <th>Pesan</th>
+                <th>Tipe</th>
+                <th style="width: 100px !important;">Aksi</th>
             </tr>
             </thead>
             <tbody>
             <?php $i = 1; foreach($getdata AS $rs) {?>
             <tr>
                 <td><?= $i;?></td>
-                <td><?= $rs["contact_fullname"];?></td>
-                <td><?= $rs["contact_phone"];?></td>
-                <td><?= $rs["contact_email"];?></td>
-                <td><?= $rs["contact_desc"];?></td>
+                <td><?= esc($rs["contact_fullname"]);?></td>
+                <td><?= esc($rs["contact_phone"]);?></td>
+                <td><?= esc($rs["contact_email"]);?></td>
+                <td><?= esc($rs["contact_desc"]);?></td>
                 <td>
-                    <a onclick="return confirm('Are you sure you want to delete this data ?')" class="btn btn-sm btn-icon btn-light-danger pulse pulse-danger mr-5" href="<?= base_url('adminsite/visit/contact/delete/'.$rs["contact_id"])?>">
-                        <i class="flaticon2-trash icon-lg" title="Delete Content"></i>
+                    <?php if (($rs["contact_type"] ?? 'general') === 'partnership'): ?>
+                    <span class="label label-inline label-light-primary font-weight-bold">Partnership</span>
+                    <?php else: ?>
+                    <span class="label label-inline label-light-success font-weight-bold">General</span>
+                    <?php endif; ?>
+                </td>
+                <td>
+                    <a onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" class="btn btn-sm btn-icon btn-light-danger pulse pulse-danger mr-5" href="<?= base_url('adminsite/visit/contact/delete/'.$rs["contact_id"])?>">
+                        <i class="flaticon2-trash icon-lg" title="Hapus"></i>
                         <span class="pulse-ring"></span>
                     </a>
                 </td>

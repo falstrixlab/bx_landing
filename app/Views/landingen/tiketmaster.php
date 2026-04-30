@@ -111,8 +111,8 @@ $ticketJourneyDesc    = bxsea_plain_text($ticketjourney[0]['masterdesc_desc_en']
                 <div class="overlay-card-ticketing">
                   <div class="desc-card-ticketing">
                     <div class="title-card"><h3><?= esc(bxsea_plain_text($tk['ticket_title_en'] ?? $tk['ticket_title'] ?? ''));?></h3></div>
-                    <p><?= esc(bxsea_plain_text($tk['ticket_schedule_en'] ?? $tk['ticket_schedule'] ?? ''));?></p>
-                    <?php if(!empty($tk['ticket_subtitle_en'] ?? $tk['ticket_subtitle'] ?? '')): ?><p><?= esc(bxsea_plain_text($tk['ticket_subtitle_en'] ?? $tk['ticket_subtitle'] ?? ''));?></p><?php endif; ?>
+                    <p class="text-ticket-schedule"><?= esc(bxsea_plain_text($tk['ticket_schedule_en'] ?? $tk['ticket_schedule'] ?? ''));?></p>
+                    <?php if(!empty($tk['ticket_subtitle_en'] ?? $tk['ticket_subtitle'] ?? '')): ?><p class="text-ticket-schedule"><?= esc(bxsea_plain_text($tk['ticket_subtitle_en'] ?? $tk['ticket_subtitle'] ?? ''));?></p><?php endif; ?>
                     <div class="body-card-ticketing">
                       <p>Rp <?= number_format((int)($tk['ticket_price'] ?? 0), 0, ',', '.');?></p>
                       <?php if(!empty($tk['ticket_total_journey'])): ?>
@@ -158,8 +158,8 @@ $ticketJourneyDesc    = bxsea_plain_text($ticketjourney[0]['masterdesc_desc_en']
                 <div class="overlay-card-ticketing">
                   <div class="desc-card-ticketing">
                     <div class="title-card"><h3><?= esc(bxsea_plain_text($tk['ticket_title_en'] ?? $tk['ticket_title'] ?? ''));?></h3></div>
-                    <p><?= esc(bxsea_plain_text($tk['ticket_schedule_en'] ?? $tk['ticket_schedule'] ?? ''));?></p>
-                    <?php if(!empty($tk['ticket_subtitle_en'] ?? $tk['ticket_subtitle'] ?? '')): ?><p><?= esc(bxsea_plain_text($tk['ticket_subtitle_en'] ?? $tk['ticket_subtitle'] ?? ''));?></p><?php endif; ?>
+                    <p class="text-ticket-schedule"><?= esc(bxsea_plain_text($tk['ticket_schedule_en'] ?? $tk['ticket_schedule'] ?? ''));?></p>
+                    <?php if(!empty($tk['ticket_subtitle_en'] ?? $tk['ticket_subtitle'] ?? '')): ?><p class="text-ticket-schedule"><?= esc(bxsea_plain_text($tk['ticket_subtitle_en'] ?? $tk['ticket_subtitle'] ?? ''));?></p><?php endif; ?>
                     <div class="body-card-ticketing">
                       <p>Rp <?= number_format((int)($tk['ticket_price'] ?? 0), 0, ',', '.');?></p>
                       <?php if(!empty($tk['ticket_total_journey'])): ?>

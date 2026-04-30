@@ -40,7 +40,12 @@ body {
 }
 .bold-text {
     font-family: montserrat_bold;
-}   
+    color: #003169;
+} 
+.data-no-available {
+    font-family: montserrat_medium;
+    color: #003169;
+}  
 .loader-wrap {
     position: fixed;
     z-index: 1002;
@@ -145,13 +150,13 @@ body {
 html[lang="en"] .marquee {
     margin-top: 110px;
 }
-@media (max-width: 991px) {
+@media (max-width: 992px) {
     .marquee {
-        margin-top: 55px;
+        margin-top: 30px;
         font-size: 24px;
     }
     html[lang="en"] .marquee {
-        margin-top: 70px;
+        margin-top: 50px;
     }
 }
 .marquee__inner {
@@ -235,6 +240,57 @@ html[lang="en"] .marquee {
     opacity: 1;
     visibility: visible;
 }
+.dropdown2 {
+    position: relative;
+}
+.select2 {
+    display: flex;
+    color: #000;
+    align-items: center;
+    gap: .5rem;
+    transition: .2s;
+    cursor: pointer;
+}
+.select2 a {
+    text-decoration: none;
+}
+.caret2 {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #000;
+    transition: .3s;
+}
+.caret-rotate2 {
+    transform: rotate(180deg);
+}
+.menu2  {
+    position: absolute;
+    z-index: 1000;
+    top: 2rem;
+    background-color: #ededed;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+}
+.menu2 li {
+    list-style: none;
+    padding: 10px;
+    margin-right: 0;
+}
+.menu2 li a {
+    text-decoration: none;
+    color: black;
+}
+.menu-open2 {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
 .select img {
     width: 30px;
 }
@@ -249,6 +305,9 @@ html[lang="en"] .marquee {
 }
 .selected2 {
     font-family: montserrat_semibold;
+}
+.mobile-menu {
+    display: none;
 }
 /* END TOP BAR */
 
@@ -267,7 +326,7 @@ html[lang="en"] .marquee {
 }
 .header-navbar-contact {
     position: fixed;
-    top: 60px;
+    top: 59px;
     z-index: 1000;
     width: 100%;
     background-color: #ffffff;
@@ -445,9 +504,6 @@ html[lang="en"] .marquee {
 .sosmed-topbar2 {
     display: none;
 }
-.dropdown- {
-    display: none;
-}
 /* END NAVBAR */
 
 
@@ -489,6 +545,18 @@ html[lang="en"] .marquee {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 100px;
+}
+html[lang="id"] .hero-image2 img {
+    object-position: center 80px;
+}
+@media (max-width: 992px) {
+    .hero-image2 img {
+        object-position: center;
+    }
+    html[lang="id"] .hero-image2 img {
+        object-position: center;
+    }
 }
 .hero-image3 {
     position: absolute;
@@ -525,12 +593,13 @@ html[lang="en"] .marquee {
     font-size: 50px;
     color: #fff;
     font-family: leaguespartan_bold;
+    text-transform: uppercase;
 }
 .banner-description {
     text-align: center;
     font-size: 20px;
     color: #fff;
-    font-family: montserrat_medium;
+    font-family: montserrat_semibold;
 } 
 /* END BANNER HOMPAGE */
 
@@ -680,6 +749,8 @@ html[lang="en"] .marquee {
     transition: 500ms;
     margin-left: auto;
     margin-right: 8em;
+    font-family: montserrat_semibold;
+    font-size: 16px;
 }
 .overlay-oceanariumtours .btn-overlay-oceanariumtours:hover {
     background-color: #9747FF;
@@ -687,6 +758,11 @@ html[lang="en"] .marquee {
 .overlay-oceanariumtours .btn-overlay-oceanariumtours a {
     text-decoration: none;
     color: #fff;
+}
+@media (max-width: 991px) {
+    .overlay-oceanariumtours .btn-overlay-oceanariumtours a {
+        font-size: 13px;
+    }
 }
 .owl-oceanarium-tours .owl-item .image-chevron-oceanariumtours {
     width: 7px;
@@ -1394,7 +1470,7 @@ html[lang="id"] .review-influencer-splide .splide__slide {
     color: #003169;
     font-size: 58px;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     font-family: librebaskerville;
 }
 html[lang="id"] .main-carousel {
@@ -1425,34 +1501,35 @@ html[lang="id"] .main-carousel .splide__slide {
 }
 .thumbnail-carousel {
     position: relative;
-    max-width: 910px;
+    max-width: 950px;
     margin: auto;
     z-index: 7;
 }
 .thumbnail-carousel .splide__list {
-    height: 280px;
-    display: flex;
-    align-items: center;
+    height: 230px;
 }
 .thumbnail-carousel .splide__slide img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    margin-left: 20px;
 }
 .thumbnail-carousel .splide__slide {
     opacity: 0.6;
     transition: all 150ms;
-    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    outline: 0;
 }
-  
 .thumbnail-carousel .splide__slide.is-active {
     opacity: 1;
     transform: scale(1.2);
 }
 .thumbnail-carousel .splide__track--nav>.splide__list>.splide__slide.is-active {
-    border: none;
+    border: 0;
+    outline: 0;
 }
 .thumbnail-carousel .splide__arrow--prev,
 .thumbnail-carousel .splide__arrow--next {
@@ -1594,6 +1671,11 @@ html[lang="id"] .main-carousel .splide__slide {
         display: none;
     }
 }
+@media (max-width: 768px) {
+    .title-new-information-mobile h1 {
+        font-size: 36px;
+    }
+}
 .left-grid .title-new-information h1 {
     font-family: librebaskerville;
     font-size: 58px;
@@ -1610,7 +1692,7 @@ html[lang="id"] .main-carousel .splide__slide {
 }
 .cta-news .latest-news a {
     font-family: montserrat_semibold;
-    font-size: 20px;
+    font-size: 16px;
     background-color: #00A9EE;
     padding: 7px 20px;
     border-radius: 10px;
@@ -1628,7 +1710,7 @@ html[lang="id"] .main-carousel .splide__slide {
 }
 .cta-news .conversation-stories a {
     font-family: montserrat_semibold;
-    font-size: 20px;
+    font-size: 16px;
     background-color: #00A9EE;
     padding: 7px 20px;
     border-radius: 10px;
@@ -1708,6 +1790,7 @@ html[lang="id"] .main-carousel .splide__slide {
     padding: 7px 20px;
     border-radius: 10px;
     transition: all 300ms ease-in-out;
+    font-size: 12px;
 }
 .right-grid .read-more-news a:hover {
     background-color: #fff;
@@ -1817,7 +1900,7 @@ html[lang="id"] .main-carousel .splide__slide {
 }
 .head-title-ticketing h1{
     font-size: 58px;
-    font-family: leaguespartan_bold;
+    font-family: librebaskerville;
     color: #003169;
 }
 .head-title-ticketing p {
@@ -1826,6 +1909,12 @@ html[lang="id"] .main-carousel .splide__slide {
     color: #003169;
     font-size: 20px;
     font-family: montserrat_medium;
+}
+.text-ticket-schedule {
+    text-align: left;
+    color: #003169;
+    font-family: montserrat_medium;
+    font-size: 12px;
 }
 .box-card-ticketing:nth-child(even) {
     margin-top: 3rem;
@@ -2405,7 +2494,7 @@ footer {
 }
 .desc-premium p {
     font-size: 20px;
-    font-family: montserrat_medium;
+    font-family: montserrat_semibold;
 }
 .premiumpackage {
     position: relative;
@@ -2608,7 +2697,7 @@ footer {
 }
 .title-explore-more h1 {
     font-family: leaguespartan_bold;
-    font-size: 48px;
+    font-size: 36px;
     color: #003169;
 }
 .explore-more .right-grid {
@@ -2990,6 +3079,7 @@ body.no-scroll {
     height: auto;
     border-radius: 0;
     transition: bottom 320ms ease;
+    margin-bottom: -50px;
 }
 .image-box-additional-exp-detail {
     position: relative;
@@ -3061,9 +3151,9 @@ body.no-scroll {
     border-radius: 10px;
     color: #fff;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     transition: all 300ms ease-in-out;
-    font-family: montserrat_bold;
+    font-family: montserrat_medium;
 }
 .btn-ticket-add-ons a:hover {
     background-color: #fff;
@@ -3151,11 +3241,13 @@ body.no-scroll {
     font-family: leaguespartan_bold;
     font-size: 58px;
     color: #fff;
+    text-transform: uppercase;
 }
 .desc-schoolpackage p {
     width: 80%;
     margin: 0 auto; 
-    font-family: montserrat_medium;
+    font-family: montserrat_semibold;
+    font-size: 20px;
 }
 .box-schoolpackage {
     text-align: center;
@@ -3175,10 +3267,11 @@ body.no-scroll {
     font-size: 58px;
 }
 .title-SchoolPackage p {
-    text-align: justify;
+    text-align: left;
     color: #003961;
     font-family: montserrat_medium;
     font-size: 16px;
+    max-width: 700px;
 }
 .box-image-schoolpackage {
     position: relative;
@@ -3190,7 +3283,7 @@ body.no-scroll {
     object-fit: cover;
     width: 100%;
     height: 385px;
-    border-radius: 46px;
+    border-radius: 10px;
 }
 .box-image-schoolpackage .image-schoolpackage-2 {
     object-fit: cover;
@@ -3533,7 +3626,7 @@ body.no-scroll {
 .why-bxsea .title {
     font-family: librebaskerville;
     color: #003961;
-    font-size: 58px;
+    font-size: 32px;
     margin-bottom: 20px;
 }
 .why-bxsea .number {
@@ -3555,7 +3648,7 @@ body.no-scroll {
   margin-bottom: 20px;
   font-family: montserrat_medium;
   padding-left: 21px;
-  font-size: 16px;
+  font-size: 20px;
 }
 .what-included .title {
   font-family: librebaskerville;
@@ -4044,6 +4137,7 @@ body.no-scroll {
     height: auto;
     border-radius: 0;
     transition: bottom 320ms ease;
+    margin-bottom: -40px;
 }
 .image-box-journey-zone {
     position: relative;
@@ -4068,6 +4162,11 @@ body.no-scroll {
     font-size: 28px;
     color: #003169;
     margin-bottom: 0;
+}
+.desc-box-journey-zone span {
+    font-family: montserrat_medium;
+    color: #003169;
+    font-size: 14px;
 }
 .desc-box-journey-zone p {
     font-family: montserrat_medium;
@@ -4416,6 +4515,7 @@ body.no-scroll {
     font-weight: 600;
     transition: all 300ms ease-in-out;
     cursor: pointer;
+    font-family: montserrat_bold;
 }
 .btn-load-more:hover {
     background-color: #fff;
@@ -5865,7 +5965,6 @@ body.no-scroll {
     margin-bottom: 1.5rem;
 }
 .latest-news-feature {
-    padding: 20px;
     display: grid;
     align-items: center;
     grid-template-columns: 430px 1fr;
@@ -6040,7 +6139,13 @@ body.no-scroll {
 .whats-conservation-intro p {
     font-family: montserrat_medium;
     color: #003169;
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 1.2;
+}
+.whats-conservation-intro p strong {
+    font-family: montserrat_bold;
+    color: #003169;
+    font-size: 16px;
     line-height: 1.2;
 }
 
@@ -6077,7 +6182,7 @@ body.no-scroll {
 .whats-card-large-overlay h4 {
     color: #fff;
     font-family: leaguespartan_bold;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 1;
     margin-bottom: 6px;
 }
@@ -7109,7 +7214,7 @@ body.no-scroll {
     object-fit: cover;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1500px) {
     .explore-mainjourney-carousel .owl-nav {
         position: static;
         transform: none;
@@ -7156,11 +7261,17 @@ body.no-scroll {
 .custom-about {
     position: relative;
     padding: 5rem 0;
-    background-image: url(/image/bxsea_image_bg_about_forest.png);
+    width: 100%;
+    z-index: 0;
+}
+.custom-about::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/bxsea/assets/landing/image/bxsea_image_bg_about_forest.png');
     background-size: cover;
     background-position-y: -600px;
-    width: 100%;
-    z-index: -2;
+    z-index: -1;
 }
 .gurita-about {
     position: absolute;
@@ -7519,6 +7630,9 @@ body.no-scroll {
     bottom: -330px;
     right: 30px;
 }
+.about-card p strong {
+    font-family: montserrat_bold;
+}
 @media (max-width: 991px) {
     .about-card p {
         position: static;
@@ -7795,64 +7909,6 @@ body.no-scroll {
     .show__menu {
         left: 0;
     }
-    .dropdown- {
-        display: block;
-        margin-inline-start: auto;
-    }
-    .menu2  {
-        position: absolute;
-        top: 3.5rem;
-        background-color: #ededed;
-        width: fit-content;
-        text-align: center;
-        border-radius: 5px;
-        opacity: 0;
-        padding: 0 10px;
-        visibility: hidden;
-        transition: .2s;
-    }
-    .menu2 li {
-        list-style: none;
-        padding: 10px;
-        margin-right: 0;
-    }
-    .menu2 li a {
-        text-decoration: none;
-        color: #000;
-    }
-    .menu-open2 {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-    }
-    .select2 img {
-        width: 20px;
-    }
-    .select2 img {
-        width: 20px;
-    }
-    .select2 {
-        display: flex;
-        color: #fff;
-        align-items: center;
-        gap: .2rem;
-        transition: .2s;
-        cursor: pointer;
-    }
-    .select2 a {
-        text-decoration: none;
-    }
-    .caret2 {
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 6px solid #fff;
-        transition: .3s;
-    }
-    .caret-rotate2 {
-        transform: rotate(180deg);
-    }
     .text-dropdown-menu .arr-down {
         border-color: #fff;
     }
@@ -7864,7 +7920,12 @@ body.no-scroll {
     }
     .contact-mobile {
         display: block;
-        margin-top: 3rem;
+        margin: 2rem;
+    }
+    .mobile-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     /* END NAVBAR */
 }
@@ -9340,9 +9401,6 @@ body.no-scroll {
     }
     .title-showocean h1 {
         margin-bottom: 3rem;
-    }
-    .thumbnail-carousel .splide__list {
-        text-align: right;
     }
     .popup-template {
         width: 95vw;
@@ -13106,16 +13164,17 @@ body.no-scroll {
 }
 .vi-welcome-title {
     font-family: librebaskerville;
-    font-size: 58px;
+    font-size: 48px;
     color: #003169;
     margin-bottom: 20px;
     line-height: 1.2;
 }
 .vi-welcome-desc {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.8;
     color: #003169;
     margin-bottom: 32px;
+    font-family: montserrat_medium;
 }
 .vi-welcome-btn {
     display: inline-block;
@@ -13150,9 +13209,27 @@ body.no-scroll {
     color: #003169;
     margin-bottom: 24px;    
 }
+.vi-hours-card p {
+    font-size: 15px;
+    color: #003169;
+    line-height: 1.8;
+    margin: 0;
+    font-family: montserrat_medium;
+}
+.vi-hours-card p em,
+.vi-hours-card p strong {
+    font-size: 14px;
+    color: #003169;
+    line-height: 1.8;
+    margin: 0;
+    font-family: montserrat_bold;
+}
+.vi-hours-card strong {
+    padding-left: 20px;
+}
 .vi-grid-image-top-sections .vi-grid-image-item img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 16px;
 }
@@ -13238,6 +13315,10 @@ body.no-scroll {
     color: #fff;
     font-size: 26px;
 }
+.vi-know-icon img {
+    width: 100%;
+    height: 100%;
+}
 .vi-know-card h4 {
     font-family: leaguespartan_bold;
     font-size: 32px;
@@ -13270,11 +13351,9 @@ body.no-scroll {
     background: #fff;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-    height: 100%;
 }
 .vi-learn-card-image {
-    height: 400px;
+    height: 350px;
     overflow: hidden;
 }
 .vi-learn-card-image img {
@@ -13288,12 +13367,13 @@ body.no-scroll {
 }
 .vi-learn-card-body {
     padding: 24px;
-    min-height: 300px;
+    min-height: 360px;
 }
 .vi-learn-card-body span {
     font-size: 14px;
     color: #003169;
     margin-bottom: 8px;
+    font-family: montserrat_medium;
 }
 .vi-learn-card-body h4 {
     font-family: leaguespartan_bold;
@@ -13301,10 +13381,11 @@ body.no-scroll {
     color: #003169;
 }
 .vi-learn-card-body p {
-    font-size: 20px;
+    font-size: 16px;
     color: #003169;
     line-height: 1.7;
     margin: 0;
+    font-family: montserrat_medium;
 }
 /* Carousel nav buttons */
 .vi-carousel-nav {
@@ -13845,6 +13926,7 @@ body.no-scroll {
     }
     .flex-show {
         flex-direction: column;
+        gap: 0;
     }
     .box-title-show-ocean h1 {
         text-align: center;

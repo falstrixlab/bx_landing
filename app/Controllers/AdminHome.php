@@ -1536,6 +1536,26 @@ class AdminHome extends BaseController {
             {
                 try
                 {
+                    $uploadPath = ROOTPATH . 'assets/upload/masterdesc';
+                    if (! is_dir($uploadPath)) {
+                        mkdir($uploadPath, 0775, true);
+                    }
+
+                    $pictName = $this->request->getVar('masterdesc_pict_temp') ?? '';
+                    $pictFile = $this->request->getFile('masterdesc_pict');
+                    if ($pictFile && $pictFile->isValid() && ! $pictFile->hasMoved()) {
+                        $validationRule = ['masterdesc_pict' => ['label' => 'Image', 'rules' => ['uploaded[masterdesc_pict]', 'mime_in[masterdesc_pict,image/jpg,image/jpeg,image/png,image/webp,image/gif]']]];
+                        if (! $this->validate($validationRule)) {
+                            $this->session->setFlashdata('invalidate', '-');
+                            return redirect()->route(getenv('bxsea.admin').'/home/description');
+                        }
+                        if ($pictName && is_file($uploadPath . '/' . $pictName)) {
+                            unlink($uploadPath . '/' . $pictName);
+                        }
+                        $pictName = 'bxsea_image_' . $pictFile->getRandomName();
+                        $pictFile->move($uploadPath, $pictName, true);
+                    }
+
                     $data = [
                         'masterdesc_title' => $this->request->getVar('masterdesc_title'),
                         'masterdesc_title_en' => $this->request->getVar('masterdesc_title_en'),
@@ -1543,6 +1563,7 @@ class AdminHome extends BaseController {
                         'masterdesc_desc_en' => $this->request->getVar('masterdesc_desc_en'),
                         'masterdesc_position' => $this->request->getVar('masterdesc_position'),
                         'masterdesc_menu' => 'home',
+                        'masterdesc_pict' => $pictName,
                     ];
                     $update = $this->Crud->updateData('tbl_masterdesc', $data, ['masterdesc_id' => $this->request->getVar('masterdesc_id')]);
                     if ($update) 

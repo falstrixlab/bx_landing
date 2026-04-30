@@ -73,6 +73,8 @@ $('.owl-oceanarium-tours').owlCarousel({
 	center: true,
 	margin: 20,
 	animateOut: 'fadeOut',
+	mouseDrag: false,
+  	touchDrag: false,
 	dots: false,
 	nav: true,
 	responsive: {
@@ -317,7 +319,8 @@ $('.explore-mainjourney-carousel').owlCarousel({
 	autoplayTimeout: 4000,
 	autoplayHoverPause: true,
 	dots: false,
-	nav: false,
+	nav: true,
+	navText: ['<img src="/bxsea/assets/landing/image/bxsea_icon_arrow_left.png" alt="Prev">', '<img src="/bxsea/assets/landing/image/bxsea_icon_arrow_right.png" alt="Next">'],
 	mouseDrag: false,
 	touchDrag: false,
 	pullDrag: false,
@@ -334,7 +337,6 @@ dropdowns.forEach(dropdown => {
 	const menu = dropdown.querySelector('.menu');
 	const option = dropdown.querySelector('.menu li a');
 
-
 	select.addEventListener('click', () => {
 		caret.classList.toggle('caret-rotate');
 		menu.classList.toggle('menu-open');
@@ -342,23 +344,20 @@ dropdowns.forEach(dropdown => {
 	});
 });
 
-const dropdowns2 = document.querySelectorAll('.dropdown-');
+const dropdowns2 = document.querySelectorAll('.dropdown2');
 
 dropdowns2.forEach(dropdown => {
-	const select = dropdown.querySelector('.select2');
-	const caret = dropdown.querySelector('.caret2');
-	const menu = dropdown.querySelector('.menu2');
-	const option = dropdown.querySelector('.menu2 li a');
+	const select2 = dropdown.querySelector('.select2');
+	const caret2 = dropdown.querySelector('.caret2');
+	const menu2 = dropdown.querySelector('.menu2');
+	const option2 = dropdown.querySelector('.menu2 li a');
 
-
-	select.addEventListener('click', () => {
-		caret.classList.toggle('caret-rotate2');
-		menu.classList.toggle('menu-open2');
+	select2.addEventListener('click', () => {
+		caret2.classList.toggle('caret-rotate2');
+		menu2.classList.toggle('menu-open2');
 
 	});
 });
-
-
 
 
 function showPopup(popupId) {
@@ -724,7 +723,7 @@ const searchPages = [
 		breadcrumb: 'Home',
 		desc: 'Welcome to BXSea Oceanarium at Bintaro Xchange Mall. Explore marine life, shows, tickets, and more.',
 		url: 'index.html',
-		img: 'image/rajaampat-carousel.png',
+		img: '/bxsea/assets/landing/image/rajaampat-carousel.png',
 		keywords: 'home beranda bxsea oceanarium'
 	},
 	{
@@ -732,7 +731,7 @@ const searchPages = [
 		breadcrumb: 'Home > Tiket Masuk > Harga Tiket',
 		desc: 'Cek harga tiket masuk BXSea untuk berbagai kategori pengunjung. Pesan sekarang dan dapatkan akses penuh ke seluruh zona!',
 		url: 'ticketfee.html',
-		img: 'image/penguin-carousel.png',
+		img: '/bxsea/assets/landing/image/penguin-carousel.png',
 		keywords: 'ticket tiket harga price masuk admission fee'
 	},
 	{
@@ -740,7 +739,7 @@ const searchPages = [
 		breadcrumb: 'Home > Tiket Masuk > Promosi',
 		desc: 'Dapatkan penawaran spesial dan promosi menarik di BXSea. Hemat lebih banyak dengan promo eksklusif kami!',
 		url: 'promotions.html',
-		img: 'image/rajaampat-carousel.png',
+		img: '/bxsea/assets/landing/image/rajaampat-carousel.png',
 		keywords: 'promosi promo discount diskon special offer'
 	},
 	{
@@ -748,7 +747,7 @@ const searchPages = [
 		breadcrumb: 'Home > Tiket Masuk > Pengalaman Premium',
 		desc: 'Nikmati pengalaman premium di BXSea: Boat Tour, Behind The Sea, dan Penguin Feeding Fun yang tak terlupakan.',
 		url: 'premium.html',
-		img: 'image/seatunnel-carousel.png',
+		img: '/bxsea/assets/landing/image/seatunnel-carousel.png',
 		keywords: 'premium experience boat tour behind sea penguin feeding fun exclusive'
 	},
 	{
@@ -756,7 +755,7 @@ const searchPages = [
 		breadcrumb: 'Home > Tiket Masuk > Program Kunjungan Sekolah',
 		desc: 'Program edukasi untuk sekolah di BXSea. Bawa siswa untuk belajar tentang kehidupan laut secara langsung.',
 		url: 'school.html',
-		img: 'image/rajaampat-carousel.png',
+		img: '/bxsea/assets/landing/image/rajaampat-carousel.png',
 		keywords: 'school sekolah program kunjungan edukasi education students'
 	},
 	{
@@ -764,7 +763,7 @@ const searchPages = [
 		breadcrumb: 'Home > Tiket Masuk > Momen Istimewa',
 		desc: 'Jadikan momen spesialmu lebih berkesan di BXSea. Rayakan ulang tahun, anniversary, atau acara spesial lainnya.',
 		url: 'once.html',
-		img: 'image/penguin-carousel.png',
+		img: '/bxsea/assets/landing/image/penguin-carousel.png',
 		keywords: 'momen istimewa special moment birthday anniversary event celebration'
 	},
 	{
@@ -772,7 +771,7 @@ const searchPages = [
 		breadcrumb: 'Home > Jelajah > Journey Utama',
 		desc: 'Jelajahi berbagai zona unik di BXSea: Raja Ampat, Kalimantan Rainforest, Sea Tunnel, dan masih banyak lagi.',
 		url: 'highlight.html',
-		img: 'image/rajaampat-carousel.png',
+		img: '/bxsea/assets/landing/image/rajaampat-carousel.png',
 		keywords: 'highlight journey zona zone explore jelajah raja ampat rainforest sea tunnel'
 	},
 	{
@@ -780,7 +779,7 @@ const searchPages = [
 		breadcrumb: 'Home > Jelajah > Shows',
 		desc: 'Make the most of your visit with our shows! Various exciting shows are ready for your entertainment.',
 		url: 'show.html',
-		img: 'image/rainforest-carousel.png',
+		img: '/bxsea/assets/landing/image/rainforest-carousel.png',
 		keywords: 'show pertunjukan showtime feeding otter stingray spectacular'
 	},
 	{
@@ -788,7 +787,7 @@ const searchPages = [
 		breadcrumb: 'Home > Kunjungan > Jadwal Aquarium',
 		desc: "If you're looking for the schedule for our spectacular shows, you're at the right place! Plan your visit to BXSea here.",
 		url: 'schedule.html',
-		img: 'image/seatunnel-carousel.png',
+		img: '/bxsea/assets/landing/image/seatunnel-carousel.png',
 		keywords: 'schedule jadwal jadwal aquarium show schedule waktu time calendar'
 	},
 	{
@@ -796,7 +795,7 @@ const searchPages = [
 		breadcrumb: 'Home > Kunjungan > Visitor Information',
 		desc: 'Semua yang perlu kamu ketahui sebelum berkunjung ke BXSea. Jam buka, lokasi, fasilitas, dan informasi penting lainnya.',
 		url: 'visitor-information.html',
-		img: 'image/rajaampat-carousel.png',
+		img: '/bxsea/assets/landing/image/rajaampat-carousel.png',
 		keywords: 'visitor information informasi pengunjung jam buka opening hours facilities fasilitas'
 	},
 	{
@@ -804,7 +803,7 @@ const searchPages = [
 		breadcrumb: 'Home > Kunjungan > Denah BXSea',
 		desc: 'Temukan denah lengkap BXSea untuk membantu kamu menavigasi setiap zona dan fasilitas yang tersedia.',
 		url: 'map.html',
-		img: 'image/seatunnel-carousel.png',
+		img: '/bxsea/assets/landing/image/seatunnel-carousel.png',
 		keywords: 'map denah floor plan peta layout zona zone'
 	},
 	{
@@ -812,7 +811,7 @@ const searchPages = [
 		breadcrumb: 'Home > Kunjungan > Panduan Aksesibilitas',
 		desc: 'Panduan aksesibilitas BXSea untuk memastikan semua pengunjung dapat menikmati pengalaman terbaik.',
 		url: 'guide.html',
-		img: 'image/rajaampat-carousel.png',
+		img: '/bxsea/assets/landing/image/rajaampat-carousel.png',
 		keywords: 'guide panduan aksesibilitas accessibility wheelchair difabel'
 	},
 	{
@@ -820,7 +819,7 @@ const searchPages = [
 		breadcrumb: 'Home > Kunjungan > Tenant Kami',
 		desc: 'Temukan berbagai pilihan kuliner dan toko menarik di dalam BXSea. Wingstop, Chatime, Popcorn, dan lainnya siap melayanimu.',
 		url: 'tenant.html',
-		img: 'image/rainforest-carousel.png',
+		img: '/bxsea/assets/landing/image/rainforest-carousel.png',
 		keywords: 'tenant food kuliner restaurant cafe wingstop chatime popcorn'
 	},
 	{
@@ -828,7 +827,7 @@ const searchPages = [
 		breadcrumb: 'Home > Kunjungan > Merchandise',
 		desc: 'Bawa pulang kenangan terbaik dari BXSea dengan koleksi merchandise eksklusif kami.',
 		url: 'merchandise.html',
-		img: 'image/penguin-carousel.png',
+		img: '/bxsea/assets/landing/image/penguin-carousel.png',
 		keywords: 'merchandise souvenir shop official store oleh-oleh'
 	},
 	{
@@ -836,7 +835,7 @@ const searchPages = [
 		breadcrumb: 'Home > Kunjungan > FAQ',
 		desc: 'Temukan jawaban atas pertanyaan yang sering diajukan tentang kunjungan, tiket, dan fasilitas BXSea.',
 		url: 'faq.html',
-		img: 'image/rajaampat-carousel.png',
+		img: '/bxsea/assets/landing/image/rajaampat-carousel.png',
 		keywords: 'faq pertanyaan frequently asked questions help bantuan'
 	},
 	{
@@ -844,7 +843,7 @@ const searchPages = [
 		breadcrumb: 'Home > Kunjungan > Hubungi Kami',
 		desc: 'Ada pertanyaan atau butuh bantuan? Hubungi tim BXSea dan kami siap membantu kamu.',
 		url: 'contact.html',
-		img: 'image/seatunnel-carousel.png',
+		img: '/bxsea/assets/landing/image/seatunnel-carousel.png',
 		keywords: 'contact hubungi kontak email phone telepon whatsapp'
 	},
 	{
@@ -852,7 +851,7 @@ const searchPages = [
 		breadcrumb: 'Home > Berita Terbaru',
 		desc: 'Jangan lewatkan berita dan update terbaru tentang aktivitas dan makhluk laut yang menawan di BXSea!',
 		url: 'whats.html',
-		img: 'image/rainforest-carousel.png',
+		img: '/bxsea/assets/landing/image/rainforest-carousel.png',
 		keywords: 'berita news update latest terbaru artikel blog'
 	},
 	{
@@ -860,7 +859,7 @@ const searchPages = [
 		breadcrumb: 'Home > Tentang Kami',
 		desc: 'Kenali lebih dalam tentang BXSea, aquarium terbesar di Bintaro yang menghadirkan pengalaman laut yang menakjubkan.',
 		url: 'tentang.html',
-		img: 'image/rajaampat-carousel.png',
+		img: '/bxsea/assets/landing/image/rajaampat-carousel.png',
 		keywords: 'tentang about us bxsea profile sejarah history misi visi'
 	},
 	{
@@ -868,7 +867,7 @@ const searchPages = [
 		breadcrumb: 'Home > Kemitraan',
 		desc: 'Bergabunglah dengan program kemitraan BXSea dan kembangkan bisnis Anda bersama kami.',
 		url: 'partnership.html',
-		img: 'image/seatunnel-carousel.png',
+		img: '/bxsea/assets/landing/image/seatunnel-carousel.png',
 		keywords: 'partnership kemitraan partner kerjasama sponsor kolaborasi'
 	}
 ];

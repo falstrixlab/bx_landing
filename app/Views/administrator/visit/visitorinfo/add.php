@@ -38,6 +38,20 @@
                                     <label>Title EN</label>
                                     <input name="visitorinfo_title_en" type="text" class="form-control">
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Label ID <small class="text-muted">(untuk section Learn, misal: EDUKASI)</small></label>
+                                            <input name="visitorinfo_label" type="text" class="form-control" placeholder="Cth: EDUKASI">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Label EN</label>
+                                            <input name="visitorinfo_label_en" type="text" class="form-control" placeholder="e.g.: LEARN">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label>Description ID <span class="text-danger">*</span></label>
                                     <textarea name="visitorinfo_desc" class="form-control js-quill-editor" data-editor="quill" rows="6"></textarea>

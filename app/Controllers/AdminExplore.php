@@ -333,6 +333,7 @@ class AdminExplore extends BaseController {
                     $data = [
                         'carousel_title_id' => $this->request->getVar('carousel_title_id'),
                         'carousel_title_en' => $this->request->getVar('carousel_title_en'),
+                        'carousel_zone'     => $this->request->getVar('carousel_zone'),
                         'carousel_desc_id'  => $this->request->getVar('carousel_desc_id'),
                         'carousel_desc_en'  => $this->request->getVar('carousel_desc_en'),
                         'carousel_image'    => $newImg,
@@ -395,6 +396,7 @@ class AdminExplore extends BaseController {
                     $data = [
                         'carousel_title_id' => $this->request->getVar('carousel_title_id'),
                         'carousel_title_en' => $this->request->getVar('carousel_title_en'),
+                        'carousel_zone'     => $this->request->getVar('carousel_zone'),
                         'carousel_desc_id'  => $this->request->getVar('carousel_desc_id'),
                         'carousel_desc_en'  => $this->request->getVar('carousel_desc_en'),
                         'carousel_image'    => $newImg,

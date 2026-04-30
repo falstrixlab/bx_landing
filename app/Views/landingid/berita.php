@@ -76,10 +76,11 @@ $featuredArticle = $articleatop[0] ?? null;
     <div class="whats-hub-panel" data-panel="conservation">
       <div class="whats-conservation-intro">
         <p>BXSea berkomitmen terhadap perlindungan dan konservasi satwa liar serta berupaya menghadirkan <strong>pengalaman edukatif berbasis konservasi</strong> untuk semua kalangan.</p>
-        <p>Melalui <strong>pembiakan spesies yang terancam punah</strong> dan pemulihan habitat yang rusak, kami ingin menginspirasi Anda untuk turut menjaga dunia kita dan menjaga lautan tetap sehat dan penuh kehidupan!</p>
+        <p>Melalui <strong>pembiakan spesies yang terancam punah</strong> dan <strong>pemulihan habitat yang rusak</strong>, kami ingin menginspirasi Anda untuk turut menjaga dunia kita dan menjaga lautan tetap sehat dan penuh kehidupan!</p>
       </div>
       <div class="whats-grid-large">
-        <?php foreach (array_slice($articleall ?? [], 0, 6) as $art): ?>
+        <?php if (!empty($articleconservation)): ?>
+        <?php foreach ($articleconservation as $art): ?>
         <a class="whats-card-large" href="<?= base_url('id/berita/detail/'.$art['article_id']);?>">
           <img src="<?= base_url('assets/upload/article/'.(isset($art['article_pict']) ? $art['article_pict'] : ''));?>" alt="<?= esc(bxsea_plain_text($art['article_title'] ?? ''));?>">
           <div class="whats-card-large-overlay">
@@ -88,6 +89,9 @@ $featuredArticle = $articleatop[0] ?? null;
           </div>
         </a>
         <?php endforeach; ?>
+        <?php else: ?>
+        <p class="text-center py-5 data-no-available">Belum ada artikel konservasi.</p>
+        <?php endif; ?>
       </div>
     </div>
 

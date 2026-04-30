@@ -277,16 +277,7 @@ class AdminTicketing extends BaseController {
                         'experience_title_en' => $this->request->getVar('experience_title_en'),
                         'experience_desc' => $this->request->getVar('experience_desc'),
                         'experience_desc_en' => $this->request->getVar('experience_desc_en'),
-                        'experience_schedule' => $this->request->getVar('experience_schedule'),
-                        'experience_schedule_en' => $this->request->getVar('experience_schedule_en'),
-                        'experience_duration' => $this->request->getVar('experience_duration'),
-                        'experience_duration_en' => $this->request->getVar('experience_duration_en'),
-                        'experience_age' => $this->request->getVar('experience_age'),
-                        'experience_age_en' => $this->request->getVar('experience_age_en'),
-                        'experience_price' => $this->request->getVar('experience_price'),
                         'experience_pict' => $newexperiencepict,
-                        'experience_link' => $this->request->getVar('experience_link'),
-                        'experience_status' => $this->request->getVar('experience_status'),
                     ];
                     $insert = $this->Crud->createData('tbl_ticketexperience', $data);
                     if ($insert) 
@@ -349,16 +340,7 @@ class AdminTicketing extends BaseController {
                         'experience_title_en' => $this->request->getVar('experience_title_en'),
                         'experience_desc' => $this->request->getVar('experience_desc'),
                         'experience_desc_en' => $this->request->getVar('experience_desc_en'),
-                        'experience_schedule' => $this->request->getVar('experience_schedule'),
-                        'experience_schedule_en' => $this->request->getVar('experience_schedule_en'),
-                        'experience_duration' => $this->request->getVar('experience_duration'),
-                        'experience_duration_en' => $this->request->getVar('experience_duration_en'),
-                        'experience_age' => $this->request->getVar('experience_age'),
-                        'experience_age_en' => $this->request->getVar('experience_age_en'),
-                        'experience_price' => $this->request->getVar('experience_price'),
                         'experience_pict' => $newexperiencepict,
-                        'experience_link' => $this->request->getVar('experience_link'),
-                        'experience_status' => $this->request->getVar('experience_status'),
                     ];
                     $update = $this->Crud->updateData('tbl_ticketexperience', $data, ['experience_id' => $this->request->getVar('experience_id')]);
                     if ($update) 

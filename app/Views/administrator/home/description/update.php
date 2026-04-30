@@ -89,6 +89,17 @@
                             <input name="masterdesc_position" value="<?= $rs["masterdesc_position"];?>" type="text" class="form-control"  placeholder="Enter Position" required="required"/>
                             <span class="form-text text-muted">Position determines the layout of content on the website landing.</span>
                         </div>
+                        <div class="form-group">
+                            <label>Image / Gambar <small class="text-muted">(opsional — untuk section yang membutuhkan gambar, misal: homedescexperience)</small></label>
+                            <input type="file" name="masterdesc_pict" class="form-control" accept="image/png,image/jpeg,image/webp,image/gif">
+                            <input type="hidden" name="masterdesc_pict_temp" value="<?= esc($rs['masterdesc_pict'] ?? '') ?>">
+                            <?php if (!empty($rs['masterdesc_pict'])): ?>
+                                <div class="mt-3">
+                                    <img src="<?= base_url('assets/upload/masterdesc/' . esc($rs['masterdesc_pict'])) ?>" alt="Current image" style="max-height:120px; border-radius:6px;">
+                                    <p class="text-muted mt-1 font-size-sm">Gambar saat ini: <?= esc($rs['masterdesc_pict']) ?></p>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <input type="submit" name="submit" value="Submit Data" class="btn btn-success mr-2">

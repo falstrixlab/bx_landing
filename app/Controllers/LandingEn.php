@@ -282,38 +282,62 @@ class LandingEn extends BaseController
         
         $data['contactheader'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'contactheader'], '', '', '', '', '');
         $data['contactdesc'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'contactdescription'], '', '', '', '', '');
+        $captcha = \App\Controllers\CaptchaController::makeToken();
+        $data['captcha_token'] = $captcha['token'];
+        $data['captcha_gap_y'] = $captcha['gap_y'];
         echo view('landingen/kunjunganhubungi', $data);
     }
     public function kunjunganhubungiproses()
     {
-        $submit = $this->request->getVar('submit');
-        if (isset($submit))
+        if (!$this->request->is('post') || !$this->request->getPost('submit')) {
+            return redirect()->to(base_url('en/kunjungan/hubungi-kami'));
+        }
+
+        $captchaToken = (string)($this->request->getPost('captcha_token') ?? '');
+        $captchaPos   = (int)($this->request->getPost('captcha_pos') ?? 0);
+        if (!\App\Controllers\CaptchaController::verify($captchaToken, $captchaPos)) {
+            $this->session->setFlashdata('captcha_error', '-');
+            return redirect()->to(base_url('en/kunjungan/hubungi-kami'));
+        }
+
+        $rules = [
+            'contact_fullname' => 'required|max_length[200]|regex_match[/^[a-zA-Z ]+$/]',
+            'contact_phone'    => 'permit_empty|max_length[20]|regex_match[/^[0-9]*$/]',
+            'contact_email'    => 'permit_empty|valid_email|max_length[100]',
+            'contact_desc'     => 'permit_empty|max_length[5000]',
+        ];
+
+        if (!$this->validate($rules)) {
+            $this->session->setFlashdata('failed', '-');
+            return redirect()->to(base_url('en/kunjungan/hubungi-kami'));
+        }
+
+        try
         {
-            try
+            $data = [
+                'contact_fullname' => trim(strip_tags($this->request->getPost('contact_fullname'))),
+                'contact_phone'    => trim(strip_tags($this->request->getPost('contact_phone') ?? '')),
+                'contact_email'    => trim($this->request->getPost('contact_email') ?? ''),
+                'contact_desc'     => trim(strip_tags($this->request->getPost('contact_desc') ?? '')),
+                'contact_type'     => 'general',
+            ];
+            $insert = $this->Crud->createData('tbl_visitcontact', $data);
+            if ($insert)
             {
-                $data = [
-                    'contact_fullname' => $this->request->getVar('contact_fullname'),
-                    'contact_phone' => $this->request->getVar('contact_phone'),
-                    'contact_email' => $this->request->getVar('contact_email'),
-                    'contact_desc' => $this->request->getVar('contact_desc'),
-                ];
-                $insert = $this->Crud->createData('tbl_visitcontact', $data);
-                if ($insert) 
-                {
-                    $this->session->setFlashdata('success', '-');
-                    return redirect()->route('en/kunjungan/hubungi-kami');
-                }
-                else
-                {
-                    $this->session->setFlashdata('failed', '-');
-                    return redirect()->route('en/kunjungan/hubungi-kami');
-                }
+                $this->session->setFlashdata('success', '-');
             }
-            catch(Exception $ex)
+            else
             {
-                echo 'Message: ' .$ex->getMessage();
+                $this->session->setFlashdata('failed', '-');
             }
         }
+        catch(Exception $ex)
+        {
+            log_message('error', 'Contact form EN: ' . $ex->getMessage());
+            $this->session->setFlashdata('failed', '-');
+        }
+
+        return redirect()->to(base_url('en/kunjungan/hubungi-kami'));
     }
 
     public function kunjunganpartnership()
@@ -323,35 +347,60 @@ class LandingEn extends BaseController
         $data['sosmed'] = $this->Crud->readData('*', 'tbl_mastersocialmedia', '', '', '', '', '', '');
         $data['sosmed_header_a'] = $this->Crud->readData('*', 'tbl_mastersocialmedia', '', '', '', '', '', '');
         $data['sosmed_header_b'] = $this->Crud->readData('*', 'tbl_mastersocialmedia', '', '', '', '', '', '');
+        $pcRows = $this->Crud->readData('*', 'tbl_partnership_content', ['id' => 1], '', '', '', '', '');
+        $data['partnershipContent'] = !empty($pcRows) ? $pcRows[0] : [];
+        $data['partnershipOpportunities'] = $this->Crud->readData('*', 'tbl_partnership_opportunity', '', '', '', '', ['opp_sort' => 'ASC'], '');
+        $captcha = \App\Controllers\CaptchaController::makeToken();
+        $data['captcha_token'] = $captcha['token'];
+        $data['captcha_gap_y'] = $captcha['gap_y'];
         echo view('landingen/kunjunganpartnership', $data);
     }
 
     public function kunjunganpartnershipproses()
     {
-        $submit = $this->request->getVar('submit');
-        if (isset($submit))
+        if (!$this->request->is('post') || !$this->request->getPost('submit')) {
+            return redirect()->to(base_url('en/kunjungan/partnership'));
+        }
+
+        $captchaToken = (string)($this->request->getPost('captcha_token') ?? '');
+        $captchaPos   = (int)($this->request->getPost('captcha_pos') ?? 0);
+        if (!\App\Controllers\CaptchaController::verify($captchaToken, $captchaPos)) {
+            $this->session->setFlashdata('captcha_error', '-');
+            return redirect()->to(base_url('en/kunjungan/partnership'));
+        }
+
+        $rules = [
+            'contact_fullname' => 'required|max_length[200]|regex_match[/^[a-zA-Z ]+$/]',
+            'contact_phone'    => 'permit_empty|max_length[20]|regex_match[/^[0-9]*$/]',
+            'contact_email'    => 'permit_empty|valid_email|max_length[100]',
+            'contact_desc'     => 'permit_empty|max_length[5000]',
+        ];
+
+        if (!$this->validate($rules)) {
+            $this->session->setFlashdata('failed', '-');
+            return redirect()->to(base_url('en/kunjungan/partnership'));
+        }
+
+        try
         {
-            try
-            {
-                $data = [
-                    'contact_fullname' => $this->request->getVar('contact_fullname'),
-                    'contact_phone'    => $this->request->getVar('contact_phone'),
-                    'contact_email'    => $this->request->getVar('contact_email'),
-                    'contact_desc'     => $this->request->getVar('contact_desc'),
-                    'contact_type'     => 'partnership',
-                ];
-                $insert = $this->Crud->createData('tbl_visitcontact', $data);
-                if ($insert) {
-                    $this->session->setFlashdata('success', '-');
-                } else {
-                    $this->session->setFlashdata('failed', '-');
-                }
-            }
-            catch(\Exception $ex)
-            {
-                log_message('error', 'Partnership contact EN: ' . $ex->getMessage());
+            $data = [
+                'contact_fullname' => trim(strip_tags($this->request->getPost('contact_fullname'))),
+                'contact_phone'    => trim(strip_tags($this->request->getPost('contact_phone') ?? '')),
+                'contact_email'    => trim($this->request->getPost('contact_email') ?? ''),
+                'contact_desc'     => trim(strip_tags($this->request->getPost('contact_desc') ?? '')),
+                'contact_type'     => 'partnership',
+            ];
+            $insert = $this->Crud->createData('tbl_visitcontact', $data);
+            if ($insert) {
+                $this->session->setFlashdata('success', '-');
+            } else {
                 $this->session->setFlashdata('failed', '-');
             }
+        }
+        catch(\Exception $ex)
+        {
+            log_message('error', 'Partnership contact EN: ' . $ex->getMessage());
+            $this->session->setFlashdata('failed', '-');
         }
 
         return redirect()->to(base_url('en/kunjungan/partnership'));
@@ -366,6 +415,8 @@ class LandingEn extends BaseController
         $data['sosmed_header_b'] = $this->Crud->readData('*', 'tbl_mastersocialmedia', '', '', '', '', '', '');
         $data['visitorInfoRules'] = $this->Crud->readData('*', 'tbl_visitvisitorinfo', ['visitorinfo_section' => 'rule', 'visitorinfo_status' => 1], '', '', '', ['visitorinfo_sort' => 'ASC'], '');
         $data['visitorInfoLearn'] = $this->Crud->readData('*', 'tbl_visitvisitorinfo', ['visitorinfo_section' => 'learn', 'visitorinfo_status' => 1], '', '', '', ['visitorinfo_sort' => 'ASC'], '');
+        $vpRows = $this->Crud->readData('*', 'tbl_visitvisitorpage', '', '', '', '', ['visitorpage_id' => 'ASC'], '');
+        $data['visitorPageData'] = !empty($vpRows) ? array_column($vpRows, null, 'visitorpage_key') : [];
         echo view('landingen/kunjunganinfopengunjung', $data);
     }
 
@@ -382,6 +433,7 @@ class LandingEn extends BaseController
         $data['articleall'] = $this->Crud->readData('*', 'tbl_article', '', '', '', '', ['article_created_date' => 'desc'], ['limit' => 4]);
         $data['articlenews'] = $this->Crud->readData('*', 'tbl_article', ['article_category' => 1], '', '', '', ['article_created_date' => 'desc'], '');
         $data['articlereward'] = $this->Crud->readData('*', 'tbl_article', ['article_category' => 2], '', '', '', ['article_created_date' => 'desc'], '');
+        $data['articleconservation'] = $this->Crud->readData('*', 'tbl_article', ['article_category' => 3], '', '', '', ['article_created_date' => 'desc'], '');
 
         echo view('landingen/berita', $data);
     }
@@ -430,6 +482,8 @@ class LandingEn extends BaseController
         $data['sosmed_header_b'] = $this->Crud->readData('*', 'tbl_mastersocialmedia', '', '', '', '', '', '');
         /*--------------------*/
         $data['about'] = $this->Crud->readData('*', 'tbl_about', '', '', '', '', '', '');
+        $aboutPageRows = $this->Crud->readData('*', 'tbl_about_page', ['id' => 1], '', '', '', '', '');
+        $data['aboutPage'] = !empty($aboutPageRows) ? $aboutPageRows[0] : [];
 
         $data['title'] = 'About Us';
         echo view('landingen/tentang', $data);

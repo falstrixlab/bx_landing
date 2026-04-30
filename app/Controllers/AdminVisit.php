@@ -351,7 +351,7 @@ class AdminVisit extends BaseController {
     public function contact() {
         if(session()->get('islogin') == TRUE)
         {
-            $data['getdata'] = $this->Crud->readData('*', 'tbl_visitcontact', '', '', '', '', '', '');
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_visitcontact', '', '', '', '', ['contact_id' => 'DESC'], '');
             echo view('administrator/visit/contact/index', $data);
         }
         else
@@ -1526,9 +1526,19 @@ class AdminVisit extends BaseController {
             $data['getdata'] = $this->visitorInfoModel->find($visitorinfo_id);
             if (empty($data['getdata'])) {
                 $this->session->setFlashdata('failed', '-');
-                return redirect()->route(getenv('bxsea.admin').'/visit/visitorinfo');
+                return redirect()->to(base_url('adminsite/visit/visitorinfo'));
             }
-            echo view('administrator/visit/visitorinfo/update', $data);
+            $section = $data['getdata']['visitorinfo_section'] ?? '';
+            if ($section === 'rule') {
+                $data['back_url'] = base_url('adminsite/visit/visitorinfo/know');
+                echo view('administrator/visit/visitorinfo/know/update', $data);
+            } elseif ($section === 'learn') {
+                $data['back_url'] = base_url('adminsite/visit/visitorinfo/learn');
+                echo view('administrator/visit/visitorinfo/learn/update', $data);
+            } else {
+                $data['back_url'] = base_url('adminsite/visit/visitorinfo');
+                echo view('administrator/visit/visitorinfo/update', $data);
+            }
         }
         else
         {
@@ -1549,18 +1559,27 @@ class AdminVisit extends BaseController {
 
         if (empty($existing)) {
             $this->session->setFlashdata('failed', '-');
-            return redirect()->route(getenv('bxsea.admin').'/visit/visitorinfo');
+            return redirect()->to(base_url('adminsite/visit/visitorinfo'));
         }
 
         $data = $this->collectVisitorInfoPayload($existing);
 
         if (! $this->visitorInfoModel->update($visitorinfoId, $data)) {
             $this->session->setFlashdata('failed', '-');
-            return redirect()->route(getenv('bxsea.admin').'/visit/visitorinfo/update/'.$visitorinfoId);
+            return redirect()->to(base_url('adminsite/visit/visitorinfo/update/' . $visitorinfoId));
         }
 
         $this->session->setFlashdata('success', '-');
-        return redirect()->route(getenv('bxsea.admin').'/visit/visitorinfo');
+        $backUrl = $this->request->getVar('back_url');
+        $section = $data['visitorinfo_section'] ?? '';
+        if (!empty($backUrl)) {
+            return redirect()->to($backUrl);
+        } elseif ($section === 'rule') {
+            return redirect()->to(base_url('adminsite/visit/visitorinfo/know'));
+        } elseif ($section === 'learn') {
+            return redirect()->to(base_url('adminsite/visit/visitorinfo/learn'));
+        }
+        return redirect()->to(base_url('adminsite/visit/visitorinfo'));
     }
 
     public function delete_visitorinfo($visitorinfo_id = NULL)
@@ -1570,10 +1589,280 @@ class AdminVisit extends BaseController {
             return redirect()->route(getenv('bxsea.admin'));
         }
 
+        $record = $this->visitorInfoModel->find($visitorinfo_id);
+        $section = $record['visitorinfo_section'] ?? '';
         $this->visitorInfoModel->delete($visitorinfo_id);
         $this->session->setFlashdata('success', '-');
-        return redirect()->route(getenv('bxsea.admin').'/visit/visitorinfo');
+        if ($section === 'rule') {
+            return redirect()->to(base_url('adminsite/visit/visitorinfo/know'));
+        } elseif ($section === 'learn') {
+            return redirect()->to(base_url('adminsite/visit/visitorinfo/learn'));
+        }
+        return redirect()->to(base_url('adminsite/visit/visitorinfo'));
     }
+
+    /* Visitor Page Sections */
+
+    public function visitorpage()
+    {
+        if (session()->get('islogin') == TRUE)
+        {
+            $data['getdata'] = $this->Crud->readData('*', 'tbl_visitvisitorpage', '', '', '', '', ['visitorpage_id' => 'ASC'], '');
+            echo view('administrator/visit/visitorpage/index', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+
+    public function update_visitorpage($visitorpage_id = NULL)
+    {
+        if (session()->get('islogin') == TRUE)
+        {
+            $rows = $this->Crud->readData('*', 'tbl_visitvisitorpage', ['visitorpage_id' => $visitorpage_id], '', '', '', '', '');
+            if (empty($rows)) {
+                $this->session->setFlashdata('failed', '-');
+                return redirect()->route(getenv('bxsea.admin').'/visit/visitorpage');
+            }
+            $data['getdata'] = $rows[0];
+            echo view('administrator/visit/visitorpage/update', $data);
+        }
+        else
+        {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+    }
+
+    public function run_update_visitorpage()
+    {
+        if (session()->get('islogin') != TRUE) {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+
+        $submit = $this->request->getVar('submit');
+        if (! isset($submit)) {
+            return redirect()->route(getenv('bxsea.admin').'/visit/visitorpage');
+        }
+
+        try {
+            $visitorpageId = (int) $this->request->getVar('visitorpage_id');
+            $uploadPath = ROOTPATH . 'assets/upload/visitorpage';
+            if (! is_dir($uploadPath)) {
+                mkdir($uploadPath, 0775, true);
+            }
+
+            $pict1Name = $this->request->getVar('visitorpage_pict1_temp') ?? '';
+            $pict1File = $this->request->getFile('visitorpage_pict1');
+            if ($pict1File && $pict1File->isValid() && ! $pict1File->hasMoved()) {
+                $validationRule = ['visitorpage_pict1' => ['label' => 'Image 1', 'rules' => ['uploaded[visitorpage_pict1]', 'mime_in[visitorpage_pict1,image/jpg,image/jpeg,image/png,image/webp,image/gif]']]];
+                if (! $this->validate($validationRule)) {
+                    $this->session->setFlashdata('invalidate', '-');
+                    return redirect()->route(getenv('bxsea.admin').'/visit/visitorpage/update/'.$visitorpageId);
+                }
+                if ($pict1Name && is_file($uploadPath . '/' . $pict1Name)) {
+                    unlink($uploadPath . '/' . $pict1Name);
+                }
+                $pict1Name = 'bxsea_image_' . $pict1File->getRandomName();
+                $pict1File->move($uploadPath, $pict1Name, true);
+            }
+
+            $pict2Name = $this->request->getVar('visitorpage_pict2_temp') ?? '';
+            $pict2File = $this->request->getFile('visitorpage_pict2');
+            if ($pict2File && $pict2File->isValid() && ! $pict2File->hasMoved()) {
+                $validationRule = ['visitorpage_pict2' => ['label' => 'Image 2', 'rules' => ['uploaded[visitorpage_pict2]', 'mime_in[visitorpage_pict2,image/jpg,image/jpeg,image/png,image/webp,image/gif]']]];
+                if (! $this->validate($validationRule)) {
+                    $this->session->setFlashdata('invalidate', '-');
+                    return redirect()->route(getenv('bxsea.admin').'/visit/visitorpage/update/'.$visitorpageId);
+                }
+                if ($pict2Name && is_file($uploadPath . '/' . $pict2Name)) {
+                    unlink($uploadPath . '/' . $pict2Name);
+                }
+                $pict2Name = 'bxsea_image_' . $pict2File->getRandomName();
+                $pict2File->move($uploadPath, $pict2Name, true);
+            }
+
+            $updateData = [
+                'visitorpage_title'    => $this->request->getVar('visitorpage_title'),
+                'visitorpage_title_en' => $this->request->getVar('visitorpage_title_en'),
+                'visitorpage_desc'     => $this->request->getVar('visitorpage_desc'),
+                'visitorpage_desc_en'  => $this->request->getVar('visitorpage_desc_en'),
+                'visitorpage_pict1'    => $pict1Name,
+                'visitorpage_pict2'    => $pict2Name,
+            ];
+
+            $redirectAfter = $this->request->getVar('_redirect');
+            if ($visitorpageId > 0) {
+                $result = $this->Crud->updateData('tbl_visitvisitorpage', $updateData, ['visitorpage_id' => $visitorpageId]);
+            } else {
+                $visitorpageKey = $this->request->getVar('visitorpage_key');
+                $updateData['visitorpage_key'] = $visitorpageKey;
+                $result = $this->Crud->createData('tbl_visitvisitorpage', $updateData);
+            }
+            if ($result) {
+                $this->session->setFlashdata('success', '-');
+                return !empty($redirectAfter) ? redirect()->to($redirectAfter) : redirect()->to(base_url('adminsite/visit/visitorpage'));
+            } else {
+                $this->session->setFlashdata('failed', '-');
+                return !empty($redirectAfter) ? redirect()->to($redirectAfter) : redirect()->to(base_url('adminsite/visit/visitorpage/update/' . $visitorpageId));
+            }
+        } catch (Exception $ex) {
+            echo 'Message: ' . $ex->getMessage();
+        }
+    }
+
+    /* Visitor Page Sections */
+
+    /* Section-specific admin pages for kunjunganinfopengunjung */
+
+    public function visitorinfo_know()
+    {
+        if (session()->get('islogin') != TRUE) {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+        $data['getdata'] = $this->visitorInfoModel
+            ->where('visitorinfo_section', 'rule')
+            ->orderBy('visitorinfo_sort', 'ASC')
+            ->orderBy('visitorinfo_id', 'DESC')
+            ->findAll();
+        echo view('administrator/visit/visitorinfo/know/index', $data);
+    }
+
+    public function add_visitorinfo_know()
+    {
+        if (session()->get('islogin') != TRUE) {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+        echo view('administrator/visit/visitorinfo/know/add');
+    }
+
+    public function run_add_visitorinfo_know()
+    {
+        if (session()->get('islogin') != TRUE) {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+        if (! $this->request->getVar('submit')) {
+            return redirect()->to(base_url('adminsite/visit/visitorinfo/know'));
+        }
+        $data = $this->collectVisitorInfoPayload();
+        $data['visitorinfo_section'] = 'rule';
+        if (! $this->visitorInfoModel->insert($data)) {
+            $this->session->setFlashdata('failed', '-');
+            return redirect()->to(base_url('adminsite/visit/visitorinfo/know/add'));
+        }
+        $this->session->setFlashdata('success', '-');
+        return redirect()->to(base_url('adminsite/visit/visitorinfo/know'));
+    }
+
+    public function visitorinfo_learn()
+    {
+        if (session()->get('islogin') != TRUE) {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+        $data['getdata'] = $this->visitorInfoModel
+            ->where('visitorinfo_section', 'learn')
+            ->orderBy('visitorinfo_sort', 'ASC')
+            ->orderBy('visitorinfo_id', 'DESC')
+            ->findAll();
+        echo view('administrator/visit/visitorinfo/learn/index', $data);
+    }
+
+    public function add_visitorinfo_learn()
+    {
+        if (session()->get('islogin') != TRUE) {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+        echo view('administrator/visit/visitorinfo/learn/add');
+    }
+
+    public function run_add_visitorinfo_learn()
+    {
+        if (session()->get('islogin') != TRUE) {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+        if (! $this->request->getVar('submit')) {
+            return redirect()->to(base_url('adminsite/visit/visitorinfo/learn'));
+        }
+        $data = $this->collectVisitorInfoPayload();
+        $data['visitorinfo_section'] = 'learn';
+        if (! $this->visitorInfoModel->insert($data)) {
+            $this->session->setFlashdata('failed', '-');
+            return redirect()->to(base_url('adminsite/visit/visitorinfo/learn/add'));
+        }
+        $this->session->setFlashdata('success', '-');
+        return redirect()->to(base_url('adminsite/visit/visitorinfo/learn'));
+    }
+
+    public function add_visitorpage_bykey($key = null)
+    {
+        if (session()->get('islogin') != TRUE) {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+        $allowedKeys = ['banner', 'welcome', 'hours', 'guide_gettinghere', 'guide_howto', 'guide_explore', 'guide_app'];
+        if (empty($key) || !in_array($key, $allowedKeys, true)) {
+            $this->session->setFlashdata('failed', '-');
+            return redirect()->route(getenv('bxsea.admin').'/visit/visitorpage');
+        }
+        // Check if already exists
+        $rows = $this->Crud->readData('*', 'tbl_visitvisitorpage', ['visitorpage_key' => $key], '', '', '', '', '');
+        if (!empty($rows)) {
+            // Already exists, redirect to update
+            return redirect()->to(base_url('adminsite/visit/visitorpage/update/' . $rows[0]['visitorpage_id']));
+        }
+        $data['visitorpage_key'] = $key;
+        echo view('administrator/visit/visitorpage/add', $data);
+    }
+
+    public function visitorpage_banner()
+    {
+        if (session()->get('islogin') != TRUE) {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+        $rows = $this->Crud->readData('*', 'tbl_visitvisitorpage', ['visitorpage_key' => 'banner'], '', '', '', '', '');
+        $data['banner'] = !empty($rows) ? $rows[0] : [];
+        echo view('administrator/visit/visitorpage/banner', $data);
+    }
+
+    public function visitorpage_welcome()
+    {
+        if (session()->get('islogin') != TRUE) {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+        $rows = $this->Crud->readData('*', 'tbl_visitvisitorpage', '', '', '', '', ['visitorpage_id' => 'ASC'], '');
+        $indexed = !empty($rows) ? array_column($rows, null, 'visitorpage_key') : [];
+        $data['welcome'] = $indexed['welcome'] ?? [];
+        $data['hours']   = $indexed['hours']   ?? [];
+        echo view('administrator/visit/visitorpage/welcome', $data);
+    }
+
+    public function visitorpage_guide()
+    {
+        if (session()->get('islogin') != TRUE) {
+            $this->session->setFlashdata('nologin', '-');
+            return redirect()->route(getenv('bxsea.admin'));
+        }
+        $rows = $this->Crud->readData('*', 'tbl_visitvisitorpage', '', '', '', '', ['visitorpage_id' => 'ASC'], '');
+        $indexed = !empty($rows) ? array_column($rows, null, 'visitorpage_key') : [];
+        $data['guide_gettinghere'] = $indexed['guide_gettinghere'] ?? [];
+        $data['guide_howto']       = $indexed['guide_howto']       ?? [];
+        $data['guide_explore']     = $indexed['guide_explore']     ?? [];
+        $data['guide_app']         = $indexed['guide_app']         ?? [];
+        echo view('administrator/visit/visitorpage/guide', $data);
+    }
+
+    /* End section-specific admin pages */
 
     private function collectVisitorInfoPayload(array $existing = []): array
     {
@@ -1598,15 +1887,17 @@ class AdminVisit extends BaseController {
         }
 
         return [
-            'visitorinfo_section' => $this->request->getVar('visitorinfo_section'),
-            'visitorinfo_title' => $this->request->getVar('visitorinfo_title'),
+            'visitorinfo_section'  => $this->request->getVar('visitorinfo_section'),
+            'visitorinfo_title'    => $this->request->getVar('visitorinfo_title'),
             'visitorinfo_title_en' => $this->request->getVar('visitorinfo_title_en'),
-            'visitorinfo_desc' => $this->request->getVar('visitorinfo_desc'),
-            'visitorinfo_desc_en' => $this->request->getVar('visitorinfo_desc_en'),
-            'visitorinfo_icon' => $iconName,
-            'visitorinfo_image' => $imageName,
-            'visitorinfo_sort' => (int) ($this->request->getVar('visitorinfo_sort') ?: 0),
-            'visitorinfo_status' => (int) ($this->request->getVar('visitorinfo_status') ?: 1),
+            'visitorinfo_label'    => $this->request->getVar('visitorinfo_label') ?? '',
+            'visitorinfo_label_en' => $this->request->getVar('visitorinfo_label_en') ?? '',
+            'visitorinfo_desc'     => $this->request->getVar('visitorinfo_desc'),
+            'visitorinfo_desc_en'  => $this->request->getVar('visitorinfo_desc_en'),
+            'visitorinfo_icon'     => $iconName,
+            'visitorinfo_image'    => $imageName,
+            'visitorinfo_sort'     => (int) ($this->request->getVar('visitorinfo_sort') ?: 0),
+            'visitorinfo_status'   => (int) ($this->request->getVar('visitorinfo_status') ?: 1),
         ];
     }
 }

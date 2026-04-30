@@ -85,52 +85,12 @@
                             <textarea name="experience_desc_en" class="form-control" placeholder="Enter Description EN" id="exampleTextarea" rows="6" required="required"><?= $rs["experience_desc_en"];?></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Schedule ID <span class="text-danger">*</span></label>
-                            <input name="experience_schedule" value="<?= $rs["experience_schedule"];?>" type="text" class="form-control"  placeholder="Enter Schedule ID" required="required"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Schedule EN <span class="text-danger">*</span></label>
-                            <input name="experience_schedule_en" value="<?= $rs["experience_schedule_en"];?>" type="text" class="form-control"  placeholder="Enter Schedule EN" required="required"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Duration ID <span class="text-danger">*</span></label>
-                            <input name="experience_duration" value="<?= $rs["experience_duration"];?>" type="text" class="form-control"  placeholder="Enter Duration ID" required="required"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Duration EN <span class="text-danger">*</span></label>
-                            <input name="experience_duration_en" value="<?= $rs["experience_duration_en"];?>" type="text" class="form-control"  placeholder="Enter Duration EN" required="required"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Age ID <span class="text-danger">*</span></label>
-                            <input name="experience_age" value="<?= $rs["experience_age"];?>" type="text" class="form-control"  placeholder="Enter Age ID" required="required"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Age EN <span class="text-danger">*</span></label>
-                            <input name="experience_age_en" value="<?= $rs["experience_age_en"];?>" type="text" class="form-control"  placeholder="Enter Age EN" required="required"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleTextarea">Price <span class="text-danger">*</span></label>
-                            <textarea name="experience_price" class="form-control" placeholder="Enter Description EN" id="exampleTextarea" rows="6" required="required"><?= $rs["experience_price"];?></textarea>
-                        </div>
-                        <div class="form-group">
                             <label>Foto Experience</label>
                             <input type="file" name="experience_pict" class="form-control" accept="image/*">
                             <?php if (!empty($rs['experience_pict'])): ?>
                             <div class="mt-2"><img src="<?= base_url('assets/upload/experience/'.$rs['experience_pict'])?>" style="max-height:80px;" class="img-thumbnail"> <small class="d-block text-muted"><?= $rs['experience_pict']?></small></div>
-                            <input type="hidden" name="experience_pict_temp" value="<?= $rs['experience_pict']?>">
                             <?php endif; ?>
-                        </div>
-                        <div class="form-group">
-                            <label>Link Pembelian (URL)</label>
-                            <input name="experience_link" type="url" class="form-control" placeholder="https://" value="<?= $rs['experience_link'] ?? ''?>"/>
-                        </div>
-                        <div class="form-group">
-                            <label>Status Experience <span class="text-danger">*</span></label>
-                            <select class="form-control" name="experience_status" required="required">
-                                <option value="">Select Status Experience</option>
-                                <option value="1" <?= ($rs["experience_status"] == 1) ? 'selected="selected"' : '';?>>Available</option>
-                                <option value="0" <?= ($rs["experience_status"] == 0) ? 'selected="selected"' : '';?>>Coming Soon</option>
-                            </select>
+                            <input type="hidden" name="experience_pict_temp" value="<?= $rs['experience_pict'] ?? ''?>">
                         </div>
                     </div>
                     <div class="card-footer">

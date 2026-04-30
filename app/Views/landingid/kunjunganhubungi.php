@@ -27,6 +27,8 @@ $contactEmailAsset = bxsea_design_asset('visit', 'contact_card_email', 'assets/l
 
 <?php if (session()->getFlashdata('success')): ?>
 <div class="alert alert-success container mt-3">Pesan Anda berhasil terkirim!</div>
+<?php elseif (session()->getFlashdata('captcha_error')): ?>
+<div class="alert alert-danger container mt-3">Jawaban verifikasi salah. Silakan coba lagi.</div>
 <?php elseif (session()->getFlashdata('failed')): ?>
 <div class="alert alert-danger container mt-3">Gagal mengirim pesan. Coba lagi.</div>
 <?php endif; ?>
@@ -46,25 +48,30 @@ $contactEmailAsset = bxsea_design_asset('visit', 'contact_card_email', 'assets/l
         <div class="col-lg-4 mb-200">
           <div class="form-row"><div class="form-row1">
             <h5>Nama Lengkap</h5>
-            <input type="text" name="contact_fullname" required>
+            <input type="text" name="contact_fullname" required maxlength="200" pattern="[A-Za-z ]+" title="Hanya huruf dan spasi">
           </div></div>
         </div>
         <div class="col-lg-4 mb-200">
           <div class="form-row"><div class="form-row1">
             <h5>Nomor Telepon</h5>
-            <input type="tel" name="contact_phone">
+            <input type="tel" name="contact_phone" maxlength="20" pattern="[0-9]+" title="Hanya angka">
           </div></div>
         </div>
         <div class="col-lg-4 mb-200">
           <div class="form-row"><div class="form-row1">
             <h5>E-mail</h5>
-            <input type="email" name="contact_email">
+            <input type="email" name="contact_email" maxlength="100">
           </div></div>
         </div>
         <div class="col-lg-12 mb-200">
           <div class="form-row"><div class="form-row1">
             <h5>Pesan</h5>
             <textarea name="contact_desc" rows="5"></textarea>
+          </div></div>
+        </div>
+        <div class="col-lg-12 mb-200">
+          <div class="form-row"><div class="form-row1">
+            <?= view('partials/slider_captcha', ['captcha_token' => $captcha_token, 'captcha_gap_y' => $captcha_gap_y, 'captcha_lang' => 'id']) ?>
           </div></div>
         </div>
         <div class="submit-message">

@@ -75,6 +75,7 @@
             <thead>
             <tr>
                 <th>Record ID</th>
+                <th>Image</th>
                 <th>Title ID</th>
                 <th>Title EN</th>
                 <th>Desc ID</th>
@@ -86,6 +87,7 @@
             <?php $i = 1; foreach($getdata AS $rs) {?>
             <tr>
                 <td><?= $i;?></td>
+                <td><?php if (!empty($rs['experience_pict'])): ?><img src="<?= base_url('assets/upload/experience/'.$rs['experience_pict'])?>" style="max-height:60px;" class="img-thumbnail"><?php else: ?>-<?php endif; ?></td>
                 <td><?= esc($rs["experience_title"]);?></td>
                 <td><?= esc($rs["experience_title_en"]);?></td>
                 <td><?= esc(bxsea_plain_text($rs["experience_desc"] ?? ''));?></td>
