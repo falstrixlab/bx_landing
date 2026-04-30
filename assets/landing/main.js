@@ -337,7 +337,6 @@ dropdowns.forEach(dropdown => {
 	const menu = dropdown.querySelector('.menu');
 	const option = dropdown.querySelector('.menu li a');
 
-
 	select.addEventListener('click', () => {
 		caret.classList.toggle('caret-rotate');
 		menu.classList.toggle('menu-open');
@@ -345,23 +344,20 @@ dropdowns.forEach(dropdown => {
 	});
 });
 
-const dropdowns2 = document.querySelectorAll('.dropdown-');
+const dropdowns2 = document.querySelectorAll('.dropdown2');
 
 dropdowns2.forEach(dropdown => {
-	const select = dropdown.querySelector('.select2');
-	const caret = dropdown.querySelector('.caret2');
-	const menu = dropdown.querySelector('.menu2');
-	const option = dropdown.querySelector('.menu2 li a');
+	const select2 = dropdown.querySelector('.select2');
+	const caret2 = dropdown.querySelector('.caret2');
+	const menu2 = dropdown.querySelector('.menu2');
+	const option2 = dropdown.querySelector('.menu2 li a');
 
-
-	select.addEventListener('click', () => {
-		caret.classList.toggle('caret-rotate2');
-		menu.classList.toggle('menu-open2');
+	select2.addEventListener('click', () => {
+		caret2.classList.toggle('caret-rotate2');
+		menu2.classList.toggle('menu-open2');
 
 	});
 });
-
-
 
 
 function showPopup(popupId) {

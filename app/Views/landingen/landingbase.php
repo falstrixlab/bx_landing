@@ -96,18 +96,19 @@
         <a class="navbar-responsive" href="<?= base_url('en');?>">
           <img src="<?= bxsea_design_asset('global', 'site_logo', 'assets/landing/image/logo-BXSea.png');?>" alt="BXSea Logo">
         </a>
-        <div class="dropdown-">
-          <div class="select2">
-            <img src="<?= bxsea_design_asset('global', 'globe_icon', 'assets/landing/image/globe.svg');?>" alt="">
-            <span class="selected2">EN</span>
-            <div class="caret2 me-2"></div>
+        <div class="mobile-menu">
+          <div class="dropdown2">
+            <div class="select2">
+              <span class="selected2">EN</span>
+              <div class="caret2 me-2"></div>
+            </div>
+            <div class="menu2">
+              <li><a href="<?= base_url('id');?>">ID</a></li>
+            </div>
           </div>
-          <div class="menu2">
-            <li><a href="<?= base_url('id');?>">ID</a></li>
+          <div class="toggle__menu" id="toggle-menu">
+            <i class="fa-solid fa-bars-staggered"></i>
           </div>
-        </div>
-        <div class="toggle__menu" id="toggle-menu">
-          <i class="fa-solid fa-bars-staggered"></i>
         </div>
         <ul class="nav__list" id="nav-menu">
           <div class="close__menu" id="close-menu">
@@ -591,32 +592,21 @@
             });
 
             var thumbnails = new Splide('.thumbnail-carousel', {
-              fixedWidth: 170,
-              fixedHeight: 170,
-              rewind: true,
+              rewind: false,
               perPage: 5,
-              gap: 18,
               focus: 'center',
-              type: 'loop',
+              type : 'loop',
               isNavigation: true,
               pagination: false,
-              padding: {
-                left: '2rem',
-                right: '2rem',
-              },
               breakpoints: {
-                991: {
-                  fixedWidth: 125,
-                  fixedHeight: 125,
-                  gap: 14,
+                768: {
+                  fixedWidth: 90,
+                  fixedHeight: 90,
+                  type: 'slide',
                 },
                 600: {
                   fixedWidth: 60,
                   fixedHeight: 60,
-                },
-                768: {
-                  fixedWidth: 90,
-                  fixedHeight: 90,
                 },
               },
             });

@@ -150,13 +150,13 @@ body {
 html[lang="en"] .marquee {
     margin-top: 110px;
 }
-@media (max-width: 991px) {
+@media (max-width: 992px) {
     .marquee {
-        margin-top: 55px;
+        margin-top: 30px;
         font-size: 24px;
     }
     html[lang="en"] .marquee {
-        margin-top: 70px;
+        margin-top: 50px;
     }
 }
 .marquee__inner {
@@ -240,6 +240,57 @@ html[lang="en"] .marquee {
     opacity: 1;
     visibility: visible;
 }
+.dropdown2 {
+    position: relative;
+}
+.select2 {
+    display: flex;
+    color: #000;
+    align-items: center;
+    gap: .5rem;
+    transition: .2s;
+    cursor: pointer;
+}
+.select2 a {
+    text-decoration: none;
+}
+.caret2 {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #000;
+    transition: .3s;
+}
+.caret-rotate2 {
+    transform: rotate(180deg);
+}
+.menu2  {
+    position: absolute;
+    z-index: 1000;
+    top: 2rem;
+    background-color: #ededed;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+}
+.menu2 li {
+    list-style: none;
+    padding: 10px;
+    margin-right: 0;
+}
+.menu2 li a {
+    text-decoration: none;
+    color: black;
+}
+.menu-open2 {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
 .select img {
     width: 30px;
 }
@@ -254,6 +305,9 @@ html[lang="en"] .marquee {
 }
 .selected2 {
     font-family: montserrat_semibold;
+}
+.mobile-menu {
+    display: none;
 }
 /* END TOP BAR */
 
@@ -448,9 +502,6 @@ html[lang="en"] .marquee {
     display: none;
 }
 .sosmed-topbar2 {
-    display: none;
-}
-.dropdown- {
     display: none;
 }
 /* END NAVBAR */
@@ -707,6 +758,11 @@ html[lang="id"] .hero-image2 img {
 .overlay-oceanariumtours .btn-overlay-oceanariumtours a {
     text-decoration: none;
     color: #fff;
+}
+@media (max-width: 991px) {
+    .overlay-oceanariumtours .btn-overlay-oceanariumtours a {
+        font-size: 13px;
+    }
 }
 .owl-oceanarium-tours .owl-item .image-chevron-oceanariumtours {
     width: 7px;
@@ -1414,7 +1470,7 @@ html[lang="id"] .review-influencer-splide .splide__slide {
     color: #003169;
     font-size: 58px;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     font-family: librebaskerville;
 }
 html[lang="id"] .main-carousel {
@@ -1445,34 +1501,35 @@ html[lang="id"] .main-carousel .splide__slide {
 }
 .thumbnail-carousel {
     position: relative;
-    max-width: 910px;
+    max-width: 950px;
     margin: auto;
     z-index: 7;
 }
 .thumbnail-carousel .splide__list {
-    height: 280px;
-    display: flex;
-    align-items: center;
+    height: 230px;
 }
 .thumbnail-carousel .splide__slide img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    margin-left: 20px;
 }
 .thumbnail-carousel .splide__slide {
     opacity: 0.6;
     transition: all 150ms;
-    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    outline: 0;
 }
-  
 .thumbnail-carousel .splide__slide.is-active {
     opacity: 1;
     transform: scale(1.2);
 }
 .thumbnail-carousel .splide__track--nav>.splide__list>.splide__slide.is-active {
-    border: none;
+    border: 0;
+    outline: 0;
 }
 .thumbnail-carousel .splide__arrow--prev,
 .thumbnail-carousel .splide__arrow--next {
@@ -1612,6 +1669,11 @@ html[lang="id"] .main-carousel .splide__slide {
     }
     .new-information .left-grid {
         display: none;
+    }
+}
+@media (max-width: 768px) {
+    .title-new-information-mobile h1 {
+        font-size: 36px;
     }
 }
 .left-grid .title-new-information h1 {
@@ -7847,64 +7909,6 @@ body.no-scroll {
     .show__menu {
         left: 0;
     }
-    .dropdown- {
-        display: block;
-        margin-inline-start: auto;
-    }
-    .menu2  {
-        position: absolute;
-        top: 3.5rem;
-        background-color: #ededed;
-        width: fit-content;
-        text-align: center;
-        border-radius: 5px;
-        opacity: 0;
-        padding: 0 10px;
-        visibility: hidden;
-        transition: .2s;
-    }
-    .menu2 li {
-        list-style: none;
-        padding: 10px;
-        margin-right: 0;
-    }
-    .menu2 li a {
-        text-decoration: none;
-        color: #000;
-    }
-    .menu-open2 {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-    }
-    .select2 img {
-        width: 20px;
-    }
-    .select2 img {
-        width: 20px;
-    }
-    .select2 {
-        display: flex;
-        color: #fff;
-        align-items: center;
-        gap: .2rem;
-        transition: .2s;
-        cursor: pointer;
-    }
-    .select2 a {
-        text-decoration: none;
-    }
-    .caret2 {
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 6px solid #fff;
-        transition: .3s;
-    }
-    .caret-rotate2 {
-        transform: rotate(180deg);
-    }
     .text-dropdown-menu .arr-down {
         border-color: #fff;
     }
@@ -7916,7 +7920,12 @@ body.no-scroll {
     }
     .contact-mobile {
         display: block;
-        margin-top: 3rem;
+        margin: 2rem;
+    }
+    .mobile-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     /* END NAVBAR */
 }
@@ -9392,9 +9401,6 @@ body.no-scroll {
     }
     .title-showocean h1 {
         margin-bottom: 3rem;
-    }
-    .thumbnail-carousel .splide__list {
-        text-align: right;
     }
     .popup-template {
         width: 95vw;
@@ -13920,6 +13926,7 @@ body.no-scroll {
     }
     .flex-show {
         flex-direction: column;
+        gap: 0;
     }
     .box-title-show-ocean h1 {
         text-align: center;
