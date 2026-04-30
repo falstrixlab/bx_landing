@@ -111,10 +111,13 @@ $defaultOpportunityImages   = [$partnershipOpportunity1, $partnershipOpportunity
         </div>
         <div class="col-lg-12 mb-200">
           <div class="form-row"><div class="form-row1">
-            <?= view('partials/slider_captcha', ['captcha_token' => $captcha_token, 'captcha_gap_y' => $captcha_gap_y, 'captcha_lang' => 'en']) ?>
+            <h5>Verification</h5>
+            <div style="margin-top:10px;">
+              <?= view('partials/slider_captcha', ['captcha_token' => $captcha_token, 'captcha_gap_y' => $captcha_gap_y, 'captcha_gap_x' => $captcha_gap_x, 'captcha_img_url' => $captcha_img_url, 'captcha_lang' => 'en']) ?>
+            </div>
           </div></div>
         </div>
-        <div class="submit-message">
+        <div class="col-12 submit-message">
           <button type="submit">Send Message</button>
         </div>
       </div>

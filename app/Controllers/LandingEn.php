@@ -283,8 +283,10 @@ class LandingEn extends BaseController
         $data['contactheader'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'contactheader'], '', '', '', '', '');
         $data['contactdesc'] = $this->Crud->readData('*', 'tbl_masterdesc', ['masterdesc_position' => 'contactdescription'], '', '', '', '', '');
         $captcha = \App\Controllers\CaptchaController::makeToken();
-        $data['captcha_token'] = $captcha['token'];
-        $data['captcha_gap_y'] = $captcha['gap_y'];
+        $data['captcha_token']   = $captcha['token'];
+        $data['captcha_gap_y']   = $captcha['gap_y'];
+        $data['captcha_gap_x']   = $captcha['gap_x'];
+        $data['captcha_img_url'] = $captcha['img_url'];
         echo view('landingen/kunjunganhubungi', $data);
     }
     public function kunjunganhubungiproses()
@@ -351,8 +353,10 @@ class LandingEn extends BaseController
         $data['partnershipContent'] = !empty($pcRows) ? $pcRows[0] : [];
         $data['partnershipOpportunities'] = $this->Crud->readData('*', 'tbl_partnership_opportunity', '', '', '', '', ['opp_sort' => 'ASC'], '');
         $captcha = \App\Controllers\CaptchaController::makeToken();
-        $data['captcha_token'] = $captcha['token'];
-        $data['captcha_gap_y'] = $captcha['gap_y'];
+        $data['captcha_token']   = $captcha['token'];
+        $data['captcha_gap_y']   = $captcha['gap_y'];
+        $data['captcha_gap_x']   = $captcha['gap_x'];
+        $data['captcha_img_url'] = $captcha['img_url'];
         echo view('landingen/kunjunganpartnership', $data);
     }
 

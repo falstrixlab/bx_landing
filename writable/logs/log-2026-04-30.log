@@ -276,3 +276,141 @@ in APPPATH\Controllers\CaptchaController.php on line 139.
  5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 22:56:16 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/3560c3061795a89e5fed71eeff9d94f3]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/gurita.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('3560c3061795a89e5fed71eeff9d94f3')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 22:56:16 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/3560c3061795a89e5fed71eeff9d94f3]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/gurita.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('3560c3061795a89e5fed71eeff9d94f3')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 22:56:25 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/262832cd2520edac96175a971ac9ce2e]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/bxseahd.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('262832cd2520edac96175a971ac9ce2e')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 22:56:25 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/262832cd2520edac96175a971ac9ce2e]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/bxseahd.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('262832cd2520edac96175a971ac9ce2e')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 23:01:29 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/8a237c802b3a93a8c7deb6e5725d5157]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('8a237c802b3a93a8c7deb6e5725d5157')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 23:01:29 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/8a237c802b3a93a8c7deb6e5725d5157]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('8a237c802b3a93a8c7deb6e5725d5157')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 23:02:50 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/231bd5cd4437b132fff7a29aaee7c46e]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('231bd5cd4437b132fff7a29aaee7c46e')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 23:02:50 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/231bd5cd4437b132fff7a29aaee7c46e]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('231bd5cd4437b132fff7a29aaee7c46e')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 23:04:42 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/a0b9448e34f315d103c8fdd60c7ae9c0]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('a0b9448e34f315d103c8fdd60c7ae9c0')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 23:04:42 --> Error: Call to undefined function App\Controllers\imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/a0b9448e34f315d103c8fdd60c7ae9c0]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('a0b9448e34f315d103c8fdd60c7ae9c0')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 23:11:24 --> Error: Call to undefined function imagecreatefrompng()
+[Method: GET, Route: captcha/slide-bg/dce0ba3bf63cc2b62c39ef0742a1aa6b]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(21): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slideBackground('dce0ba3bf63cc2b62c39ef0742a1aa6b')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 23:11:24 --> Error: Call to undefined function imagecreatefrompng()
+[Method: GET, Route: captcha/slide-piece/dce0ba3bf63cc2b62c39ef0742a1aa6b]
+in APPPATH\Controllers\CaptchaController.php on line 139.
+ 1 APPPATH\Controllers\CaptchaController.php(36): App\Controllers\CaptchaController->loadAndResize('C:\\xampp\\htdocs\\bxsea\\assets/image/fishdeep.png')
+ 2 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\CaptchaController->slidePiece('dce0ba3bf63cc2b62c39ef0742a1aa6b')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CaptchaController))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-30 23:19:59 --> ErrorException: Undefined variable $bgBase
+[Method: GET, Route: id/kunjungan/hubungi-kami]
+in APPPATH\Views\partials\slider_captcha.php on line 214.
+ 1 APPPATH\Views\partials\slider_captcha.php(214): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $bgBase', 'C:\\xampp\\htdocs\\bxsea\\app\\Views\\partials\\slider_captcha.php', 214)
+ 2 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\bxsea\\app\\Views\\partials\\slider_captcha.php')
+ 3 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('partials/slider_captcha', [], true)
+ 5 APPPATH\Views\landingid\kunjunganhubungi.php(76): view('partials/slider_captcha', [...])
+ 6 SYSTEMPATH\View\View.php(238): include('C:\\xampp\\htdocs\\bxsea\\app\\Views\\landingid\\kunjunganhubungi.php')
+ 7 SYSTEMPATH\View\View.php(241): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1250): CodeIgniter\View\View->render('landingid/kunjunganhubungi', [], true)
+ 9 APPPATH\Controllers\Landing.php(293): view('landingid/kunjunganhubungi', [...])
+10 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Landing->kunjunganhubungi()
+11 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+12 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
