@@ -104,18 +104,22 @@ if (count($reviewSlides) < 2) {
 $reviewSlides = array_slice($reviewSlides, 0, 6);
 ?>
 
-<!-- Marquee Announcement -->
+<!-- Marquee Announcement (Splide) -->
 <?php if(!empty($homeannouncement)): ?>
 <section class="marquee">
-  <div class="marquee__inner">
-    <?php foreach($homeannouncement AS $ann): ?>
-    <div class="marquee__part">
-      <p><?= esc(bxsea_plain_text($ann['homeannouncement_text'] ?? ''));?></p>
-      <div class="star">
-        <img src="<?= $marqueeStarAsset; ?>" alt="">
-      </div>
+  <div class="marquee-splide splide" aria-label="Announcements">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <?php foreach($homeannouncement AS $ann): ?>
+        <li class="splide__slide marquee__part">
+          <p><?= esc(bxsea_plain_text($ann['homeannouncement_text'] ?? ''));?></p>
+          <div class="star">
+            <img src="<?= $marqueeStarAsset; ?>" alt="">
+          </div>
+        </li>
+        <?php endforeach; ?>
+      </ul>
     </div>
-    <?php endforeach; ?>
   </div>
 </section>
 <?php endif; ?>

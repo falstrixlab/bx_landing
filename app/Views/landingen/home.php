@@ -94,15 +94,19 @@ if (count($reviewSlides) < 2) {
 
 <?php if (!empty($homeannouncement)): ?>
 <section class="marquee">
-    <div class="marquee__inner">
-        <?php foreach ($homeannouncement as $ann): ?>
-        <div class="marquee__part">
-            <p><?= esc(bxsea_plain_text($ann['homeannouncement_text_en'] ?? ($ann['homeannouncement_text'] ?? ''))); ?></p>
-            <div class="star">
-                <img src="<?= $marqueeStarAsset; ?>" alt="">
-            </div>
+    <div class="marquee-splide splide" aria-label="Announcements">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <?php foreach ($homeannouncement as $ann): ?>
+                <li class="splide__slide marquee__part">
+                    <p><?= esc(bxsea_plain_text($ann['homeannouncement_text_en'] ?? ($ann['homeannouncement_text'] ?? ''))); ?></p>
+                    <div class="star">
+                        <img src="<?= $marqueeStarAsset; ?>" alt="">
+                    </div>
+                </li>
+                <?php endforeach; ?>
+            </ul>
         </div>
-        <?php endforeach; ?>
     </div>
 </section>
 <?php endif; ?>
@@ -481,7 +485,7 @@ if (count($reviewSlides) < 2) {
         </div>
         <?php endforeach; endif; ?>
         <div class="details-card-ticketing">
-            <a href="<?= base_url('/en/tiket/pengalaman-premium'); ?>">View Add-Ons<img class="arrow-right-details-card-ticketing" src="<?= base_url('assets/landing/'); ?>image/arrow-right-white.png" alt=""></a>
+            <a href="<?= base_url('/en/tiket/pengalaman-premium'); ?>">View Add-Ons <img class="arrow-right-details-card-ticketing" src="<?= base_url('assets/landing/'); ?>image/arrow-right-white.png" alt=""></a>
         </div>
     </div>
 </section>

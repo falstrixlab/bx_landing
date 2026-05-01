@@ -147,6 +147,18 @@ body {
     font-size: 32px;
     text-transform: capitalize;
 }
+.marquee-splide {
+    height: auto;
+}
+.marquee-splide .splide__track {
+    height: auto;
+}
+.marquee-splide .splide__list {
+    height: auto;
+}
+.marquee-splide .splide__slide {
+    height: auto;
+}
 html[lang="id"] .marquee {
     margin-top: 110px;
 }
@@ -171,6 +183,10 @@ html[lang="en"] .marquee {
     flex: auto;
     flex-direction: row;
 }
+.marquee__inner {
+    will-change: transform;
+    transform: translate3d(0,0,0);
+}
 .marquee__part {
     display: flex;
     align-items: center;
@@ -186,7 +202,15 @@ html[lang="en"] .marquee {
     align-items: center;
 }
 .star img {
+    width: 20px;
+}
+
+.marquee .star img,
+.marquee-splide .star img,
+.splide__slide .star img {
     width: 32px;
+    height: auto;
+    display: inline-block;
 }
 .time {
     display: flex;
@@ -636,7 +660,7 @@ html[lang="id"] .hero-image2 img {
     flex-direction: column;
     justify-content: end;
     align-items: flex-end;
-    gap: 0;
+    gap: .5rem;
 }
 @media (max-width: 1024px) {
     .btn-rounded {
@@ -652,35 +676,36 @@ html[lang="id"] .hero-image2 img {
     justify-content: center;
     width: fit-content;
     overflow: hidden;
-    transition: border-radius .5s ease, padding .5s ease, background-color .5s ease;
+    transition: border-radius 1s ease, padding 1s ease, background-color 1s ease;
     text-decoration: none;
     font-family: montserrat_bold;
     color: #003169;
-    padding: 8px;
+    padding: 0 10px;
 }
 .btn-rounded a img {
-    width: 70px;
-    transition: width .5s ease;
+    width: 55px;
+    transition: transform .32s cubic-bezier(.2,.8,.2,1);
+    transform-origin: center center;
 }
 .btn-rounded a p {
     margin-bottom: -5px;
     max-width: 0;
     overflow: hidden;
     white-space: nowrap;
-    transition: max-width .5s ease, opacity .2s ease;
+    transition: max-width .45s cubic-bezier(.2,.8,.2,1), opacity .2s ease, margin-left .32s ease;
     font-family: leaguespartan_bold;
 }
+/* Trigger animations when hovering the container instead of the inner link to avoid shaking */
 .btn-rounded a:hover p {
     max-width: 180px;
-    margin-left: 10px;
 }
 .btn-rounded a:hover {
     border-radius: 50px;
     background-color: #fff;
-    padding: 8px 16px;
 }
+/* Use transform scale instead of changing width to avoid layout shifts; only affect hovered anchor */
 .btn-rounded a:hover img {
-    width: 30px;
+    transform: scale(0.7);
 }
 .head-title-Oceanariumtours h2 {
     margin-bottom: 20px;

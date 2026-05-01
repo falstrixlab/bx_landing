@@ -369,16 +369,45 @@
       let currentScroll = 0;
       let isScrollingDown = true;
 
-      let tween = null;
+      // Prefer Splide marquee when present; otherwise fall back to GSAP marquee
+      (function () {
+        if (typeof Splide !== 'undefined' && document.querySelector('.marquee-splide')) {
+          document.querySelectorAll('.marquee-splide').forEach(function (el) {
+            try {
+              var spl = new Splide(el, {
+                type: 'loop',
+                perPage: 1,
+                perMove: 1,
+                arrows: false,
+                pagination: false,
+                drag: false,
+                autoWidth: true,
+                autoScroll: {
+                  speed: 1,
+                  pauseOnHover: true,
+                  autoStart: true,
+                },
+              });
+              var AutoScroll = window.splide && window.splide.Extensions && window.splide.Extensions.AutoScroll;
+              if (AutoScroll) spl.mount({ AutoScroll: AutoScroll });
+              else spl.mount();
+            } catch (e) {
+              console.error('Splide marquee init error', e);
+            }
+          });
+          return;
+        }
 
-      if (document.querySelector('.marquee__inner')) {
-        tween = gsap.to('.marquee__inner', {
-          xPercent: -100,
-          repeat: -1,
-          duration: 25,
-          ease: 'linear',
-        }).totalProgress(.5);
-      }
+        var tween = null;
+        if (document.querySelector('.marquee__inner')) {
+          tween = gsap.to('.marquee__inner', {
+            xPercent: -100,
+            repeat: -1,
+            duration: 25,
+            ease: 'linear',
+          }).totalProgress(.5);
+        }
+      })();
 
 
 
