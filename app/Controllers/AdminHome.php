@@ -423,8 +423,8 @@ class AdminHome extends BaseController {
                 {
                     /* Start upload banner */
                     $fiturslidepict =  $this->request->getFile('homefitureslide_pict');
-                    $newfiturslidepict = "bxsea_image".$fiturslidepict->getRandomName();
-                    if ($fiturslidepict != "")
+                    $newfiturslidepict = $this->request->getVar('homefitureslide_pict_temp');
+                    if ($fiturslidepict->isValid() && ! $fiturslidepict->hasMoved())
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -433,21 +433,20 @@ class AdminHome extends BaseController {
                                 'rules' => [
                                     'uploaded[homefitureslide_pict]',
                                     'is_image[homefitureslide_pict]',
-                                    'mime_in[homefitureslide_pict,image/jpg,image/jpeg,image/png]',
+                                    'mime_in[homefitureslide_pict,image/jpg,image/jpeg,image/png,image/webp]',
                                 ],
                             ],
                         ];
                         if (! $this->validate($validationRule)) 
                         {
                             $this->session->setFlashdata('invalidate', '-');
-                            return redirect()->route(getenv('bxsea.admin').'/home/banner/update/'.$this->request->getVar('homefiturslide_id'));
+                            return redirect()->to(site_url(getenv('bxsea.admin').'/home/fiturslide/update/'.$this->request->getVar('homefiturslide_id')));
                         }
-                        if ($fiturslidepict->isValid() && ! $fiturslidepict->hasMoved()) 
-                        {
-                            if (is_file('assets/upload/fiturslide/'.$this->request->getVar('homefitureslide_pict_temp'))){
-                                unlink('assets/upload/fiturslide/'.$this->request->getVar('homefitureslide_pict_temp'));
-                            }
-                            $fiturslidepict->move(ROOTPATH .'assets/upload/fiturslide', $newfiturslidepict, true);
+                        $oldPict = $this->request->getVar('homefitureslide_pict_temp');
+                        $newfiturslidepict = "bxsea_image".$fiturslidepict->getRandomName();
+                        $fiturslidepict->move(ROOTPATH .'assets/upload/fiturslide', $newfiturslidepict, true);
+                        if (is_file(ROOTPATH.'assets/upload/fiturslide/'.$oldPict)){
+                            unlink(ROOTPATH.'assets/upload/fiturslide/'.$oldPict);
                         }
                     }
                     /* End upload banner */
@@ -457,24 +456,27 @@ class AdminHome extends BaseController {
                         'homefiturslide_title_en' => $this->request->getVar('homefiturslide_title_en'),
                         'homefiturslide_shortdesc' => $this->request->getVar('homefiturslide_shortdesc'),
                         'homefiturslide_shortdesc_en' => $this->request->getVar('homefiturslide_shortdesc_en'),
-                        'homefitureslide_pict' => ($fiturslidepict != "") ? $newfiturslidepict : $this->request->getVar('homefitureslide_pict_temp'),
+                        'homefitureslide_pict' => $newfiturslidepict,
                         'homefitureslide_link' => $this->request->getVar('homefitureslide_link')
                     ];
                     $update = $this->Crud->updateData('tbl_homefiturslide', $data, ['homefiturslide_id' => $this->request->getVar('homefiturslide_id')]);
-                    if ($update) 
+                    if ($update !== false) 
                     {
                         $this->session->setFlashdata('success', '-');
-                        return redirect()->route(getenv('bxsea.admin').'/home/fiturslide');
+                        return redirect()->to(site_url(getenv('bxsea.admin').'/home/fiturslide'));
                     }
                     else
                     {
+                        log_message('error', 'AdminHome run_update_fiturslide: DB update failed for id=' . $this->request->getVar('homefiturslide_id'));
                         $this->session->setFlashdata('failed', '-');
-                        return redirect()->route(getenv('bxsea.admin').'/home/fiturslide');
+                        return redirect()->to(site_url(getenv('bxsea.admin').'/home/fiturslide'));
                     }
                 }
                 catch(\Throwable $ex)
                 {
-                    log_message('error', 'AdminHome: ' . $ex->getMessage()); return redirect()->to(site_url(getenv('bxsea.admin').'/dashboard'));
+                    log_message('error', 'AdminHome run_update_fiturslide exception: ' . $ex->getMessage() . ' | ' . $ex->getFile() . ':' . $ex->getLine());
+                    $this->session->setFlashdata('failed', '-');
+                    return redirect()->to(site_url(getenv('bxsea.admin').'/home/fiturslide'));
                 }
             }
         }

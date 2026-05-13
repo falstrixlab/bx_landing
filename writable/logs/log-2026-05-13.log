@@ -1,0 +1,932 @@
+ERROR - 2026-05-13 16:04:01 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(22): App\Models\Crud->readData('*', 'tbl_mastersetup', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(22): App\Models\Crud->readData('*', 'tbl_mastersetup', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:01 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:05 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(23): App\Models\Crud->readData('*', 'tbl_mastersocia...', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(23): App\Models\Crud->readData('*', 'tbl_mastersocia...', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:05 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:09 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(24): App\Models\Crud->readData('*', 'tbl_mastersocia...', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(24): App\Models\Crud->readData('*', 'tbl_mastersocia...', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:09 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:13 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(25): App\Models\Crud->readData('*', 'tbl_mastersocia...', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(25): App\Models\Crud->readData('*', 'tbl_mastersocia...', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:13 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:17 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(27): App\Models\Crud->readData('*', 'tbl_homebanner', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(27): App\Models\Crud->readData('*', 'tbl_homebanner', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:17 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:21 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(28): App\Models\Crud->readData('*', 'tbl_homefitursl...', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(28): App\Models\Crud->readData('*', 'tbl_homefitursl...', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:21 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:25 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(29): App\Models\Crud->readData('*', 'tbl_homeinfluen...', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(29): App\Models\Crud->readData('*', 'tbl_homeinfluen...', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:25 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:29 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(30): App\Models\Crud->readData('*', 'tbl_homeannounc...', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(30): App\Models\Crud->readData('*', 'tbl_homeannounc...', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:29 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:34 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(31): App\Models\Crud->readData('*', 'tbl_homepartner', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(31): App\Models\Crud->readData('*', 'tbl_homepartner', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:34 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:38 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(32): App\Models\Crud->readData('*', 'tbl_hometestimo...', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(32): App\Models\Crud->readData('*', 'tbl_hometestimo...', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:38 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:42 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(33): App\Models\Crud->readData('*', 'tbl_homesosmedc...', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(33): App\Models\Crud->readData('*', 'tbl_homesosmedc...', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:42 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:46 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(35): App\Models\Crud->readData('*', 'tbl_ticket_cate...', Array, '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(35): App\Models\Crud->readData('*', 'tbl_ticket_cate...', Array, '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:46 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:50 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(36): App\Models\Crud->readData('*', 'tbl_ticket', Array, '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(36): App\Models\Crud->readData('*', 'tbl_ticket', Array, '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:50 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:54 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(37): App\Models\Crud->readData('*', 'tbl_ticket', Array, '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(37): App\Models\Crud->readData('*', 'tbl_ticket', Array, '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:54 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:04:58 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(38): App\Models\Crud->readData('*', 'tbl_ticket', Array, '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(38): App\Models\Crud->readData('*', 'tbl_ticket', Array, '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:04:58 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:02 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(39): App\Models\Crud->readData('*', 'tbl_ticket', Array, '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(39): App\Models\Crud->readData('*', 'tbl_ticket', Array, '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:02 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:06 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(41): App\Models\Crud->readData('*', 'tbl_explorejour...', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(41): App\Models\Crud->readData('*', 'tbl_explorejour...', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:06 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:10 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(42): App\Models\Crud->readData('*', 'tbl_explorejour...', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(42): App\Models\Crud->readData('*', 'tbl_explorejour...', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:10 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:14 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(43): App\Models\Crud->readData('*', 'tbl_exploreshow', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(43): App\Models\Crud->readData('*', 'tbl_exploreshow', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:14 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:18 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tenant_...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(44): App\Models\Crud->readData('tenant_thumbnai...', 'tbl_visittenant', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tenant_...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(44): App\Models\Crud->readData('tenant_thumbnai...', 'tbl_visittenant', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:18 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:22 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tenant_...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(45): App\Models\Crud->readData('tenant_title, t...', 'tbl_visittenant', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `tenant_...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(45): App\Models\Crud->readData('tenant_title, t...', 'tbl_visittenant', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:22 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:27 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(46): App\Models\Crud->readData('*', 'tbl_article', '', '', '', '', Array, '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(46): App\Models\Crud->readData('*', 'tbl_article', '', '', '', '', Array, '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:27 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:31 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(47): App\Models\Crud->readData('*', 'tbl_article', '', '', '', '', Array, Array)
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(47): App\Models\Crud->readData('*', 'tbl_article', '', '', '', '', Array, Array)
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:31 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:35 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(48): App\Models\Crud->readData('*', 'tbl_ticketpromo...', '', '', '', '', Array, Array)
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(48): App\Models\Crud->readData('*', 'tbl_ticketpromo...', '', '', '', '', Array, Array)
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:35 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:39 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(49): App\Models\Crud->readData('*', 'tbl_ticketexper...', '', '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(49): App\Models\Crud->readData('*', 'tbl_ticketexper...', '', '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:39 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:43 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(51): App\Models\Crud->readData('*', 'tbl_masterdesc', Array, '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(51): App\Models\Crud->readData('*', 'tbl_masterdesc', Array, '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:43 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:47 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(52): App\Models\Crud->readData('*', 'tbl_masterdesc', Array, '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(52): App\Models\Crud->readData('*', 'tbl_masterdesc', Array, '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:47 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:51 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(53): App\Models\Crud->readData('*', 'tbl_masterdesc', Array, '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(53): App\Models\Crud->readData('*', 'tbl_masterdesc', Array, '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:51 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+ERROR - 2026-05-13 16:05:55 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_bxsea', 3306, '', 0)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(54): App\Models\Crud->readData('*', 'tbl_masterdesc', Array, '', '', '', '', '')
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#8 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\bxsea\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\bxsea\system\Database\BaseConnection.php(654): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\bxsea\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\bxsea\app\Models\Crud.php(105): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\bxsea\app\Controllers\Landing.php(54): App\Models\Crud->readData('*', 'tbl_masterdesc', Array, '', '', '', '', '')
+#5 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(951): App\Controllers\Landing->index()
+#6 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Landing))
+#7 C:\xampp\htdocs\bxsea\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\bxsea\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\bxsea\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\bxsea\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+ERROR - 2026-05-13 16:05:55 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+CRITICAL - 2026-05-13 16:05:59 --> ErrorException: Maximum execution time of 120 seconds exceeded
+[Method: GET, Route: id]
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 201.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
