@@ -177,3 +177,22 @@ if (! function_exists('bxsea_design_asset_meta')) {
 		return $records[$group][$key] ?? [];
 	}
 }
+
+if (! function_exists('bxsea_og_meta')) {
+	function bxsea_og_meta(string $title = '', string $description = '', string $imageUrl = ''): string
+	{
+		$siteTitle = trim($title) !== '' ? esc($title) . ' - BXSea' : 'BXSea';
+		$siteDesc  = trim($description) !== '' ? esc($description) : 'BXSea - Walk Beneath the Waves. Oceanarium dengan terowongan bawah laut terbesar di Asia Tenggara.';
+		$siteImage = trim($imageUrl) !== '' ? $imageUrl : base_url(bxsea_design_asset('global', 'site_logo', 'assets/landing/image/logo-BXSea.png'));
+		$siteUrl   = current_url();
+
+		return implode("\n", [
+			'  <meta property="og:type" content="website">',
+			'  <meta property="og:site_name" content="BXSea">',
+			'  <meta property="og:title" content="' . $siteTitle . '">',
+			'  <meta property="og:description" content="' . $siteDesc . '">',
+			'  <meta property="og:image" content="' . $siteImage . '">',
+			'  <meta property="og:url" content="' . esc($siteUrl) . '">',
+		]);
+	}
+}

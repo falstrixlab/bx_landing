@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="<?= base_url('assets/landing/');?>splide-4.1.3/splide-4.1.3/dist/css/splide.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
   <link rel="stylesheet" href="<?= base_url('assets/landing/');?>style.css">
-  <link rel="shortcut icon" href="<?= bxsea_design_asset('global', 'favicon', 'assets/landing/image/logo-BXSea.png');?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= base_url('assets/landing/image/logo-BXSea.png');?>" type="image/png">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J9ERF53WJ"></script>
     <script>
@@ -21,6 +21,7 @@
       gtag('config', 'G-5J9ERF53WJ');
     </script>
   <title><?= $title;?> - BXSea</title>
+  <?= bxsea_og_meta($title ?? '', $description ?? '');?>
 </head>
 <body class="wrapgrid">
 

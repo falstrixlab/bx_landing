@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="<?= base_url('assets/landing/');?>evo-calendar/css/evo-calendar.royal-navy.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="<?= base_url('assets/landing/');?>style.css">
-  <link rel="shortcut icon" href="<?= bxsea_design_asset('global', 'favicon', 'assets/landing/image/logo-BXSea.png');?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= base_url('assets/landing/image/logo-BXSea.png');?>" type="image/png">
   <script src="<?= base_url('assets/landing/');?>bootstrap/js/jquery3.6.3.min.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J9ERF53WJ"></script>
@@ -24,6 +24,7 @@
     gtag('config', 'G-5J9ERF53WJ');
   </script>
   <title><?= esc($title ?? 'BXSea');?> - BXSea</title>
+  <?= bxsea_og_meta($title ?? '', $description ?? '');?>
 </head>
 <body class="wrapgrid">
 
