@@ -156,9 +156,9 @@ class AdminExplore extends BaseController {
             {
                 try
                 {
-                    /* Start upload ticket */
+                    /* Start upload journey pict */
                     $journeypict =  $this->request->getFile('journey_pict');
-                    $newjourneypict = "bxsea_image".$journeypict->getRandomName();
+                    $newjourneypict = $this->request->getVar('journey_pict_temp');
                     if ($this->hasUploadedFile($journeypict))
                     {
                         if (! $this->validate(['journey_pict' => ['label' => 'Image File', 'rules' => ['uploaded[journey_pict]', 'mime_in[journey_pict,image/jpg,image/jpeg,image/png,video/mp4]']]]))
@@ -166,13 +166,11 @@ class AdminExplore extends BaseController {
                             $this->session->setFlashdata('invalidate', '-');
                             return redirect()->route(getenv('bxsea.admin').'/explore/journey/update/'.$this->request->getVar('journey_id'));
                         }
-                        if ($journeypict->isValid() && ! $journeypict->hasMoved()) 
-                        {
-                            if (is_file(ROOTPATH.'assets/upload/journey/'.$this->request->getVar('journey_pict_temp'))){
-                                unlink(ROOTPATH.'assets/upload/journey/'.$this->request->getVar('journey_pict_temp'));
-                            }
-                            $journeypict->move(ROOTPATH .'assets/upload/journey', $newjourneypict, true);
+                        if ($newjourneypict && is_file(ROOTPATH.'assets/upload/journey/'.$newjourneypict)) {
+                            unlink(ROOTPATH.'assets/upload/journey/'.$newjourneypict);
                         }
+                        $newjourneypict = 'bxsea_image_' . $journeypict->getRandomName();
+                        $journeypict->move(ROOTPATH .'assets/upload/journey', $newjourneypict, true);
                     }
                     /* End upload journey pict */
 
@@ -206,7 +204,7 @@ class AdminExplore extends BaseController {
                         'journey_title_en' => $this->request->getVar('journey_title_en'),
                         'journey_desc' => $this->request->getVar('journey_desc'),
                         'journey_desc_en' => $this->request->getVar('journey_desc_en'),
-                        'journey_pict' => ($this->hasUploadedFile($journeypict)) ? $newjourneypict : $this->request->getVar('journey_pict_temp'),
+                        'journey_pict' => $newjourneypict,
                         'journey_zone' => $this->request->getVar('journey_zone'),
                         'journey_popup_desc_id' => $this->request->getVar('journey_popup_desc_id'),
                         'journey_popup_desc_en' => $this->request->getVar('journey_popup_desc_en'),
