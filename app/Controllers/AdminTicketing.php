@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 use Exception;
-use CodeIgniter\Controller;
 use App\Models\Crud;
 
 class AdminTicketing extends BaseController {
@@ -11,11 +10,6 @@ class AdminTicketing extends BaseController {
         $this->Crud = new Crud();
         $this->db = \Config\Database::connect();
         $this->session = \Config\Services::session();
-    }
-
-    private function hasUploadedFile($file): bool
-    {
-        return $file && $file->isValid() && $file->getError() !== UPLOAD_ERR_NO_FILE && ! $file->hasMoved();
     }
 
     /* Master Ticket Page */ 
@@ -158,8 +152,8 @@ class AdminTicketing extends BaseController {
                             return redirect()->route(getenv('bxsea.admin').'/ticketing/masterticket/update/'.$this->request->getVar('ticket_id'));
                         }
                         $newticketpict = 'bxsea_image_' . $ticketpict->getRandomName();
-                        if (is_file('assets/upload/ticket/'.$this->request->getVar('ticket_pict_temp'))){
-                            unlink('assets/upload/ticket/'.$this->request->getVar('ticket_pict_temp'));
+                        if (is_file(ROOTPATH.'assets/upload/ticket/'.$this->request->getVar('ticket_pict_temp'))){
+                            unlink(ROOTPATH.'assets/upload/ticket/'.$this->request->getVar('ticket_pict_temp'));
                         }
                         $ticketpict->move(ROOTPATH .'assets/upload/ticket', $newticketpict, true);
                     }
@@ -210,8 +204,8 @@ class AdminTicketing extends BaseController {
                 $getimage = $this->Crud->readData('ticket_pict', 'tbl_ticket', ['ticket_id' => $ticket_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/ticket/'.$val['ticket_pict'])){
-                        unlink('assets/upload/ticket/'.$val['ticket_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/ticket/'.$val['ticket_pict'])){
+                        unlink(ROOTPATH.'assets/upload/ticket/'.$val['ticket_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_ticket', ['ticket_id' => $ticket_id]);
@@ -522,8 +516,8 @@ class AdminTicketing extends BaseController {
                             return redirect()->route(getenv('bxsea.admin').'/ticketing/moment/update/'.$this->request->getVar('moment_id'));
                         }
                         $newmomentpict = 'bxsea_image_' . $momentpict->getRandomName();
-                        if (is_file('assets/upload/moment/'.$this->request->getVar('moment_pict_temp'))){
-                            unlink('assets/upload/moment/'.$this->request->getVar('moment_pict_temp'));
+                        if (is_file(ROOTPATH.'assets/upload/moment/'.$this->request->getVar('moment_pict_temp'))){
+                            unlink(ROOTPATH.'assets/upload/moment/'.$this->request->getVar('moment_pict_temp'));
                         }
                         $momentpict->move(ROOTPATH .'assets/upload/moment', $newmomentpict, true);
                     }
@@ -569,8 +563,8 @@ class AdminTicketing extends BaseController {
                 $getimage = $this->Crud->readData('moment_pict', 'tbl_ticketmoment', ['moment_id' => $moment_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/moment/'.$val['moment_pict'])){
-                        unlink('assets/upload/moment/'.$val['moment_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/moment/'.$val['moment_pict'])){
+                        unlink(ROOTPATH.'assets/upload/moment/'.$val['moment_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_ticketmoment', ['moment_id' => $moment_id]);
@@ -724,8 +718,8 @@ class AdminTicketing extends BaseController {
                             return redirect()->route(getenv('bxsea.admin').'/ticketing/promotion/update/'.$this->request->getVar('promotion_id'));
                         }
                         $newpromotionpict = 'bxsea_image_' . $promotionpict->getRandomName();
-                        if (is_file('assets/upload/promotion/'.$this->request->getVar('promotion_pict_temp'))){
-                            unlink('assets/upload/promotion/'.$this->request->getVar('promotion_pict_temp'));
+                        if (is_file(ROOTPATH.'assets/upload/promotion/'.$this->request->getVar('promotion_pict_temp'))){
+                            unlink(ROOTPATH.'assets/upload/promotion/'.$this->request->getVar('promotion_pict_temp'));
                         }
                         $promotionpict->move(ROOTPATH .'assets/upload/promotion', $newpromotionpict, true);
                     }
@@ -772,8 +766,8 @@ class AdminTicketing extends BaseController {
                 $getimage = $this->Crud->readData('promotion_pict', 'tbl_ticketpromotion', ['promotion_id' => $promotion_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/promotion/'.$val['promotion_pict'])){
-                        unlink('assets/upload/promotion/'.$val['promotion_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/promotion/'.$val['promotion_pict'])){
+                        unlink(ROOTPATH.'assets/upload/promotion/'.$val['promotion_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_ticketpromotion', ['promotion_id' => $promotion_id]);
@@ -926,9 +920,9 @@ class AdminTicketing extends BaseController {
                             return redirect()->route(getenv('bxsea.admin').'/ticketing/promosi/update/'.$this->request->getVar('promosi_id'));
                         }
                         $newpromosipict = 'bxsea_image_' . $promosipict->getRandomName();
-                        if (is_file('assets/upload/promosi/' . $this->request->getVar('promosi_pict_temp')))
+                        if (is_file(ROOTPATH.'assets/upload/promosi/' . $this->request->getVar('promosi_pict_temp')))
                         {
-                            unlink('assets/upload/promosi/' . $this->request->getVar('promosi_pict_temp'));
+                            unlink(ROOTPATH.'assets/upload/promosi/' . $this->request->getVar('promosi_pict_temp'));
                         }
                         $promosipict->move(ROOTPATH . 'assets/upload/promosi', $newpromosipict, true);
                     }
@@ -975,9 +969,9 @@ class AdminTicketing extends BaseController {
                 $getimage = $this->Crud->readData('promosi_pict', 'tbl_ticketpromosi', ['promosi_id' => $promosi_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/promosi/' . $val['promosi_pict']))
+                    if (is_file(ROOTPATH.'assets/upload/promosi/' . $val['promosi_pict']))
                     {
-                        unlink('assets/upload/promosi/' . $val['promosi_pict']);
+                        unlink(ROOTPATH.'assets/upload/promosi/' . $val['promosi_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_ticketpromosi', ['promosi_id' => $promosi_id]);
@@ -1131,8 +1125,8 @@ class AdminTicketing extends BaseController {
                             return redirect()->route(getenv('bxsea.admin').'/ticketing/schoolprogram/update/'.$this->request->getVar('schoolprogram_id'));
                         }
                         $newschoolprogrampict = 'bxsea_image_' . $schoolprogrampict->getRandomName();
-                        if (is_file('assets/upload/schoolprogram/'.$this->request->getVar('schoolprogram_pict_temp'))){
-                            unlink('assets/upload/schoolprogram/'.$this->request->getVar('schoolprogram_pict_temp'));
+                        if (is_file(ROOTPATH.'assets/upload/schoolprogram/'.$this->request->getVar('schoolprogram_pict_temp'))){
+                            unlink(ROOTPATH.'assets/upload/schoolprogram/'.$this->request->getVar('schoolprogram_pict_temp'));
                         }
                         $schoolprogrampict->move(ROOTPATH .'assets/upload/schoolprogram', $newschoolprogrampict, true);
                     }
@@ -1179,8 +1173,8 @@ class AdminTicketing extends BaseController {
                 $getimage = $this->Crud->readData('schoolprogram_pict', 'tbl_ticketschoolprogram', ['schoolprogram_id' => $schoolprogram_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/schoolprogram/'.$val['schoolprogram_pict'])){
-                        unlink('assets/upload/schoolprogram/'.$val['schoolprogram_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/schoolprogram/'.$val['schoolprogram_pict'])){
+                        unlink(ROOTPATH.'assets/upload/schoolprogram/'.$val['schoolprogram_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_ticketschoolprogram', ['schoolprogram_id' => $schoolprogram_id]);

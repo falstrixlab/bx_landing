@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 use Exception;
-use CodeIgniter\Controller;
 use App\Models\Crud;
 use App\Models\VisitorInfoModel;
 
@@ -13,11 +12,6 @@ class AdminVisit extends BaseController {
         $this->visitorInfoModel = new VisitorInfoModel();
         $this->db = \Config\Database::connect();
         $this->session = \Config\Services::session();
-    }
-
-    private function hasUploadedFile($file): bool
-    {
-        return $file && $file->isValid() && $file->getError() !== UPLOAD_ERR_NO_FILE && ! $file->hasMoved();
     }
 
     /* Tenant Page */ 
@@ -212,8 +206,8 @@ class AdminVisit extends BaseController {
                             return redirect()->route(getenv('bxsea.admin').'/visit/tenant/update/'.$this->request->getVar('tenant_id'));
                         }
                         $newtenantthumbpict = 'bxsea_image_' . $tenantthumbpict->getRandomName();
-                        if (is_file('assets/upload/tenant/'.$this->request->getVar('tenant_thumbnail_pict_temp'))){
-                            unlink('assets/upload/tenant/'.$this->request->getVar('tenant_thumbnail_pict_temp'));
+                        if (is_file(ROOTPATH.'assets/upload/tenant/'.$this->request->getVar('tenant_thumbnail_pict_temp'))){
+                            unlink(ROOTPATH.'assets/upload/tenant/'.$this->request->getVar('tenant_thumbnail_pict_temp'));
                         }
                         $tenantthumbpict->move(ROOTPATH .'assets/upload/tenant', $newtenantthumbpict, true);
                     }
@@ -241,8 +235,8 @@ class AdminVisit extends BaseController {
                             return redirect()->route(getenv('bxsea.admin').'/visit/tenant/update/'.$this->request->getVar('tenant_id'));
                         }
                         $newtenantmainpict = 'bxsea_image_' . $tenantmainpict->getRandomName();
-                        if (is_file('assets/upload/tenant/'.$this->request->getVar('tenant_main_pict_temp'))){
-                            unlink('assets/upload/tenant/'.$this->request->getVar('tenant_main_pict_temp'));
+                        if (is_file(ROOTPATH.'assets/upload/tenant/'.$this->request->getVar('tenant_main_pict_temp'))){
+                            unlink(ROOTPATH.'assets/upload/tenant/'.$this->request->getVar('tenant_main_pict_temp'));
                         }
                         $tenantmainpict->move(ROOTPATH .'assets/upload/tenant', $newtenantmainpict, true);
                     }
@@ -265,7 +259,7 @@ class AdminVisit extends BaseController {
                             $this->session->setFlashdata('invalidate', '-');
                             return redirect()->route(getenv('bxsea.admin').'/visit/tenant/update/'.$this->request->getVar('tenant_id'));
                         }
-                        if ($newtenantpopupimg && is_file('assets/upload/tenant/'.$newtenantpopupimg)) { unlink('assets/upload/tenant/'.$newtenantpopupimg); }
+                        if ($newtenantpopupimg && is_file(ROOTPATH.'assets/upload/tenant/'.$newtenantpopupimg)) { unlink(ROOTPATH.'assets/upload/tenant/'.$newtenantpopupimg); }
                         $newtenantpopupimg = 'bxsea_image_' . $tenantpopupimg->getRandomName();
                         $tenantpopupimg->move(ROOTPATH . 'assets/upload/tenant', $newtenantpopupimg, true);
                     }
@@ -280,7 +274,7 @@ class AdminVisit extends BaseController {
                                 $this->session->setFlashdata('invalidate', '-');
                                 return redirect()->route(getenv('bxsea.admin').'/visit/tenant/update/'.$this->request->getVar('tenant_id'));
                             }
-                            if ($newGVal && is_file('assets/upload/tenant/'.$newGVal)) { unlink('assets/upload/tenant/'.$newGVal); }
+                            if ($newGVal && is_file(ROOTPATH.'assets/upload/tenant/'.$newGVal)) { unlink(ROOTPATH.'assets/upload/tenant/'.$newGVal); }
                             $newGVal = 'bxsea_image_' . $gFile->getRandomName();
                             $gFile->move(ROOTPATH . 'assets/upload/tenant', $newGVal, true);
                         }
@@ -323,11 +317,11 @@ class AdminVisit extends BaseController {
                 $getimage = $this->Crud->readData('tenant_thumbnail_pict, tenant_main_pict', 'tbl_visittenant', ['tenant_id' => $tenant_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/tenant/'.$val['tenant_thumbnail_pict'])){
-                        unlink('assets/upload/tenant/'.$val['tenant_thumbnail_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/tenant/'.$val['tenant_thumbnail_pict'])){
+                        unlink(ROOTPATH.'assets/upload/tenant/'.$val['tenant_thumbnail_pict']);
                     }
-                    if (is_file('assets/upload/tenant/'.$val['tenant_main_pict'])){
-                        unlink('assets/upload/tenant/'.$val['tenant_main_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/tenant/'.$val['tenant_main_pict'])){
+                        unlink(ROOTPATH.'assets/upload/tenant/'.$val['tenant_main_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_visittenant', ['tenant_id' => $tenant_id]);
@@ -655,8 +649,8 @@ class AdminVisit extends BaseController {
                             return redirect()->route(getenv('bxsea.admin').'/visit/guide/update/'.$this->request->getVar('guide_id'));
                         }
                         $newguidepict = 'bxsea_image_' . $guidepict->getRandomName();
-                        if (is_file('assets/upload/guide/'.$this->request->getVar('guide_pict_temp'))){
-                            unlink('assets/upload/guide/'.$this->request->getVar('guide_pict_temp'));
+                        if (is_file(ROOTPATH.'assets/upload/guide/'.$this->request->getVar('guide_pict_temp'))){
+                            unlink(ROOTPATH.'assets/upload/guide/'.$this->request->getVar('guide_pict_temp'));
                         }
                         $guidepict->move(ROOTPATH .'assets/upload/guide', $newguidepict, true);
                     }
@@ -701,8 +695,8 @@ class AdminVisit extends BaseController {
                 $getimage = $this->Crud->readData('guide_pict', 'tbl_visitguide', ['guide_id' => $guide_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/guide/'.$val['guide_pict'])){
-                        unlink('assets/upload/guide/'.$val['guide_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/guide/'.$val['guide_pict'])){
+                        unlink(ROOTPATH.'assets/upload/guide/'.$val['guide_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_visitguide', ['guide_id' => $guide_id]);
@@ -879,8 +873,8 @@ class AdminVisit extends BaseController {
                             return redirect()->route(getenv('bxsea.admin').'/visit/map/update/'.$this->request->getVar('map_id'));
                         }
                         $newmappict = 'bxsea_image_' . $mappict->getRandomName();
-                        if (is_file('assets/upload/map/'.$this->request->getVar('map_pict_temp'))){
-                            unlink('assets/upload/map/'.$this->request->getVar('map_pict_temp'));
+                        if (is_file(ROOTPATH.'assets/upload/map/'.$this->request->getVar('map_pict_temp'))){
+                            unlink(ROOTPATH.'assets/upload/map/'.$this->request->getVar('map_pict_temp'));
                         }
                         $mappict->move(ROOTPATH .'assets/upload/map', $newmappict, true);
                     }
@@ -907,8 +901,8 @@ class AdminVisit extends BaseController {
                             return redirect()->route(getenv('bxsea.admin').'/visit/map/update/'.$this->request->getVar('map_id'));
                         }
                         $newmapfile = 'bxsea_file_' . $mapfile->getRandomName();
-                        if (is_file('assets/upload/map/'.$this->request->getVar('map_file_temp'))){
-                            unlink('assets/upload/map/'.$this->request->getVar('map_file_temp'));
+                        if (is_file(ROOTPATH.'assets/upload/map/'.$this->request->getVar('map_file_temp'))){
+                            unlink(ROOTPATH.'assets/upload/map/'.$this->request->getVar('map_file_temp'));
                         }
                         $mapfile->move(ROOTPATH .'assets/upload/map', $newmapfile, true);
                     }
@@ -955,11 +949,11 @@ class AdminVisit extends BaseController {
                 $getimage = $this->Crud->readData('map_pict, map_file', 'tbl_visitmap', ['map_id' => $map_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/map/'.$val['map_pict'])){
-                        unlink('assets/upload/map/'.$val['map_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/map/'.$val['map_pict'])){
+                        unlink(ROOTPATH.'assets/upload/map/'.$val['map_pict']);
                     }
-                    if (is_file('assets/upload/map/'.$val['map_file'])){
-                        unlink('assets/upload/map/'.$val['map_file']);
+                    if (is_file(ROOTPATH.'assets/upload/map/'.$val['map_file'])){
+                        unlink(ROOTPATH.'assets/upload/map/'.$val['map_file']);
                     }
                 }
                 $this->Crud->deleteData('tbl_visitmap', ['map_id' => $map_id]);
@@ -1115,8 +1109,8 @@ class AdminVisit extends BaseController {
                             return redirect()->route(getenv('bxsea.admin').'/visit/merchandise/update/'.$this->request->getVar('map_id'));
                         }
                         $newmerchandisepict = 'bxsea_image_' . $merchandisepict->getRandomName();
-                        if (is_file('assets/upload/merchandise/'.$this->request->getVar('merchandise_pict_temp'))){
-                            unlink('assets/upload/merchandise/'.$this->request->getVar('merchandise_pict_temp'));
+                        if (is_file(ROOTPATH.'assets/upload/merchandise/'.$this->request->getVar('merchandise_pict_temp'))){
+                            unlink(ROOTPATH.'assets/upload/merchandise/'.$this->request->getVar('merchandise_pict_temp'));
                         }
                         $merchandisepict->move(ROOTPATH .'assets/upload/merchandise', $newmerchandisepict, true);
                     }
@@ -1163,8 +1157,8 @@ class AdminVisit extends BaseController {
                 $getimage = $this->Crud->readData('merchandise_pict', 'tbl_visitmerchandise', ['merchandise_id' => $merchandise_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/merchandise/'.$val['merchandise_pict'])){
-                        unlink('assets/upload/merchandise/'.$val['merchandise_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/merchandise/'.$val['merchandise_pict'])){
+                        unlink(ROOTPATH.'assets/upload/merchandise/'.$val['merchandise_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_visitmerchandise', ['merchandise_id' => $merchandise_id]);

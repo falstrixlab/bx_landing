@@ -21,40 +21,38 @@ use Psr\Log\LoggerInterface;
  */
 abstract class BaseController extends Controller
 {
-    /**
-     * Instance of the main Request object.
-     *
-     * @var CLIRequest|IncomingRequest
-     */
     protected $request;
-
-    /**
-     * An array of helpers to be loaded automatically upon
-     * class instantiation. These helpers will be available
-     * to all other controllers that extend BaseController.
-     *
-     * @var array
-     */
     protected $helpers = [];
-
-    /**
-     * Be sure to declare properties for any property fetch you initialized.
-     * The creation of dynamic property is deprecated in PHP 8.2.
-     */
     protected $session;
     protected $Crud;
     protected $db;
 
-    /**
-     * @return void
-     */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
-        // Do Not Edit This Line
         parent::initController($request, $response, $logger);
+    }
 
-        // Preload any models, libraries, etc, here.
+    /**
+     * Check if a file was actually uploaded (not an empty file field).
+     * Fixes the bug where UploadedFile object != "" is always true.
+     * Note: does NOT check hasMoved() so ternary still works after move.
+     */
+    protected function hasUploadedFile($file): bool
+    {
+        return $file !== null
+            && $file instanceof \CodeIgniter\HTTP\Files\UploadedFile
+            && $file->isValid()
+            && $file->getError() !== UPLOAD_ERR_NO_FILE;
+    }
 
-        // E.g.: $this->session = \Config\Services::session();
+    /**
+     * Delete a file from the upload directory using absolute path.
+     */
+    protected function deleteUploadFile(string $relativePath): void
+    {
+        $abs = ROOTPATH . ltrim($relativePath, '/');
+        if (is_file($abs)) {
+            @unlink($abs);
+        }
     }
 }

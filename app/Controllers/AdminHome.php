@@ -146,7 +146,7 @@ class AdminHome extends BaseController {
                 {
                     $homebannerpict =  $this->request->getFile('homebanner_pict');
                     $newHomeBannerPict = "bxsea_image_".$homebannerpict->getRandomName();
-                    if ($homebannerpict != "")
+                    if ($this->hasUploadedFile($homebannerpict))
                     {
                         // Start process upload Service Process Image
                         $validationRule = [
@@ -222,7 +222,7 @@ class AdminHome extends BaseController {
                     /* Start upload banner */
                     $homebannerpict =  $this->request->getFile('homebanner_pict');
                     $newHomeBannerPict = "bxsea_image".$homebannerpict->getRandomName();
-                    if ($homebannerpict != "")
+                    if ($this->hasUploadedFile($homebannerpict))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -242,8 +242,8 @@ class AdminHome extends BaseController {
                         }
                         if ($homebannerpict->isValid() && ! $homebannerpict->hasMoved()) 
                         {
-                            if (is_file('assets/upload/banner/'.$this->request->getVar('homebanner_pict_temp'))){
-                                unlink('assets/upload/banner/'.$this->request->getVar('homebanner_pict_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/banner/'.$this->request->getVar('homebanner_pict_temp'))){
+                                unlink(ROOTPATH.'assets/upload/banner/'.$this->request->getVar('homebanner_pict_temp'));
                             }
                             $homebannerpict->move(ROOTPATH .'assets/upload/banner', $newHomeBannerPict, true);
                         }
@@ -251,7 +251,7 @@ class AdminHome extends BaseController {
                     /* End upload banner */
 
                     $data = [
-                        'homebanner_pict' => ($homebannerpict != "") ? $newHomeBannerPict : $this->request->getVar('homebanner_pict_temp')
+                        'homebanner_pict' => ($this->hasUploadedFile($homebannerpict)) ? $newHomeBannerPict : $this->request->getVar('homebanner_pict_temp')
                     ];
                     $update = $this->Crud->updateData('tbl_homebanner', $data, ['homebanner_id' => $this->request->getVar('homebanner_id')]);
                     if ($update) 
@@ -286,8 +286,8 @@ class AdminHome extends BaseController {
                 $getimage = $this->Crud->readData('homebanner_pict', 'tbl_homebanner', ['homebanner_id' => $homebanner_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/banner/'.$val['homebanner_pict'])){
-                        unlink('assets/upload/banner/'.$val['homebanner_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/banner/'.$val['homebanner_pict'])){
+                        unlink(ROOTPATH.'assets/upload/banner/'.$val['homebanner_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_homebanner', ['homebanner_id' => $homebanner_id]);
@@ -343,7 +343,7 @@ class AdminHome extends BaseController {
                 {
                     $fiturslidepict =  $this->request->getFile('homefitureslide_pict');
                     $newfiturslidepict = "bxsea_image_".$fiturslidepict->getRandomName();
-                    if ($fiturslidepict != "")
+                    if ($this->hasUploadedFile($fiturslidepict))
                     {
                         // Start process upload Service Process Image
                         $validationRule = [
@@ -495,8 +495,8 @@ class AdminHome extends BaseController {
                 $getimage = $this->Crud->readData('homefitureslide_pict', 'tbl_homefiturslide', ['homefiturslide_id' => $homefiturslide_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/fiturslide/'.$val['homefitureslide_pict'])){
-                        unlink('assets/upload/fiturslide/'.$val['homefitureslide_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/fiturslide/'.$val['homefitureslide_pict'])){
+                        unlink(ROOTPATH.'assets/upload/fiturslide/'.$val['homefitureslide_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_homefiturslide', ['homefiturslide_id' => $homefiturslide_id]);
@@ -552,7 +552,7 @@ class AdminHome extends BaseController {
                 {
                     $influencerpict =  $this->request->getFile('homeinfluencer_pict');
                     $newinfluencerpict = "bxsea_image_".$influencerpict->getRandomName();
-                    if ($influencerpict != "")
+                    if ($this->hasUploadedFile($influencerpict))
                     {
                         // Start process upload Service Process Image
                         $validationRule = [
@@ -630,7 +630,7 @@ class AdminHome extends BaseController {
                     /* Start upload influencer */
                     $influencerpict =  $this->request->getFile('homeinfluencer_pict');
                     $newInfluencerpict = "bxsea_image".$influencerpict->getRandomName();
-                    if ($influencerpict != "")
+                    if ($this->hasUploadedFile($influencerpict))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -649,8 +649,8 @@ class AdminHome extends BaseController {
                         }
                         if ($influencerpict->isValid() && ! $influencerpict->hasMoved()) 
                         {
-                            if (is_file('assets/upload/influencer/'.$this->request->getVar('homeinfluencer_pict_temp'))){
-                                unlink('assets/upload/influencer/'.$this->request->getVar('homeinfluencer_pict_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/influencer/'.$this->request->getVar('homeinfluencer_pict_temp'))){
+                                unlink(ROOTPATH.'assets/upload/influencer/'.$this->request->getVar('homeinfluencer_pict_temp'));
                             }
                             $influencerpict->move(ROOTPATH .'assets/upload/influencer', $newInfluencerpict, true);
                         }
@@ -661,7 +661,7 @@ class AdminHome extends BaseController {
                         'homeinfluencer_name' => $this->request->getVar('homeinfluencer_name'),
                         'homeinfluencer_review' => $this->request->getVar('homeinfluencer_review'),
                         'homeinfluencer_review_en' => $this->request->getVar('homeinfluencer_review_en'),
-                        'homeinfluencer_pict' => ($influencerpict != "") ? $newInfluencerpict : $this->request->getVar('homeinfluencer_pict_temp')
+                        'homeinfluencer_pict' => ($this->hasUploadedFile($influencerpict)) ? $newInfluencerpict : $this->request->getVar('homeinfluencer_pict_temp')
                     ];
                     $update = $this->Crud->updateData('tbl_homeinfluencer', $data, ['homeinfluencer_id' => $this->request->getVar('homeinfluencer_id')]);
                     if ($update) 
@@ -696,8 +696,8 @@ class AdminHome extends BaseController {
                 $getimage = $this->Crud->readData('homeinfluencer_pict', 'tbl_homeinfluencer', ['homeinfluencer_id' => $homeinfluencer_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/influencer/'.$val['homeinfluencer_pict'])){
-                        unlink('assets/upload/influencer/'.$val['homeinfluencer_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/influencer/'.$val['homeinfluencer_pict'])){
+                        unlink(ROOTPATH.'assets/upload/influencer/'.$val['homeinfluencer_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_homeinfluencer', ['homeinfluencer_id' => $homeinfluencer_id]);
@@ -753,7 +753,7 @@ class AdminHome extends BaseController {
                 {
                     $testimonipict =  $this->request->getFile('testimoni_pict');
                     $newtestimonipict = "bxsea_image_".$testimonipict->getRandomName();
-                    if ($testimonipict != "")
+                    if ($this->hasUploadedFile($testimonipict))
                     {
                         // Start process upload Service Process Image
                         $validationRule = [
@@ -832,7 +832,7 @@ class AdminHome extends BaseController {
                     /* Start upload testimoni */
                     $testimonipict =  $this->request->getFile('testimoni_pict');
                     $newTestimonipict = "bxsea_image".$testimonipict->getRandomName();
-                    if ($testimonipict != "")
+                    if ($this->hasUploadedFile($testimonipict))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -852,8 +852,8 @@ class AdminHome extends BaseController {
                         }
                         if ($testimonipict->isValid() && ! $testimonipict->hasMoved()) 
                         {
-                            if (is_file('assets/upload/testimoni/'.$this->request->getVar('testimoni_pict_temp'))){
-                                unlink('assets/upload/testimoni/'.$this->request->getVar('testimoni_pict_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/testimoni/'.$this->request->getVar('testimoni_pict_temp'))){
+                                unlink(ROOTPATH.'assets/upload/testimoni/'.$this->request->getVar('testimoni_pict_temp'));
                             }
                             $testimonipict->move(ROOTPATH .'assets/upload/testimoni', $newTestimonipict, true);
                         }
@@ -864,7 +864,7 @@ class AdminHome extends BaseController {
                         'testimoni_name' => $this->request->getVar('homeinfluencer_name'),
                         'testimoni_desc' => $this->request->getVar('testimoni_desc'),
                         'testimoni_desc_en' => $this->request->getVar('testimoni_desc_en'),
-                        'testimoni_pict' => ($testimonipict != "") ? $newTestimonipict : $this->request->getVar('testimoni_pict_temp')
+                        'testimoni_pict' => ($this->hasUploadedFile($testimonipict)) ? $newTestimonipict : $this->request->getVar('testimoni_pict_temp')
                     ];
                     $update = $this->Crud->updateData('tbl_hometestimoni', $data, ['testimoni_id' => $this->request->getVar('testimoni_id')]);
                     if ($update) 
@@ -899,8 +899,8 @@ class AdminHome extends BaseController {
                 $getimage = $this->Crud->readData('testimoni_pict', 'tbl_hometestimoni', ['testimoni_id' => $testimoni_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/testimoni/'.$val['testimoni_pict'])){
-                        unlink('assets/upload/testimoni/'.$val['testimoni_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/testimoni/'.$val['testimoni_pict'])){
+                        unlink(ROOTPATH.'assets/upload/testimoni/'.$val['testimoni_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_hometestimoni', ['testimoni_id' => $testimoni_id]);
@@ -955,8 +955,8 @@ class AdminHome extends BaseController {
                 try
                 {
                     $partnerpict =  $this->request->getFile('partner_pict');
-                    $newpartnerpict = "bxsea_image_".$partnerpict->getRandomName();
-                    if ($newpartnerpict != "")
+                    $newpartnerpict = '';
+                    if ($this->hasUploadedFile($partnerpict))
                     {
                         // Start process upload Service Process Image
                         $validationRule = [
@@ -976,6 +976,7 @@ class AdminHome extends BaseController {
                         }
                         if ($partnerpict->isValid() && ! $partnerpict->hasMoved()) 
                         {
+                            $newpartnerpict = "bxsea_image_".$partnerpict->getRandomName();
                             $partnerpict->move(ROOTPATH .'assets/upload/partner', $newpartnerpict, true);
                         }
                     }
@@ -1033,7 +1034,7 @@ class AdminHome extends BaseController {
                     /* Start upload partner */
                     $partnerpict =  $this->request->getFile('partner_pict');
                     $newPartnerpict = "bxsea_image".$partnerpict->getRandomName();
-                    if ($partnerpict != "")
+                    if ($this->hasUploadedFile($partnerpict))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -1053,8 +1054,8 @@ class AdminHome extends BaseController {
                         }
                         if ($partnerpict->isValid() && ! $partnerpict->hasMoved()) 
                         {
-                            if (is_file('assets/upload/partner/'.$this->request->getVar('partner_pict_temp'))){
-                                unlink('assets/upload/partner/'.$this->request->getVar('partner_pict_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/partner/'.$this->request->getVar('partner_pict_temp'))){
+                                unlink(ROOTPATH.'assets/upload/partner/'.$this->request->getVar('partner_pict_temp'));
                             }
                             $partnerpict->move(ROOTPATH .'assets/upload/partner', $newPartnerpict, true);
                         }
@@ -1063,7 +1064,7 @@ class AdminHome extends BaseController {
 
                     $data = [
                         'partner_title' => $this->request->getVar('partner_title'),
-                        'partner_pict' => ($partnerpict != "") ? $newPartnerpict : $this->request->getVar('partner_pict_temp')
+                        'partner_pict' => ($this->hasUploadedFile($partnerpict)) ? $newPartnerpict : $this->request->getVar('partner_pict_temp')
                     ];
                     $update = $this->Crud->updateData('tbl_homepartner', $data, ['partner_id' => $this->request->getVar('partner_id')]);
                     if ($update) 
@@ -1098,8 +1099,8 @@ class AdminHome extends BaseController {
                 $getimage = $this->Crud->readData('partner_pict', 'tbl_homepartner', ['partner_id' => $partner_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/partner/'.$val['partner_pict'])){
-                        unlink('assets/upload/partner/'.$val['partner_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/partner/'.$val['partner_pict'])){
+                        unlink(ROOTPATH.'assets/upload/partner/'.$val['partner_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_homepartner', ['partner_id' => $partner_id]);
@@ -1155,7 +1156,7 @@ class AdminHome extends BaseController {
                 {
                     $sosmedcontentfile =  $this->request->getFile('sosmedcontent_file');
                     $newsosmedcontentfile = "bxsea_image_".$sosmedcontentfile->getRandomName();
-                    if ($sosmedcontentfile != "")
+                    if ($this->hasUploadedFile($sosmedcontentfile))
                     {
                         // Start process upload Service Process Image
                         $validationRule = [
@@ -1294,8 +1295,8 @@ class AdminHome extends BaseController {
                 $getimage = $this->Crud->readData('sosmedcontent_file', 'tbl_homesosmedcontent', ['sosmedcontent_id' => $sosmedcontent_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/sosmedcontent/'.$val['sosmedcontent_file'])){
-                        unlink('assets/upload/sosmedcontent/'.$val['sosmedcontent_file']);
+                    if (is_file(ROOTPATH.'assets/upload/sosmedcontent/'.$val['sosmedcontent_file'])){
+                        unlink(ROOTPATH.'assets/upload/sosmedcontent/'.$val['sosmedcontent_file']);
                     }
                 }
                 $this->Crud->deleteData('tbl_homesosmedcontent', ['sosmedcontent_id' => $sosmedcontent_id]);

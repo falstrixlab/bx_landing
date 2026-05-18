@@ -103,7 +103,7 @@ class AdminDashboard extends BaseController {
                 {
                     $promotionpict =  $this->request->getFile('about_pict');
                     $newpromotionpict = "bxsea_image_".$promotionpict->getRandomName();
-                    if ($promotionpict != "")
+                    if ($this->hasUploadedFile($promotionpict))
                     {
                         // Start process upload Service Process Image
                         $validationRule = [
@@ -182,7 +182,7 @@ class AdminDashboard extends BaseController {
                     /* Start upload ticket */
                     $promotionpict =  $this->request->getFile('about_pict');
                     $newpromotionpict = "bxsea_image".$promotionpict->getRandomName();
-                    if ($promotionpict != "")
+                    if ($this->hasUploadedFile($promotionpict))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -201,8 +201,8 @@ class AdminDashboard extends BaseController {
                         }
                         if ($promotionpict->isValid() && ! $promotionpict->hasMoved()) 
                         {
-                            if (is_file('assets/upload/about/'.$this->request->getVar('about_pict_temp'))){
-                                unlink('assets/upload/about/'.$this->request->getVar('about_pict_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/about/'.$this->request->getVar('about_pict_temp'))){
+                                unlink(ROOTPATH.'assets/upload/about/'.$this->request->getVar('about_pict_temp'));
                             }
                             $promotionpict->move(ROOTPATH .'assets/upload/about', $newpromotionpict, true);
                         }
@@ -212,7 +212,7 @@ class AdminDashboard extends BaseController {
                     $data = [
                         'about_title' => $this->request->getVar('about_title'),
                         'about_title_en' => $this->request->getVar('about_title_en'),
-                        'about_pict' => ($promotionpict != "") ? $newpromotionpict : $this->request->getVar('about_pict_temp'),
+                        'about_pict' => ($this->hasUploadedFile($promotionpict)) ? $newpromotionpict : $this->request->getVar('about_pict_temp'),
                         'about_desc' => $this->request->getVar('about_desc'),
                         'about_desc_en' => $this->request->getVar('about_desc_en'),
                     ];
@@ -249,8 +249,8 @@ class AdminDashboard extends BaseController {
                 $getimage = $this->Crud->readData('about_pict', 'tbl_about', ['promotion_id' => $about_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/about/'.$val['promotion_pict'])){
-                        unlink('assets/upload/about/'.$val['promotion_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/about/'.$val['promotion_pict'])){
+                        unlink(ROOTPATH.'assets/upload/about/'.$val['promotion_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_about', ['about_id' => $about_id]);
