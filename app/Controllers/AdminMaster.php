@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 use Exception;
-use CodeIgniter\Controller;
 use App\Models\Crud;
 use App\Models\DesignAssetModel;
 
@@ -18,11 +17,6 @@ class AdminMaster extends BaseController {
         $this->designAssetModel = new DesignAssetModel();
         $this->db = \Config\Database::connect();
         $this->session = \Config\Services::session();
-    }
-
-    private function hasUploadedFile($file): bool
-    {
-        return $file && $file->isValid() && $file->getError() !== UPLOAD_ERR_NO_FILE && ! $file->hasMoved();
     }
 
     private function getDesignAssetFileOptions(): array
@@ -481,7 +475,7 @@ class AdminMaster extends BaseController {
                     /* Start upload setup logo */
                     $mastersetuplogo =  $this->request->getFile('setup_logo');
                     $newNameSetupLogo = "bxsea_image_".$mastersetuplogo->getRandomName();
-                    if ($mastersetuplogo != "")
+                    if ($this->hasUploadedFile($mastersetuplogo))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -500,8 +494,8 @@ class AdminMaster extends BaseController {
                         }
                         if ($mastersetuplogo->isValid() && ! $mastersetuplogo->hasMoved()) 
                         {
-                            if (is_file('assets/upload/setup/'.$this->request->getVar('setup_logo_temp'))){
-                                unlink('assets/upload/setup/'.$this->request->getVar('setup_logo_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/setup/'.$this->request->getVar('setup_logo_temp'))){
+                                unlink(ROOTPATH.'assets/upload/setup/'.$this->request->getVar('setup_logo_temp'));
                             }
                             $mastersetuplogo->move(ROOTPATH .'assets/upload/setup', $newNameSetupLogo, true);
                         }
@@ -511,7 +505,7 @@ class AdminMaster extends BaseController {
                     /* Start upload favicon */
                     $mastersetupfavion =  $this->request->getFile('setup_favicon');
                     $newNameSetupFavicon = "bxsea_image".$mastersetupfavion->getRandomName();
-                    if ($mastersetupfavion != "")
+                    if ($this->hasUploadedFile($mastersetupfavion))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -530,8 +524,8 @@ class AdminMaster extends BaseController {
                         }
                         if ($mastersetupfavion->isValid() && ! $mastersetupfavion->hasMoved()) 
                         {
-                            if (is_file('assets/upload/setup/'.$this->request->getVar('setup_favicon_temp'))){
-                                unlink('assets/upload/setup/'.$this->request->getVar('setup_favicon_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/setup/'.$this->request->getVar('setup_favicon_temp'))){
+                                unlink(ROOTPATH.'assets/upload/setup/'.$this->request->getVar('setup_favicon_temp'));
                             }
                             $mastersetupfavion->move(ROOTPATH .'assets/upload/setup', $newNameSetupFavicon, true);
                         }
@@ -541,7 +535,7 @@ class AdminMaster extends BaseController {
                     /* Start upload footer holding */
                     $mastersetupfooterholding =  $this->request->getFile('setup_footer_holding_pict');
                     $newNameSetupFooterHolding = "bxsea_image".$mastersetupfooterholding->getRandomName();
-                    if ($mastersetupfooterholding != "")
+                    if ($this->hasUploadedFile($mastersetupfooterholding))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -560,8 +554,8 @@ class AdminMaster extends BaseController {
                         }
                         if ($mastersetupfooterholding->isValid() && ! $mastersetupfooterholding->hasMoved()) 
                         {
-                            if (is_file('assets/upload/setup/'.$this->request->getVar('setup_footer_holding_pict_temp'))){
-                                unlink('assets/upload/setup/'.$this->request->getVar('setup_footer_holding_pict_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/setup/'.$this->request->getVar('setup_footer_holding_pict_temp'))){
+                                unlink(ROOTPATH.'assets/upload/setup/'.$this->request->getVar('setup_footer_holding_pict_temp'));
                             }
                             $mastersetupfooterholding->move(ROOTPATH .'assets/upload/setup', $newNameSetupFooterHolding, true);
                         }
@@ -571,7 +565,7 @@ class AdminMaster extends BaseController {
                     /* Start upload footer company */
                     $mastersetupfootercompany =  $this->request->getFile('setup_footer_company_pict');
                     $newNameSetupFooterCompany = "bxsea_image".$mastersetupfootercompany->getRandomName();
-                    if ($mastersetupfootercompany != "")
+                    if ($this->hasUploadedFile($mastersetupfootercompany))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -590,8 +584,8 @@ class AdminMaster extends BaseController {
                         }
                         if ($mastersetupfootercompany->isValid() && ! $mastersetupfootercompany->hasMoved()) 
                         {
-                            if (is_file('assets/upload/setup/'.$this->request->getVar('setup_footer_company_pict_temp'))){
-                                unlink('assets/upload/setup/'.$this->request->getVar('setup_footer_company_pict_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/setup/'.$this->request->getVar('setup_footer_company_pict_temp'))){
+                                unlink(ROOTPATH.'assets/upload/setup/'.$this->request->getVar('setup_footer_company_pict_temp'));
                             }
                             $mastersetupfootercompany->move(ROOTPATH .'assets/upload/setup', $newNameSetupFooterCompany, true);
                         }
@@ -600,14 +594,14 @@ class AdminMaster extends BaseController {
                     
                     $data = [
                         'setup_title' => $this->request->getVar('setup_title'),
-                        'setup_logo' => ($mastersetuplogo != "") ? $newNameSetupLogo : $this->request->getVar('setup_logo_temp'),
-                        'setup_favicon' => ($mastersetupfavion != "") ? $newNameSetupFavicon : $this->request->getVar('setup_favicon_temp'),
+                        'setup_logo' => ($this->hasUploadedFile($mastersetuplogo)) ? $newNameSetupLogo : $this->request->getVar('setup_logo_temp'),
+                        'setup_favicon' => ($this->hasUploadedFile($mastersetupfavion)) ? $newNameSetupFavicon : $this->request->getVar('setup_favicon_temp'),
                         'setup_address' => $this->request->getVar('setup_address'),
                         'setup_gmaps' => $this->request->getVar('setup_gmaps'),
                         'setup_operation_day' => $this->request->getVar('setup_operation_day'),
                         'setup_operation_duration' => $this->request->getVar('setup_operation_duration'),
-                        'setup_footer_holding_pict' => ($mastersetupfooterholding != "") ? $newNameSetupFooterHolding : $this->request->getVar('setup_footer_holding_pict_temp'),
-                        'setup_footer_company_pict' => ($mastersetupfootercompany != "") ? $newNameSetupFooterCompany : $this->request->getVar('setup_footer_company_pict_temp'),
+                        'setup_footer_holding_pict' => ($this->hasUploadedFile($mastersetupfooterholding)) ? $newNameSetupFooterHolding : $this->request->getVar('setup_footer_holding_pict_temp'),
+                        'setup_footer_company_pict' => ($this->hasUploadedFile($mastersetupfootercompany)) ? $newNameSetupFooterCompany : $this->request->getVar('setup_footer_company_pict_temp'),
                         'setup_email' => $this->request->getVar('setup_email'),
                         'setup_customer' => $this->request->getVar('setup_customer'),
                         'setup_phone' => $this->request->getVar('setup_phone'),
@@ -674,7 +668,7 @@ class AdminMaster extends BaseController {
                 {
                     $socialmedialogo =  $this->request->getFile('mastersocialmedia_logo');
                     $newSocialmediaLogo = "bxsea_image_".$socialmedialogo->getRandomName();
-                    if ($socialmedialogo != "")
+                    if ($this->hasUploadedFile($socialmedialogo))
                     {
                         // Start process upload Service Process Image
                         $validationRule = [
@@ -751,7 +745,7 @@ class AdminMaster extends BaseController {
                     /* Start upload socialmedia */
                     $mastersocialmedia =  $this->request->getFile('mastersocialmedia_logo');
                     $newNameSocialmediaLogo = "bxsea_image".$mastersocialmedia->getRandomName();
-                    if ($mastersocialmedia != "")
+                    if ($this->hasUploadedFile($mastersocialmedia))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -770,8 +764,8 @@ class AdminMaster extends BaseController {
                         }
                         if ($mastersocialmedia->isValid() && ! $mastersocialmedia->hasMoved()) 
                         {
-                            if (is_file('assets/upload/socialmedia/'.$this->request->getVar('mastersocialmedia_logo_temp'))){
-                                unlink('assets/upload/socialmedia/'.$this->request->getVar('mastersocialmedia_logo_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/socialmedia/'.$this->request->getVar('mastersocialmedia_logo_temp'))){
+                                unlink(ROOTPATH.'assets/upload/socialmedia/'.$this->request->getVar('mastersocialmedia_logo_temp'));
                             }
                             $mastersocialmedia->move(ROOTPATH .'assets/upload/socialmedia', $newNameSocialmediaLogo, true);
                         }
@@ -780,7 +774,7 @@ class AdminMaster extends BaseController {
 
                     $data = [
                         'mastersocialmedia_name' => $this->request->getVar('mastersocialmedia_name'),
-                        'mastersocialmedia_logo' => ($mastersocialmedia != "") ? $newNameSocialmediaLogo : $this->request->getVar('mastersocialmedia_logo_temp'),
+                        'mastersocialmedia_logo' => ($this->hasUploadedFile($mastersocialmedia)) ? $newNameSocialmediaLogo : $this->request->getVar('mastersocialmedia_logo_temp'),
                         'mastersocialmedia_link' => $this->request->getVar('mastersocialmedia_link')
                     ];
                     $update = $this->Crud->updateData('tbl_mastersocialmedia', $data, ['mastersocialmedia_id' => $this->request->getVar('mastersocialmedia_id')]);
@@ -816,8 +810,8 @@ class AdminMaster extends BaseController {
                 $getimage = $this->Crud->readData('mastersocialmedia_logo', 'tbl_mastersocialmedia', ['mastersocialmedia_id' => $mastersocialmedia_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/socialmedia/'.$val['mastersocialmedia_logo'])){
-                        unlink('assets/upload/socialmedia/'.$val['mastersocialmedia_logo']);
+                    if (is_file(ROOTPATH.'assets/upload/socialmedia/'.$val['mastersocialmedia_logo'])){
+                        unlink(ROOTPATH.'assets/upload/socialmedia/'.$val['mastersocialmedia_logo']);
                     }
                 }
                 $this->Crud->deleteData('tbl_mastersocialmedia', ['mastersocialmedia_id' => $mastersocialmedia_id]);
@@ -1132,8 +1126,8 @@ class AdminMaster extends BaseController {
                 $getimage = $this->Crud->readData('article_pict', 'tbl_article', ['article_id' => $article_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/article/'.$val['article_pict'])){
-                        unlink('assets/upload/article/'.$val['article_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/article/'.$val['article_pict'])){
+                        unlink(ROOTPATH.'assets/upload/article/'.$val['article_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_article', ['article_id' => $article_id]);

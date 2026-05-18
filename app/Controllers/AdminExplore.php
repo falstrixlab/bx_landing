@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 use Exception;
-use CodeIgniter\Controller;
 use App\Models\Crud;
 
 class AdminExplore extends BaseController {
@@ -13,10 +12,6 @@ class AdminExplore extends BaseController {
         $this->session = \Config\Services::session();
     }
 
-    private function hasUploadedFile($file): bool
-    {
-        return $file && $file->isValid() && $file->getError() !== UPLOAD_ERR_NO_FILE && ! $file->hasMoved();
-    }
     /* Journey Page */ 
     public function journey() {
         if(session()->get('islogin') == TRUE)
@@ -53,7 +48,7 @@ class AdminExplore extends BaseController {
                 {
                     $journeypict =  $this->request->getFile('journey_pict');
                     $newjourneypict = "bxsea_image_".$journeypict->getRandomName();
-                    if ($journeypict != "")
+                    if ($this->hasUploadedFile($journeypict))
                     {
                         // Start process upload Service Process Image
                         $validationRule = [
@@ -164,7 +159,7 @@ class AdminExplore extends BaseController {
                     /* Start upload ticket */
                     $journeypict =  $this->request->getFile('journey_pict');
                     $newjourneypict = "bxsea_image".$journeypict->getRandomName();
-                    if ($journeypict != "")
+                    if ($this->hasUploadedFile($journeypict))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -183,8 +178,8 @@ class AdminExplore extends BaseController {
                         }
                         if ($journeypict->isValid() && ! $journeypict->hasMoved()) 
                         {
-                            if (is_file('assets/upload/journey/'.$this->request->getVar('journey_pict_temp'))){
-                                unlink('assets/upload/journey/'.$this->request->getVar('journey_pict_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/journey/'.$this->request->getVar('journey_pict_temp'))){
+                                unlink(ROOTPATH.'assets/upload/journey/'.$this->request->getVar('journey_pict_temp'));
                             }
                             $journeypict->move(ROOTPATH .'assets/upload/journey', $newjourneypict, true);
                         }
@@ -199,7 +194,7 @@ class AdminExplore extends BaseController {
                             $this->session->setFlashdata('invalidate', '-');
                             return redirect()->route(getenv('bxsea.admin').'/explore/journey/update/'.$this->request->getVar('journey_id'));
                         }
-                        if ($newPopupPict1 && is_file('assets/upload/journey/'.$newPopupPict1)) { unlink('assets/upload/journey/'.$newPopupPict1); }
+                        if ($newPopupPict1 && is_file(ROOTPATH.'assets/upload/journey/'.$newPopupPict1)) { unlink(ROOTPATH.'assets/upload/journey/'.$newPopupPict1); }
                         $newPopupPict1 = 'bxsea_image_' . $popupPict1->getRandomName();
                         $popupPict1->move(ROOTPATH . 'assets/upload/journey', $newPopupPict1, true);
                     }
@@ -211,7 +206,7 @@ class AdminExplore extends BaseController {
                             $this->session->setFlashdata('invalidate', '-');
                             return redirect()->route(getenv('bxsea.admin').'/explore/journey/update/'.$this->request->getVar('journey_id'));
                         }
-                        if ($newPopupPict2 && is_file('assets/upload/journey/'.$newPopupPict2)) { unlink('assets/upload/journey/'.$newPopupPict2); }
+                        if ($newPopupPict2 && is_file(ROOTPATH.'assets/upload/journey/'.$newPopupPict2)) { unlink(ROOTPATH.'assets/upload/journey/'.$newPopupPict2); }
                         $newPopupPict2 = 'bxsea_image_' . $popupPict2->getRandomName();
                         $popupPict2->move(ROOTPATH . 'assets/upload/journey', $newPopupPict2, true);
                     }
@@ -221,7 +216,7 @@ class AdminExplore extends BaseController {
                         'journey_title_en' => $this->request->getVar('journey_title_en'),
                         'journey_desc' => $this->request->getVar('journey_desc'),
                         'journey_desc_en' => $this->request->getVar('journey_desc_en'),
-                        'journey_pict' => ($journeypict != "") ? $newjourneypict : $this->request->getVar('journey_pict_temp'),
+                        'journey_pict' => ($this->hasUploadedFile($journeypict)) ? $newjourneypict : $this->request->getVar('journey_pict_temp'),
                         'journey_zone' => $this->request->getVar('journey_zone'),
                         'journey_popup_desc_id' => $this->request->getVar('journey_popup_desc_id'),
                         'journey_popup_desc_en' => $this->request->getVar('journey_popup_desc_en'),
@@ -265,8 +260,8 @@ class AdminExplore extends BaseController {
                 $getimage = $this->Crud->readData('journey_pict', 'tbl_explorejourney', ['journey_id' => $journey_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/journey/'.$val['journey_pict'])){
-                        unlink('assets/upload/journey/'.$val['journey_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/journey/'.$val['journey_pict'])){
+                        unlink(ROOTPATH.'assets/upload/journey/'.$val['journey_pict']);
                     }
                 }
                 $this->Crud->deleteData('tbl_explorejourney', ['journey_id' => $journey_id]);
@@ -389,7 +384,7 @@ class AdminExplore extends BaseController {
                             $this->session->setFlashdata('invalidate', '-');
                             return redirect()->route(getenv('bxsea.admin').'/explore/maincarousel/update/'.$this->request->getVar('carousel_id'));
                         }
-                        if ($newImg && is_file('assets/upload/maincarousel/'.$newImg)) { unlink('assets/upload/maincarousel/'.$newImg); }
+                        if ($newImg && is_file(ROOTPATH.'assets/upload/maincarousel/'.$newImg)) { unlink(ROOTPATH.'assets/upload/maincarousel/'.$newImg); }
                         $newImg = 'bxsea_image_' . $img->getRandomName();
                         $img->move(ROOTPATH . 'assets/upload/maincarousel', $newImg, true);
                     }
@@ -431,8 +426,8 @@ class AdminExplore extends BaseController {
                 $getimage = $this->Crud->readData('carousel_image', 'tbl_explore_main_carousel', ['carousel_id' => $carousel_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if ($val['carousel_image'] && is_file('assets/upload/maincarousel/'.$val['carousel_image'])) {
-                        unlink('assets/upload/maincarousel/'.$val['carousel_image']);
+                    if ($val['carousel_image'] && is_file(ROOTPATH.'assets/upload/maincarousel/'.$val['carousel_image'])) {
+                        unlink(ROOTPATH.'assets/upload/maincarousel/'.$val['carousel_image']);
                     }
                 }
                 $this->Crud->deleteData('tbl_explore_main_carousel', ['carousel_id' => $carousel_id]);
@@ -488,7 +483,7 @@ class AdminExplore extends BaseController {
                 {
                     $showpict =  $this->request->getFile('show_pict');
                     $newshowpict = "bxsea_image_".$showpict->getRandomName();
-                    if ($showpict != "")
+                    if ($this->hasUploadedFile($showpict))
                     {
                         // Start process upload Service Process Image
                         $validationRule = [
@@ -513,7 +508,7 @@ class AdminExplore extends BaseController {
 
                     $showposter =  $this->request->getFile('show_poster');
                     $newshowposter = "bxsea_image_".$showposter->getRandomName();
-                    if ($showposter != "")
+                    if ($this->hasUploadedFile($showposter))
                     {
                         // Start process upload Service Process Image
                         $validationRule = [
@@ -594,7 +589,7 @@ class AdminExplore extends BaseController {
                     /* Start upload show */
                     $showpict =  $this->request->getFile('show_pict');
                     $newshowpict = "bxsea_image".$showpict->getRandomName();
-                    if ($showpict != "")
+                    if ($this->hasUploadedFile($showpict))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -613,8 +608,8 @@ class AdminExplore extends BaseController {
                         }
                         if ($showpict->isValid() && ! $showpict->hasMoved()) 
                         {
-                            if (is_file('assets/upload/show/'.$this->request->getVar('show_pict_temp'))){
-                                unlink('assets/upload/show/'.$this->request->getVar('show_pict_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/show/'.$this->request->getVar('show_pict_temp'))){
+                                unlink(ROOTPATH.'assets/upload/show/'.$this->request->getVar('show_pict_temp'));
                             }
                             $showpict->move(ROOTPATH .'assets/upload/show', $newshowpict, true);
                         }
@@ -624,7 +619,7 @@ class AdminExplore extends BaseController {
                     /* Start upload show poster */
                     $showposter =  $this->request->getFile('show_poster');
                     $newshowposter = "bxsea_image".$showposter->getRandomName();
-                    if ($showposter != "")
+                    if ($this->hasUploadedFile($showposter))
                     {
                         // Start process upload logo
                         $validationRule = [
@@ -643,8 +638,8 @@ class AdminExplore extends BaseController {
                         }
                         if ($showposter->isValid() && ! $showposter->hasMoved()) 
                         {
-                            if (is_file('assets/upload/show/'.$this->request->getVar('show_poster_temp'))){
-                                unlink('assets/upload/show/'.$this->request->getVar('show_poster_temp'));
+                            if (is_file(ROOTPATH.'assets/upload/show/'.$this->request->getVar('show_poster_temp'))){
+                                unlink(ROOTPATH.'assets/upload/show/'.$this->request->getVar('show_poster_temp'));
                             }
                             $showposter->move(ROOTPATH .'assets/upload/show', $newshowposter, true);
                         }
@@ -657,8 +652,8 @@ class AdminExplore extends BaseController {
                         'show_desc' => $this->request->getVar('show_desc'),
                         'show_desc_en' => $this->request->getVar('show_desc_en'),
                         'show_type' => $this->request->getVar('show_type') === 'seapecial' ? 'seapecial' : 'regular',
-                        'show_pict' => ($showpict != "") ? $newshowpict : $this->request->getVar('show_pict_temp'),
-                        'show_poster' => ($showposter != "") ? $newshowposter : $this->request->getVar('show_poster_temp'),
+                        'show_pict' => ($this->hasUploadedFile($showpict)) ? $newshowpict : $this->request->getVar('show_pict_temp'),
+                        'show_poster' => ($this->hasUploadedFile($showposter)) ? $newshowposter : $this->request->getVar('show_poster_temp'),
                     ];
                     $update = $this->Crud->updateData('tbl_exploreshow', $data, ['show_id' => $this->request->getVar('show_id')]);
                     if ($update) 
@@ -693,11 +688,11 @@ class AdminExplore extends BaseController {
                 $getimage = $this->Crud->readData('show_pict, show_poster', 'tbl_exploreshow', ['show_id' => $show_id], '', '', '', '', '');
                 foreach($getimage AS $val)
                 {
-                    if (is_file('assets/upload/show/'.$val['show_pict'])){
-                        unlink('assets/upload/show/'.$val['show_pict']);
+                    if (is_file(ROOTPATH.'assets/upload/show/'.$val['show_pict'])){
+                        unlink(ROOTPATH.'assets/upload/show/'.$val['show_pict']);
                     }
-                    if (is_file('assets/upload/show/'.$val['show_poster'])){
-                        unlink('assets/upload/show/'.$val['show_poster']);
+                    if (is_file(ROOTPATH.'assets/upload/show/'.$val['show_poster'])){
+                        unlink(ROOTPATH.'assets/upload/show/'.$val['show_poster']);
                     }
                 }
                 $this->Crud->deleteData('tbl_exploreshow', ['show_id' => $show_id]);

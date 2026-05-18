@@ -121,7 +121,7 @@
                 $builder->where($where); 
                 $builder->set($data);               
                 $builder->update();             
-                return $this->db->affectedRows();
+                    return true;
             }
             catch(\Exception $e) {
                 log_message('error', $e->getMessage());
@@ -133,7 +133,7 @@
                 $builder = $this->db->table($table);
                 $builder->set($data);               
                 $builder->update();             
-                return $this->db->affectedRows();
+                    return true;
             }
             catch(\Exception $e) {
                 log_message('error', $e->getMessage());
