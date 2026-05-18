@@ -161,35 +161,23 @@ class AdminExplore extends BaseController {
             {
                 try
                 {
-                    /* Start upload ticket */
-                    $journeypict =  $this->request->getFile('journey_pict');
-                    $newjourneypict = "bxsea_image".$journeypict->getRandomName();
-                    if ($journeypict != "")
+                    /* Start upload journey pict */
+                    $journeypict = $this->request->getFile('journey_pict');
+                    $newjourneypict = $this->request->getVar('journey_pict_temp');
+                    if ($this->hasUploadedFile($journeypict))
                     {
-                        // Start process upload logo
-                        $validationRule = [
-                            'journey_pict' => [
-                                'label' => 'Image File',
-                                'rules' => [
-                                    'uploaded[journey_pict]',
-                                    'mime_in[journey_pict,image/jpg,image/jpeg,image/png,video/mp4]',
-                                ],
-                            ],
-                        ];
-                        if (! $this->validate($validationRule)) 
+                        if (! $this->validate(['journey_pict' => ['label' => 'Image File', 'rules' => ['uploaded[journey_pict]', 'mime_in[journey_pict,image/jpg,image/jpeg,image/png,video/mp4]']]]))
                         {
                             $this->session->setFlashdata('invalidate', '-');
                             return redirect()->route(getenv('bxsea.admin').'/explore/journey/update/'.$this->request->getVar('journey_id'));
                         }
-                        if ($journeypict->isValid() && ! $journeypict->hasMoved()) 
-                        {
-                            if (is_file('assets/upload/journey/'.$this->request->getVar('journey_pict_temp'))){
-                                unlink('assets/upload/journey/'.$this->request->getVar('journey_pict_temp'));
-                            }
-                            $journeypict->move(ROOTPATH .'assets/upload/journey', $newjourneypict, true);
+                        if ($newjourneypict && is_file('assets/upload/journey/'.$newjourneypict)) {
+                            unlink('assets/upload/journey/'.$newjourneypict);
                         }
+                        $newjourneypict = 'bxsea_image_' . $journeypict->getRandomName();
+                        $journeypict->move(ROOTPATH . 'assets/upload/journey', $newjourneypict, true);
                     }
-                    /* End upload testimoni */
+                    /* End upload journey pict */
 
                     /* Popup pict 1 update */
                     $popupPict1 = $this->request->getFile('journey_popup_pict1');
@@ -221,7 +209,7 @@ class AdminExplore extends BaseController {
                         'journey_title_en' => $this->request->getVar('journey_title_en'),
                         'journey_desc' => $this->request->getVar('journey_desc'),
                         'journey_desc_en' => $this->request->getVar('journey_desc_en'),
-                        'journey_pict' => ($journeypict != "") ? $newjourneypict : $this->request->getVar('journey_pict_temp'),
+                        'journey_pict' => $newjourneypict,
                         'journey_zone' => $this->request->getVar('journey_zone'),
                         'journey_popup_desc_id' => $this->request->getVar('journey_popup_desc_id'),
                         'journey_popup_desc_en' => $this->request->getVar('journey_popup_desc_en'),
@@ -591,63 +579,39 @@ class AdminExplore extends BaseController {
             {
                 try
                 {
-                    /* Start upload show */
-                    $showpict =  $this->request->getFile('show_pict');
-                    $newshowpict = "bxsea_image".$showpict->getRandomName();
-                    if ($showpict != "")
+                    /* Start upload show pict */
+                    $showpict = $this->request->getFile('show_pict');
+                    $newshowpict = $this->request->getVar('show_pict_temp');
+                    if ($this->hasUploadedFile($showpict))
                     {
-                        // Start process upload logo
-                        $validationRule = [
-                            'show_pict' => [
-                                'label' => 'Image File',
-                                'rules' => [
-                                    'uploaded[show_pict]',
-                                    'mime_in[show_pict,image/jpg,image/jpeg,image/png,video/mp4]',
-                                ],
-                            ],
-                        ];
-                        if (! $this->validate($validationRule)) 
+                        if (! $this->validate(['show_pict' => ['label' => 'Image File', 'rules' => ['uploaded[show_pict]', 'mime_in[show_pict,image/jpg,image/jpeg,image/png,video/mp4]']]]))
                         {
                             $this->session->setFlashdata('invalidate', '-');
                             return redirect()->route(getenv('bxsea.admin').'/explore/show/update/'.$this->request->getVar('show_id'));
                         }
-                        if ($showpict->isValid() && ! $showpict->hasMoved()) 
-                        {
-                            if (is_file('assets/upload/show/'.$this->request->getVar('show_pict_temp'))){
-                                unlink('assets/upload/show/'.$this->request->getVar('show_pict_temp'));
-                            }
-                            $showpict->move(ROOTPATH .'assets/upload/show', $newshowpict, true);
+                        if ($newshowpict && is_file('assets/upload/show/'.$newshowpict)) {
+                            unlink('assets/upload/show/'.$newshowpict);
                         }
+                        $newshowpict = 'bxsea_image_' . $showpict->getRandomName();
+                        $showpict->move(ROOTPATH . 'assets/upload/show', $newshowpict, true);
                     }
-                    /* End upload show */
+                    /* End upload show pict */
 
                     /* Start upload show poster */
-                    $showposter =  $this->request->getFile('show_poster');
-                    $newshowposter = "bxsea_image".$showposter->getRandomName();
-                    if ($showposter != "")
+                    $showposter = $this->request->getFile('show_poster');
+                    $newshowposter = $this->request->getVar('show_poster_temp');
+                    if ($this->hasUploadedFile($showposter))
                     {
-                        // Start process upload logo
-                        $validationRule = [
-                            'show_poster' => [
-                                'label' => 'Image File',
-                                'rules' => [
-                                    'uploaded[show_poster]',
-                                    'mime_in[show_poster,image/jpg,image/jpeg,image/png,video/mp4]',
-                                ],
-                            ],
-                        ];
-                        if (! $this->validate($validationRule)) 
+                        if (! $this->validate(['show_poster' => ['label' => 'Image File', 'rules' => ['uploaded[show_poster]', 'mime_in[show_poster,image/jpg,image/jpeg,image/png,video/mp4]']]]))
                         {
                             $this->session->setFlashdata('invalidate', '-');
                             return redirect()->route(getenv('bxsea.admin').'/explore/show/update/'.$this->request->getVar('show_id'));
                         }
-                        if ($showposter->isValid() && ! $showposter->hasMoved()) 
-                        {
-                            if (is_file('assets/upload/show/'.$this->request->getVar('show_poster_temp'))){
-                                unlink('assets/upload/show/'.$this->request->getVar('show_poster_temp'));
-                            }
-                            $showposter->move(ROOTPATH .'assets/upload/show', $newshowposter, true);
+                        if ($newshowposter && is_file('assets/upload/show/'.$newshowposter)) {
+                            unlink('assets/upload/show/'.$newshowposter);
                         }
+                        $newshowposter = 'bxsea_image_' . $showposter->getRandomName();
+                        $showposter->move(ROOTPATH . 'assets/upload/show', $newshowposter, true);
                     }
                     /* End upload show poster */
 
@@ -657,8 +621,8 @@ class AdminExplore extends BaseController {
                         'show_desc' => $this->request->getVar('show_desc'),
                         'show_desc_en' => $this->request->getVar('show_desc_en'),
                         'show_type' => $this->request->getVar('show_type') === 'seapecial' ? 'seapecial' : 'regular',
-                        'show_pict' => ($showpict != "") ? $newshowpict : $this->request->getVar('show_pict_temp'),
-                        'show_poster' => ($showposter != "") ? $newshowposter : $this->request->getVar('show_poster_temp'),
+                        'show_pict' => $newshowpict,
+                        'show_poster' => $newshowposter,
                     ];
                     $update = $this->Crud->updateData('tbl_exploreshow', $data, ['show_id' => $this->request->getVar('show_id')]);
                     if ($update) 
