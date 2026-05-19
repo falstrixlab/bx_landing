@@ -69,10 +69,10 @@
                             <label>Gambar <span class="text-danger">*</span></label>
                             <input type="file" name="promosi_pict" class="form-control" accept=".png,.jpg,.jpeg">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Link Promosi (URL)</label>
                             <input name="promosi_link" type="url" class="form-control" placeholder="https://"/>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card-footer">
                         <input type="submit" name="submit" value="Simpan Data" class="btn btn-success mr-2">

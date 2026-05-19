@@ -75,10 +75,10 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Link Promosi (URL)</label>
                             <input name="promosi_link" type="url" class="form-control" placeholder="https://" value="<?= esc($rs['promosi_link'] ?? '');?>"/>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="card-footer">
                         <input type="submit" name="submit" value="Simpan Perubahan" class="btn btn-success mr-2">
