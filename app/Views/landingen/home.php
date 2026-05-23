@@ -5,10 +5,40 @@
 <?php
 $featureSlides = array_slice($homefiturslider ?? [], 0, 4);
 $allShows = $show ?? [];
-$regularSlides = array_values(array_slice(array_filter($allShows, static fn($s) => ($s['show_type'] ?? 'regular') === 'regular'), 0, 4));
-$seapecialSlides = array_values(array_slice(array_filter($allShows, static fn($s) => ($s['show_type'] ?? 'regular') === 'seapecial'), 0, 4));
-if (empty($regularSlides)) { $regularSlides = array_values(array_slice($allShows, 0, 4)); }
-if (empty($seapecialSlides)) { $seapecialSlides = array_values(array_slice($allShows, 0, 4)); }
+$showDir = ROOTPATH . 'assets/upload/show/';
+$hasShowImage = static function($s) use ($showDir) {
+    $poster = trim($s['show_poster'] ?? '');
+    $pict   = trim($s['show_pict']   ?? '');
+    return ($poster !== '' && is_file($showDir . $poster))
+        || ($pict   !== '' && is_file($showDir . $pict));
+};
+$regularSlides = array_values(array_slice(array_filter($allShows, static function($s) use ($showDir) {
+    if (($s['show_type'] ?? 'regular') !== 'regular') return false;
+    $poster = trim($s['show_poster'] ?? '');
+    $pict   = trim($s['show_pict']   ?? '');
+    return ($poster !== '' && is_file($showDir . $poster))
+        || ($pict   !== '' && is_file($showDir . $pict));
+}), 0, 4));
+$seapecialSlides = array_values(array_slice(array_filter($allShows, static function($s) use ($showDir) {
+    if (($s['show_type'] ?? 'regular') !== 'seapecial') return false;
+    $poster = trim($s['show_poster'] ?? '');
+    $pict   = trim($s['show_pict']   ?? '');
+    return ($poster !== '' && is_file($showDir . $poster))
+        || ($pict   !== '' && is_file($showDir . $pict));
+}), 0, 4));
+if (empty($regularSlides)) { $regularSlides = array_values(array_slice(array_filter($allShows, $hasShowImage), 0, 4)); }
+if (empty($seapecialSlides)) { $seapecialSlides = array_values(array_slice(array_filter($allShows, $hasShowImage), 0, 4)); }
+$resolveShowImage = static function(array $s) use ($showDir): string {
+    $poster = trim($s['show_poster'] ?? '');
+    $pict   = trim($s['show_pict']   ?? '');
+    if ($poster !== '' && is_file($showDir . $poster)) {
+        return base_url('assets/upload/show/' . $poster);
+    }
+    if ($pict !== '' && is_file($showDir . $pict)) {
+        return base_url('assets/upload/show/' . $pict);
+    }
+    return '';
+};
 $partnerSlides = $homepartner ?? [];
 $homeTicketCategories = array_values(array_filter($ticketcat ?? [], static function ($category) {
     return in_array((int) ($category['ticketcat_id'] ?? 0), [1, 2], true);
@@ -217,7 +247,7 @@ if (count($reviewSlides) < 2) {
                             <?php foreach ($regularSlides as $sh): ?>
                             <li class="splide__slide">
                                 <a href="<?= base_url('/en/journey/pertunjukan'); ?>">
-                                    <img class="img-fluid" src="<?= bxsea_asset_url('show', $sh['show_poster'] ?? '', 'assets/landing/image/bxsea_image_regular_show.png'); ?>" alt="<?= esc($sh['show_title_en'] ?? $sh['show_title'] ?? 'Show'); ?>">
+                                    <img class="img-fluid" src="<?= esc($resolveShowImage($sh)); ?>" alt="<?= esc($sh['show_title_en'] ?? $sh['show_title'] ?? 'Show'); ?>">
                                 </a>
                             </li>
                             <?php endforeach; ?>
@@ -236,7 +266,7 @@ if (count($reviewSlides) < 2) {
                             <?php foreach ($seapecialSlides as $sh): ?>
                             <li class="splide__slide">
                                 <a href="<?= base_url('/en/journey/pertunjukan'); ?>">
-                                    <img class="img-fluid" src="<?= bxsea_asset_url('show', $sh['show_poster'] ?: ($sh['show_pict'] ?? ''), 'assets/landing/image/bxsea_image_special_show.png'); ?>" alt="<?= esc($sh['show_title_en'] ?? $sh['show_title'] ?? 'Show'); ?>">
+                                    <img class="img-fluid" src="<?= esc($resolveShowImage($sh)); ?>" alt="<?= esc($sh['show_title_en'] ?? $sh['show_title'] ?? 'Show'); ?>">
                                 </a>
                             </li>
                             <?php endforeach; ?>

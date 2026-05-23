@@ -577,7 +577,8 @@ class AdminExplore extends BaseController {
                     /* Start upload show */
                     $showpict =  $this->request->getFile('show_pict');
                     $newshowpict = "bxsea_image".$showpict->getRandomName();
-                    if ($this->hasUploadedFile($showpict))
+                    $showPictUploaded = $this->hasUploadedFile($showpict);
+                    if ($showPictUploaded)
                     {
                         if (! $this->validate(['show_pict' => ['label' => 'Image File', 'rules' => ['uploaded[show_pict]', 'mime_in[show_pict,image/jpg,image/jpeg,image/png,video/mp4]']]]))
                         {
@@ -597,7 +598,8 @@ class AdminExplore extends BaseController {
                     /* Start upload show poster */
                     $showposter =  $this->request->getFile('show_poster');
                     $newshowposter = "bxsea_image".$showposter->getRandomName();
-                    if ($this->hasUploadedFile($showposter))
+                    $showPosterUploaded = $this->hasUploadedFile($showposter);
+                    if ($showPosterUploaded)
                     {
                         if (! $this->validate(['show_poster' => ['label' => 'Image File', 'rules' => ['uploaded[show_poster]', 'mime_in[show_poster,image/jpg,image/jpeg,image/png,video/mp4]']]]))
                         {
@@ -620,8 +622,8 @@ class AdminExplore extends BaseController {
                         'show_desc' => $this->request->getVar('show_desc'),
                         'show_desc_en' => $this->request->getVar('show_desc_en'),
                         'show_type' => $this->request->getVar('show_type') === 'seapecial' ? 'seapecial' : 'regular',
-                        'show_pict' => ($this->hasUploadedFile($showpict)) ? $newshowpict : $this->request->getVar('show_pict_temp'),
-                        'show_poster' => ($this->hasUploadedFile($showposter)) ? $newshowposter : $this->request->getVar('show_poster_temp'),
+                        'show_pict' => $showPictUploaded ? $newshowpict : $this->request->getVar('show_pict_temp'),
+                        'show_poster' => $showPosterUploaded ? $newshowposter : $this->request->getVar('show_poster_temp'),
                     ];
                     $update = $this->Crud->updateData('tbl_exploreshow', $data, ['show_id' => $this->request->getVar('show_id')]);
                     if ($update) 

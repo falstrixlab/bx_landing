@@ -524,22 +524,26 @@
       },
     });
 
-    mountSplideIfPresent('.show-splide', {
-      perPage: 1,
-      perMove: 1,
-      type: 'fade',
-      pagination: false,
-      arrows: true,
-      gap: 0,
-    }, window.splide.Extensions);
+    window.addEventListener('load', function () {
+      mountSplideIfPresent('.show-splide', {
+        perPage: 1,
+        perMove: 1,
+        type: 'fade',
+        autoHeight: true,
+        pagination: false,
+        arrows: true,
+        gap: 0,
+      }, window.splide.Extensions);
 
-    mountSplideIfPresent('.show-splide2', {
-      perPage: 1,
-      perMove: 1,
-      type: 'fade',
-      pagination: false,
-      arrows: true,
-      gap: 0,
+      mountSplideIfPresent('.show-splide2', {
+        perPage: 1,
+        perMove: 1,
+        type: 'fade',
+        autoHeight: true,
+        pagination: false,
+        arrows: true,
+        gap: 0,
+      });
     });
 
     mountSplideIfPresent('.review-cust-splide', {
